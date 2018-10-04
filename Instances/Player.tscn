@@ -1,26 +1,28 @@
 [gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scenes/Player.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Fiore left.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Fiore right.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Fiore up.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Fiore walk down 1.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Fiore down.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Fiore walk down 2.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Fiore walk left 1.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Fiore walk left 2.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Fiore swing left 1.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Fiore swing left 2.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Fiore swing left 3.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Fiore walk up 1.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Fiore walk up 2.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Fiore swing right 1.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Fiore swing right 2.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/Fiore swing right 3.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/Fiore walk right 1.png" type="Texture" id=18]
-[ext_resource path="res://Sprites/Fiore walk right 2.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore left.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore right.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore up.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore walk down 1.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore down.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore walk down 2.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore walk left 1.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore walk left 2.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing left 1.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing left 2.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing left 3.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore walk up 1.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore walk up 2.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing right 1.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing right 2.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing right 3.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore walk right 1.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore walk right 2.png" type="Texture" id=19]
 [ext_resource path="res://Sounds/Footstep.wav" type="AudioStream" id=20]
 [ext_resource path="res://Sounds/Swing.wav" type="AudioStream" id=21]
+
+
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -74,16 +76,6 @@ animations = [ {
 "loop": true,
 "name": "walkright",
 "speed": 6.0
-}, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "dashleft",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 17 ) ],
-"loop": true,
-"name": "dashright",
-"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -91,7 +83,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 5, 4 )
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 position = Vector2( 94, 67 )
 input_pickable = false

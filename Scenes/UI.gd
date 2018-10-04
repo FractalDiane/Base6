@@ -9,9 +9,8 @@ func _ready():
 	# Initialization here
 	pass
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
-
-func _draw():
+func _process(delta):
+	# Manage UI sprites
+	$SpriteHealth.set_frame(get_node("/root/controller").player_health)
+	$SpriteCorruption.set_frame(get_node("/root/controller").player_corruption)
+	

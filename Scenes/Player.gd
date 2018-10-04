@@ -115,10 +115,11 @@ func _on_TimerSwing_timeout():
 	swing = false
 
 func _on_TimerSwingAnim_timeout():
-	if $Sprite.get_animation() == "swingleft":
-		$Sprite.play("left")
-	elif $Sprite.get_animation() == "swingright":
-		$Sprite.play("right")
+	if not dashing:
+		if $Sprite.get_animation() == "swingleft":
+			$Sprite.play("left")
+		elif $Sprite.get_animation() == "swingright":
+			$Sprite.play("right")
 
 
 func _on_TimerDash_timeout():
