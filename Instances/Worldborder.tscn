@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Instances/Particles/PartsWorldborder.tscn" type="PackedScene" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32 )
+
+[node name="Worldborder" type="StaticBody2D"]
+
+position = Vector2( 80, 4 )
+scale = Vector2( 2.5, 0.125 )
+z_index = 2000
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PartsWorldborder" parent="." index="1" instance=ExtResource( 1 )]
+
+position = Vector2( 0, 0 )
+scale = Vector2( 0.4, 8 )
+
+

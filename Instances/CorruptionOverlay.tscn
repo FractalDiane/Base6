@@ -1,0 +1,59 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Sprites/Effects/Noise 1.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Effects/Noise 2.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Effects/Noise 3.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Effects/Noise 4.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Effects/Noise 5.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Effects/Noise 6.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Effects/Noise 7.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Effects/Noise 8.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Effects/Noise 9.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Effects/Noise 10.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Effects/Noise 11.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Effects/Noise 12.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Effects/Noise 13.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Effects/Noise 14.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Effects/Noise 15.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Effects/Noise 16.png" type="Texture" id=16]
+[ext_resource path="res://Scenes/CorruptionOverlay.gd" type="Script" id=17]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+
+render_priority = 0
+blend_mode = 3
+light_mode = 0
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "default",
+"speed": 30.0
+} ]
+
+[node name="CorruptionOverlay" type="CanvasLayer" index="0"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="CorruptionOverlaySprite" type="AnimatedSprite" parent="." index="0"]
+
+material = SubResource( 1 )
+position = Vector2( 80, 72 )
+z_index = 4096
+frames = SubResource( 2 )
+animation = "default"
+frame = 5
+playing = true
+script = ExtResource( 17 )
+_sections_unfolded = [ "Material", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+

@@ -1,79 +1,375 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://Scenes/UI.gd" type="Script" id=1]
+[ext_resource path="res://Instances/UI.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/UI/UI frame.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/UI/UI-life_01.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/UI/UI-life_02.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/UI/UI-life_03.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/UI/UI-life_04.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/UI/UI-life_05.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/UI/UI-life_06.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/UI/UI-life_07.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/UI/UI-life_08.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/UI/UI-life_09.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/UI/UI-life_10.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/UI/UI-life_11.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/UI/UI-corruption_01.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/UI/UI-corruption_02.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/UI/UI-corruption_03.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/UI/UI-corruption_04.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/UI/UI-corruption_05.png" type="Texture" id=18]
-[ext_resource path="res://Sprites/UI/UI-corruption_06.png" type="Texture" id=19]
-[ext_resource path="res://Sprites/UI/UI-corruption_07.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/UI/UI-corruption_08.png" type="Texture" id=21]
-[ext_resource path="res://Sprites/UI/UI-corruption_09.png" type="Texture" id=22]
-[ext_resource path="res://Sprites/UI/UI-corruption_10.png" type="Texture" id=23]
-[ext_resource path="res://Sprites/UI/UI-corruption_11.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/UI/UI-life_11.png" type="Texture" id=4]
+[ext_resource path="res://Instances/Health.gd" type="Script" id=5]
+[ext_resource path="res://Sprites/UI/UI-corruption_01.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/UI/UI-corruption_11.png" type="Texture" id=7]
+[ext_resource path="res://Instances/Corruption.gd" type="Script" id=8]
+[ext_resource path="res://Sprites/UI/Item empty.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/UI/Item bow.png" type="Texture" id=10]
+[ext_resource path="res://Fonts/font_standard.tres" type="DynamicFont" id=11]
+[ext_resource path="res://Sprites/UI/Gold.png" type="Texture" id=12]
+[ext_resource path="res://Fonts/font_small.tres" type="DynamicFont" id=13]
+[ext_resource path="res://Instances/GoldValue.gd" type="Script" id=14]
+[ext_resource path="res://Fonts/font_cell.tres" type="DynamicFont" id=15]
+[ext_resource path="res://Instances/CellValue.gd" type="Script" id=16]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "default",
-"speed": 0.0
+"name": "empty",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "bow",
+"speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=2]
+[node name="UI" type="CanvasLayer"]
 
-animations = [ {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
-"loop": true,
-"name": "default",
-"speed": 0.0
-} ]
-
-[node name="UI" type="StaticBody2D"]
-
-position = Vector2( 80, 135 )
-z_index = 2500
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 script = ExtResource( 1 )
-_sections_unfolded = [ "Z Index" ]
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Z Index" ]
 
-[node name="SpriteBase" type="Sprite" parent="." index="0"]
+[node name="Base" type="Container" parent="." index="0"]
 
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+margin_right = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Margin" ]
+
+[node name="BaseSprite" type="TextureRect" parent="Base" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = -18.0
+margin_right = 160.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
 texture = ExtResource( 2 )
+stretch_mode = 0
+_sections_unfolded = [ "Margin" ]
+
+[node name="Vitals" type="Container" parent="Base" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3.0
+margin_top = -15.0
+margin_right = 43.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="SpriteHealth" type="AnimatedSprite" parent="." index="1"]
+[node name="Health" type="TextureProgress" parent="Base/Vitals" index="0"]
 
-position = Vector2( -62, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 41.0
+margin_bottom = 41.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 10.0
+step = 1.0
+page = 0.0
+value = 10.0
+exp_edit = false
+rounded = false
+texture_under = ExtResource( 3 )
+texture_over = null
+texture_progress = ExtResource( 4 )
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = false
+script = ExtResource( 5 )
+_sections_unfolded = [ "Textures" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Corruption" type="TextureProgress" parent="Base/Vitals" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 32.0
+margin_top = 1.0
+margin_right = 72.0
+margin_bottom = 41.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 10.0
+step = 1.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+texture_under = ExtResource( 6 )
+texture_over = null
+texture_progress = ExtResource( 7 )
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = false
+script = ExtResource( 8 )
+_sections_unfolded = [ "Textures" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Items" type="Container" parent="Base" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 66.0
+margin_top = -15.0
+margin_right = 106.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Item1" type="AnimatedSprite" parent="Base/Items" index="0"]
+
+position = Vector2( 11, 6 )
 frames = SubResource( 1 )
-animation = "default"
+animation = "empty"
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="SpriteCorruption" type="AnimatedSprite" parent="." index="2"]
+[node name="Label" type="Label" parent="Base/Items/Item1" index="0"]
 
-position = Vector2( -31, 0 )
-frames = SubResource( 2 )
-animation = "default"
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 7.0
+margin_top = -7.0
+margin_right = 47.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Item2" type="AnimatedSprite" parent="Base/Items" index="1"]
+
+position = Vector2( 37, 6 )
+frames = SubResource( 1 )
+animation = "empty"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="Base/Items/Item2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 7.0
+margin_top = -7.0
+margin_right = 47.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "2"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Gold" type="Container" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 119.0
+margin_top = 129.0
+margin_right = 159.0
+margin_bottom = 169.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="GoldSprite" type="TextureRect" parent="Gold" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2.0
+margin_top = 1.0
+margin_right = 42.0
+margin_bottom = 41.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 12 )
+stretch_mode = 0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="GoldValue" type="Label" parent="Gold" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 10.0
+margin_top = 5.0
+margin_right = 50.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 13 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "000"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script = ExtResource( 14 )
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Cell" type="Container" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 143.0
+margin_top = 129.0
+margin_right = 183.0
+margin_bottom = 169.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CellValue" type="Label" parent="Cell" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 42.0
+margin_bottom = 16.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 15 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "00"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script = ExtResource( 16 )
+_sections_unfolded = [ "Rect", "Size Flags", "Theme", "custom_colors", "custom_constants", "custom_fonts" ]
 
 
