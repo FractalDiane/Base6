@@ -2,26 +2,42 @@ extends KinematicBody2D
 
 var speed = 4
 var direction = 0
+var angle = 0
+var hit = false
+
+var vel_x = 0
+var vel_y = 0
 
 func _ready():
 	pass
 
 func _process(delta):
-	var vel_x
-	var vel_y
-	
-	if direction == 0:
-		vel_x = speed
-		vel_y = 0
-	elif direction == 90:
-		vel_x = 0
-		vel_y = -speed
-	elif direction == 180:
-		vel_x = -speed
-		vel_y = 0
-	elif direction == 270:
-		vel_x = 0
-		vel_y = speed
+	if not hit:
+		if direction == 0:
+			vel_x = speed
+			vel_y = 0
+		elif direction == 90:
+			vel_x = 0
+			vel_y = -speed
+		elif direction == 180:
+			vel_x = -speed
+			vel_y = 0
+		elif direction == 270:
+			vel_x = 0
+			vel_y = speed
+	else:
+		if direction == 0:
+			vel_x = -0.5
+		elif direction == 90:
+			vel_x = 0
+		elif direction == 180:
+			vel_x = 0.5
+		elif direction == 270:
+			vel_x = 0
+		
+	if hit:
+		vel_y += 0.25
+		direction += 8
 	
 	var velocity = Vector2(vel_x,vel_y)
 	
@@ -29,4 +45,12 @@ func _process(delta):
 		queue_free()
 	
 	set_rotation_degrees(direction)
-	move_and_collide(velocity)
+	var coll = move_and_collide(velocity)
+	
+	if coll != null:
+		speed = 0
+		vel_y = -2.5
+		$CollisionPolygon2D.set_disabled(true)
+		hit = true
+	
+		

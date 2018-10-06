@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="BASE-6"
-run/main_scene="res://Scenes/test.tscn"
+run/main_scene="res://Scenes/Overworld/00.tscn"
 config/icon="res://icon.png"
 
 [autoload]

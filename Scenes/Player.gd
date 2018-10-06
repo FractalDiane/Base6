@@ -46,22 +46,60 @@ func _physics_process(delta):
 func state_walk():
 	# Movement
 	if Input.is_action_pressed("ui_up"):
+		if not Input.is_action_pressed("ui_left") and not Input.is_action_pressed("ui_right"):
+			$Sprite.play("walkup")
 		motion.y = -80
-		$Sprite.play("walkup")
+		
 	elif Input.is_action_pressed("ui_down"):
+		if not Input.is_action_pressed("ui_left") and not Input.is_action_pressed("ui_right"):
+			$Sprite.play("walkdown")
 		motion.y = 80
-		$Sprite.play("walkdown")
 	else:
 		motion.y = 0
 
 	if Input.is_action_pressed("ui_left"):
+		if not Input.is_action_pressed("ui_up") and not Input.is_action_pressed("ui_down"):
+			$Sprite.play("walkleft")
 		motion.x = -80
-		$Sprite.play("walkleft")
 	elif Input.is_action_pressed("ui_right"):
+		if not Input.is_action_pressed("ui_up") and not Input.is_action_pressed("ui_down"):
+			$Sprite.play("walkright")
 		motion.x = 80
-		$Sprite.play("walkright")
 	else:
 		motion.x = 0
+		
+	# Stop corner animations from not playing
+	if Input.is_action_pressed("ui_up") and Input.is_action_pressed("ui_left"):
+		if $Sprite.get_animation() == "left":
+			$Sprite.set_animation("walkleft")
+		elif $Sprite.get_animation() == "up":
+			$Sprite.set_animation("walkup")
+		else:
+			$Sprite.set_animation("walkleft")
+			
+	if Input.is_action_pressed("ui_up") and Input.is_action_pressed("ui_right"):
+		if $Sprite.get_animation() == "right":
+			$Sprite.set_animation("walkright")
+		elif $Sprite.get_animation() == "up":
+			$Sprite.set_animation("walkup")
+		else:
+			$Sprite.set_animation("walkright")
+			
+	if Input.is_action_pressed("ui_down") and Input.is_action_pressed("ui_left"):
+		if $Sprite.get_animation() == "left":
+			$Sprite.set_animation("walkleft")
+		elif $Sprite.get_animation() == "down":
+			$Sprite.set_animation("walkdown")
+		else:
+			$Sprite.set_animation("walkleft")
+			
+	if Input.is_action_pressed("ui_down") and Input.is_action_pressed("ui_right"):
+		if $Sprite.get_animation() == "right":
+			$Sprite.set_animation("walkright")
+		elif $Sprite.get_animation() == "down":
+			$Sprite.set_animation("walkdown")
+		else:
+			$Sprite.set_animation("walkright")
 	
 	# Stop footsteps
 	if Input.is_action_just_released("ui_up") and not Input.is_action_pressed("ui_down") and not Input.is_action_pressed("ui_left") and not Input.is_action_pressed("ui_right"):
@@ -126,9 +164,11 @@ func swing_attack():
 	if $Sprite.get_animation() in ["left","walkleft","swingleft"]:
 		$Sprite.play("swingleft")
 		motion.x = 0
+		motion.y = 0
 	elif $Sprite.get_animation() in ["right","walkright","swingright"]:
 		$Sprite.play("swingright")
 		motion.x = 0
+		motion.y = 0
 	$TimerSwing.start()
 	$TimerSwingAnim.start()
 	
@@ -155,11 +195,13 @@ func shoot_bow():
 	if $Sprite.get_animation() in ["left","walkleft","swingleft"]:
 		$Sprite.play("shootleft")
 		motion.x = 0
+		motion.y = 0
 		shootarrow.set_position(Vector2(get_position().x,get_position().y + 2))
 		shootarrow.direction = 180
 	elif $Sprite.get_animation() in ["right","walkright","swingright"]:
 		$Sprite.play("shootright")
 		motion.x = 0
+		motion.y = 0
 		shootarrow.set_position(Vector2(get_position().x,get_position().y + 2))
 		shootarrow.direction = 0
 	get_tree().get_root().add_child(shootarrow)
