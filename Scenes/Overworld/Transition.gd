@@ -5,8 +5,6 @@ export(int) var target_x
 export(int) var target_y
 export(String, "up", "down", "left", "right") var direction
 
-var player = preload("res://Instances/Player.tscn")
-
 func _physics_process(delta):
 	var colliding = get_overlapping_bodies()
 	
@@ -24,10 +22,7 @@ func _physics_process(delta):
 				target_x_f = target_x
 				target_y_f = player_y
 				
-			get_tree().change_scene(target_scene)
-			var newplayer = player.instance()
-			
-			newplayer.set_position(Vector2(target_x_f,target_y_f))
-			newplayer.get_node("Sprite").play(direction)
-			
-			get_tree().get_root().add_child(newplayer)
+			Player.set_position(Vector2(target_x_f,target_y_f))
+				
+			#get_tree().change_scene(target_scene)
+			controller.scene_change(target_scene)

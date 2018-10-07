@@ -1,13 +1,14 @@
 extends CanvasLayer
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+var pos_x = 1
+var pos_y = 1
 
 func _ready():
-	set("z",2500)
-
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+	# Get current cell for HUD
+	if get_parent().get_node("CellLabel").cell_index_x != -1:
+		pos_x += (2 * get_parent().get_node("CellLabel").cell_index_x)
+		pos_y += (2 * get_parent().get_node("CellLabel").cell_index_y)
+	else:
+		pos_x = 20
+		pos_y = 2
+	get_node("Map").get_node("MapMarkerSprite").set_position(Vector2(pos_x,pos_y))

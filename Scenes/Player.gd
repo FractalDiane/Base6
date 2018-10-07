@@ -4,6 +4,8 @@ var motion = Vector2(0,0)
 var dash = Vector2(0,0)
 var sound = -1
 
+var color = 1
+
 var arrow = preload("res://Instances/Arrow.tscn")
 
 const WALK = 0
@@ -17,13 +19,15 @@ var state = WALK
 # ================================================================================== STATES
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
+	hide()
 
 func _physics_process(delta):
 	# Depth correction
 	set_z_index(get_position().y)
+	color = clamp(color + 0.008,0,1)
+	set_modulate(Color(color,color,color))
+	
+	#$PartsCorrupt.set_position(get_position())
 	
 	# Handle current state
 	if state == WALK:

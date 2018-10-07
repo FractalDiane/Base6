@@ -6,8 +6,3 @@ extends AnimatedSprite
 
 func _ready():
 	set_frame(rand_range(0,16))
-
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass

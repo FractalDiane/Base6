@@ -11,12 +11,15 @@ config_version=3
 [application]
 
 config/name="BASE-6"
-run/main_scene="res://Scenes/Overworld/00.tscn"
+run/main_scene="res://Scenes/Startup.tscn"
+boot_splash/image="res://Sprites/Splash.png"
 config/icon="res://icon.png"
 
 [autoload]
 
 controller="*res://Resources/controller.gd"
+audioplayer="*res://Resources/audioplayer.tscn"
+Player="*res://Resources/Player.tscn"
 
 [display]
 
