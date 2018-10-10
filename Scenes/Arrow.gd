@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var speed = 4
+var speed = 8
 var direction = 0
 var angle = 0
 var hit = false
@@ -11,7 +11,9 @@ var vel_y = 0
 func _ready():
 	pass
 
-func _process(delta):
+func _physics_process(delta):
+	set_z_index(get_position().y)
+	
 	if not hit:
 		if direction == 0:
 			vel_x = speed
@@ -36,7 +38,7 @@ func _process(delta):
 			vel_x = 0
 		
 	if hit:
-		vel_y += 0.25
+		vel_y += 0.5
 		direction += 8
 	
 	var velocity = Vector2(vel_x,vel_y)
@@ -49,7 +51,7 @@ func _process(delta):
 	
 	if coll != null:
 		speed = 0
-		vel_y = -2.5
+		vel_y = -6
 		$CollisionPolygon2D.set_disabled(true)
 		hit = true
 	

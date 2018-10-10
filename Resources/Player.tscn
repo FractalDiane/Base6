@@ -20,11 +20,11 @@
 [ext_resource path="res://Sprites/Characters/Fiore/Fiore swing right 3.png" type="Texture" id=18]
 [ext_resource path="res://Sprites/Characters/Fiore/Fiore walk down 1.png" type="Texture" id=19]
 [ext_resource path="res://Sprites/Characters/Fiore/Fiore walk down 2.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing left 1.png" type="Texture" id=21]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing left 2.png" type="Texture" id=22]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing left 3.png" type="Texture" id=23]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore walk left 1.png" type="Texture" id=24]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore walk left 2.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore walk left 1.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore walk left 2.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing left 1.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing left 2.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing left 3.png" type="Texture" id=25]
 [ext_resource path="res://Sounds/Player/Footstep.wav" type="AudioStream" id=26]
 [ext_resource path="res://Sounds/Player/Swing.wav" type="AudioStream" id=27]
 [ext_resource path="res://Sounds/Player/Shoot.wav" type="AudioStream" id=28]
@@ -82,15 +82,15 @@ animations = [ {
 "name": "walkdown",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ) ],
-"loop": true,
-"name": "swingleft",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 24 ), ExtResource( 3 ), ExtResource( 25 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 21 ), ExtResource( 3 ), ExtResource( 22 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "walkleft",
 "speed": 6.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ) ],
+"loop": true,
+"name": "swingleft",
+"speed": 16.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -98,7 +98,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 5, 4 )
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -153,7 +153,14 @@ wait_time = 0.66
 one_shot = true
 autostart = false
 
-[node name="SoundFootstep" type="AudioStreamPlayer" parent="." index="6"]
+[node name="TimerWarp" type="Timer" parent="." index="6"]
+
+process_mode = 1
+wait_time = 0.1
+one_shot = true
+autostart = false
+
+[node name="SoundFootstep" type="AudioStreamPlayer" parent="." index="7"]
 
 stream = ExtResource( 26 )
 volume_db = 0.0
@@ -162,7 +169,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="SoundSwing" type="AudioStreamPlayer" parent="." index="7"]
+[node name="SoundSwing" type="AudioStreamPlayer" parent="." index="8"]
 
 stream = ExtResource( 27 )
 volume_db = 0.0
@@ -171,7 +178,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="SoundShoot" type="AudioStreamPlayer" parent="." index="8"]
+[node name="SoundShoot" type="AudioStreamPlayer" parent="." index="9"]
 
 stream = ExtResource( 28 )
 volume_db = 0.0
@@ -187,5 +194,7 @@ bus = "Master"
 [connection signal="timeout" from="TimerDash" to="." method="_on_TimerDash_timeout"]
 
 [connection signal="timeout" from="TimerShoot" to="." method="_on_TimerShoot_timeout"]
+
+[connection signal="timeout" from="TimerWarp" to="." method="_on_TimerWarp_timeout"]
 
 

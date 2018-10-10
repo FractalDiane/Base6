@@ -3,6 +3,7 @@ extends KinematicBody2D
 var motion = Vector2(0,0)
 var dash = Vector2(0,0)
 var sound = -1
+var warp = false
 
 var color = 1
 
@@ -252,3 +253,6 @@ func _on_TimerShoot_timeout():
 	elif $Sprite.get_animation() == "shootright":
 		$Sprite.play("right")
 	sound = -1
+
+func _on_TimerWarp_timeout():
+	warp = false

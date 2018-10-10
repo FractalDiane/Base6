@@ -13,7 +13,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 32, 25 )
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -64,11 +64,7 @@ position = Vector2( 0, 8 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Transition" parent="." index="5" instance=ExtResource( 5 )]
-
-target_scene = "res://Scenes/Overworld/01.tscn"
-
-[node name="Transition2" parent="." index="6" instance=ExtResource( 5 )]
+[node name="Transition2" parent="." index="5" instance=ExtResource( 5 )]
 
 position = Vector2( 80, 140 )
 scale = Vector2( 2.5, 0.125 )
@@ -78,8 +74,12 @@ target_x = 0
 target_y = 16
 direction = "down"
 
-[node name="CellLabel" parent="." index="7" instance=ExtResource( 6 )]
+[node name="CellLabel" parent="." index="6" instance=ExtResource( 6 )]
 
 cell_music = ExtResource( 7 )
+
+[node name="Transition" parent="." index="7" instance=ExtResource( 5 )]
+
+target_scene = "res://Scenes/Overworld/01.tscn"
 
 

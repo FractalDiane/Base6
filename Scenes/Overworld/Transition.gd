@@ -9,7 +9,7 @@ func _physics_process(delta):
 	var colliding = get_overlapping_bodies()
 	
 	for obj in colliding:
-		if obj.get_name() == "Player":
+		if obj.get_name() == "Player" and not Player.warp:
 			var player_x = obj.get_position().x
 			var player_y = obj.get_position().y
 			var target_x_f
@@ -21,8 +21,9 @@ func _physics_process(delta):
 			elif direction == "left" or direction == "right":
 				target_x_f = target_x
 				target_y_f = player_y
-				
-			Player.set_position(Vector2(target_x_f,target_y_f))
-				
-			#get_tree().change_scene(target_scene)
+			
+			Player.warp = true
 			controller.scene_change(target_scene)
+			Player.set_position(Vector2(target_x_f,target_y_f))
+			#Player.get_node("Sprite").play(direction)
+			Player.get_node("TimerWarp").start()

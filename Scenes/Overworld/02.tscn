@@ -39,18 +39,19 @@ direction = "down"
 
 [node name="CellLabel" parent="." index="4" instance=ExtResource( 5 )]
 
-text = "01"
-cell_index_x = 1
+text = "02"
+cell_index_x = 2
 cell_music = ExtResource( 6 )
 
 [node name="Transition" parent="." index="5" instance=ExtResource( 4 )]
 
-position = Vector2( -4, 72 )
-target_x = 144
-direction = "left"
+target_scene = "res://Scenes/Overworld/03.tscn"
 
 [node name="Transition3" parent="." index="6" instance=ExtResource( 4 )]
 
-target_scene = "res://Scenes/Overworld/02.tscn"
+position = Vector2( -4, 72 )
+target_scene = "res://Scenes/Overworld/01.tscn"
+target_x = 144
+direction = "left"
 
 
