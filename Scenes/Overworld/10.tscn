@@ -1,0 +1,151 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=1]
+[ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Instances/Worldborder.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sounds/Music/White Noise.wav" type="AudioStream" id=5]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Overworld/NPC.gd" type="Script" id=7]
+[ext_resource path="res://Sprites/Characters/Jari/Jari right.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Characters/Jari/Jari left.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters/Jari/Jari up.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Characters/Jari/Jari down.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/UI/Interact 1.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/UI/Interact 2.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/UI/Interact 3.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/UI/Interact 4.png" type="Texture" id=15]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 5, 4 )
+
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="Background" type="Sprite" parent="." index="0"]
+
+position = Vector2( 80, 72 )
+z_index = -4096
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 150, 144 )
+_sections_unfolded = [ "Offset", "Region", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="UI" parent="." index="1" instance=ExtResource( 2 )]
+
+[node name="Worldborder2" parent="." index="2" instance=ExtResource( 3 )]
+
+position = Vector2( -4, 72 )
+rotation = 1.5708
+
+[node name="CellLabel" parent="." index="3" instance=ExtResource( 4 )]
+
+text = "10"
+cell_index_y = 1
+cell_music = ExtResource( 5 )
+
+[node name="Transition3" parent="." index="4" instance=ExtResource( 6 )]
+
+position = Vector2( 80, -4 )
+scale = Vector2( 2.5, 0.125 )
+target_x = 0
+target_y = 110
+direction = "up"
+
+[node name="NPC" type="KinematicBody2D" parent="." index="5" groups=[
+"NPC",
+]]
+
+position = Vector2( 34, 28 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 7 )
+text = [ [ "T-this is a test of the dialogue system.", "D-don't be too hard on me, all right?", "I d-don't take scary stuff well." ], "The corruption has gotten worse since yesterday.", "J-just a little worse, though.", "There are still plenty of impures." ]
+dialogue_key = "jari_talk"
+box_x = 50
+box_y = 15
+box_width = 100
+box_height = 51
+
+[node name="Sprite" type="AnimatedSprite" parent="NPC" index="0"]
+
+frames = SubResource( 1 )
+animation = "down"
+offset = Vector2( 0, -1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC" index="1"]
+
+position = Vector2( 0, 7 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Interact" type="AnimatedSprite" parent="NPC" index="2"]
+
+visible = false
+position = Vector2( 0, -17 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 3
+playing = true
+_sections_unfolded = [ "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TimerHideInteract" type="Timer" parent="NPC" index="3"]
+
+process_mode = 1
+wait_time = 0.01
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="NPC/TimerHideInteract" to="NPC" method="_on_TimerHideInteract_timeout"]
+
+

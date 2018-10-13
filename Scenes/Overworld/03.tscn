@@ -10,7 +10,7 @@
 [ext_resource path="res://Instances/Props/SpikeMedium.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Instances/Props/SpikeSmall.tscn" type="PackedScene" id=9]
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -64,5 +64,9 @@ position = Vector2( -4, 72 )
 target_scene = "res://Scenes/Overworld/02.tscn"
 target_x = 144
 direction = "left"
+
+[node name="Transition3" parent="." index="9" instance=ExtResource( 4 )]
+
+target_scene = "res://Scenes/Overworld/04.tscn"
 
 

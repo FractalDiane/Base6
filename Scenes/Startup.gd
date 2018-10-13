@@ -1,17 +1,13 @@
 extends Node2D
 
 export(String, FILE, "*.tscn") var start_scene
-
-func _ready():
-	pass
-
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
-
+export(Array, String) var flags
 
 func _on_TimerGameStart_timeout():
+	# Initialize flags in global game controller
+	for key in flags:
+		controller.flag[key] = 0
+		
 	controller.scene_change(start_scene)
 	Player.set_position(Vector2(100,78))
 	Player.show()

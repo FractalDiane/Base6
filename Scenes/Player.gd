@@ -28,7 +28,19 @@ func _physics_process(delta):
 	color = clamp(color + 0.008,0,1)
 	set_modulate(Color(color,color,color))
 	
-	#$PartsCorrupt.set_position(get_position())
+	# Move sight
+	if $Sprite.get_animation() in ["up","walkup"]:
+		$Sight.set_position(Vector2(0,-10))
+		$Sight.set_rotation_degrees(0)
+	elif $Sprite.get_animation() in ["down","walkdown"]:
+		$Sight.set_position(Vector2(0,20))
+		$Sight.set_rotation_degrees(0)
+	elif $Sprite.get_animation() in ["left","walkleft","swingleft","shootleft"]:
+		$Sight.set_position(Vector2(-15,5))
+		$Sight.set_rotation_degrees(90)
+	elif $Sprite.get_animation() in ["right","walkright","swingright","shootright"]:
+		$Sight.set_position(Vector2(15,5))
+		$Sight.set_rotation_degrees(90)
 	
 	# Handle current state
 	if state == WALK:
@@ -133,6 +145,13 @@ func state_walk():
 	if Input.is_action_just_pressed("ui_shoot"):
 		state = SHOOT
 		shoot_bow()
+		
+	var current_sight = $Sight.get_overlapping_bodies()
+	
+	for node in current_sight:
+		if node.is_in_group("NPC"):
+			node.show_interact = true
+			node.get_node("TimerHideInteract").start()
 		
 func state_swing():
 	stop_animation()

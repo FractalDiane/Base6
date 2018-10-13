@@ -15,6 +15,10 @@ run/main_scene="res://Scenes/Startup.tscn"
 boot_splash/image="res://Sprites/Splash.png"
 config/icon="res://icon.png"
 
+[audio]
+
+driver="RtAudio-DirectSound"
+
 [autoload]
 
 controller="*res://Resources/controller.gd"

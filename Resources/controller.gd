@@ -2,7 +2,10 @@ extends Node
 
 # GLOBAL GAME CONTROLLER
 
+var flag = {}
+
 var main = null
+var dlg = preload("res://Instances/System/Dialogue.tscn")
 
 const NONE = 0
 const BOW = 1
@@ -30,6 +33,17 @@ func _scene_start():
 func scene_change(scene):
 	get_tree().change_scene(scene)
 	_scene_start()
+	
+func dialogue(text,target_object,box_x,box_y,box_width,box_height):
+	Player.state = Player.DIALOGUE
+	var dialogue_node = dlg.instance()
+	dialogue_node.box_x = box_x
+	dialogue_node.box_y = box_y
+	dialogue_node.box_width = box_width
+	dialogue_node.box_height = box_height
+	dialogue_node.target = target_object
+	dialogue_node.text = text
+	get_tree().get_root().add_child(dialogue_node)
 
 func player_corrupt(amount):
 	audioplayer.play_sound("SoundPlayerCorrupt")
