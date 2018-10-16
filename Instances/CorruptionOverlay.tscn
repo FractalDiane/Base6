@@ -35,7 +35,7 @@ animations = [ {
 "speed": 30.0
 } ]
 
-[node name="CorruptionOverlay" type="CanvasLayer" index="0"]
+[node name="CorruptionOverlay" type="CanvasLayer"]
 
 layer = 10
 offset = Vector2( 0, 0 )
@@ -43,6 +43,8 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 script = ExtResource( 1 )
+corrupt = true
+corrupt_interval = 5
 
 [node name="CorruptionOverlaySprite" type="AnimatedSprite" parent="." index="0"]
 
@@ -51,7 +53,7 @@ position = Vector2( 80, 72 )
 z_index = 4096
 frames = SubResource( 2 )
 animation = "default"
-frame = 12
+frame = 1
 playing = true
 script = ExtResource( 18 )
 _sections_unfolded = [ "Material", "Z Index" ]

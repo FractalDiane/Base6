@@ -101,7 +101,7 @@ func roll_text():
 		if Input.is_action_just_pressed("ui_accept") and not buffer:
 			advance_text()
 	else:
-		if Input.is_action_just_pressed("ui_accept"):
+		if Input.is_action_just_pressed("ui_accept") and not buffer:
 			advance_page()
 	
 func advance_text():
@@ -118,7 +118,10 @@ func advance_page():
 		stage = 3
 		
 func on_destroy():
+	length = 0
 	target.get_node("Sprite").set_animation("down")
+	if target.auto_advance_set:
+		 controller.flag[target.dialogue_key] = clamp(controller.flag[target.dialogue_key] + 1,0,target.auto_advance_limit)
 	Player.state = Player.WALK
 
 func _on_TimerStart_timeout():

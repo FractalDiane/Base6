@@ -2,11 +2,11 @@
 
 [ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=1]
 [ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Instances/Worldborder.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Sounds/Music/White Noise.wav" type="AudioStream" id=5]
+[ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sounds/Music/Red Noise.wav" type="AudioStream" id=4]
+[ext_resource path="res://Instances/Worldborder.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Instances/NPCs/NPCMaster.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Instances/CorruptionOverlay.tscn" type="PackedScene" id=7]
 
 [node name="Node2D" type="Node2D"]
 
@@ -25,26 +25,30 @@ __meta__ = {
 
 [node name="UI" parent="." index="1" instance=ExtResource( 2 )]
 
-[node name="Worldborder2" parent="." index="2" instance=ExtResource( 3 )]
+[node name="CellLabel" parent="." index="2" instance=ExtResource( 3 )]
 
-position = Vector2( -4, 72 )
-rotation = 1.5708
-
-[node name="CellLabel" parent="." index="3" instance=ExtResource( 4 )]
-
-text = "10"
+text = "14"
+cell_index_x = 4
 cell_index_y = 1
-cell_music = ExtResource( 5 )
+cell_music = ExtResource( 4 )
+
+[node name="Worldborder" parent="." index="3" instance=ExtResource( 5 )]
+
+position = Vector2( 164, 72 )
+rotation = 1.5708
 
 [node name="Transition" parent="." index="4" instance=ExtResource( 6 )]
 
-target_scene = "res://Scenes/Overworld/11.tscn"
+position = Vector2( -4, 72 )
+target_scene = "res://Scenes/Overworld/13.tscn"
+target_x = 144
+direction = "left"
 
 [node name="Transition2" parent="." index="5" instance=ExtResource( 6 )]
 
 position = Vector2( 80, 140 )
 scale = Vector2( 2.5, 0.125 )
-target_scene = "res://Scenes/Overworld/20.tscn"
+target_scene = "res://Scenes/Overworld/24.tscn"
 target_x = 0
 target_y = 16
 direction = "down"
@@ -53,21 +57,11 @@ direction = "down"
 
 position = Vector2( 80, -4 )
 scale = Vector2( 2.5, 0.125 )
+target_scene = "res://Scenes/Overworld/04.tscn"
 target_x = 0
 target_y = 110
 direction = "up"
 
-[node name="NPCJari" parent="." index="7" groups=[
-"NPC",
-] instance=ExtResource( 7 )]
-
-auto_advance_set = true
-auto_advance_limit = 1
-box_height = 68
-
-[node name="Interact" parent="NPCJari" index="2"]
-
-frame = 0
+[node name="CorruptionOverlay" parent="." index="7" instance=ExtResource( 7 )]
 
 
-[editable path="NPCJari"]

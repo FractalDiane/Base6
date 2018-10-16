@@ -1,0 +1,102 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=1]
+[ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sounds/Music/White Noise.wav" type="AudioStream" id=4]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Instances/Worldborder.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/Props/House 1.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Props/Door.png" type="Texture" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 25 )
+
+[node name="Node2D" type="Node2D"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="Background" type="Sprite" parent="." index="0"]
+
+position = Vector2( 80, 72 )
+z_index = -4096
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 150, 144 )
+_sections_unfolded = [ "Offset", "Region", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="UI" parent="." index="1" instance=ExtResource( 2 )]
+
+[node name="CellLabel" parent="." index="2" instance=ExtResource( 3 )]
+
+text = "42"
+cell_index_x = 2
+cell_index_y = 4
+cell_music = ExtResource( 4 )
+
+[node name="Transition" parent="." index="3" instance=ExtResource( 5 )]
+
+position = Vector2( -4, 72 )
+target_scene = "res://Scenes/Overworld/41.tscn"
+target_x = 144
+direction = "left"
+
+[node name="Transition2" parent="." index="4" instance=ExtResource( 5 )]
+
+target_scene = "res://Scenes/Overworld/43.tscn"
+
+[node name="Transition3" parent="." index="5" instance=ExtResource( 5 )]
+
+position = Vector2( 80, -4 )
+scale = Vector2( 2.5, 0.125 )
+target_scene = "res://Scenes/Overworld/32.tscn"
+target_x = 0
+target_y = 110
+direction = "up"
+
+[node name="Worldborder" parent="." index="6" instance=ExtResource( 6 )]
+
+position = Vector2( 80, 140 )
+
+[node name="EmptyHouse" type="StaticBody2D" parent="." index="7"]
+
+position = Vector2( 104, 58 )
+z_index = 58
+input_pickable = false
+collision_layer = 3
+collision_mask = 3
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision", "Transform", "Z Index" ]
+
+[node name="Sprite" type="Sprite" parent="EmptyHouse" index="0"]
+
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="SpriteDoor" type="Sprite" parent="EmptyHouse" index="1"]
+
+position = Vector2( 0, 19 )
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EmptyHouse" index="2"]
+
+position = Vector2( 0, 8 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+

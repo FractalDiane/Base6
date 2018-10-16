@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Linguistic Logarithms.wav-375e56c056119f6d96d306014c1abe86.sample"
+
+[deps]
+
+source_file="res://Sounds/Music/Linguistic Logarithms.wav"
+dest_files=[ "res://.import/Linguistic Logarithms.wav-375e56c056119f6d96d306014c1abe86.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

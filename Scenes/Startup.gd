@@ -9,5 +9,5 @@ func _on_TimerGameStart_timeout():
 		controller.flag[key] = 0
 		
 	controller.scene_change(start_scene)
-	Player.set_position(Vector2(100,78))
+	Player.set_position(Vector2(90,78))
 	Player.show()
