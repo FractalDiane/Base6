@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/UI-life_09.png-dce92c17466435dd84a224d6422f53f0.stex"
+path="res://.import/UI-corruption_empty.png-8d02b77b32cff77ab36f9cac18d68afe.stex"
 
 [deps]
 
-source_file="res://Sprites/UI/UI-life_09.png"
-dest_files=[ "res://.import/UI-life_09.png-dce92c17466435dd84a224d6422f53f0.stex" ]
+source_file="res://Sprites/UI/UI-corruption_empty.png"
+dest_files=[ "res://.import/UI-corruption_empty.png-8d02b77b32cff77ab36f9cac18d68afe.stex" ]
 
 [params]
 

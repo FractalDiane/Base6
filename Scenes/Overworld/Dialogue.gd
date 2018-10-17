@@ -26,32 +26,32 @@ func _ready():
 	$Sound1.play(0)
 
 func _physics_process(delta):
-	if stage == 0:
+	if stage == 0: # Expand H
 		ww = clamp(ww + (box_width / 20),5,box_width)
 		if ww >= box_width:
 			$Sound2.play(0)
 			stage = 1
-	if stage == 1:
+	if stage == 1: # Expand V
 		hh = clamp(hh + (box_height / 20),5,box_height)
 		if hh >= box_height:
 			$TimerStart.start()
 			stage = 2
-	if stage == 2 and text_roll:
+	if stage == 2 and text_roll: # Text rolling
 		roll_text()
-	if stage == 3:
+	if stage == 3: # Contract V
 		hh = clamp(hh - (box_height / 18),5,box_height)
 		if hh <= 5:
 			$Sound2.play(0)
 			stage = 4
-	if stage == 4:
+	if stage == 4: # Contract H
 		ww = clamp(ww - (box_width / 18),5,box_width)
 		if ww <= 5:
 			on_destroy()
 			queue_free()
 	
-	$DText.set_text(text[text_page])
-	$DText.set_visible_characters(length)
-	text_box(box_x,box_y,box_x + ww,box_y + hh)
+	$DText.set_text(text[text_page]) # Get the current page of text we're on
+	$DText.set_visible_characters(length) # Set the visible text to however long it has progressed
+	text_box(box_x,box_y,box_x + ww,box_y + hh) # Redraw text box at correct position
 	
 func text_box(x1,y1,x2,y2):
 	# Top left
@@ -91,17 +91,17 @@ func roll_text():
 		t += 1
 		sound += 1
 		
-		if sound % 6 == 0:
+		if sound % 6 == 0: # Type sound timer
 			$SoundType.set_pitch_scale(rand_range(0.9,1.1))
 			$SoundType.play(0)
 		
-		if t % 3 == 0:
+		if t % 3 == 0: # Text progress timer
 			length += 1
 		
-		if Input.is_action_just_pressed("ui_accept") and not buffer:
+		if Input.is_action_just_pressed("ui_accept") and not buffer: # Show all text
 			advance_text()
 	else:
-		if Input.is_action_just_pressed("ui_accept") and not buffer:
+		if Input.is_action_just_pressed("ui_accept") and not buffer: # Go to next page of text
 			advance_page()
 	
 func advance_text():

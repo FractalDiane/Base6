@@ -25,6 +25,7 @@ func _ready():
 func _physics_process(delta):
 	# Depth correction
 	set_z_index(get_position().y)
+	# Color shift for corruption animation
 	color = clamp(color + 0.008,0,1)
 	set_modulate(Color(color,color,color))
 	

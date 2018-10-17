@@ -50,6 +50,7 @@ func _physics_process(delta):
 	var coll = move_and_collide(velocity)
 	
 	if coll != null:
+		$SoundPlink.play(0)
 		speed = 0
 		vel_y = -6
 		$CollisionPolygon2D.set_disabled(true)

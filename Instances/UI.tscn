@@ -2,11 +2,11 @@
 
 [ext_resource path="res://Instances/UI.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/UI/UI frame.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/UI/UI-life_01.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/UI/UI-life_11.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/UI/UI-life_empty.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/UI/UI-life_full.png" type="Texture" id=4]
 [ext_resource path="res://Instances/Health.gd" type="Script" id=5]
-[ext_resource path="res://Sprites/UI/UI-corruption_01.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/UI/UI-corruption_11.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/UI/UI-corruption_empty.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/UI/UI-corruption_full.png" type="Texture" id=7]
 [ext_resource path="res://Instances/Corruption.gd" type="Script" id=8]
 [ext_resource path="res://Sprites/UI/Item empty.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/UI/Item bow.png" type="Texture" id=10]
@@ -36,7 +36,7 @@ animations = [ {
 "speed": 2.5
 } ]
 
-[node name="UI" type="CanvasLayer"]
+[node name="UI" type="CanvasLayer" index="0"]
 
 layer = 1
 offset = Vector2( 0, 0 )
