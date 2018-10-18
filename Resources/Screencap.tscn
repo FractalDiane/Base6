@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Resources/Screencap.gd" type="Script" id=1]
+
+[node name="Screencap" type="Sprite"]
+
+z_index = 4096
+centered = false
+script = ExtResource( 1 )
+_sections_unfolded = [ "Offset", "Z Index" ]
+
+[node name="TimerStopFade" type="Timer" parent="." index="0"]
+
+process_mode = 1
+wait_time = 0.3
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="TimerStopFade" to="." method="_on_TimerStopFade_timeout"]
+
+

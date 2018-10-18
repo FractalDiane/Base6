@@ -15,6 +15,7 @@ const DASH = 2
 const SHOOT = 3
 const DIALOGUE = 4
 const MENU = 5
+const NO_INPUT = 6
 var state = WALK
 
 # ================================================================================== STATES

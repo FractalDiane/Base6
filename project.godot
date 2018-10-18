@@ -21,6 +21,7 @@ driver="RtAudio-DirectSound"
 
 [autoload]
 
+Screencap="*res://Resources/Screencap.tscn"
 controller="*res://Resources/controller.gd"
 audioplayer="*res://Resources/audioplayer.tscn"
 Player="*res://Resources/Player.tscn"
