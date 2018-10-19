@@ -12,6 +12,7 @@ var stage = 0
 var text = []
 var text_page = 0
 var length = 0
+onready var page_length = len(text[0].replace(' ', ''))
 
 var text_roll = false
 var t = -1
@@ -20,6 +21,18 @@ var sound = -1
 var target = null
 
 var buffer = false
+
+# Object nodes
+onready var BoxT = $BoxT
+onready var BoxB = $BoxB
+onready var BoxL = $BoxL
+onready var BoxR = $BoxR
+onready var BoxTL = $BoxTL
+onready var BoxTR = $BoxTR
+onready var BoxBL = $BoxBL
+onready var BoxBR = $BoxBR
+onready var DText = $DText
+onready var SoundType = $SoundType
 
 func _ready():
 	text_box(box_x,box_y,box_x + ww,box_y + hh)
@@ -49,53 +62,53 @@ func _physics_process(delta):
 			on_destroy()
 			queue_free()
 	
-	$DText.set_text(text[text_page]) # Get the current page of text we're on
-	$DText.set_visible_characters(length) # Set the visible text to however long it has progressed
+	DText.set_text(text[text_page]) # Get the current page of text we're on
+	DText.set_visible_characters(length) # Set the visible text to however long it has progressed
 	text_box(box_x,box_y,box_x + ww,box_y + hh) # Redraw text box at correct position
 	
 func text_box(x1,y1,x2,y2):
 	# Top left
-	$BoxTL.set_position(Vector2(x1, y1))
+	BoxTL.set_position(Vector2(x1, y1))
 	
 	# Left
-	$BoxL.set_position(Vector2(x1, y1 + 5))
-	$BoxL.set_scale(Vector2(1, abs(y2 - y1) - 5))
+	BoxL.set_position(Vector2(x1, y1 + 5))
+	BoxL.set_scale(Vector2(1, abs(y2 - y1) - 5))
 	
 	# Bottom left
-	$BoxBL.set_position(Vector2(x1,y2 - 5))
+	BoxBL.set_position(Vector2(x1,y2 - 5))
 	
 	# Top
-	$BoxT.set_position(Vector2(x1 + 5, y1))
-	$BoxT.set_scale(Vector2(abs(x2 - x1) - 5, 1))
+	BoxT.set_position(Vector2(x1 + 5, y1))
+	BoxT.set_scale(Vector2(abs(x2 - x1) - 5, 1))
 	
 	# Top right
-	$BoxTR.set_position(Vector2(x2 - 5,y1))
+	BoxTR.set_position(Vector2(x2 - 5,y1))
 	
 	# Bottom
-	$BoxB.set_position(Vector2(x1 + 5, y2 - 5))
-	$BoxB.set_scale(Vector2(abs(x2 - x1) - 10, 1))
+	BoxB.set_position(Vector2(x1 + 5, y2 - 5))
+	BoxB.set_scale(Vector2(abs(x2 - x1) - 10, 1))
 	
 	# Right
-	$BoxR.set_position(Vector2(x2 - 5, y1 + 5))
-	$BoxR.set_scale(Vector2(1, abs(y2 - y1) - 10))
+	BoxR.set_position(Vector2(x2 - 5, y1 + 5))
+	BoxR.set_scale(Vector2(1, abs(y2 - y1) - 10))
 	
 	# Bottom Right
-	$BoxBR.set_position(Vector2(x2 - 5, y2 - 5))
+	BoxBR.set_position(Vector2(x2 - 5, y2 - 5))
 	
 	# Text
-	$DText.set_position(Vector2(x1 + 6, y1 + 6))
-	$DText.set_end(Vector2(box_width * 1.5 - 6, box_height * 1.5 - 6))
+	DText.set_position(Vector2(x1 + 6, y1 + 6))
+	DText.set_end(Vector2(box_width * 1.5 - 6, box_height * 1.5 - 6))
 	
 func roll_text():
 	# Godot labels ignore spaces when counting visible characters
 	# So we need to delete all the spaces when we calculate the length of a string.
-	if length < len(text[text_page].replace(' ', '')):
+	if length < page_length:
 		t += 1
 		sound += 1
 		
 		if sound % 6 == 0: # Type sound timer
-			$SoundType.set_pitch_scale(rand_range(0.9,1.1))
-			$SoundType.play(0)
+			SoundType.set_pitch_scale(rand_range(0.9,1.1))
+			SoundType.play(0)
 		
 		if t % 3 == 0: # Text progress timer
 			length += 1
@@ -107,7 +120,7 @@ func roll_text():
 			advance_page()
 	
 func advance_text():
-	length = len(text[text_page])
+	length = page_length
 	buffer = true
 	$TimerBuffer.start()
 	
@@ -115,6 +128,7 @@ func advance_page():
 	length = 0
 	if text_page + 1 < len(text):
 		text_page += 1
+		page_length = len(text[text_page].replace(' ', ''))
 	else:
 		$Sound1.play(0)
 		stage = 3

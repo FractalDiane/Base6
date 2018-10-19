@@ -1,13 +1,6 @@
 extends Label
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-
-func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
+onready var cont = controller
 
 func _process(delta):
-	text = str(get_node("/root/controller").player_gold).pad_zeros(3)
+	text = str(cont.player_gold).pad_zeros(3)

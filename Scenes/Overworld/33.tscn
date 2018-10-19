@@ -13,7 +13,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 32, 25 )
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -70,7 +70,7 @@ direction = "down"
 
 [node name="House" type="StaticBody2D" parent="." index="8"]
 
-position = Vector2( 56, 44 )
+position = Vector2( 105, 60 )
 z_index = 58
 input_pickable = false
 collision_layer = 3

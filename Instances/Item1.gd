@@ -1,8 +1,6 @@
 extends AnimatedSprite
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+onready var cont = controller
 
 func _process(delta):
-	set_frame(controller.player_item_1)
+	set_frame(cont.player_item_1)

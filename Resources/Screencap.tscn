@@ -2,20 +2,29 @@
 
 [ext_resource path="res://Resources/Screencap.gd" type="Script" id=1]
 
-[node name="Screencap" type="Sprite"]
+[node name="Screencap" type="CanvasLayer" index="0"]
 
-z_index = 4096
-centered = false
+layer = 20
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Offset", "Z Index" ]
 
-[node name="TimerStopFade" type="Timer" parent="." index="0"]
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+z_index = 4096
+centered = false
+_sections_unfolded = [ "Z Index" ]
+
+[node name="TimerRestart" type="Timer" parent="." index="1"]
 
 process_mode = 1
 wait_time = 0.3
 one_shot = true
 autostart = false
 
-[connection signal="timeout" from="TimerStopFade" to="." method="_on_TimerStopFade_timeout"]
+[connection signal="timeout" from="TimerRestart" to="." method="_on_TimerRestart_timeout"]
 
 

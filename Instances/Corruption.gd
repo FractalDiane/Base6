@@ -1,8 +1,6 @@
 extends TextureProgress
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+onready var cont = controller
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -10,4 +8,4 @@ func _ready():
 	pass
 
 func _process(delta):
-	set_value(get_node("/root/controller").player_corruption)
+	set_value(cont.player_corruption)

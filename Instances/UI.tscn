@@ -36,7 +36,7 @@ animations = [ {
 "speed": 2.5
 } ]
 
-[node name="UI" type="CanvasLayer" index="0"]
+[node name="UI" type="CanvasLayer"]
 
 layer = 1
 offset = Vector2( 0, 0 )

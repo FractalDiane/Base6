@@ -6,6 +6,7 @@ var flag = {}
 
 var main = null
 var dlg = preload("res://Instances/System/Dialogue.tscn")
+var corr_parts = preload("res://Instances/Particles/PartsPlayerCorrupt.tscn")
 
 const NONE = 0
 const BOW = 1
@@ -28,6 +29,11 @@ func _ready():
 
 func _scene_start():
 	audioplayer.call_deferred("update_music")
+	print(Screencap.fade)
+	Screencap.fade = true
+	print(Screencap.fade)
+	Screencap.get_node("TimerRestart").start()
+	print("New scene")
 	
 # ======================================================================== GLOBAL FUNCTIONS
 func scene_change(scene):
@@ -49,7 +55,7 @@ func player_corrupt(amount):
 	audioplayer.play_sound("SoundPlayerCorrupt")
 	player_corruption += 1
 	Player.color = 0
-	var parts = load("res://Instances/Particles/PartsPlayerCorrupt.tscn").instance()
+	var parts = corr_parts.instance()
 	parts.set_position(Player.get_position())
 	parts.set_amount(player_corruption * 2)
 	parts.set_emitting(true)

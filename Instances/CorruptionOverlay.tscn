@@ -50,10 +50,10 @@ corrupt_interval = 5
 
 material = SubResource( 1 )
 position = Vector2( 80, 72 )
-z_index = 4096
+z_index = 2000
 frames = SubResource( 2 )
 animation = "default"
-frame = 1
+frame = 13
 playing = true
 script = ExtResource( 18 )
 _sections_unfolded = [ "Material", "Z Index" ]
