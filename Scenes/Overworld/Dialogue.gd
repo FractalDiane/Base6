@@ -87,7 +87,9 @@ func text_box(x1,y1,x2,y2):
 	$DText.set_end(Vector2(box_width * 1.5 - 6, box_height * 1.5 - 6))
 	
 func roll_text():
-	if length < len(text[text_page]):
+	# Godot labels ignore spaces when counting visible characters
+	# So we need to delete all the spaces when we calculate the length of a string.
+	if length < len(text[text_page].replace(' ', '')):
 		t += 1
 		sound += 1
 		
