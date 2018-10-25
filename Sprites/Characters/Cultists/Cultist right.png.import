@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Player sight.png-720946df0d3b7754f69e2c83b54e51b1.stex"
+path="res://.import/Cultist right.png-f38b36abc018df3644e7de1148673e1b.stex"
 
 [deps]
 
-source_file="res://Sprites/System/Player sight.png"
-dest_files=[ "res://.import/Player sight.png-720946df0d3b7754f69e2c83b54e51b1.stex" ]
+source_file="res://Sprites/Characters/Cultists/Cultist right.png"
+dest_files=[ "res://.import/Cultist right.png-f38b36abc018df3644e7de1148673e1b.stex" ]
 
 [params]
 

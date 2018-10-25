@@ -4,7 +4,7 @@
 [ext_resource path="res://Sprites/Combat/Arrow.png" type="Texture" id=2]
 [ext_resource path="res://Sounds/Player/Arrow plink.wav" type="AudioStream" id=3]
 
-[node name="Arrow" type="KinematicBody2D"]
+[node name="Arrow" type="KinematicBody2D" index="0"]
 
 z_index = 250
 input_pickable = false
@@ -32,7 +32,7 @@ __meta__ = {
 [node name="SoundPlink" type="AudioStreamPlayer" parent="." index="2"]
 
 stream = ExtResource( 3 )
-volume_db = 0.0
+volume_db = -12.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0

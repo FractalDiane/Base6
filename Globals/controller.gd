@@ -29,11 +29,8 @@ func _ready():
 
 func _scene_start():
 	audioplayer.call_deferred("update_music")
-	print(Screencap.fade)
 	Screencap.fade = true
-	print(Screencap.fade)
 	Screencap.get_node("TimerRestart").start()
-	print("New scene")
 	
 # ======================================================================== GLOBAL FUNCTIONS
 func scene_change(scene):

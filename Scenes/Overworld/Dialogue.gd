@@ -2,8 +2,8 @@ extends CanvasLayer
 
 var box_x = 0
 var box_y = 0
-var box_width = 0
-var box_height = 0
+var box_width = 10
+var box_height = 10
 var ww = 5
 var hh = 5
 
@@ -22,20 +22,15 @@ var target = null
 
 var buffer = false
 
-# Object nodes
-onready var BoxT = $BoxT
-onready var BoxB = $BoxB
-onready var BoxL = $BoxL
-onready var BoxR = $BoxR
-onready var BoxTL = $BoxTL
-onready var BoxTR = $BoxTR
-onready var BoxBL = $BoxBL
-onready var BoxBR = $BoxBR
+# Object node references
+onready var dbox = $Box
 onready var DText = $DText
 onready var SoundType = $SoundType
 
 func _ready():
-	text_box(box_x,box_y,box_x + ww,box_y + hh)
+	dbox.set_position(Vector2(box_x, box_y))
+	DText.set_position(Vector2(box_x + 6, box_y + 6))
+	DText.set_end(Vector2(box_width * 1.5 - 6, box_height * 1.5 - 6))
 	$Sound1.play(0)
 
 func _physics_process(delta):
@@ -62,42 +57,9 @@ func _physics_process(delta):
 			on_destroy()
 			queue_free()
 	
+	dbox.set_size(Vector2(ww, hh))
 	DText.set_text(text[text_page]) # Get the current page of text we're on
 	DText.set_visible_characters(length) # Set the visible text to however long it has progressed
-	text_box(box_x,box_y,box_x + ww,box_y + hh) # Redraw text box at correct position
-	
-func text_box(x1,y1,x2,y2):
-	# Top left
-	BoxTL.set_position(Vector2(x1, y1))
-	
-	# Left
-	BoxL.set_position(Vector2(x1, y1 + 5))
-	BoxL.set_scale(Vector2(1, abs(y2 - y1) - 5))
-	
-	# Bottom left
-	BoxBL.set_position(Vector2(x1,y2 - 5))
-	
-	# Top
-	BoxT.set_position(Vector2(x1 + 5, y1))
-	BoxT.set_scale(Vector2(abs(x2 - x1) - 5, 1))
-	
-	# Top right
-	BoxTR.set_position(Vector2(x2 - 5,y1))
-	
-	# Bottom
-	BoxB.set_position(Vector2(x1 + 5, y2 - 5))
-	BoxB.set_scale(Vector2(abs(x2 - x1) - 10, 1))
-	
-	# Right
-	BoxR.set_position(Vector2(x2 - 5, y1 + 5))
-	BoxR.set_scale(Vector2(1, abs(y2 - y1) - 10))
-	
-	# Bottom Right
-	BoxBR.set_position(Vector2(x2 - 5, y2 - 5))
-	
-	# Text
-	DText.set_position(Vector2(x1 + 6, y1 + 6))
-	DText.set_end(Vector2(box_width * 1.5 - 6, box_height * 1.5 - 6))
 	
 func roll_text():
 	# Godot labels ignore spaces when counting visible characters

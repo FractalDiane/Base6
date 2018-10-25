@@ -16,4 +16,4 @@ func _draw():
 	var w = parent.ww
 	var h = parent.hh
 	
-	draw_rect(Rect2(x1 + 5, y1 + 5, w - 10, h - 10), Color(1,1,1))
+	#draw_rect(Rect2(x1 + 5, y1 + 5, w - 10, h - 10), Color(1,1,1))

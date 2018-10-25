@@ -57,17 +57,13 @@ target_x = 0
 target_y = 110
 direction = "up"
 
-[node name="NPCJari" parent="." index="7" groups=[
+[node name="NPCMaster" parent="." index="7" groups=[
 "NPC",
 ] instance=ExtResource( 7 )]
 
-auto_advance_set = true
-auto_advance_limit = 1
-box_height = 68
-
-[node name="Interact" parent="NPCJari" index="2"]
+[node name="Interact" parent="NPCMaster" index="2"]
 
 frame = 0
 
 
-[editable path="NPCJari"]
+[editable path="NPCMaster"]

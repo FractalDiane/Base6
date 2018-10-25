@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Hum.wav-2f5b4d236a973e04f3b500a91fb563a8.sample"
+
+[deps]
+
+source_file="res://Sounds/Ambient/Hum.wav"
+dest_files=[ "res://.import/Hum.wav-2f5b4d236a973e04f3b500a91fb563a8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=true
+compress/mode=0

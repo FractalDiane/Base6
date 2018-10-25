@@ -15,16 +15,12 @@ run/main_scene="res://Scenes/Startup.tscn"
 boot_splash/image="res://Sprites/Splash.png"
 config/icon="res://icon.png"
 
-[audio]
-
-driver="RtAudio-DirectSound"
-
 [autoload]
 
-Screencap="*res://Resources/Screencap.tscn"
-controller="*res://Resources/controller.gd"
-audioplayer="*res://Resources/audioplayer.tscn"
-Player="*res://Resources/Player.tscn"
+Screencap="*res://Globals/Screencap.tscn"
+controller="*res://Globals/controller.gd"
+audioplayer="*res://Globals/audioplayer.tscn"
+Player="*res://Globals/Player.tscn"
 
 [display]
 

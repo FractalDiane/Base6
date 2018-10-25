@@ -1,10 +1,10 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Overworld/NPC.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Characters/Jari/Jari right.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Characters/Jari/Jari left.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Characters/Jari/Jari up.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Characters/Jari/Jari down.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Characters/Cultists/Cultist right.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Characters/Cultists/Cultist left.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Characters/Cultists/Cultist up.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Characters/Cultists/Cultist down.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/UI/Interact 1.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/UI/Interact 2.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/UI/Interact 3.png" type="Texture" id=8]
@@ -37,7 +37,7 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 5, 4 )
+extents = Vector2( 6, 4 )
 
 [sub_resource type="SpriteFrames" id=3]
 
@@ -48,7 +48,7 @@ animations = [ {
 "speed": 3.0
 } ]
 
-[node name="NPCMaster" type="KinematicBody2D"]
+[node name="NPCCultist40" type="KinematicBody2D"]
 
 position = Vector2( 34, 28 )
 input_pickable = false
@@ -56,14 +56,14 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-text = [ [ "O-oh. Good morning, Fiore.", "The corruption has gotten worse since yesterday.", "J-just a little worse, though.", "There are still plenty of impures.", "And you should stay away from the east side.", "That's where it's gotten the worst.", "O-or maybe you can handle it.", "You're the one with the sword, after all.", "J-just remember to turn back if you start hearing the... whispers." ], [ "The w-whispers...", "Just thinking about it makes me shudder..." ], [  ], [  ] ]
-dialogue_key = "jari_talk"
-auto_advance_set = true
-auto_advance_limit = 1
+text = [ [ "The corruption will purify us all.", "Do not resist its warm caress.", "Join us and be liberated." ] ]
+dialogue_key = "cultist40_talk"
+auto_advance_set = null
+auto_advance_limit = null
 box_x = 50
-box_y = 15
+box_y = 60
 box_width = 100
-box_height = 70
+box_height = 51
 
 [node name="Sprite" type="AnimatedSprite" parent="." index="0"]
 
@@ -77,7 +77,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( 0, 7 )
+position = Vector2( 1, 8 )
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
@@ -90,7 +90,7 @@ visible = false
 position = Vector2( 0, -17 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 1
+frame = 2
 playing = true
 _sections_unfolded = [ "Visibility" ]
 __meta__ = {
