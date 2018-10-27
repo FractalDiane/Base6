@@ -10,21 +10,24 @@ export(int) var box_y
 export(int) var box_width
 export(int) var box_height
 
+onready var interact = $Interact
+
 var dialogue_set = 0
 
 var show_interact = false
 
 func _physics_process(delta):
 	set_z_index(get_position().y)
-	dialogue_set = controller.flag[dialogue_key]
+	if dialogue_key != "null":
+		dialogue_set = controller.flag[dialogue_key]
 	
 	if show_interact and Player.state == Player.WALK:
-		if not $Interact.is_visible():
-			$Interact.set_frame(1)
-		$Interact.show()
+		if not interact.is_visible():
+			interact.set_frame(1)
+		interact.show()
 		interaction()
 	else:
-		$Interact.hide()
+		interact.hide()
 		
 func interaction():
 	if Input.is_action_just_pressed("ui_accept"):

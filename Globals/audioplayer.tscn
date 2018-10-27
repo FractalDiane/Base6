@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Globals/audioplayer.gd" type="Script" id=1]
 [ext_resource path="res://Sounds/Player/Corrupt.wav" type="AudioStream" id=2]
 [ext_resource path="res://Sounds/Music/White Noise.wav" type="AudioStream" id=3]
 [ext_resource path="res://Sounds/Ambient/Hum.wav" type="AudioStream" id=4]
+[ext_resource path="res://Sounds/Characters/Crow.wav" type="AudioStream" id=5]
 
-[node name="audioplayer" type="Node" index="0"]
+[node name="audioplayer" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -31,6 +32,15 @@ bus = "Master"
 
 stream = ExtResource( 4 )
 volume_db = -46.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="SoundCrow" type="AudioStreamPlayer" parent="." index="3"]
+
+stream = ExtResource( 5 )
+volume_db = -6.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0

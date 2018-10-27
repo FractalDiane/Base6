@@ -1,11 +1,77 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=1]
 [ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sounds/Music/White Noise.wav" type="AudioStream" id=4]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Sprites/Props/Shrine.png" type="Texture" id=6]
+[ext_resource path="res://Instances/NPCs/NPCFountainPlaque.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/Props/Shrine.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Props/Caw.png" type="Texture" id=8]
+
+[sub_resource type="Gradient" id=1]
+
+offsets = PoolRealArray( 0, 0.483951, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+
+flags = 4
+gradient = SubResource( 1 )
+width = 2048
+
+[sub_resource type="Curve" id=3]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.286068, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+
+flags = 4
+width = 2048
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 0.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 40.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = -50.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angle", "Angular Velocity", "Color", "Emission Shape", "Flags", "Gravity", "Initial Velocity", "Radial Accel", "Scale", "Spread", "Tangential Accel" ]
 
 [node name="Node2D" type="Node2D"]
 
@@ -60,7 +126,13 @@ target_x = 0
 target_y = 16
 direction = "down"
 
-[node name="Shrine" type="StaticBody2D" parent="." index="7"]
+[node name="NPCFountainPlaque" parent="." index="7" instance=ExtResource( 6 )]
+
+position = Vector2( 80, 88 )
+z_index = 53
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Fountain" type="StaticBody2D" parent="." index="8"]
 
 position = Vector2( 80, 52 )
 z_index = 52
@@ -73,19 +145,42 @@ friction = 1.0
 bounce = 0.0
 _sections_unfolded = [ "Collision", "Transform", "Z Index" ]
 
-[node name="Sprite" type="Sprite" parent="Shrine" index="0"]
+[node name="Sprite" type="Sprite" parent="Fountain" index="0"]
 
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Shrine" index="1"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fountain" index="1"]
 
 build_mode = 0
 polygon = PoolVector2Array( -10, 40, 10, 40, 33, 34, 45, 23, 45, 6, 30, -6, -30, -6, -45, 7, -45, 23, -38, 31 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="PartsCaw" type="Particles2D" parent="Fountain" index="2"]
+
+position = Vector2( 17, -31 )
+emitting = false
+amount = 1
+lifetime = 1.0
+one_shot = true
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 5 )
+texture = ExtResource( 8 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Textures", "Time" ]
 
 

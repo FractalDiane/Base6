@@ -48,7 +48,9 @@ animations = [ {
 "speed": 3.0
 } ]
 
-[node name="NPCMaster" type="KinematicBody2D"]
+[node name="NPCMaster" type="KinematicBody2D" groups=[
+"NPC",
+]]
 
 position = Vector2( 34, 28 )
 input_pickable = false
@@ -90,7 +92,6 @@ visible = false
 position = Vector2( 0, -17 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 1
 playing = true
 _sections_unfolded = [ "Visibility" ]
 __meta__ = {

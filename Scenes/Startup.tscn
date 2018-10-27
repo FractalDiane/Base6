@@ -4,7 +4,7 @@
 [ext_resource path="res://Sprites/Splash.png" type="Texture" id=2]
 [ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=3]
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 script = ExtResource( 1 )
 start_scene = "res://Scenes/Overworld/00.tscn"

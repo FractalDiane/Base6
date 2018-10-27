@@ -20,6 +20,7 @@ var player_item_1 = BOW
 var player_item_2 = NONE
 
 var current_scene = null
+var corrupted_cells = ["14","23","24","33","34","44"]
 
 func _ready():
 	var root = get_tree().get_root()

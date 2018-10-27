@@ -1,0 +1,103 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scenes/Overworld/NPC.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Props/Shrine plaque.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/UI/Interact 1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/UI/Interact 2.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/UI/Interact 3.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/UI/Interact 4.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 9, 3 )
+
+[node name="NPCFountainPlaque" type="KinematicBody2D" groups=[
+"NPC",
+]]
+
+position = Vector2( 34, 28 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+text = [ [ "The all-seeing Eye gazes upon you.", "The great Tree-Fish eternally watches with utmost intent.", "His majestic caw heralds the apocalypse." ] ]
+dialogue_key = "null"
+auto_advance_set = false
+auto_advance_limit = 0
+box_x = 50
+box_y = 10
+box_width = 100
+box_height = 70
+
+[node name="Sprite" type="AnimatedSprite" parent="." index="0"]
+
+frames = SubResource( 1 )
+animation = "down"
+offset = Vector2( 0, -1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Interact" type="AnimatedSprite" parent="." index="1"]
+
+position = Vector2( -1, -16 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 2
+playing = true
+_sections_unfolded = [ "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TimerHideInteract" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 0.01
+one_shot = true
+autostart = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
+
+position = Vector2( 0, -1 )
+shape = SubResource( 3 )
+
+[connection signal="timeout" from="TimerHideInteract" to="." method="_on_TimerHideInteract_timeout"]
+
+

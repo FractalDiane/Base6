@@ -98,9 +98,15 @@ func advance_page():
 func on_destroy():
 	length = 0
 	target.get_node("Sprite").set_animation("down")
-	if target.auto_advance_set:
+	if target.dialogue_key != "null" and target.auto_advance_set:
 		 controller.flag[target.dialogue_key] = clamp(controller.flag[target.dialogue_key] + 1,0,target.auto_advance_limit)
 	Player.state = Player.WALK
+	
+	# CAW!!
+	if target.get_name() == "NPCFountainPlaque":
+		audioplayer.get_node("SoundCrow").play(0)
+		var fountainparts = get_tree().get_root().get_node("Node2D").get_node("Fountain").get_node("PartsCaw")
+		fountainparts.set_emitting(true)
 
 func _on_TimerStart_timeout():
 	text_roll = true

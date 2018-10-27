@@ -7,7 +7,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 32, 32 )
 
-[node name="Transition" type="Area2D"]
+[node name="Transition" type="Area2D" index="0"]
 
 position = Vector2( 164, 72 )
 scale = Vector2( 0.125, 2.25 )
@@ -19,6 +19,7 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 target_scene = "res://Scenes/Overworld/00.tscn"
 target_x = 16
 target_y = null

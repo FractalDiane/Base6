@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Crow.wav-00616c47b303ae568b4e6a44805bbb2a.sample"
+
+[deps]
+
+source_file="res://Sounds/Characters/Crow.wav"
+dest_files=[ "res://.import/Crow.wav-00616c47b303ae568b4e6a44805bbb2a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
