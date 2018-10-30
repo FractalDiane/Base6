@@ -31,7 +31,6 @@ position = Vector2( 80, -4 )
 
 position = Vector2( 80, 140 )
 scale = Vector2( 2.5, 0.125 )
-_sections_unfolded = [ "Transform" ]
 target_scene = "res://Scenes/Overworld/14.tscn"
 target_x = 0
 target_y = 16

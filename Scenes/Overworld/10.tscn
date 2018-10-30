@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=1]
 [ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=2]
@@ -7,6 +7,11 @@
 [ext_resource path="res://Sounds/Music/White Noise.wav" type="AudioStream" id=5]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Instances/NPCs/NPCMasterNew.tscn" type="PackedScene" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 5, 4 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -61,4 +66,13 @@ direction = "up"
 
 text = [ [ "O-oh. Good morning, Fiore.", "The corruption has gotten worse since yesterday.", "J-just a little worse, though.", "There are still plenty of impures.", "And you should stay away from the east side.", "That's where it's gotten the worst.", "O-or maybe you can handle it.", "You're the one with the sword, after all.", "J-just remember to turn back if you start hearing the... whispers..." ], [ "The w-whispers...", "Just thinking about it makes me shudder..." ], [  ], [  ] ]
 
+[node name="CollisionShape2D" parent="NPCJari" index="1"]
 
+shape = SubResource( 1 )
+
+[node name="Interact" parent="NPCJari" index="2"]
+
+frame = 0
+
+
+[editable path="NPCJari"]

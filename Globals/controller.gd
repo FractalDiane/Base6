@@ -33,8 +33,15 @@ func _scene_start():
 	Screencap.fade = true
 	Screencap.get_node("TimerRestart").start()
 	
+func _scene_end():
+	for node in get_parent().get_node("Node2D").get_children():
+		if node.is_in_group("Transition"):
+			if node.corr:
+				node.corruption_parts.queue_free()
+	
 # ======================================================================== GLOBAL FUNCTIONS
 func scene_change(scene):
+	_scene_end()
 	get_tree().change_scene(scene)
 	_scene_start()
 	

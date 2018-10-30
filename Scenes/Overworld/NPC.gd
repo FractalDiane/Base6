@@ -5,7 +5,6 @@ export(String) var dialogue_key # Flag key that keeps track of this NPC's dialog
 export(bool) var auto_advance_set
 export(int) var auto_advance_limit
 
-
 export(int) var box_x
 export(int) var box_y
 export(int) var box_width

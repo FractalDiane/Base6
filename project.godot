@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
+PlayerNoise="*res://Globals/PlayerNoise.tscn"
 Screencap="*res://Globals/Screencap.tscn"
 controller="*res://Globals/controller.gd"
 audioplayer="*res://Globals/audioplayer.tscn"

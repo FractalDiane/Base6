@@ -7,7 +7,9 @@
 custom_solver_bias = 0.0
 extents = Vector2( 32, 32 )
 
-[node name="Transition" type="Area2D" index="0"]
+[node name="Transition" type="Area2D" index="0" groups=[
+"Transition",
+]]
 
 position = Vector2( 164, 72 )
 scale = Vector2( 0.125, 2.25 )
