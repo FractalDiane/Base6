@@ -6,7 +6,7 @@
 [ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Sounds/Music/White Noise.wav" type="AudioStream" id=5]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Instances/NPCs/NPCMaster.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Instances/NPCs/NPCMasterNew.tscn" type="PackedScene" id=7]
 
 [node name="Node2D" type="Node2D"]
 
@@ -57,13 +57,8 @@ target_x = 0
 target_y = 110
 direction = "up"
 
-[node name="NPCMaster" parent="." index="7" groups=[
-"NPC",
-] instance=ExtResource( 7 )]
+[node name="NPCJari" parent="." index="7" instance=ExtResource( 7 )]
 
-[node name="Interact" parent="NPCMaster" index="2"]
-
-frame = 0
+text = [ [ "O-oh. Good morning, Fiore.", "The corruption has gotten worse since yesterday.", "J-just a little worse, though.", "There are still plenty of impures.", "And you should stay away from the east side.", "That's where it's gotten the worst.", "O-or maybe you can handle it.", "You're the one with the sword, after all.", "J-just remember to turn back if you start hearing the... whispers..." ], [ "The w-whispers...", "Just thinking about it makes me shudder..." ], [  ], [  ] ]
 
 
-[editable path="NPCMaster"]

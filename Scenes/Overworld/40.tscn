@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=1]
 [ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=2]
@@ -6,7 +6,40 @@
 [ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Sounds/Music/White Noise.wav" type="AudioStream" id=5]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Instances/NPCs/NPCCultist40.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Instances/NPCs/NPCMasterNew.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sprites/Characters/Cultists/Cultist right.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Characters/Cultists/Cultist left.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters/Cultists/Cultist up.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Characters/Cultists/Cultist down.png" type="Texture" id=11]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 6, 5 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -53,11 +86,28 @@ direction = "up"
 
 position = Vector2( 80, 140 )
 
-[node name="NPCCultist40" parent="." index="7" groups=[
-"NPC",
-] instance=ExtResource( 7 )]
+[node name="NPCCultist40" parent="." index="7" instance=ExtResource( 7 )]
 
-position = Vector2( 113, 34 )
+position = Vector2( 114, 31 )
+text = [ [ "The corruption will purify us all.", "Do not resist its warm caress.", "Join us and be liberated." ] ]
+dialogue_key = "cultist40_talk"
+auto_advance_set = false
+box_y = 60
+box_height = 51
+
+[node name="Sprite" parent="NPCCultist40" index="0"]
+
+frames = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="NPCCultist40" index="1"]
+
+position = Vector2( 1, 7 )
+shape = SubResource( 2 )
+
+[node name="Interact" parent="NPCCultist40" index="2"]
+
+position = Vector2( 0, -18 )
+frame = 3
 
 
 [editable path="NPCCultist40"]

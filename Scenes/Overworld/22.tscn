@@ -1,13 +1,14 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=1]
 [ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sounds/Music/White Noise.wav" type="AudioStream" id=4]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Instances/NPCs/NPCFountainPlaque.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Sprites/Props/Shrine.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Props/Shrine.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Props/Shrine plaque.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/Props/Caw.png" type="Texture" id=8]
+[ext_resource path="res://Instances/NPCs/NPCMasterNew.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Gradient" id=1]
 
@@ -73,7 +74,31 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angle", "Angular Velocity", "Color", "Emission Shape", "Flags", "Gravity", "Initial Velocity", "Radial Accel", "Scale", "Spread", "Tangential Accel" ]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="SpriteFrames" id=6]
+
+animations = [ {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
+[node name="Node2D" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -126,13 +151,7 @@ target_x = 0
 target_y = 16
 direction = "down"
 
-[node name="NPCFountainPlaque" parent="." index="7" instance=ExtResource( 6 )]
-
-position = Vector2( 80, 88 )
-z_index = 53
-_sections_unfolded = [ "Transform", "Z Index" ]
-
-[node name="Fountain" type="StaticBody2D" parent="." index="8"]
+[node name="Fountain" type="StaticBody2D" parent="." index="7"]
 
 position = Vector2( 80, 52 )
 z_index = 52
@@ -147,12 +166,20 @@ _sections_unfolded = [ "Collision", "Transform", "Z Index" ]
 
 [node name="Sprite" type="Sprite" parent="Fountain" index="0"]
 
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite2" type="Sprite" parent="Fountain" index="1"]
+
+position = Vector2( 0, 35 )
 texture = ExtResource( 7 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fountain" index="1"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fountain" index="2"]
 
 build_mode = 0
 polygon = PoolVector2Array( -10, 40, 10, 40, 33, 34, 45, 23, 45, 6, 30, -6, -30, -6, -45, 7, -45, 23, -38, 31 )
@@ -160,7 +187,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="PartsCaw" type="Particles2D" parent="Fountain" index="2"]
+[node name="PartsCaw" type="Particles2D" parent="Fountain" index="3"]
 
 position = Vector2( 17, -31 )
 emitting = false
@@ -183,4 +210,23 @@ h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Process Material", "Textures", "Time" ]
 
+[node name="NPCFountainPlaque" parent="." index="8" instance=ExtResource( 9 )]
 
+position = Vector2( 80, 88 )
+z_index = 52
+_sections_unfolded = [ "Z Index" ]
+text = [ [ "The all-seeing Eye gazes upon you.", "The great Tree-Fish eternally watches with utmost intent.", "His majest caw heralds the apocalypse." ] ]
+dialogue_key = "null"
+
+[node name="Sprite" parent="NPCFountainPlaque" index="0"]
+
+visible = false
+frames = SubResource( 6 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="CollisionShape2D" parent="NPCFountainPlaque" index="1"]
+
+position = Vector2( 0, -1 )
+
+
+[editable path="NPCFountainPlaque"]

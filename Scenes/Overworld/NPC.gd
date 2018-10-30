@@ -1,9 +1,10 @@
 extends KinematicBody2D
 
-export(Array, Array, String) var text # Dialogue text
+export(Array, Array, String) var text = null # Dialogue text
 export(String) var dialogue_key # Flag key that keeps track of this NPC's dialogue status
 export(bool) var auto_advance_set
 export(int) var auto_advance_limit
+
 
 export(int) var box_x
 export(int) var box_y

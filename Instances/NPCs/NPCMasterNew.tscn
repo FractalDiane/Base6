@@ -37,7 +37,7 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 5, 4 )
+extents = Vector2( 9, 3 )
 
 [sub_resource type="SpriteFrames" id=3]
 
@@ -58,7 +58,7 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-text = [ [ "O-oh. Good morning, Fiore.", "The corruption has gotten worse since yesterday.", "J-just a little worse, though.", "There are still plenty of impures.", "And you should stay away from the east side.", "That's where it's gotten the worst.", "O-or maybe you can handle it.", "You're the one with the sword, after all.", "J-just remember to turn back if you start hearing the... whispers." ], [ "The w-whispers...", "Just thinking about it makes me shudder..." ], [  ], [  ] ]
+text = null
 dialogue_key = "jari_talk"
 auto_advance_set = true
 auto_advance_limit = 1
@@ -92,6 +92,7 @@ visible = false
 position = Vector2( 0, -17 )
 frames = SubResource( 3 )
 animation = "default"
+frame = 1
 playing = true
 _sections_unfolded = [ "Visibility" ]
 __meta__ = {
