@@ -79,12 +79,12 @@ _sections_unfolded = [ "Angle", "Angular Velocity", "Color", "Emission Shape", "
 animations = [ {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
@@ -215,7 +215,7 @@ _sections_unfolded = [ "Process Material", "Textures", "Time" ]
 position = Vector2( 80, 88 )
 z_index = 52
 _sections_unfolded = [ "Z Index" ]
-text = [ [ "The all-seeing Eye gazes upon you.", "The great Tree-Fish eternally watches with utmost intent.", "His majest caw heralds the apocalypse." ] ]
+text = [ [ "The all-seeing Eye gazes upon you.", "The great Tree-Fish eternally watches with utmost intent.", "His majestic caw heralds the apocalypse." ] ]
 dialogue_key = "null"
 
 [node name="Sprite" parent="NPCFountainPlaque" index="0"]
@@ -227,6 +227,10 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 [node name="CollisionShape2D" parent="NPCFountainPlaque" index="1"]
 
 position = Vector2( 0, -1 )
+
+[node name="Interact" parent="NPCFountainPlaque" index="2"]
+
+frame = 3
 
 
 [editable path="NPCFountainPlaque"]

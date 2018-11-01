@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=1]
 [ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=2]
@@ -6,8 +6,87 @@
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sounds/Music/White Noise.wav" type="AudioStream" id=6]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast_stand1.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast_stand3.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast_stand5.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast_stand6.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast_stand7.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast_stand8.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast_stand9.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast_stand10.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast_stand11.png" type="Texture" id=15]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="GDScript" id=3]
+
+script/source = "extends KinematicBody2D
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+func _ready():
+	# Called when the node is added to the scene for the first time.
+	# Initialization here
+	pass
+
+func _physics_process(delta):
+	set_z_index(get_position().y)"
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+} ]
+
+[sub_resource type="ParticlesMaterial" id=2]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 2
+emission_box_extents = Vector3( 24, 24, 1 )
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 0.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 5.0
+scale_random = 1.0
+color = Color( 0, 0, 0, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Color", "Emission Shape", "Initial Velocity", "Scale" ]
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 11, 4 )
+
+[node name="Node2D" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -31,7 +110,6 @@ position = Vector2( 80, -4 )
 
 position = Vector2( 80, 140 )
 scale = Vector2( 2.5, 0.125 )
-_sections_unfolded = [ "Transform" ]
 target_scene = "res://Scenes/Overworld/12.tscn"
 target_x = 0
 target_y = 16
@@ -53,5 +131,59 @@ position = Vector2( -4, 72 )
 target_scene = "res://Scenes/Overworld/01.tscn"
 target_x = 144
 direction = "left"
+
+[node name="Ghast" type="KinematicBody2D" parent="." index="7"]
+
+position = Vector2( 109, 59 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = SubResource( 3 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Sprite" type="AnimatedSprite" parent="Ghast" index="0"]
+
+frames = SubResource( 1 )
+animation = "left"
+frame = 5
+playing = true
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PartsGhast" type="Particles2D" parent="Ghast" index="1"]
+
+emitting = true
+amount = 8
+lifetime = 0.15
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 1.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 2 )
+texture = null
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Time" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ghast" index="2"]
+
+position = Vector2( 0, 14 )
+shape = SubResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 

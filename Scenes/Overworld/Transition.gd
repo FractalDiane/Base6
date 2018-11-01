@@ -11,15 +11,12 @@ var corruption_parts = null
 func _ready():
 	var target_cell_str = target_scene.get_file().replace(target_scene.get_extension(),"").substr(0,2)
 	if target_cell_str in controller.corrupted_cells:
-		#var corruption_parts
 		if get_scale().x > get_scale().y: # Horizontal
 			corruption_parts = load("res://Instances/Particles/PartsCorruptionBorder.tscn").instance()
-			corruption_parts.set_position(get_position())
-			get_tree().get_root().add_child(corruption_parts)
 		elif get_scale().y > get_scale().x: # Vertical
 			corruption_parts = load("res://Instances/Particles/PartsCorruptionBorderV.tscn").instance()
-			corruption_parts.set_position(get_position())
-			get_tree().get_root().add_child(corruption_parts)
+		corruption_parts.set_position(get_position())
+		get_tree().get_root().add_child(corruption_parts)
 		corr = true
 			
 func _physics_process(delta):

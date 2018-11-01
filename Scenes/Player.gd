@@ -31,10 +31,10 @@ func _physics_process(delta):
 	set_modulate(Color(color,color,color))
 	
 	# Move sight
-	if $Sprite.get_animation() in ["up","walkup"]:
+	if $Sprite.get_animation() in ["up","walkup","swingup", "shootup"]:
 		$Sight.set_position(Vector2(0,-10))
 		$Sight.set_rotation_degrees(0)
-	elif $Sprite.get_animation() in ["down","walkdown"]:
+	elif $Sprite.get_animation() in ["down","walkdown", "swingdown", "shootdown"]:
 		$Sight.set_position(Vector2(0,20))
 		$Sight.set_rotation_degrees(0)
 	elif $Sprite.get_animation() in ["left","walkleft","swingleft","shootleft"]:
@@ -187,7 +187,15 @@ func swing_attack():
 	$SoundSwing.play(0)
 	$SoundSwing.set_pitch_scale(rand_range(1,1.2))
 	$Sprite.set_frame(0)
-	if $Sprite.get_animation() in ["left","walkleft","swingleft"]:
+	if $Sprite.get_animation() in ["up","walkup","swingup"]:
+		$Sprite.play("swingup")
+		motion.x = 0
+		motion.y = 0
+	elif $Sprite.get_animation() in ["down","walkdown","swingdown"]:
+		$Sprite.play("swingdown")
+		motion.x = 0
+		motion.y = 0
+	elif $Sprite.get_animation() in ["left","walkleft","swingleft"]:
 		$Sprite.play("swingleft")
 		motion.x = 0
 		motion.y = 0
@@ -202,10 +210,12 @@ func dash_attack():
 	$SoundSwing.play(0)
 	$SoundSwing.set_pitch_scale(rand_range(0.75,0.9))
 	$Sprite.set_frame(0)
-	if $Sprite.get_animation() in ["up","walkup"]:
+	if $Sprite.get_animation() in ["up","walkup","swingup"]:
 		motion.y = -250
-	elif $Sprite.get_animation() in ["down","walkdown"]:
+		$Sprite.play("swingup")
+	elif $Sprite.get_animation() in ["down","walkdown", "swingdown"]:
 		motion.y = 250
+		$Sprite.play("swingdown")
 	elif $Sprite.get_animation() in ["left","walkleft","swingleft"]:
 		motion.x = -250
 		$Sprite.play("swingleft")
@@ -218,7 +228,19 @@ func shoot_bow():
 	$SoundShoot.play(0)
 	$Sprite.set_frame(0)
 	var shootarrow = arrow.instance()
-	if $Sprite.get_animation() in ["left","walkleft","swingleft"]:
+	if $Sprite.get_animation() in ["up","walkup","swingup"]:
+		$Sprite.play("shootup")
+		motion.x = 0
+		motion.y = 0
+		shootarrow.set_position(Vector2(get_position().x,get_position().y - 1))
+		shootarrow.direction = 90
+	elif $Sprite.get_animation() in ["down","walkdown","swingdown"]:
+		$Sprite.play("shootdown")
+		motion.x = 0
+		motion.y = 0
+		shootarrow.set_position(Vector2(get_position().x,get_position().y + 1))
+		shootarrow.direction = 270
+	elif $Sprite.get_animation() in ["left","walkleft","swingleft"]:
 		$Sprite.play("shootleft")
 		motion.x = 0
 		motion.y = 0
@@ -243,7 +265,7 @@ func footstep_sound():
 		$SoundFootstep.play(0)
 		
 func stop_animation():
-	if $Sprite.get_animation() in ["swingleft","swingright","shootleft","shootright"]:
+	if $Sprite.get_animation() in ["swingleft","swingright","shootleft","shootright","swingup", "swingdown", "shootup", "shootdown"]:
 		if $Sprite.get_frame() >= 2:
 			$Sprite.stop()
 	
@@ -254,14 +276,22 @@ func _on_TimerSwing_timeout():
 
 func _on_TimerSwingAnim_timeout():
 	if state != DASH:
-		if $Sprite.get_animation() == "swingleft":
+		if $Sprite.get_animation() == "swingup":
+			$Sprite.play("up")
+		elif $Sprite.get_animation() == "swingdown":
+			$Sprite.play("down")
+		elif $Sprite.get_animation() == "swingleft":
 			$Sprite.play("left")
 		elif $Sprite.get_animation() == "swingright":
 			$Sprite.play("right")
 
 func _on_TimerDash_timeout():
 	state = WALK
-	if $Sprite.get_animation() == "swingleft":
+	if $Sprite.get_animation() == "swingup":
+		$Sprite.play("up")
+	elif $Sprite.get_animation() == "swingdown":
+		$Sprite.play("down")
+	elif $Sprite.get_animation() == "swingleft":
 		$Sprite.play("left")
 	elif $Sprite.get_animation() == "swingright":
 		$Sprite.play("right")
@@ -269,7 +299,11 @@ func _on_TimerDash_timeout():
 
 func _on_TimerShoot_timeout():
 	state = WALK
-	if $Sprite.get_animation() == "shootleft":
+	if $Sprite.get_animation() == "shootup":
+		$Sprite.play("up")
+	elif $Sprite.get_animation() == "shootdown":
+		$Sprite.play("down")
+	elif $Sprite.get_animation() == "shootleft":
 		$Sprite.play("left")
 	elif $Sprite.get_animation() == "shootright":
 		$Sprite.play("right")

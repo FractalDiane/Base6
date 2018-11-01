@@ -92,7 +92,6 @@ visible = false
 position = Vector2( 0, -17 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 1
 playing = true
 _sections_unfolded = [ "Visibility" ]
 __meta__ = {

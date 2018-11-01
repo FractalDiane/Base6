@@ -46,7 +46,7 @@ func _physics_process(delta):
 	if get_position().x < -20 or get_position().x > 180 or get_position().y < -20 or get_position().y > 164:
 		queue_free()
 	
-	set_rotation_degrees(direction)
+	set_rotation_degrees(-direction)
 	var coll = move_and_collide(velocity)
 	
 	if coll != null:
