@@ -100,15 +100,26 @@ func state_walk():
 	if motion.x == 0 and motion.y == 0:
 		sound = -1
 		walking = ""
-	if face.x != 0: 
-		$Sprite.play(walking + "left")
-		$Sprite.set_flip_h(face.x + 1)
-	else: $Sprite.set_flip_h(0)
-	if face.y < 0: $Sprite.play(walking + "up")
-	elif face.y > 0: $Sprite.play(walking + "down")
+#	if face.x != 0:
+#		$Sprite.play(walking + "left")
+#		$Sprite.set_flip_h(face.x + 1)
+#	else: $Sprite.set_flip_h(0)
+#	if face.y < 0: $Sprite.play(walking + "up")
+#	elif face.y > 0: $Sprite.play(walking + "down")
+	if face.x == 0: # Vertical
+		if face.y < 0:
+			$Sprite.play(walking + "up")
+		else:
+			$Sprite.play(walking + "down")
+	else: # Horizontal
+		if face.x < 0:
+			$Sprite.play(walking + "left")
+		else:
+			$Sprite.play(walking + "right")
 	
 	#Issue I can't figure out: when moving to the top left or bottom right, you can't do a normal attack. 
 	#The Input event just never happens. Dash and shoot work fine, so it might just be me.
+	
 	# SWING
 	if Input.is_action_just_pressed("ui_attack"):
 		state = SWING
@@ -164,16 +175,20 @@ func swing_attack():
 	$Sprite.set_frame(0)
 	motion.x = 0
 	motion.y = 0
-	if face.y == -1:
+	if face.y < 0:
 		$Sprite.play("swingup")
 		hbU.set_disabled(false)
-	elif face.y == 1:
+	elif face.y > 0:
 		$Sprite.play("swingdown")
 		hbD.set_disabled(false)
-	elif face.x != 0:
-		$Sprite.play("swingleft")
-		if face.x < 0: hbL.set_disabled(false)
-		else: hbR.set_disabled(false)
+	else:
+		if face.x < 0:
+			$Sprite.play("swingleft")
+			hbL.set_disabled(false)
+		elif face.x > 0:
+			$Sprite.play("swingright")
+			hbR.set_disabled(false)
+			
 	$TimerSwing.start()
 	$TimerSwingAnim.start()
 	
@@ -181,19 +196,22 @@ func dash_attack():
 	$SoundSwing.play(0)
 	$SoundSwing.set_pitch_scale(rand_range(0.75,0.9))
 	$Sprite.set_frame(0)
-	if face.y == -1:
+	if face.y < 0:
 		motion.y = -250
 		$Sprite.play("swingup")
 		hbU.set_disabled(false)
-	elif face.y == 1:
+	elif face.y > 0:
 		motion.y = 250
 		$Sprite.play("swingdown")
 		hbD.set_disabled(false)
-	elif face.x != 0:
+	else:
 		motion.x = 250 * face.x
-		$Sprite.play("swingleft")
-		if face.x < 0: hbL.set_disabled(false)
-		else: hbR.set_disabled(false)
+		if face.x < 0:
+			$Sprite.play("swingleft")
+			hbL.set_disabled(false)
+		elif face.x > 0:
+			$Sprite.play("swingright")
+			hbR.set_disabled(false)
 	$TimerDash.start()
 	
 func shoot_bow():
@@ -202,16 +220,19 @@ func shoot_bow():
 	var shootarrow = arrow.instance()
 	motion.x = 0
 	motion.y = 0
-	if face.y == -1:
+	if face.y < 0:
 		$Sprite.play("shootup")
 		shootarrow.set_position(Vector2(get_position().x,get_position().y - 1))
 		shootarrow.direction = 90
-	elif face.y == 1:
+	elif face.y > 0:
 		$Sprite.play("shootdown")
 		shootarrow.set_position(Vector2(get_position().x,get_position().y + 1))
 		shootarrow.direction = 270
-	elif face.x != 0:
-		$Sprite.play("shootleft")
+	else:
+		if face.x < 0:
+			$Sprite.play("shootleft")
+		elif face.x > 0:
+			$Sprite.play("shootright")
 		shootarrow.set_position(Vector2(get_position().x,get_position().y + 2))
 		if face.x < 0: shootarrow.direction = 180
 		else: shootarrow.direction = 0
@@ -250,29 +271,33 @@ func _on_TimerSwing_timeout():
 
 func _on_TimerSwingAnim_timeout():
 	if state != DASH:
-		if face.y == -1: $Sprite.play("up")
-		elif face.y == 1: $Sprite.play("down")
-		elif face.x != -1: $Sprite.play("left")
+		if face.y < 0: $Sprite.play("up")
+		elif face.y > 0: $Sprite.play("down")
+		elif face.x < 0: $Sprite.play("left")
+		elif face.x > 0: $Sprite.play("right")
 
 func _on_TimerDash_timeout():
 	state = WALK
-	if face.y == -1:
+	if face.y < 0:
 		$Sprite.play("up")
 		hbU.set_disabled(true)
-	elif face.y == 1:
+	elif face.y > 0:
 		$Sprite.play("down")
 		hbD.set_disabled(true)
-	elif face.x != 0:
+	elif face.x < 0:
 		$Sprite.play("left")
-		if face.x < 0: hbL.set_disabled(true)
-		else: hbR.set_disabled(true)
+		hbL.set_disabled(true)
+	elif face.x > 0:
+		$Sprite.play("right")
+		hbR.set_disabled(true)
 	sound = -1
 
 func _on_TimerShoot_timeout():
 	state = WALK
 	if face.y < 0: $Sprite.play("up")
 	elif face.y > 0: $Sprite.play("down")
-	elif face.x != 0: $Sprite.play("left")
+	elif face.x < 0: $Sprite.play("left")
+	elif face.x > 0: $Sprite.play("right")
 	sound = -1
 
 func _on_TimerWarp_timeout():

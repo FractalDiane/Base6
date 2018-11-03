@@ -35,14 +35,16 @@ func interaction():
 		controller.dialogue(text[dialogue_set],self,box_x,box_y,box_width,box_height)
 
 func change_direction():
-	if Player.get_node("Sprite").get_animation() in ["up", "walkup"]:
-		$Sprite.set_animation("down")
-	elif Player.get_node("Sprite").get_animation() in ["down", "walkdown"]:
-		$Sprite.set_animation("up")
-	elif Player.get_node("Sprite").get_animation() in ["left", "walkleft"]:
-		$Sprite.set_animation("right")
-	elif Player.get_node("Sprite").get_animation() in ["right", "walkright"]:
-		$Sprite.set_animation("left")
+	if Player.face.x == 0: # Vertical
+		if Player.face.y < 0: # Up
+			$Sprite.set_animation("down")
+		else: # Down
+			$Sprite.set_animation("up")
+	else: # Horizontal
+		if Player.face.x < 0: # Left
+			$Sprite.set_animation("right")
+		else: # Right
+			$Sprite.set_animation("left")
 		
 func _on_TimerHideInteract_timeout():
 	show_interact = false

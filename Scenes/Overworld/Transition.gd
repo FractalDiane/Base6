@@ -43,6 +43,16 @@ func _physics_process(delta):
 			else:
 				target_x_f = target_x
 				target_y_f = target_y
+				
+			var target_dir
+			if direction == "up":
+				target_dir = Vector2(0,-1)
+			elif direction == "down":
+				target_dir = Vector2(0,1)
+			elif direction == "left":
+				target_dir = Vector2(-1,0)
+			elif direction == "right":
+				target_dir = Vector2(1,0)
 			
 			# Set player properties
 			Player.warp = true
@@ -59,5 +69,6 @@ func _physics_process(delta):
 			
 			controller.scene_change(target_scene)
 			Player.set_position(Vector2(target_x_f,target_y_f))
+			Player.face = target_dir
 			Player.get_node("Sprite").play(direction)
 			Player.get_node("TimerWarp").start()
