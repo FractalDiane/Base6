@@ -1,8 +1,11 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Scenes/Arrow.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Objects/Arrow.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Combat/Arrow.png" type="Texture" id=2]
 [ext_resource path="res://Sounds/Player/Arrow plink.wav" type="AudioStream" id=3]
+
+
+
 
 [node name="Arrow" type="KinematicBody2D"]
 

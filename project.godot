@@ -19,9 +19,9 @@ config/icon="res://icon.png"
 
 PlayerNoise="*res://Globals/PlayerNoise.tscn"
 Screencap="*res://Globals/Screencap.tscn"
-controller="*res://Globals/controller.gd"
 audioplayer="*res://Globals/audioplayer.tscn"
 Player="*res://Globals/Player.tscn"
+controller="*res://Scripts/Globals/controller.gd"
 
 [display]
 

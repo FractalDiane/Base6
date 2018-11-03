@@ -1,11 +1,12 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Scenes/Overworld/Dialogue.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/System/Dialogue.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/UI/Text box.png" type="Texture" id=2]
 [ext_resource path="res://Sounds/UI/Text box 1.wav" type="AudioStream" id=3]
 [ext_resource path="res://Sounds/UI/Text box 2.wav" type="AudioStream" id=4]
 [ext_resource path="res://Sounds/UI/Text type.wav" type="AudioStream" id=5]
 [ext_resource path="res://Fonts/font_standard.tres" type="DynamicFont" id=6]
+
 
 [node name="Dialogue" type="CanvasLayer"]
 

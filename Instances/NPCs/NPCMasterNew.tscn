@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Scenes/Overworld/NPC.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Characters/Jari/Jari left.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Characters/Jari/Jari right.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/System/NPC.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Characters/Jari/Jari right.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Characters/Jari/Jari left.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Characters/Jari/Jari up.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Characters/Jari/Jari down.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/UI/Interact 1.png" type="Texture" id=6]
@@ -15,12 +15,12 @@
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ) ],
@@ -48,7 +48,7 @@ animations = [ {
 "speed": 3.0
 } ]
 
-[node name="NPCMaster" type="KinematicBody2D" index="0" groups=[
+[node name="NPCMaster" type="KinematicBody2D" groups=[
 "NPC",
 ]]
 
@@ -92,7 +92,6 @@ visible = false
 position = Vector2( 0, -17 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 2
 playing = true
 _sections_unfolded = [ "Visibility" ]
 __meta__ = {

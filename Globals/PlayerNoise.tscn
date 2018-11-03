@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://Globals/PlayerNoise.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Globals/PlayerNoise.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Effects/Noise 1-2.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Effects/Noise 2-2.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Effects/Noise 3-2.png" type="Texture" id=4]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Sprites/Effects/Noise 15-2.png" type="Texture" id=15]
 [ext_resource path="res://Sprites/Effects/Noise 14-2.png" type="Texture" id=16]
 [ext_resource path="res://Sprites/Effects/Noise 16-2.png" type="Texture" id=17]
+
 
 [sub_resource type="SpriteFrames" id=1]
 

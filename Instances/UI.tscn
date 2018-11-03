@@ -1,22 +1,23 @@
 [gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://Instances/UI.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/System/UI/UI.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/UI/UI frame.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/UI/UI-life_empty.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/UI/UI-life_full.png" type="Texture" id=4]
-[ext_resource path="res://Instances/Health.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/System/UI/Health.gd" type="Script" id=5]
 [ext_resource path="res://Sprites/UI/UI-corruption_empty.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/UI/UI-corruption_full.png" type="Texture" id=7]
-[ext_resource path="res://Instances/Corruption.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/System/UI/Corruption.gd" type="Script" id=8]
 [ext_resource path="res://Sprites/UI/Item empty.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/UI/Item bow.png" type="Texture" id=10]
-[ext_resource path="res://Instances/Item1.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/System/UI/Item1.gd" type="Script" id=11]
 [ext_resource path="res://Fonts/font_standard.tres" type="DynamicFont" id=12]
 [ext_resource path="res://Sprites/UI/Gold.png" type="Texture" id=13]
 [ext_resource path="res://Fonts/font_small.tres" type="DynamicFont" id=14]
-[ext_resource path="res://Instances/GoldValue.gd" type="Script" id=15]
+[ext_resource path="res://Scripts/System/UI/GoldValue.gd" type="Script" id=15]
 [ext_resource path="res://Sprites/UI/Minimap.png" type="Texture" id=16]
 [ext_resource path="res://Sprites/UI/Minimap marker.png" type="Texture" id=17]
+
 
 [sub_resource type="SpriteFrames" id=1]
 

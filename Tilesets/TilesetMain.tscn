@@ -235,12 +235,13 @@ _sections_unfolded = [ "Offset", "Region" ]
 
 position = Vector2( 4, 4 )
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 3
+collision_mask = 3
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallML/Area2D2" index="0"]
 
@@ -259,12 +260,13 @@ _sections_unfolded = [ "Offset", "Region" ]
 
 position = Vector2( 4, 4 )
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 3
+collision_mask = 3
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallBL/Area2D3" index="0"]
 
@@ -283,12 +285,13 @@ _sections_unfolded = [ "Offset", "Region" ]
 
 position = Vector2( 4, 4 )
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 3
+collision_mask = 3
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallBM/Area2D4" index="0"]
 
@@ -307,12 +310,13 @@ _sections_unfolded = [ "Offset", "Region" ]
 
 position = Vector2( 4, 4 )
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 3
+collision_mask = 3
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallBR/Area2D5" index="0"]
 
@@ -367,12 +371,13 @@ _sections_unfolded = [ "Offset", "Region" ]
 
 position = Vector2( 4, 4 )
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 3
+collision_mask = 3
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallM/Area2D6" index="0"]
 
@@ -391,12 +396,13 @@ _sections_unfolded = [ "Offset", "Region" ]
 
 position = Vector2( 4, 4 )
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 3
+collision_mask = 3
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WalldMR/Area2D7" index="0"]
 
@@ -415,12 +421,13 @@ _sections_unfolded = [ "Offset", "Region" ]
 
 position = Vector2( 4, 4 )
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 3
+collision_mask = 3
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallTM/Area2D8" index="0"]
 
@@ -439,12 +446,13 @@ _sections_unfolded = [ "Offset", "Region" ]
 
 position = Vector2( 4, 4 )
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 3
+collision_mask = 3
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallTR/Area2D9" index="0"]
 
