@@ -100,9 +100,11 @@ func state_walk():
 	if motion.x == 0 and motion.y == 0:
 		sound = -1
 		walking = ""
-	else: $Sprite.set_flip_h(face.x + 1)
-	if face.x != 0: $Sprite.play(walking + "left")
-	elif face.y < 0: $Sprite.play(walking + "up")
+	if face.x != 0: 
+		$Sprite.play(walking + "left")
+		$Sprite.set_flip_h(face.x + 1)
+	else: $Sprite.set_flip_h(0)
+	if face.y < 0: $Sprite.play(walking + "up")
 	elif face.y > 0: $Sprite.play(walking + "down")
 	
 	#Issue I can't figure out: when moving to the top left or bottom right, you can't do a normal attack. 
