@@ -7,7 +7,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 32, 32 )
 
-[node name="Transition" type="Area2D" index="0" groups=[
+[node name="Transition" type="Area2D" groups=[
 "Transition",
 ]]
 
@@ -26,6 +26,7 @@ target_scene = "res://Scenes/Overworld/00.tscn"
 target_x = 16
 target_y = null
 direction = "right"
+not_cell = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 

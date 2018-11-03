@@ -65,3 +65,8 @@ func player_corrupt(amount):
 	parts.set_amount(player_corruption * 2)
 	parts.set_emitting(true)
 	get_parent().get_node("Node2D").add_child(parts)
+	
+# ======================================================================== TOOL FUNCTIONS
+func wave(from, to, duration, offset, time_var, delta):
+	var a = (to - from) * 0.5
+	return from + a + sin((((time_var * delta) + duration * offset) / duration) * (PI/2)) * a

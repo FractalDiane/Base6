@@ -4,11 +4,15 @@ export(String, FILE, "*.tscn") var target_scene
 export(int) var target_x
 export(int) var target_y
 export(String, "up", "down", "left", "right") var direction
+export(bool) var not_cell = false
 
 var corr = false
 var corruption_parts = null
 
 func _ready():
+	#var current_cell = call_deferred(get_tree().edited_scene_root.filename)
+	#var current_cell_str = current_cell.replace(current_cell.get_extension(),"").substr(0,2)
+	#if current_cell_str in controller.corrupted_cells:
 	var target_cell_str = target_scene.get_file().replace(target_scene.get_extension(),"").substr(0,2)
 	if target_cell_str in controller.corrupted_cells:
 		if get_scale().x > get_scale().y: # Horizontal
@@ -29,12 +33,16 @@ func _physics_process(delta):
 			var target_x_f
 			var target_y_f
 			
-			if direction == "up" or direction == "down":
-				target_x_f = player_x
-				target_y_f = target_y
-			elif direction == "left" or direction == "right":
+			if not not_cell:
+				if direction == "up" or direction == "down":
+					target_x_f = player_x
+					target_y_f = target_y
+				elif direction == "left" or direction == "right":
+					target_x_f = target_x
+					target_y_f = player_y
+			else:
 				target_x_f = target_x
-				target_y_f = player_y
+				target_y_f = target_y
 			
 			# Set player properties
 			Player.warp = true

@@ -9,6 +9,17 @@ var color = 1
 
 var arrow = preload("res://Instances/Arrow.tscn")
 
+onready var sight = $Sight
+
+onready var areaU = $HitboxSwordUp
+onready var areaD = $HitboxSwordDown
+onready var areaL = $HitboxSwordLeft
+onready var areaR = $HitboxSwordRight
+onready var hbU = $HitboxSwordUp/CollisionPolygon2D
+onready var hbD = $HitboxSwordDown/CollisionPolygon2D
+onready var hbL = $HitboxSwordLeft/CollisionPolygon2D
+onready var hbR = $HitboxSwordRight/CollisionPolygon2D
+
 const WALK = 0
 const SWING = 1
 const DASH = 2
@@ -32,17 +43,17 @@ func _physics_process(delta):
 	
 	# Move sight
 	if $Sprite.get_animation() in ["up","walkup","swingup", "shootup"]:
-		$Sight.set_position(Vector2(0,-10))
-		$Sight.set_rotation_degrees(0)
+		sight.set_position(Vector2(0,-10))
+		sight.set_rotation_degrees(0)
 	elif $Sprite.get_animation() in ["down","walkdown", "swingdown", "shootdown"]:
-		$Sight.set_position(Vector2(0,20))
-		$Sight.set_rotation_degrees(0)
+		sight.set_position(Vector2(0,20))
+		sight.set_rotation_degrees(0)
 	elif $Sprite.get_animation() in ["left","walkleft","swingleft","shootleft"]:
-		$Sight.set_position(Vector2(-15,5))
-		$Sight.set_rotation_degrees(90)
+		sight.set_position(Vector2(-15,5))
+		sight.set_rotation_degrees(90)
 	elif $Sprite.get_animation() in ["right","walkright","swingright","shootright"]:
-		$Sight.set_position(Vector2(15,5))
-		$Sight.set_rotation_degrees(90)
+		sight.set_position(Vector2(15,5))
+		sight.set_rotation_degrees(90)
 	
 	# Handle current state
 	if state == WALK:
@@ -57,6 +68,8 @@ func _physics_process(delta):
 		state_dialogue()
 	elif state == MENU:
 		state_menu()
+		
+	deal_damage()
 	
 	footstep_increment()
 	footstep_sound()
@@ -148,7 +161,7 @@ func state_walk():
 		state = SHOOT
 		shoot_bow()
 		
-	var current_sight = $Sight.get_overlapping_bodies()
+	var current_sight = sight.get_overlapping_bodies()
 	
 	for node in current_sight:
 		if node.is_in_group("NPC"):
@@ -189,18 +202,22 @@ func swing_attack():
 	$Sprite.set_frame(0)
 	if $Sprite.get_animation() in ["up","walkup","swingup"]:
 		$Sprite.play("swingup")
+		hbU.set_disabled(false)
 		motion.x = 0
 		motion.y = 0
 	elif $Sprite.get_animation() in ["down","walkdown","swingdown"]:
 		$Sprite.play("swingdown")
+		hbD.set_disabled(false)
 		motion.x = 0
 		motion.y = 0
 	elif $Sprite.get_animation() in ["left","walkleft","swingleft"]:
 		$Sprite.play("swingleft")
+		hbL.set_disabled(false)
 		motion.x = 0
 		motion.y = 0
 	elif $Sprite.get_animation() in ["right","walkright","swingright"]:
 		$Sprite.play("swingright")
+		hbR.set_disabled(false)
 		motion.x = 0
 		motion.y = 0
 	$TimerSwing.start()
@@ -213,15 +230,19 @@ func dash_attack():
 	if $Sprite.get_animation() in ["up","walkup","swingup"]:
 		motion.y = -250
 		$Sprite.play("swingup")
+		hbU.set_disabled(false)
 	elif $Sprite.get_animation() in ["down","walkdown", "swingdown"]:
 		motion.y = 250
 		$Sprite.play("swingdown")
+		hbD.set_disabled(false)
 	elif $Sprite.get_animation() in ["left","walkleft","swingleft"]:
 		motion.x = -250
 		$Sprite.play("swingleft")
+		hbL.set_disabled(false)
 	elif $Sprite.get_animation() in ["right","walkright","swingright"]:
 		motion.x = 250
 		$Sprite.play("swingright")
+		hbR.set_disabled(false)
 	$TimerDash.start()
 	
 func shoot_bow():
@@ -268,11 +289,26 @@ func stop_animation():
 	if $Sprite.get_animation() in ["swingleft","swingright","shootleft","shootright","swingup", "swingdown", "shootup", "shootdown"]:
 		if $Sprite.get_frame() >= 2:
 			$Sprite.stop()
+			
+func deal_damage():
+	var hitting = areaU.get_overlapping_bodies() + areaD.get_overlapping_bodies() + areaL.get_overlapping_bodies() + areaR.get_overlapping_bodies()
+	for node in hitting:
+		if node.is_in_group("Enemies") and not node.iframes and not node.dead:
+			$SoundDealDamage.play(0)
+			node.deal_damage()
 	
 # ================================================================================== TIMERS
 	
 func _on_TimerSwing_timeout():
 	state = WALK
+	if $Sprite.get_animation() == "swingup":
+		hbU.set_disabled(true)
+	elif $Sprite.get_animation() == "swingdown":
+		hbD.set_disabled(true)
+	elif $Sprite.get_animation() == "swingleft":
+		hbL.set_disabled(true)
+	elif $Sprite.get_animation() == "swingright":
+		hbR.set_disabled(true)
 
 func _on_TimerSwingAnim_timeout():
 	if state != DASH:
@@ -289,12 +325,16 @@ func _on_TimerDash_timeout():
 	state = WALK
 	if $Sprite.get_animation() == "swingup":
 		$Sprite.play("up")
+		hbU.set_disabled(true)
 	elif $Sprite.get_animation() == "swingdown":
 		$Sprite.play("down")
+		hbD.set_disabled(true)
 	elif $Sprite.get_animation() == "swingleft":
 		$Sprite.play("left")
+		hbL.set_disabled(true)
 	elif $Sprite.get_animation() == "swingright":
 		$Sprite.play("right")
+		hbR.set_disabled(true)
 	sound = -1
 
 func _on_TimerShoot_timeout():

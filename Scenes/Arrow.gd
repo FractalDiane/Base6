@@ -49,6 +49,10 @@ func _physics_process(delta):
 	set_rotation_degrees(-direction)
 	var coll = move_and_collide(velocity)
 	
+	#var coll_e = get_slide_collision(1)
+	#if coll_e != null and coll_e.is_in_group("Enemies"):
+		#print("HELLO")
+	
 	if coll != null:
 		$SoundPlink.play(0)
 		speed = 0

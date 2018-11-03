@@ -4,7 +4,7 @@
 [ext_resource path="res://Sprites/Combat/Arrow.png" type="Texture" id=2]
 [ext_resource path="res://Sounds/Player/Arrow plink.wav" type="AudioStream" id=3]
 
-[node name="Arrow" type="KinematicBody2D" index="0"]
+[node name="Arrow" type="KinematicBody2D"]
 
 z_index = 250
 input_pickable = false

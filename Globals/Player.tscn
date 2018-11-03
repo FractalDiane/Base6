@@ -1,8 +1,8 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Scenes/Player.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore left.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore right.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore right.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore left.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Characters/Fiore/Fiore up.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Characters/Fiore/Fiore bow up 1.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Characters/Fiore/Fiore bow up 2.png" type="Texture" id=6]
@@ -28,30 +28,31 @@
 [ext_resource path="res://Sprites/Characters/Fiore/Fiore swing right 1.png" type="Texture" id=26]
 [ext_resource path="res://Sprites/Characters/Fiore/Fiore swing right 2.png" type="Texture" id=27]
 [ext_resource path="res://Sprites/Characters/Fiore/Fiore swing right 3.png" type="Texture" id=28]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing left 1.png" type="Texture" id=29]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing left 2.png" type="Texture" id=30]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing left 3.png" type="Texture" id=31]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing down 1.png" type="Texture" id=32]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing down 2.png" type="Texture" id=33]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing down 3.png" type="Texture" id=34]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing down 1.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing down 2.png" type="Texture" id=30]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing down 3.png" type="Texture" id=31]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing left 1.png" type="Texture" id=32]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing left 2.png" type="Texture" id=33]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing left 3.png" type="Texture" id=34]
 [ext_resource path="res://Sprites/Characters/Fiore/Fiore bow down 1.png" type="Texture" id=35]
 [ext_resource path="res://Sprites/Characters/Fiore/Fiore bow down 2.png" type="Texture" id=36]
 [ext_resource path="res://Sprites/Characters/Fiore/Fiore bow down 3.png" type="Texture" id=37]
 [ext_resource path="res://Sounds/Player/Step 1.wav" type="AudioStream" id=38]
 [ext_resource path="res://Sounds/Player/Swing.wav" type="AudioStream" id=39]
 [ext_resource path="res://Sounds/Player/Shoot.wav" type="AudioStream" id=40]
+[ext_resource path="res://Sounds/Player/Hit.wav" type="AudioStream" id=41]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ) ],
@@ -69,12 +70,12 @@ animations = [ {
 "name": "shootright",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 11 ), ExtResource( 3 ), ExtResource( 12 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 2 ), ExtResource( 12 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "walkright",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 2 ), ExtResource( 14 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 13 ), ExtResource( 3 ), ExtResource( 14 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "walkleft",
 "speed": 6.0
@@ -111,12 +112,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
 "loop": true,
-"name": "swingleft",
+"name": "swingdown",
 "speed": 16.0
 }, {
 "frames": [ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ) ],
 "loop": true,
-"name": "swingdown",
+"name": "swingleft",
 "speed": 16.0
 }, {
 "frames": [ ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ) ],
@@ -150,6 +151,7 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( -25, -22 )
 frames = SubResource( 1 )
 animation = "down"
+playing = true
 centered = false
 __meta__ = {
 "_edit_lock_": true
@@ -225,7 +227,16 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="Sight" type="Area2D" parent="." index="10"]
+[node name="SoundDealDamage" type="AudioStreamPlayer" parent="." index="10"]
+
+stream = ExtResource( 41 )
+volume_db = -5.0
+pitch_scale = 1.5
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Sight" type="Area2D" parent="." index="11"]
 
 position = Vector2( 0, 20 )
 input_pickable = true
@@ -248,6 +259,82 @@ _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="HitboxSwordLeft" type="Area2D" parent="." index="12"]
+
+position = Vector2( 0, 8 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitboxSwordLeft" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -1, -19, -9, -19, -21, -7, -21, 0, -21, 9, -1, 9 )
+disabled = true
+
+[node name="HitboxSwordDown" type="Area2D" parent="." index="13"]
+
+position = Vector2( 4, 3 )
+rotation = 1.5708
+scale = Vector2( -1, 1 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitboxSwordDown" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -0.999998, -12, -9, -12, -21, -7, -21, 0, -21, 9, -1, 9 )
+disabled = true
+
+[node name="HitboxSwordUp" type="Area2D" parent="." index="14"]
+
+position = Vector2( -3, -20 )
+rotation = 1.5708
+scale = Vector2( -1, -1 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitboxSwordUp" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -0.999998, -12, -9, -12, -21, -7, -21, 0, -21, 9, -1, 9 )
+disabled = true
+
+[node name="HitboxSwordRight" type="Area2D" parent="." index="15"]
+
+position = Vector2( 0, 8 )
+scale = Vector2( -1, 1 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitboxSwordRight" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -1, -19, -9, -19, -21, -7, -21, 0, -21, 9, -1, 9 )
+disabled = true
 
 [connection signal="timeout" from="TimerSwing" to="." method="_on_TimerSwing_timeout"]
 

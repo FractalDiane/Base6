@@ -15,6 +15,7 @@ flags = [ "jari_talk", "cultist40_talk", "Test3" ]
 
 position = Vector2( 80, 72 )
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Visibility" ]
 
 [node name="TimerGameStart" type="Timer" parent="." index="1"]
 

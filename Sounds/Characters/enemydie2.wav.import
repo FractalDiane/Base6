@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/enemydie2.wav-bcad52fcf8ea276e836e543a13d3eb35.sample"
+
+[deps]
+
+source_file="res://Sounds/Characters/enemydie2.wav"
+dest_files=[ "res://.import/enemydie2.wav-bcad52fcf8ea276e836e543a13d3eb35.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
