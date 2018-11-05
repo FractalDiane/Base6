@@ -2,7 +2,6 @@
 
 [ext_resource path="res://Scripts/System/Transition.gd" type="Script" id=1]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
@@ -37,5 +36,14 @@ _sections_unfolded = [ "Visibility" ]
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="TimerRespawn" type="Timer" parent="." index="1"]
+
+process_mode = 1
+wait_time = 0.25
+one_shot = false
+autostart = false
+
+[connection signal="timeout" from="TimerRespawn" to="." method="_on_TimerRespawn_timeout"]
 
 

@@ -32,6 +32,8 @@ func _scene_start():
 	audioplayer.call_deferred("update_music")
 	Screencap.fade = true
 	Screencap.get_node("TimerRestart").start()
+	#if not Player.is_visible():
+		#Player.get_node("TimerShow").start()
 	
 func _scene_end():
 	for node in get_parent().get_node("Node2D").get_children():

@@ -5,6 +5,9 @@ var dash = Vector2(0,0)
 var face = Vector2(0,0)
 var sound = -1
 var warp = false
+var jumping = false
+var falling = false
+var respawn = false
 
 var color = 1
 
@@ -41,7 +44,7 @@ func _physics_process(delta):
 	var rotation = 0
 	if face.y == -1: sight.set_position(Vector2(0,-10))
 	elif face.y == 1: sight.set_position(Vector2(0,20))
-	elif face.x != 0: 
+	elif face.x != 0:
 		sight.set_position(Vector2(face.x*15,5))
 		rotation = 90
 	sight.set_rotation_degrees(rotation)
@@ -60,11 +63,14 @@ func _physics_process(delta):
 			state_dialogue()
 		MENU:
 			state_menu()
+		NO_INPUT:
+			state_noinput()
 		
 	deal_damage()
 	
 	footstep_increment()
 	footstep_sound()
+	debug()
 	move_and_slide(motion)
 	
 func state_walk():
@@ -95,17 +101,11 @@ func state_walk():
 			face.x = sign(motion.x)
 			face.y = 0
 	
-	#Set Animations
+	# Set Animations
 	var walking = "walk"
 	if motion.x == 0 and motion.y == 0:
 		sound = -1
 		walking = ""
-#	if face.x != 0:
-#		$Sprite.play(walking + "left")
-#		$Sprite.set_flip_h(face.x + 1)
-#	else: $Sprite.set_flip_h(0)
-#	if face.y < 0: $Sprite.play(walking + "up")
-#	elif face.y > 0: $Sprite.play(walking + "down")
 	if face.x == 0: # Vertical
 		if face.y < 0:
 			$Sprite.play(walking + "up")
@@ -116,9 +116,6 @@ func state_walk():
 			$Sprite.play(walking + "left")
 		else:
 			$Sprite.play(walking + "right")
-	
-	#Issue I can't figure out: when moving to the top left or bottom right, you can't do a normal attack. 
-	#The Input event just never happens. Dash and shoot work fine, so it might just be me.
 	
 	# SWING
 	if Input.is_action_just_pressed("ui_attack"):
@@ -148,15 +145,16 @@ func state_dash():
 	stop_animation()
 	
 	# Decrease velocity after dash
-	if motion.x < 0: # Left
-		motion.x = clamp(motion.x + 6,-200,0)
-	elif motion.x > 0: # Right
-		motion.x = clamp(motion.x - 6,0,200)
-
-	if motion.y < 0: # Up
-		motion.y = clamp(motion.y + 6,-200,0)
-	elif motion.y > 0: # Down
-		motion.y = clamp(motion.y - 6,0,200)
+	if not jumping:
+		if motion.x < 0: # Left
+			motion.x = clamp(motion.x + 6,-200,0)
+		elif motion.x > 0: # Right
+			motion.x = clamp(motion.x - 6,0,200)
+	
+		if motion.y < 0: # Up
+			motion.y = clamp(motion.y + 6,-200,0)
+		elif motion.y > 0: # Down
+			motion.y = clamp(motion.y - 6,0,200)
 	
 func state_shoot():
 	stop_animation()
@@ -166,6 +164,14 @@ func state_dialogue():
 	
 func state_menu():
 	pass
+	
+func state_noinput():
+	if falling and not respawn:
+		motion = Vector2(0,0)
+		scale.x = clamp(scale.x - 0.05,0,1)
+		scale.y = clamp(scale.y - 0.05,0,1)
+		if scale.x <= 0.01:
+			hide()
 
 # ================================================================================== LOCALS
 
@@ -302,3 +308,13 @@ func _on_TimerShoot_timeout():
 
 func _on_TimerWarp_timeout():
 	warp = false
+	
+# ================================================================================== DEBUG
+
+func debug():
+	if (Input.is_action_pressed("ui_debug1")):
+		controller.flag["holding_dungeon1key"] = 1
+		
+
+func _on_TimerShow_timeout():
+	show()

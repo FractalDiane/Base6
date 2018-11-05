@@ -6,6 +6,8 @@ export(int) var target_y
 export(String, "up", "down", "left", "right") var direction
 export(bool) var not_cell = false
 
+var respawn = false
+
 var corr = false
 var corruption_parts = null
 
@@ -72,3 +74,13 @@ func _physics_process(delta):
 			Player.face = target_dir
 			Player.get_node("Sprite").play(direction)
 			Player.get_node("TimerWarp").start()
+			if respawn:
+				$TimerRespawn.start()
+				respawn = false
+
+func _on_TimerRespawn_timeout():
+	Player.respawn = false
+	Player.falling = false
+	Player.scale = Vector2(1,1)
+	#get_tree().get_root().get_node("Node2D").get_node("PitController").respawn_direction = direction
+	queue_free()

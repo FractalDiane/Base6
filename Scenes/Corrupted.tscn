@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/System/Startup.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Splash.png" type="Texture" id=2]
+[ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=3]
+
+[node name="Node2D" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+start_scene = "res://Scenes/Overworld/00.tscn"
+start_position = Vector2( 90, 78 )
+flags = [ "jari_talk", "cultist40_talk", "holding_dungeon1key" ]
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 80, 72 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="CellLabel" parent="." index="1" instance=ExtResource( 3 )]
+
+text = "??"
+cell_index_x = -1
+cell_index_y = -1
+
+

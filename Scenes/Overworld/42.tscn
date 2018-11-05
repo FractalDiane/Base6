@@ -7,7 +7,7 @@
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Instances/Worldborder.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Sprites/Props/House 1.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Props/Door.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Props/House 2.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -84,8 +84,11 @@ __meta__ = {
 
 [node name="SpriteDoor" type="Sprite" parent="EmptyHouse" index="1"]
 
-position = Vector2( 0, 19 )
+position = Vector2( 0, 20 )
 texture = ExtResource( 8 )
+region_enabled = true
+region_rect = Rect2( 24, 41, 16, 25 )
+_sections_unfolded = [ "Region" ]
 __meta__ = {
 "_edit_lock_": true
 }

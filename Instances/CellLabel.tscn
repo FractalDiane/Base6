@@ -3,7 +3,6 @@
 [ext_resource path="res://Fonts/font_cell2.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scripts/System/CellLabel.gd" type="Script" id=2]
 
-
 [node name="CellLabel" type="Label"]
 
 anchor_left = 0.0
