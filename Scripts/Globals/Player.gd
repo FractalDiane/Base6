@@ -8,6 +8,7 @@ var warp = false
 var jumping = false
 var falling = false
 var respawn = false
+var iframes = false
 
 var color = 1
 
@@ -67,6 +68,11 @@ func _physics_process(delta):
 			state_noinput()
 		
 	deal_damage()
+	
+	if controller.player_corruption >= 10:
+		audioplayer.get_node("Music").stop()
+		state = NO_INPUT
+		controller.scene_change("res://Scenes/Corrupted.tscn")
 	
 	footstep_increment()
 	footstep_sound()
@@ -314,7 +320,6 @@ func _on_TimerWarp_timeout():
 func debug():
 	if (Input.is_action_pressed("ui_debug1")):
 		controller.flag["holding_dungeon1key"] = 1
-		
 
-func _on_TimerShow_timeout():
-	show()
+func _on_TimerIFrames_timeout():
+	iframes = false

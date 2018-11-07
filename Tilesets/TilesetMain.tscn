@@ -7,7 +7,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 4, 4 )
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 [node name="White" type="Sprite" parent="." index="0"]
 
@@ -501,6 +501,15 @@ texture = ExtResource( 1 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 48, 8, 8 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="PitGradientBM" type="Sprite" parent="." index="39"]
+
+position = Vector2( 8, 48 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 8, 48, 8, 8 )
 _sections_unfolded = [ "Offset", "Region", "Transform" ]
 
 

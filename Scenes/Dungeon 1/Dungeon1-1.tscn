@@ -123,7 +123,7 @@ shape = SubResource( 2 )
 
 position = Vector2( 0, 18 )
 scale = Vector2( 0.40625, 0.0937501 )
-target_scene = "res://Scenes/Dungeon 1/Dungeon1-gap.tscn"
+target_scene = "res://Scenes/Dungeon 1/Dungeon1-2.tscn"
 target_y = 100
 direction = "up"
 

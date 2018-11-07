@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://Scripts/Objects/Enemies/Ghast.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Characters/Ghast/ghast_stand1.png" type="Texture" id=2]
@@ -10,31 +10,31 @@
 [ext_resource path="res://Sprites/Characters/Ghast/ghast_stand9.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/Characters/Ghast/ghast_stand10.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/Characters/Ghast/ghast_stand11.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast swat1.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast swat2.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast swat3.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast swat4.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast swat6.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast swat7.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast walk1.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast walk2.png" type="Texture" id=18]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast walk3.png" type="Texture" id=19]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast walk4.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast walk5.png" type="Texture" id=21]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast walk6.png" type="Texture" id=22]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast walk7.png" type="Texture" id=23]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast walk8.png" type="Texture" id=24]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast walk9.png" type="Texture" id=25]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast walk10.png" type="Texture" id=26]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast walk11.png" type="Texture" id=27]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast walk12.png" type="Texture" id=28]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast walk13.png" type="Texture" id=29]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast walk14.png" type="Texture" id=30]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast walk15.png" type="Texture" id=31]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast walk16.png" type="Texture" id=32]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast walk17.png" type="Texture" id=33]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast walk18.png" type="Texture" id=34]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast walk19.png" type="Texture" id=35]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast walk1.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast walk2.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast walk3.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast walk4.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast walk5.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast walk6.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast walk7.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast walk8.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast walk9.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast walk10.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast walk11.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast walk12.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast walk13.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast walk14.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast walk15.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast walk16.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast walk17.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast walk18.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast walk19.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast swat1.png" type="Texture" id=30]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast swat2.png" type="Texture" id=31]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast swat3.png" type="Texture" id=32]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast swat4.png" type="Texture" id=33]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast swat6.png" type="Texture" id=34]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast swat7.png" type="Texture" id=35]
 [ext_resource path="res://Sprites/Characters/Ghast/ghast smash1.png" type="Texture" id=36]
 [ext_resource path="res://Sprites/Characters/Ghast/ghast smash2.png" type="Texture" id=37]
 [ext_resource path="res://Sprites/Characters/Ghast/ghast smash3.png" type="Texture" id=38]
@@ -50,10 +50,13 @@
 [ext_resource path="res://Sprites/Characters/Ghast/ghast smash13.png" type="Texture" id=48]
 [ext_resource path="res://Sprites/Characters/Ghast/ghast smash14.png" type="Texture" id=49]
 [ext_resource path="res://Sprites/Particles/Corruption.png" type="Texture" id=50]
-[ext_resource path="res://Sounds/Characters/enemydie.wav" type="AudioStream" id=51]
-[ext_resource path="res://Sounds/Characters/Shock.wav" type="AudioStream" id=52]
+[ext_resource path="res://Sounds/Player/Swing.wav" type="AudioStream" id=51]
+[ext_resource path="res://Sounds/Characters/Impact.wav" type="AudioStream" id=52]
+[ext_resource path="res://Sounds/Characters/enemydie.wav" type="AudioStream" id=53]
+[ext_resource path="res://Sounds/Characters/Shock.wav" type="AudioStream" id=54]
+[ext_resource path="res://Instances/Particles/PartsSlamImpact.tscn" type="PackedScene" id=55]
 
-[sub_resource type="Shader" id=2]
+[sub_resource type="Shader" id=1]
 
 code = "shader_type canvas_item;
 
@@ -65,38 +68,38 @@ void fragment()
     COLOR = vec4(mix(texture_color.rgb, vec3(1,1,1), flash), texture_color.a);
 }"
 
-[sub_resource type="ShaderMaterial" id=3]
+[sub_resource type="ShaderMaterial" id=2]
 
 render_priority = 0
-shader = SubResource( 2 )
+shader = SubResource( 1 )
 shader_param/flash = null
 _sections_unfolded = [ "shader_param" ]
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
-"name": "left",
+"name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ) ],
 "loop": true,
-"name": "swatleft",
+"name": "walk",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ) ],
+"frames": [ ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ) ],
 "loop": true,
-"name": "walkleft",
+"name": "swat",
 "speed": 12.0
 }, {
 "frames": [ ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ) ],
 "loop": true,
-"name": "slamleft",
-"speed": 5.0
+"name": "slam",
+"speed": 15.0
 } ]
 
-[sub_resource type="ParticlesMaterial" id=5]
+[sub_resource type="ParticlesMaterial" id=4]
 
 render_priority = 0
 trail_divisor = 1
@@ -134,20 +137,20 @@ anim_speed_random = 0.0
 anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
-_sections_unfolded = [ "Color", "Emission Shape", "Initial Velocity", "Scale" ]
+_sections_unfolded = [ "Color", "Emission Shape", "Initial Velocity", "Scale", "Tangential Accel" ]
 
-[sub_resource type="Gradient" id=6]
+[sub_resource type="Gradient" id=5]
 
 offsets = PoolRealArray( 0.391941, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 0 )
 
-[sub_resource type="GradientTexture" id=7]
+[sub_resource type="GradientTexture" id=6]
 
 flags = 4
-gradient = SubResource( 6 )
+gradient = SubResource( 5 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=8]
+[sub_resource type="ParticlesMaterial" id=7]
 
 render_priority = 0
 trail_divisor = 1
@@ -176,7 +179,7 @@ angle = 0.0
 angle_random = 0.0
 scale = 0.65
 scale_random = 0.5
-color_ramp = SubResource( 7 )
+color_ramp = SubResource( 6 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -186,18 +189,18 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angular Velocity", "Color", "Emission Shape", "Flags", "Initial Velocity", "Orbit Velocity", "Scale", "Spread" ]
 
-[sub_resource type="Gradient" id=9]
+[sub_resource type="Gradient" id=8]
 
 offsets = PoolRealArray( 0, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 0 )
 
-[sub_resource type="GradientTexture" id=10]
+[sub_resource type="GradientTexture" id=9]
 
 flags = 4
-gradient = SubResource( 9 )
+gradient = SubResource( 8 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=11]
+[sub_resource type="ParticlesMaterial" id=10]
 
 render_priority = 0
 trail_divisor = 1
@@ -227,7 +230,7 @@ angle = 0.0
 angle_random = 0.0
 scale = 8.0
 scale_random = 1.0
-color_ramp = SubResource( 10 )
+color_ramp = SubResource( 9 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -237,7 +240,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Emission Shape", "Initial Velocity", "Scale", "Trail" ]
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=11]
 
 custom_solver_bias = 0.0
 extents = Vector2( 11, 4 )
@@ -254,20 +257,54 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Material", "Transform", "Visibility", "Z Index", "collision" ]
 health = 9
+speed = 28
 
 [node name="Sprite" type="AnimatedSprite" parent="." index="0"]
 
-material = SubResource( 3 )
-frames = SubResource( 4 )
-animation = "left"
-frame = 6
+material = SubResource( 2 )
+frames = SubResource( 3 )
+animation = "idle"
+frame = 7
 playing = true
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
-[node name="PartsGhast" type="Particles2D" parent="." index="1"]
+[node name="HitboxSwat" type="Area2D" parent="." index="1"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitboxSwat" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -5, -24, -19, -16, -24, 0, -24, 10, -11, 18, -5, 18 )
+disabled = true
+
+[node name="HitboxSlam" type="Area2D" parent="." index="2"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitboxSlam" index="0"]
+
+modulate = Color( 0, 0.625, 1, 1 )
+build_mode = 0
+polygon = PoolVector2Array( -16, -13, -28, -4, -28, 17, -3, 17, -3, -13 )
+disabled = true
+_sections_unfolded = [ "Visibility" ]
+
+[node name="PartsGhast" type="Particles2D" parent="." index="3"]
 
 emitting = true
 amount = 8
@@ -282,17 +319,17 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 5 )
+process_material = SubResource( 4 )
 texture = null
 normal_map = null
 h_frames = 1
 v_frames = 1
-_sections_unfolded = [ "Process Material", "Time" ]
+_sections_unfolded = [ "Drawing", "Process Material", "Time", "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="PartsDeathBurst" type="Particles2D" parent="." index="2"]
+[node name="PartsDeathBurst" type="Particles2D" parent="." index="4"]
 
 emitting = false
 amount = 16
@@ -307,7 +344,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 8 )
+process_material = SubResource( 7 )
 texture = ExtResource( 50 )
 normal_map = null
 h_frames = 1
@@ -317,7 +354,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="PartsDeathGlitch" type="Particles2D" parent="." index="3"]
+[node name="PartsDeathGlitch" type="Particles2D" parent="." index="5"]
 
 emitting = false
 amount = 8
@@ -332,7 +369,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 11 )
+process_material = SubResource( 10 )
 texture = null
 normal_map = null
 h_frames = 1
@@ -342,54 +379,139 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="6"]
 
 position = Vector2( 0, 14 )
-shape = SubResource( 12 )
+shape = SubResource( 11 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TimerIFrames" type="Timer" parent="." index="5"]
+[node name="TimerIFrames" type="Timer" parent="." index="7"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="SoundDeath" type="AudioStreamPlayer" parent="." index="6"]
+[node name="SoundSwat" type="AudioStreamPlayer" parent="." index="8"]
 
 stream = ExtResource( 51 )
-volume_db = 0.0
-pitch_scale = 1.0
+volume_db = -12.0
+pitch_scale = 0.65
 autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="SoundDeath2" type="AudioStreamPlayer" parent="." index="7"]
+[node name="SoundSlamSwing" type="AudioStreamPlayer" parent="." index="9"]
+
+stream = ExtResource( 51 )
+volume_db = -12.0
+pitch_scale = 0.55
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="SoundSlamImpact" type="AudioStreamPlayer" parent="." index="10"]
 
 stream = ExtResource( 52 )
+volume_db = -5.0
+pitch_scale = 0.84
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="SoundDeath" type="AudioStreamPlayer" parent="." index="11"]
+
+stream = ExtResource( 53 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="TimerDeath1" type="Timer" parent="." index="8"]
+[node name="SoundDeath2" type="AudioStreamPlayer" parent="." index="12"]
+
+stream = ExtResource( 54 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="TimerMoveIdle" type="Timer" parent="." index="13"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="TimerMoveIdleEnd" type="Timer" parent="." index="14"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="TimerAttackEnd" type="Timer" parent="." index="15"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="TimerAttackEndCooldown" type="Timer" parent="." index="16"]
+
+process_mode = 1
+wait_time = 0.8
+one_shot = true
+autostart = false
+
+[node name="TimerEnableSwatHitbox" type="Timer" parent="." index="17"]
+
+process_mode = 1
+wait_time = 0.25
+one_shot = true
+autostart = false
+
+[node name="TimerEnableSlamHitbox" type="Timer" parent="." index="18"]
+
+process_mode = 1
+wait_time = 0.47
+one_shot = true
+autostart = false
+
+[node name="TimerDeath1" type="Timer" parent="." index="19"]
 
 process_mode = 1
 wait_time = 0.75
 one_shot = true
 autostart = false
 
-[node name="TimerDeath2" type="Timer" parent="." index="9"]
+[node name="TimerDeath2" type="Timer" parent="." index="20"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
+[node name="Node" type="Node" parent="." index="21"]
+
+[node name="PartsSlamImpact" parent="." index="22" instance=ExtResource( 55 )]
+
 [connection signal="timeout" from="TimerIFrames" to="." method="_on_TimerIFrames_timeout"]
+
+[connection signal="timeout" from="TimerMoveIdle" to="." method="_on_TimerMoveIdle_timeout"]
+
+[connection signal="timeout" from="TimerMoveIdleEnd" to="." method="_on_TimerMoveIdleEnd_timeout"]
+
+[connection signal="timeout" from="TimerAttackEnd" to="." method="_on_TimerAttackEnd_timeout"]
+
+[connection signal="timeout" from="TimerAttackEndCooldown" to="." method="_on_TimerAttackEndCooldown_timeout"]
+
+[connection signal="timeout" from="TimerEnableSwatHitbox" to="." method="_on_TimerEnableSwatHitbox_timeout"]
+
+[connection signal="timeout" from="TimerEnableSlamHitbox" to="." method="_on_TimerEnableSlamHitbox_timeout"]
 
 [connection signal="timeout" from="TimerDeath1" to="." method="_on_TimerDeath1_timeout"]
 
