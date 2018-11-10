@@ -270,7 +270,12 @@ func deal_damage():
 	for node in hitting:
 		if node.is_in_group("Enemies") and not node.iframes and not node.dead:
 			$SoundDealDamage.play(0)
-			node.deal_damage()
+			var dir = (node.get_position() - get_position()).normalized()
+			match state:
+				DASH:
+					node.deal_damage_knockback(dir)
+				_:
+					node.deal_damage_weak_knockback(dir)
 	
 # ================================================================================== TIMERS
 	

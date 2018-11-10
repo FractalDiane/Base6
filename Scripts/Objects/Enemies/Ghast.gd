@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 export(int) var health = 9
 export(float) var speed = 28
+export(float) var knockback_distance = 5
 
 var iframes = false
 var alpha = 1
@@ -148,7 +149,31 @@ func deal_damage():
 	else:
 		iframes = true
 		$TimerIFrames.start()
-		
+
+func deal_damage_knockback(direction):
+	# Direction is a normalized Vector2()
+	flash = 1
+	health -= 3
+	if health <= 0:
+		dead = true
+		death()
+	else:
+		set_position(get_position() + knockback_distance * direction)
+		iframes = true
+		$TimerIFrames.start()
+
+func deal_damage_weak_knockback(direction):
+	# Direction is a normalized Vector2()
+	flash = 1
+	health -= 3
+	if health <= 0:
+		dead = true
+		death()
+	else:
+		set_position(get_position() + (knockback_distance / 2) * direction)
+		iframes = true
+		$TimerIFrames.start()
+
 func animation_control():
 	if spr.get_animation() == "swat":
 		if spr.get_frame() == 1:
