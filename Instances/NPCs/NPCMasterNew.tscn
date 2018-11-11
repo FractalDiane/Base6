@@ -1,14 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/System/NPC.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Characters/Jari/Jari right.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Characters/Jari/Jari left.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Characters/Jari/Jari up.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Characters/Jari/Jari down.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/UI/Interact 1.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/UI/Interact 2.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/UI/Interact 3.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/UI/Interact 4.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Props/Note.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/UI/Interact 1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/UI/Interact 2.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/UI/Interact 3.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/UI/Interact 4.png" type="Texture" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -18,17 +15,17 @@ animations = [ {
 "name": "right",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "left",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "down",
 "speed": 5.0
@@ -42,7 +39,7 @@ extents = Vector2( 9, 3 )
 [sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "default",
 "speed": 3.0
@@ -92,6 +89,7 @@ visible = false
 position = Vector2( 0, -17 )
 frames = SubResource( 3 )
 animation = "default"
+frame = 3
 playing = true
 _sections_unfolded = [ "Visibility" ]
 __meta__ = {

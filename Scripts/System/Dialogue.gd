@@ -32,7 +32,11 @@ func _ready():
 	DText.set_position(Vector2(box_x + 6, box_y + 6))
 	#DText.set_end(Vector2(box_width * 1.5 - 6, box_height * 1.5 - 6))
 	DText.set_end(Vector2(box_width + 6,box_height + 6))
+	#DText.MARGIN_RIGHT = box_width + 6
+	#DText.MARGIN_BOTTOM = box_height + 6
 	$Sound1.play(0)
+	print(str(box_width) + " " + str(box_height))
+	print(DText.margin_right)
 
 func _physics_process(delta):
 	if stage == 0: # Expand H

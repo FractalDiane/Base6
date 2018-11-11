@@ -75,7 +75,6 @@ direction = "up"
 position = Vector2( 64, 49 )
 _sections_unfolded = [ "Transform" ]
 speed = 80.0
-interval = 0.75
 dir_x = 0
 
 [node name="BlockSquare2" parent="." index="8" instance=ExtResource( 8 )]
@@ -83,7 +82,6 @@ dir_x = 0
 position = Vector2( 104, 89 )
 _sections_unfolded = [ "Transform" ]
 speed = 80.0
-interval = 0.75
 dir_x = 0
 dir_y = -1
 

@@ -64,7 +64,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 6, 3 )
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -192,7 +192,7 @@ shape = SubResource( 4 )
 
 visible = true
 position = Vector2( 0, -19 )
-frame = 3
+frame = 2
 
 
 [editable path="NPCKein"]
