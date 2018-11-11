@@ -67,4 +67,13 @@ scale = Vector2( 0.125, 0.5 )
 target_scene = "res://Scenes/Dungeon 1/Dungeon1-4.tscn"
 target_y = 0
 
+[node name="Transition2" parent="." index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 80, 5 )
+scale = Vector2( 0.5, 0.15625 )
+target_scene = "res://Scenes/Dungeon 1/Dungeon1-TL.tscn"
+target_x = 0
+target_y = 104
+direction = "up"
+
 

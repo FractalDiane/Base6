@@ -47,6 +47,9 @@ func scene_change(scene):
 	get_tree().change_scene(scene)
 	_scene_start()
 	
+func set_flag(key, value):
+	flag[key] = value
+	
 func dialogue(text,target_object,box_x,box_y,box_width,box_height):
 	Player.state = Player.DIALOGUE
 	var dialogue_node = dlg.instance()

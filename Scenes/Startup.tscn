@@ -9,7 +9,7 @@
 script = ExtResource( 1 )
 start_scene = "res://Scenes/Overworld/00.tscn"
 start_position = Vector2( 90, 78 )
-flags = [ "jari_talk", "cultist40_talk", "holding_dungeon1key" ]
+flags = [ "jari_talk", "cultist40_talk", "holding_dungeon1key", "dungeon1_switchesTL", "dungeon1_switchesTR", "dungeon1_switchTL_1", "dungeon1_switchTL_2", "dungeon1_switchTL_3", "dungeon1_switchTL_4", "dungeon1_switchTR_1", "dungeon1_switchTR_2", "dungeon1_switchTR_3", "dungeon1_switchTR_4", "kein_talk" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

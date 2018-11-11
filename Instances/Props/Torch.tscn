@@ -107,7 +107,6 @@ _sections_unfolded = [ "Process Material", "Textures", "Time", "Z Index" ]
 position = Vector2( 0, 5 )
 frames = SubResource( 6 )
 animation = "default"
-frame = 1
 playing = true
 _sections_unfolded = [ "Z Index" ]
 __meta__ = {

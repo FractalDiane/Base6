@@ -14,7 +14,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 32, 25 )
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -91,6 +91,18 @@ modulate = Color( 0.859375, 0.859375, 0.859375, 1 )
 position = Vector2( 123, 58 )
 z_index = -4000
 texture = ExtResource( 8 )
-_sections_unfolded = [ "Visibility", "Z Index" ]
+region_enabled = true
+region_rect = Rect2( 0, 30, 58, 36 )
+_sections_unfolded = [ "Region", "Visibility", "Z Index" ]
+
+[node name="Transition3" parent="." index="9" instance=ExtResource( 5 )]
+
+position = Vector2( 50, 77.5 )
+scale = Vector2( 0.21875, 0.078125 )
+target_scene = "res://Scenes/Buildings/FioreHouse.tscn"
+target_x = 80
+target_y = 100
+direction = "up"
+not_cell = true
 
 

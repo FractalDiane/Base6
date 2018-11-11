@@ -2,8 +2,8 @@ extends RigidBody2D
 
 export(float) var delay = 0
 export(float) var speed = 0
-export(float) var interval = 1
-export(bool) var vertical = false
+export(float) var interval_h = 1
+export(float) var interval_v = 1
 
 export(int) var dir_x = 1
 export(int) var dir_y = 1
@@ -25,31 +25,30 @@ func _physics_process(delta):
 	if move:
 		t += 1
 		
-		
-		if t % int(interval * 60) == 0:
-			match(Vector2(dir_x, dir_y)):
-				Vector2(0,1):
-					dir_x = 1
-					dir_y = 0
-				Vector2(1,0):
-					dir_x = 0
-					dir_y = -1
-				Vector2(0,-1):
-					dir_x = -1
-					dir_y = 0
-				Vector2(-1,0):
-					dir_x = 0
-					dir_y = 1
-		#add = controller.wave(-move_range, move_range, time, 0, t, delta)
-		
-		var add_vector
-		if vertical:
-			add_vector = Vector2(0, add)
-		else:
-			add_vector = Vector2(add, 0)
-		
-		#set_linear_velocity(speed * Vector2(dir_x, dir_y))
+		if dir_x != 0 and dir_y == 0:
+			if t % int(interval_h * 60) == 0:
+				change_direction()
+		elif dir_y != 0 and dir_x == 0:
+			 if t % int(interval_v * 60) == 0:
+			 	change_direction()
+
 		set_position(get_position() + (speed * delta * Vector2(dir_x, dir_y)))
+		
+func change_direction():
+	match(Vector2(dir_x, dir_y)):
+		Vector2(0,1):
+			dir_x = 1
+			dir_y = 0
+		Vector2(1,0):
+			dir_x = 0
+			dir_y = -1
+		Vector2(0,-1):
+			dir_x = -1
+			dir_y = 0
+		Vector2(-1,0):
+			dir_x = 0
+			dir_y = 1
+	t = 0
 	
 func _on_TimerDelay_timeout():
 	move = true

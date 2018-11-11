@@ -1,21 +1,24 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sounds/Music/Dungeon.wav" type="AudioStream" id=3]
 [ext_resource path="res://Tilesets/TilesetMain.tres" type="TileSet" id=4]
 [ext_resource path="res://Instances/System/PitController.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Instances/Props/Block.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Instances/Objects/Block.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Instances/Props/Torch.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Instances/JumpPoint.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Instances/Objects/Switch.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Instances/Objects/OrbSwitch.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Instances/System/LogicAND.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 12, 8 )
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -129,93 +132,100 @@ vertical = true
 
 [node name="Torch" parent="." index="6" instance=ExtResource( 7 )]
 
-position = Vector2( 51.5949, 35.176 )
+position = Vector2( 52, 12 )
+_sections_unfolded = [ "Process Material", "Textures", "Time", "Transform", "Z Index" ]
 
-[node name="Torch2" parent="." index="7" instance=ExtResource( 7 )]
+[node name="Torch3" parent="." index="7" instance=ExtResource( 7 )]
 
-position = Vector2( 116, 35 )
+position = Vector2( 84, 18 )
+_sections_unfolded = [ "Process Material", "Textures", "Time", "Transform", "Z Index" ]
 
-[node name="JumpPoint" parent="." index="8" instance=ExtResource( 8 )]
+[node name="Torch2" parent="." index="8" instance=ExtResource( 7 )]
+
+position = Vector2( 116, 12 )
+_sections_unfolded = [ "Process Material", "Textures", "Time", "Transform", "Z Index" ]
+
+[node name="JumpPoint" parent="." index="9" instance=ExtResource( 8 )]
 
 position = Vector2( 68, 80 )
 scale = Vector2( 0.125, 0.25 )
 required_direction = Vector2( -1, 0 )
 distance = 32
 
-[node name="JumpPoint3" parent="." index="9" instance=ExtResource( 8 )]
+[node name="JumpPoint3" parent="." index="10" instance=ExtResource( 8 )]
 
 position = Vector2( 36, 80 )
 scale = Vector2( 0.125, 0.25 )
 required_direction = Vector2( 1, 0 )
 distance = 32
 
-[node name="JumpPoint4" parent="." index="10" instance=ExtResource( 8 )]
+[node name="JumpPoint4" parent="." index="11" instance=ExtResource( 8 )]
 
 position = Vector2( 132, 80 )
 scale = Vector2( 0.125, 0.25 )
 required_direction = Vector2( -1, 0 )
 distance = 32
 
-[node name="JumpPoint2" parent="." index="11" instance=ExtResource( 8 )]
+[node name="JumpPoint2" parent="." index="12" instance=ExtResource( 8 )]
 
 position = Vector2( 100, 80 )
 scale = Vector2( 0.125, 0.25 )
 required_direction = Vector2( 1, 0 )
 distance = 32
 
-[node name="JumpPoint8" parent="." index="12" instance=ExtResource( 8 )]
+[node name="JumpPoint8" parent="." index="13" instance=ExtResource( 8 )]
 
 position = Vector2( 28, 85 )
 scale = Vector2( 0.375, 0.0937501 )
 required_direction = Vector2( 0, 1 )
 distance = 32
 
-[node name="JumpPoint12" parent="." index="13" instance=ExtResource( 8 )]
+[node name="JumpPoint12" parent="." index="14" instance=ExtResource( 8 )]
 
 position = Vector2( 140, 85 )
 scale = Vector2( 0.375, 0.0937501 )
 required_direction = Vector2( 0, 1 )
 distance = 32
 
-[node name="JumpPoint10" parent="." index="14" instance=ExtResource( 8 )]
+[node name="JumpPoint10" parent="." index="15" instance=ExtResource( 8 )]
 
 position = Vector2( 28, 53 )
 scale = Vector2( 0.375, 0.0937501 )
 required_direction = Vector2( 0, 1 )
 distance = 28
 
-[node name="JumpPoint14" parent="." index="15" instance=ExtResource( 8 )]
+[node name="JumpPoint14" parent="." index="16" instance=ExtResource( 8 )]
 
 position = Vector2( 140, 53 )
 scale = Vector2( 0.375, 0.0937501 )
 required_direction = Vector2( 0, 1 )
 distance = 28
 
-[node name="JumpPoint9" parent="." index="16" instance=ExtResource( 8 )]
+[node name="JumpPoint9" parent="." index="17" instance=ExtResource( 8 )]
 
 position = Vector2( 28, 75 )
 scale = Vector2( 0.375, 0.0937501 )
 distance = 32
 
-[node name="JumpPoint13" parent="." index="17" instance=ExtResource( 8 )]
+[node name="JumpPoint13" parent="." index="18" instance=ExtResource( 8 )]
 
 position = Vector2( 140, 75 )
 scale = Vector2( 0.375, 0.0937501 )
 distance = 32
 
-[node name="JumpPoint11" parent="." index="18" instance=ExtResource( 8 )]
+[node name="JumpPoint11" parent="." index="19" instance=ExtResource( 8 )]
 
 position = Vector2( 28, 107 )
 scale = Vector2( 0.375, 0.0937501 )
 distance = 28
 
-[node name="JumpPoint15" parent="." index="19" instance=ExtResource( 8 )]
+[node name="JumpPoint15" parent="." index="20" instance=ExtResource( 8 )]
 
 position = Vector2( 140, 107 )
 scale = Vector2( 0.375, 0.0937501 )
 distance = 28
 
-[node name="Transition" parent="." index="20" instance=ExtResource( 9 )]
+[node name="Transition" parent="." index="21" instance=ExtResource( 9 )]
 
 position = Vector2( 84, 125 )
 scale = Vector2( 0.625, 0.15625 )
@@ -223,5 +233,41 @@ target_scene = "res://Scenes/Dungeon 1/Dungeon1-6.tscn"
 target_x = 0
 target_y = 16
 direction = "down"
+
+[node name="Switch2" parent="." index="22" instance=ExtResource( 10 )]
+
+position = Vector2( 28, 112 )
+target_flag = "dungeon1_switchTR_2"
+reemit_signal = true
+
+[node name="Switch3" parent="." index="23" instance=ExtResource( 10 )]
+
+position = Vector2( 140, 112 )
+target_flag = "dungeon1_switchTR_4"
+reemit_signal = true
+
+[node name="OrbSwitch" parent="." index="24" instance=ExtResource( 11 )]
+
+target_flag = "dungeon1_switchTR_1"
+reemit_signal = true
+
+[node name="OrbSwitch2" parent="." index="25" instance=ExtResource( 11 )]
+
+position = Vector2( 140, 38 )
+target_flag = "dungeon1_switchTR_3"
+reemit_signal = true
+
+[node name="LogicAND" parent="." index="26" instance=ExtResource( 12 )]
+
+inputs = 4
+target_flag = "dungeon1_switchesTR"
+
+[connection signal="on_pressed" from="Switch2" to="LogicAND" method="set_input" binds= [ 1, true ]]
+
+[connection signal="on_pressed" from="Switch3" to="LogicAND" method="set_input" binds= [ 3, true ]]
+
+[connection signal="on_trigger" from="OrbSwitch" to="LogicAND" method="set_input" binds= [ 0, true ]]
+
+[connection signal="on_trigger" from="OrbSwitch2" to="LogicAND" method="set_input" binds= [ 2, true ]]
 
 

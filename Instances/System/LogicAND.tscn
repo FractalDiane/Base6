@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/System/Logic/LogicAND.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/System/AND gate.png" type="Texture" id=2]
+
+[node name="LogicAND" type="Node2D"]
+
+position = Vector2( 84, 54 )
+script = ExtResource( 1 )
+inputs = 2
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+

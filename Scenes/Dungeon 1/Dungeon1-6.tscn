@@ -6,8 +6,10 @@
 [ext_resource path="res://Tilesets/TilesetMain.tres" type="TileSet" id=4]
 [ext_resource path="res://Instances/System/PitController.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Instances/Props/Torch.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Instances/Props/BlockCircle.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Instances/Objects/BlockCircle.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=8]
+
+
 
 [node name="Node2D" type="Node2D"]
 

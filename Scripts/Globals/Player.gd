@@ -268,7 +268,7 @@ func stop_animation():
 func deal_damage():
 	var hitting = areaU.get_overlapping_bodies() + areaD.get_overlapping_bodies() + areaL.get_overlapping_bodies() + areaR.get_overlapping_bodies()
 	for node in hitting:
-		if node.is_in_group("Enemies") and not node.iframes and not node.dead:
+		if node.is_in_group("Enemies") and not node.iframes and not node.dead: # Enemy
 			$SoundDealDamage.play(0)
 			var dir = (node.get_position() - get_position()).normalized()
 			match state:
@@ -276,6 +276,8 @@ func deal_damage():
 					node.deal_damage_knockback(dir)
 				_:
 					node.deal_damage_weak_knockback(dir)
+		if node.is_in_group("OrbSwitch") and not node.pressed: # Orb switch
+			node.press()
 	
 # ================================================================================== TIMERS
 	
@@ -320,11 +322,11 @@ func _on_TimerShoot_timeout():
 func _on_TimerWarp_timeout():
 	warp = false
 	
+func _on_TimerIFrames_timeout():
+	iframes = false
+	
 # ================================================================================== DEBUG
 
 func debug():
 	if (Input.is_action_pressed("ui_debug1")):
 		controller.flag["holding_dungeon1key"] = 1
-
-func _on_TimerIFrames_timeout():
-	iframes = false

@@ -37,6 +37,8 @@ audio_bus_name = "Master"
 script = ExtResource( 1 )
 one_shot = true
 time = 0
+target_flag = "null"
+reemit_signal = false
 
 [node name="Sprite" type="AnimatedSprite" parent="." index="0"]
 
@@ -63,5 +65,14 @@ pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+
+[node name="TimerReemitSignal" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 0.1
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="TimerReemitSignal" to="." method="_on_TimerReemitSignal_timeout"]
 
 

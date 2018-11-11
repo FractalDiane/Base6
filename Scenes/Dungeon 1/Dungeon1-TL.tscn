@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=2]
@@ -6,8 +6,11 @@
 [ext_resource path="res://Tilesets/TilesetMain.tres" type="TileSet" id=4]
 [ext_resource path="res://Instances/System/PitController.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Instances/JumpPoint.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Instances/Props/Block.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Instances/Props/Torch.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Instances/Props/Torch.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Instances/Objects/Switch.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Instances/Objects/BlockSquare.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Instances/System/LogicAND.tscn" type="PackedScene" id=11]
 
 [node name="Node2D" type="Node2D"]
 
@@ -53,57 +56,156 @@ __meta__ = {
 position = Vector2( -1, 0 )
 build_mode = 0
 polygon = PoolVector2Array( 8, 40, 8, 120, 56, 120, 56, 96, 32, 96, 32, 64, 56, 64, 56, 48, 104, 48, 104, 64, 128, 64, 128, 96, 104, 96, 104, 112, 56, 112, 56.01, 128, 104, 128, 104, 120, 152, 120, 152, 40 )
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="JumpPoint" parent="." index="4" instance=ExtResource( 6 )]
+[node name="JumpPoint4" parent="." index="4" instance=ExtResource( 6 )]
 
-position = Vector2( 44, 104 )
-scale = Vector2( 0.375, 0.25 )
+position = Vector2( 44, 61.5 )
+scale = Vector2( 0.375, 0.078125 )
+required_direction = Vector2( 0, 1 )
+distance = 38
 
-[node name="JumpPoint2" parent="." index="5" instance=ExtResource( 6 )]
+[node name="JumpPoint9" parent="." index="5" instance=ExtResource( 6 )]
 
-position = Vector2( 116, 56 )
-scale = Vector2( 0.375, 0.25 )
+position = Vector2( 116, 61.5 )
+scale = Vector2( 0.375, 0.078125 )
+required_direction = Vector2( 0, 1 )
+distance = 38
 
-[node name="JumpPoint3" parent="." index="6" instance=ExtResource( 6 )]
+[node name="JumpPoint6" parent="." index="6" instance=ExtResource( 6 )]
 
-position = Vector2( 116, 104 )
-scale = Vector2( 0.375, 0.25 )
+position = Vector2( 53.5, 56 )
+scale = Vector2( 0.078125, 0.25 )
+required_direction = Vector2( 1, 0 )
+distance = 64
 
-[node name="JumpPoint4" parent="." index="7" instance=ExtResource( 6 )]
+[node name="JumpPoint8" parent="." index="7" instance=ExtResource( 6 )]
 
-position = Vector2( 44, 56 )
-scale = Vector2( 0.375, 0.25 )
+position = Vector2( 106.5, 56 )
+scale = Vector2( 0.078125, 0.25 )
+required_direction = Vector2( -1, 0 )
+distance = 64
 
-[node name="Block" parent="." index="8" instance=ExtResource( 7 )]
+[node name="JumpPoint11" parent="." index="8" instance=ExtResource( 6 )]
 
-position = Vector2( 94.1946, 52.49 )
-move_range = 48
-time = 0.5
+position = Vector2( 106.5, 104 )
+scale = Vector2( 0.078125, 0.25 )
+required_direction = Vector2( -1, 0 )
+distance = 64
 
-[node name="Block2" parent="." index="9" instance=ExtResource( 7 )]
+[node name="JumpPoint7" parent="." index="9" instance=ExtResource( 6 )]
 
-position = Vector2( 42.347, 70.676 )
-move_range = -48
-time = 0.5
+position = Vector2( 53.5, 104 )
+scale = Vector2( 0.078125, 0.25 )
+required_direction = Vector2( 1, 0 )
+distance = 64
 
-[node name="Block3" parent="." index="10" instance=ExtResource( 7 )]
+[node name="JumpPoint5" parent="." index="10" instance=ExtResource( 6 )]
 
-position = Vector2( 67.081, 99.4183 )
-move_range = -48
-time = 0.5
+position = Vector2( 44, 98.5 )
+scale = Vector2( 0.375, 0.0781251 )
+distance = 38
 
-[node name="Block4" parent="." index="11" instance=ExtResource( 7 )]
+[node name="JumpPoint10" parent="." index="11" instance=ExtResource( 6 )]
 
-position = Vector2( 116.486, 83.9596 )
-move_range = -48
-time = 0.5
+position = Vector2( 116, 98.5 )
+scale = Vector2( 0.375, 0.0781251 )
+distance = 38
 
-[node name="Torch" parent="." index="12" instance=ExtResource( 8 )]
+[node name="Torch" parent="." index="12" instance=ExtResource( 7 )]
 
 position = Vector2( 40, 22 )
 
-[node name="Torch2" parent="." index="13" instance=ExtResource( 8 )]
+[node name="Torch2" parent="." index="13" instance=ExtResource( 7 )]
 
 position = Vector2( 128, 22 )
+
+[node name="Switch" parent="." index="14" instance=ExtResource( 8 )]
+
+position = Vector2( 44, 56 )
+target_flag = "dungeon1_switchTL_1"
+reemit_signal = true
+
+[node name="Switch4" parent="." index="15" instance=ExtResource( 8 )]
+
+position = Vector2( 115, 56 )
+target_flag = "dungeon1_switchTL_3"
+reemit_signal = true
+
+[node name="Switch2" parent="." index="16" instance=ExtResource( 8 )]
+
+position = Vector2( 44, 104 )
+target_flag = "dungeon1_switchTL_2"
+reemit_signal = true
+
+[node name="Switch3" parent="." index="17" instance=ExtResource( 8 )]
+
+position = Vector2( 115, 104 )
+target_flag = "dungeon1_switchTL_4"
+reemit_signal = true
+
+[node name="BlockSquare" parent="." index="18" instance=ExtResource( 9 )]
+
+position = Vector2( 45, 49 )
+_sections_unfolded = [ "Transform" ]
+speed = 80.0
+interval_h = 0.9
+interval_v = 0.6
+dir_x = 0
+
+[node name="BlockSquare3" parent="." index="19" instance=ExtResource( 9 )]
+
+position = Vector2( 116, 49 )
+_sections_unfolded = [ "Transform" ]
+speed = 80.0
+interval_h = 0.9
+interval_v = 0.6
+dir_x = -1
+dir_y = 0
+
+[node name="BlockSquare2" parent="." index="20" instance=ExtResource( 9 )]
+
+position = Vector2( 45, 96 )
+_sections_unfolded = [ "Transform" ]
+speed = 80.0
+interval_h = 0.9
+interval_v = 0.6
+dir_y = 0
+
+[node name="BlockSquare4" parent="." index="21" instance=ExtResource( 9 )]
+
+position = Vector2( 116, 96 )
+_sections_unfolded = [ "Transform" ]
+speed = 80.0
+interval_h = 0.9
+interval_v = 0.6
+dir_x = 0
+dir_y = -1
+
+[node name="Transition" parent="." index="22" instance=ExtResource( 10 )]
+
+position = Vector2( 80, 130 )
+scale = Vector2( 0.75, 0.15625 )
+target_scene = "res://Scenes/Dungeon 1/Dungeon1-5.tscn"
+target_x = 0
+target_y = 16
+direction = "down"
+
+[node name="LogicAND" parent="." index="23" instance=ExtResource( 11 )]
+
+position = Vector2( 80, 80 )
+_sections_unfolded = [ "Transform" ]
+inputs = 4
+target_flag = "dungeon1_switchesTL"
+
+[connection signal="on_pressed" from="Switch" to="LogicAND" method="set_input" binds= [ 0, true ]]
+
+[connection signal="on_pressed" from="Switch4" to="LogicAND" method="set_input" binds= [ 2, true ]]
+
+[connection signal="on_pressed" from="Switch2" to="LogicAND" method="set_input" binds= [ 1, true ]]
+
+[connection signal="on_pressed" from="Switch3" to="LogicAND" method="set_input" binds= [ 3, true ]]
 
 
