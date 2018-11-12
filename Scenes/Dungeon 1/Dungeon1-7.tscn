@@ -1,0 +1,158 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sounds/Music/Dungeon.wav" type="AudioStream" id=3]
+[ext_resource path="res://Tilesets/TilesetMain.tres" type="TileSet" id=4]
+[ext_resource path="res://Instances/Props/Torch.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Instances/NPCs/NPCMasterNew.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sprites/Characters/Elders/Kein left.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Characters/Elders/Kein right.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters/Elders/Kein up.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Characters/Elders/Kein down.png" type="Texture" id=11]
+[ext_resource path="res://Instances/Props/Column.tscn" type="PackedScene" id=12]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 6, 3 )
+
+[node name="Node2D" type="Node2D"]
+
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="UI" parent="." index="0" instance=ExtResource( 1 )]
+
+[node name="CellLabel" parent="." index="1" instance=ExtResource( 2 )]
+
+text = "??"
+cell_index_x = -1
+cell_index_y = -1
+cell_music = ExtResource( 3 )
+
+[node name="TileMap" type="TileMap" parent="." index="2"]
+
+mode = 0
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 8, 8 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 0, 29, 0, 1, 24, 0, 2, 24, 0, 3, 24, 0, 4, 24, 0, 5, 24, 0, 6, 24, 0, 7, 25, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 23, 0, 13, 24, 0, 14, 24, 0, 15, 24, 0, 16, 24, 0, 17, 24, 0, 18, 24, 0, 19, 28, 0, 65536, 31, 0, 65537, 30, 0, 65538, 30, 0, 65539, 30, 0, 65540, 30, 0, 65541, 30, 0, 65542, 30, 0, 65543, 31, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 22, 0, 65549, 30, 0, 65550, 30, 0, 65551, 30, 0, 65552, 30, 0, 65553, 30, 0, 65554, 30, 0, 65555, 22, 0, 131072, 31, 0, 131073, 30, 0, 131074, 30, 0, 131075, 30, 0, 131076, 30, 0, 131077, 30, 0, 131078, 30, 0, 131079, 31, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 22, 0, 131085, 30, 0, 131086, 30, 0, 131087, 30, 0, 131088, 30, 0, 131089, 30, 0, 131090, 30, 0, 131091, 22, 0, 196608, 31, 0, 196609, 24, 0, 196610, 24, 0, 196611, 24, 0, 196612, 24, 0, 196613, 24, 0, 196614, 24, 0, 196615, 25, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 23, 0, 196621, 24, 0, 196622, 24, 0, 196623, 24, 0, 196624, 24, 0, 196625, 24, 0, 196626, 24, 0, 196627, 22, 0, 262144, 31, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 0, 0, 262161, 0, 0, 262162, 0, 0, 262163, 22, 0, 327680, 31, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 327696, 0, 0, 327697, 0, 0, 327698, 0, 0, 327699, 22, 0, 393216, 31, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 393234, 0, 0, 393235, 22, 0, 458752, 27, 0, 458753, 32, 0, 458754, 32, 0, 458755, 32, 0, 458756, 32, 0, 458757, 32, 0, 458758, 32, 0, 458759, 33, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 21, 0, 458765, 32, 0, 458766, 32, 0, 458767, 32, 0, 458768, 32, 0, 458769, 32, 0, 458770, 32, 0, 458771, 26, 0, 524288, 29, 0, 524289, 24, 0, 524290, 24, 0, 524291, 24, 0, 524292, 24, 0, 524293, 24, 0, 524294, 24, 0, 524295, 25, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 23, 0, 524301, 24, 0, 524302, 24, 0, 524303, 24, 0, 524304, 24, 0, 524305, 24, 0, 524306, 24, 0, 524307, 28, 0, 589824, 31, 0, 589825, 30, 0, 589826, 30, 0, 589827, 30, 0, 589828, 30, 0, 589829, 30, 0, 589830, 30, 0, 589831, 31, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 22, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0, 589840, 0, 0, 589841, 0, 0, 589842, 0, 0, 589843, 22, 0, 655360, 31, 0, 655361, 30, 0, 655362, 30, 0, 655363, 30, 0, 655364, 30, 0, 655365, 30, 0, 655366, 30, 0, 655367, 31, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 22, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 22, 0, 720896, 31, 0, 720897, 24, 0, 720898, 24, 0, 720899, 24, 0, 720900, 24, 0, 720901, 24, 0, 720902, 24, 0, 720903, 25, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 23, 0, 720909, 24, 0, 720910, 24, 0, 720911, 24, 0, 720912, 24, 0, 720913, 24, 0, 720914, 24, 0, 720915, 22, 0, 786432, 31, 0, 786433, 0, 0, 786434, 0, 0, 786435, 0, 0, 786436, 0, 0, 786437, 0, 0, 786438, 0, 0, 786439, 0, 0, 786440, 0, 0, 786441, 0, 0, 786442, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 0, 0, 786446, 0, 0, 786447, 0, 0, 786448, 0, 0, 786449, 0, 0, 786450, 0, 0, 786451, 22, 0, 851968, 31, 0, 851969, 0, 0, 851970, 0, 0, 851971, 0, 0, 851972, 0, 0, 851973, 0, 0, 851974, 0, 0, 851975, 0, 0, 851976, 0, 0, 851977, 0, 0, 851978, 0, 0, 851979, 0, 0, 851980, 0, 0, 851981, 0, 0, 851982, 0, 0, 851983, 0, 0, 851984, 0, 0, 851985, 0, 0, 851986, 0, 0, 851987, 22, 0, 917504, 31, 0, 917505, 0, 0, 917506, 0, 0, 917507, 0, 0, 917508, 0, 0, 917509, 0, 0, 917510, 0, 0, 917511, 0, 0, 917512, 0, 0, 917513, 0, 0, 917514, 0, 0, 917515, 0, 0, 917516, 0, 0, 917517, 0, 0, 917518, 0, 0, 917519, 0, 0, 917520, 0, 0, 917521, 0, 0, 917522, 0, 0, 917523, 22, 0, 983040, 27, 0, 983041, 32, 0, 983042, 32, 0, 983043, 32, 0, 983044, 32, 0, 983045, 32, 0, 983046, 32, 0, 983047, 33, 0, 983048, 14, 0, 983049, 14, 0, 983050, 14, 0, 983051, 14, 0, 983052, 21, 0, 983053, 32, 0, 983054, 32, 0, 983055, 32, 0, 983056, 32, 0, 983057, 32, 0, 983058, 32, 0, 983059, 26, 0 )
+_sections_unfolded = [ "Cell" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Torch" parent="." index="3" instance=ExtResource( 5 )]
+
+position = Vector2( 35, 13 )
+_sections_unfolded = [ "Process Material", "Textures", "Time", "Transform", "Z Index" ]
+
+[node name="Torch2" parent="." index="4" instance=ExtResource( 5 )]
+
+position = Vector2( 35, 78 )
+_sections_unfolded = [ "Process Material", "Textures", "Time", "Transform", "Z Index" ]
+
+[node name="Torch3" parent="." index="5" instance=ExtResource( 5 )]
+
+position = Vector2( 125, 13 )
+_sections_unfolded = [ "Process Material", "Textures", "Time", "Transform", "Z Index" ]
+
+[node name="Torch4" parent="." index="6" instance=ExtResource( 5 )]
+
+position = Vector2( 125, 78 )
+_sections_unfolded = [ "Process Material", "Textures", "Time", "Transform", "Z Index" ]
+
+[node name="Transition" parent="." index="7" instance=ExtResource( 6 )]
+
+position = Vector2( 80, 124 )
+scale = Vector2( 0.5, 0.125 )
+target_scene = "res://Scenes/Dungeon 1/Dungeon1-4.tscn"
+target_x = 0
+target_y = 32
+direction = "down"
+
+[node name="NPCKeinInside" parent="." index="8" instance=ExtResource( 7 )]
+
+position = Vector2( 110, 32 )
+text = [ [ "Oh... Fiore.", "I'm glad you're here.", "I managed to get the door open.", "But... then it closed behind me.", "Somewhat embarrassing.", "Do you think you could go on and see what's ahead?", "I need a rest. I'm too old for this." ], [ "There must be answers in here.", "But they're probably heavily guarded.", "Be careful, Fiore." ] ]
+dialogue_key = "keininside_talk"
+box_x = 10
+box_width = 88
+
+[node name="Sprite" parent="NPCKeinInside" index="0"]
+
+frames = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="NPCKeinInside" index="1"]
+
+shape = SubResource( 2 )
+
+[node name="Interact" parent="NPCKeinInside" index="2"]
+
+visible = true
+position = Vector2( 0, -19 )
+
+[node name="Transition2" parent="." index="9" instance=ExtResource( 6 )]
+
+position = Vector2( 80, 5 )
+scale = Vector2( 0.5, 0.15625 )
+target_scene = "res://Scenes/Dungeon 1/Dungeon1-8.tscn"
+target_x = 0
+target_y = 100
+direction = "up"
+
+[node name="StaticBody2D" parent="." index="10" instance=ExtResource( 12 )]
+
+position = Vector2( 18, 19 )
+
+[node name="StaticBody2D3" parent="." index="11" instance=ExtResource( 12 )]
+
+position = Vector2( 54, 83 )
+
+[node name="StaticBody2D2" parent="." index="12" instance=ExtResource( 12 )]
+
+position = Vector2( 143, 19 )
+
+[node name="StaticBody2D4" parent="." index="13" instance=ExtResource( 12 )]
+
+position = Vector2( 107, 83 )
+
+
+[editable path="NPCKeinInside"]

@@ -14,7 +14,6 @@ func _ready():
 
 func set_input(num, state):
 	input_dict[num] = state
-	print(input_dict)
 	if all_true() and not output:
 		controller.flag[target_flag] = 1
 		output = true

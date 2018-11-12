@@ -257,9 +257,16 @@ position = Vector2( 140, 38 )
 target_flag = "dungeon1_switchTR_3"
 reemit_signal = true
 
-[node name="LogicAND" parent="." index="26" instance=ExtResource( 12 )]
+[node name="OrbSwitch3" parent="." index="26" instance=ExtResource( 11 )]
 
-inputs = 4
+position = Vector2( 84, 41 )
+target_flag = "dungeon1_switchTR_5"
+reemit_signal = true
+
+[node name="LogicAND" parent="." index="27" instance=ExtResource( 12 )]
+
+position = Vector2( 84, 71 )
+inputs = 5
 target_flag = "dungeon1_switchesTR"
 
 [connection signal="on_pressed" from="Switch2" to="LogicAND" method="set_input" binds= [ 1, true ]]
@@ -269,5 +276,7 @@ target_flag = "dungeon1_switchesTR"
 [connection signal="on_trigger" from="OrbSwitch" to="LogicAND" method="set_input" binds= [ 0, true ]]
 
 [connection signal="on_trigger" from="OrbSwitch2" to="LogicAND" method="set_input" binds= [ 2, true ]]
+
+[connection signal="on_trigger" from="OrbSwitch3" to="LogicAND" method="set_input" binds= [ 4, true ]]
 
 

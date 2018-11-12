@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/Objects/Combat/SentryShot.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Combat/Sentry shot.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Combat/Sentry shot 2.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Combat/Sentry shot 3.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Combat/Sentry shot 4.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Combat/Sentry shot 5.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[node name="SentryShot" type="KinematicBody2D" index="0"]
+
+position = Vector2( 82, 77 )
+input_pickable = false
+collision_layer = 8
+collision_mask = 8
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
+
+[node name="Sprite" type="AnimatedSprite" parent="." index="0"]
+
+frames = SubResource( 1 )
+animation = "default"
+playing = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+
+position = Vector2( 1, 0 )
+build_mode = 0
+polygon = PoolVector2Array( -2, -4, -3, -3, -3, 0, -2, 1, 1, 1, 2, 0, 2, -3, 1, -4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TimerExpire" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="TimerExpire" to="." method="_on_TimerExpire_timeout"]
+
+

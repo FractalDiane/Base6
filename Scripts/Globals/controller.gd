@@ -62,9 +62,10 @@ func dialogue(text,target_object,box_x,box_y,box_width,box_height):
 	get_tree().get_root().add_child(dialogue_node)
 	
 func player_damage(amount):
-	audioplayer.play_sound("SoundPlayerDamage")
-	player_health -= amount
-	Player.get_node("PartsHurt").set_emitting(true)
+	if not Player.iframes:
+		audioplayer.play_sound("SoundPlayerDamage")
+		player_health -= amount
+		Player.get_node("PartsHurt").set_emitting(true)
 
 func player_corrupt(amount):
 	audioplayer.play_sound("SoundPlayerCorrupt")

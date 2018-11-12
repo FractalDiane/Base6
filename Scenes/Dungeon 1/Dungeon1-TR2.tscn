@@ -1,0 +1,284 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sounds/Music/Dungeon.wav" type="AudioStream" id=3]
+[ext_resource path="res://Tilesets/TilesetMain.tres" type="TileSet" id=4]
+[ext_resource path="res://Instances/System/PitController.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Instances/Props/Torch.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Instances/Objects/Switch.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Instances/JumpPoint.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Instances/Objects/BlockCircle.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Sprites/Props/Block 2.png" type="Texture" id=11]
+[ext_resource path="res://Instances/System/LogicAND.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Instances/Objects/Sentry.tscn" type="PackedScene" id=13]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8, 12 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 5, 7 )
+
+[sub_resource type="StreamTexture" id=4]
+
+flags = 0
+load_path = "res://.import/Block 2.png-7438db7c09467e175d76987a1a12bf84.stex"
+
+[node name="Node2D" type="Node2D" index="0"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="UI" parent="." index="0" instance=ExtResource( 1 )]
+
+[node name="CellLabel" parent="." index="1" instance=ExtResource( 2 )]
+
+text = "??"
+cell_index_x = -1
+cell_index_y = -1
+cell_music = ExtResource( 3 )
+
+[node name="TileMap" type="TileMap" parent="." index="2"]
+
+mode = 0
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 8, 8 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 29, 0, 8, 24, 0, 9, 24, 0, 10, 24, 0, 11, 24, 0, 12, 28, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 65536, 29, 0, 65537, 24, 0, 65538, 24, 0, 65539, 28, 0, 65540, 0, 0, 65541, 29, 0, 65542, 24, 0, 65543, 25, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 23, 0, 65549, 24, 0, 65550, 28, 0, 65551, 30, 0, 65552, 29, 0, 65553, 24, 0, 65554, 24, 0, 65555, 28, 0, 131072, 31, 0, 131073, 30, 0, 131074, 0, 0, 131075, 23, 0, 131076, 24, 0, 131077, 25, 0, 131078, 0, 0, 131079, 31, 0, 131080, 14, 0, 131081, 14, 0, 131082, 14, 0, 131083, 14, 0, 131084, 22, 0, 131085, 30, 0, 131086, 23, 0, 131087, 24, 0, 131088, 25, 0, 131089, 0, 0, 131090, 0, 0, 131091, 22, 0, 196608, 31, 0, 196609, 24, 0, 196610, 24, 0, 196611, 22, 0, 196612, 30, 0, 196613, 31, 0, 196614, 30, 0, 196615, 31, 0, 196616, 39, 0, 196617, 39, 0, 196618, 39, 0, 196619, 39, 0, 196620, 22, 0, 196621, 30, 0, 196622, 22, 0, 196623, 30, 0, 196624, 31, 0, 196625, 24, 0, 196626, 24, 0, 196627, 22, 0, 262144, 31, 0, 262145, 30, 0, 262146, 30, 0, 262147, 22, 0, 262148, 30, 0, 262149, 31, 0, 262150, 30, 0, 262151, 31, 0, 262152, 1, 0, 262153, 14, 0, 262154, 14, 0, 262155, 1, 0, 262156, 22, 0, 262157, 30, 0, 262158, 22, 0, 262159, 30, 0, 262160, 31, 0, 262161, 0, 0, 262162, 0, 0, 262163, 22, 0, 327680, 31, 0, 327681, 0, 0, 327682, 0, 0, 327683, 22, 0, 327684, 30, 0, 327685, 31, 0, 327686, 39, 0, 327687, 38, 0, 327688, 1, 0, 327689, 14, 0, 327690, 14, 0, 327691, 1, 0, 327692, 36, 0, 327693, 39, 0, 327694, 22, 0, 327695, 30, 0, 327696, 31, 0, 327697, 0, 0, 327698, 0, 0, 327699, 22, 0, 393216, 31, 0, 393217, 40, 0, 393218, 40, 0, 393219, 37, 0, 393220, 39, 0, 393221, 38, 0, 393222, 1, 0, 393223, 1, 0, 393224, 1, 0, 393225, 40, 0, 393226, 40, 0, 393227, 1, 0, 393228, 1, 0, 393229, 1, 0, 393230, 37, 0, 393231, 39, 0, 393232, 38, 0, 393233, 40, 0, 393234, 40, 0, 393235, 22, 0, 458752, 31, 0, 458753, 1, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 458760, 14, 0, 458761, 14, 0, 458762, 14, 0, 458763, 14, 0, 458764, 1, 0, 458765, 1, 0, 458766, 1, 0, 458767, 1, 0, 458768, 1, 0, 458769, 1, 0, 458770, 1, 0, 458771, 22, 0, 524288, 31, 0, 524289, 14, 0, 524290, 14, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 14, 0, 524297, 14, 0, 524298, 14, 0, 524299, 14, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 524305, 14, 0, 524306, 14, 0, 524307, 22, 0, 589824, 31, 0, 589825, 14, 0, 589826, 14, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 14, 0, 589833, 14, 0, 589834, 14, 0, 589835, 14, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589841, 14, 0, 589842, 14, 0, 589843, 22, 0, 655360, 31, 0, 655361, 14, 0, 655362, 14, 0, 655363, 1, 0, 655364, 1, 0, 655365, 1, 0, 655366, 1, 0, 655367, 1, 0, 655368, 14, 0, 655369, 14, 0, 655370, 14, 0, 655371, 14, 0, 655372, 1, 0, 655373, 1, 0, 655374, 1, 0, 655375, 1, 0, 655376, 1, 0, 655377, 14, 0, 655378, 14, 0, 655379, 22, 0, 720896, 31, 0, 720897, 40, 0, 720898, 40, 0, 720899, 1, 0, 720900, 1, 0, 720901, 1, 0, 720902, 1, 0, 720903, 1, 0, 720904, 14, 0, 720905, 14, 0, 720906, 14, 0, 720907, 14, 0, 720908, 1, 0, 720909, 1, 0, 720910, 1, 0, 720911, 1, 0, 720912, 1, 0, 720913, 40, 0, 720914, 40, 0, 720915, 22, 0, 786432, 31, 0, 786433, 1, 0, 786434, 1, 0, 786435, 21, 0, 786436, 32, 0, 786437, 32, 0, 786438, 32, 0, 786439, 33, 0, 786440, 14, 0, 786441, 14, 0, 786442, 14, 0, 786443, 14, 0, 786444, 21, 0, 786445, 32, 0, 786446, 32, 0, 786447, 32, 0, 786448, 33, 0, 786449, 1, 0, 786450, 1, 0, 786451, 22, 0, 851968, 31, 0, 851969, 14, 0, 851970, 14, 0, 851971, 22, 0, 851972, 30, 0, 851973, 30, 0, 851974, 30, 0, 851975, 31, 0, 851976, 14, 0, 851977, 14, 0, 851978, 14, 0, 851979, 14, 0, 851980, 22, 0, 851981, 30, 0, 851982, 30, 0, 851983, 30, 0, 851984, 31, 0, 851985, 14, 0, 851986, 14, 0, 851987, 22, 0, 917504, 31, 0, 917505, 14, 0, 917506, 14, 0, 917507, 22, 0, 917508, 30, 0, 917509, 30, 0, 917510, 30, 0, 917511, 31, 0, 917512, 14, 0, 917513, 14, 0, 917514, 14, 0, 917515, 14, 0, 917516, 22, 0, 917517, 30, 0, 917518, 30, 0, 917519, 30, 0, 917520, 31, 0, 917521, 14, 0, 917522, 14, 0, 917523, 22, 0, 983040, 27, 0, 983041, 32, 0, 983042, 32, 0, 983043, 26, 0, 983044, 30, 0, 983045, 30, 0, 983046, 30, 0, 983047, 31, 0, 983048, 14, 0, 983049, 14, 0, 983050, 14, 0, 983051, 14, 0, 983052, 22, 0, 983053, 30, 0, 983054, 30, 0, 983055, 30, 0, 983056, 27, 0, 983057, 32, 0, 983058, 32, 0, 983059, 26, 0 )
+_sections_unfolded = [ "Cell" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PitController" parent="." index="3" instance=ExtResource( 5 )]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PitController" index="2"]
+
+position = Vector2( -1, 0 )
+build_mode = 0
+polygon = PoolVector2Array( 64, 56, 64, 126, 96, 126, 96, 56 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PitController" index="4"]
+
+position = Vector2( 15, 76 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="PitController" index="5"]
+
+position = Vector2( 15, 112 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="PitController" index="6"]
+
+position = Vector2( 15, 40 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="PitController" index="7"]
+
+position = Vector2( 143, 112 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="PitController" index="8"]
+
+position = Vector2( 143, 40 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PitController" index="9"]
+
+position = Vector2( 143, 76 )
+shape = SubResource( 1 )
+
+[node name="Torch" parent="." index="4" instance=ExtResource( 6 )]
+
+position = Vector2( 36, 28 )
+
+[node name="Torch2" parent="." index="5" instance=ExtResource( 6 )]
+
+position = Vector2( 124, 28 )
+
+[node name="Switch" parent="." index="6" instance=ExtResource( 7 )]
+
+position = Vector2( 16, 39 )
+target_flag = "dungeon1_switchTR2_1"
+reemit_signal = true
+
+[node name="Switch4" parent="." index="7" instance=ExtResource( 7 )]
+
+position = Vector2( 16, 112 )
+target_flag = "dungeon1_switchTR2_2"
+reemit_signal = true
+
+[node name="Switch2" parent="." index="8" instance=ExtResource( 7 )]
+
+position = Vector2( 143, 39 )
+target_flag = "dungeon1_switchTR2_3"
+reemit_signal = true
+
+[node name="Switch3" parent="." index="9" instance=ExtResource( 7 )]
+
+position = Vector2( 143, 112 )
+target_flag = "dungeon1_switchTR2_4"
+reemit_signal = true
+
+[node name="JumpPoint" parent="." index="10" instance=ExtResource( 8 )]
+
+position = Vector2( 68, 76 )
+scale = Vector2( 0.125, 0.375 )
+required_direction = Vector2( -1, 0 )
+distance = 48
+
+[node name="JumpPoint3" parent="." index="11" instance=ExtResource( 8 )]
+
+position = Vector2( 20, 76 )
+scale = Vector2( 0.125, 0.375 )
+required_direction = Vector2( 1, 0 )
+distance = 48
+
+[node name="JumpPoint4" parent="." index="12" instance=ExtResource( 8 )]
+
+position = Vector2( 140, 76 )
+scale = Vector2( 0.125, 0.375 )
+required_direction = Vector2( -1, 0 )
+distance = 48
+
+[node name="JumpPoint2" parent="." index="13" instance=ExtResource( 8 )]
+
+position = Vector2( 92, 76 )
+scale = Vector2( 0.125, 0.375 )
+required_direction = Vector2( 1, 0 )
+distance = 48
+
+[node name="JumpPoint5" parent="." index="14" instance=ExtResource( 8 )]
+
+position = Vector2( 16, 68 )
+scale = Vector2( 0.25, 0.125 )
+distance = 24
+
+[node name="JumpPoint11" parent="." index="15" instance=ExtResource( 8 )]
+
+position = Vector2( 16, 108.5 )
+scale = Vector2( 0.25, 0.140625 )
+distance = 24
+
+[node name="JumpPoint12" parent="." index="16" instance=ExtResource( 8 )]
+
+position = Vector2( 144, 108.5 )
+scale = Vector2( 0.25, 0.140625 )
+distance = 24
+
+[node name="JumpPoint7" parent="." index="17" instance=ExtResource( 8 )]
+
+position = Vector2( 144, 68 )
+scale = Vector2( 0.25, 0.125 )
+distance = 24
+
+[node name="JumpPoint6" parent="." index="18" instance=ExtResource( 8 )]
+
+position = Vector2( 16, 84 )
+scale = Vector2( 0.25, 0.125 )
+required_direction = Vector2( 0, 1 )
+distance = 24
+
+[node name="JumpPoint8" parent="." index="19" instance=ExtResource( 8 )]
+
+position = Vector2( 144, 84 )
+scale = Vector2( 0.25, 0.125 )
+required_direction = Vector2( 0, 1 )
+distance = 24
+
+[node name="JumpPoint9" parent="." index="20" instance=ExtResource( 8 )]
+
+position = Vector2( 144, 43.5 )
+scale = Vector2( 0.25, 0.140625 )
+required_direction = Vector2( 0, 1 )
+distance = 24
+
+[node name="JumpPoint10" parent="." index="21" instance=ExtResource( 8 )]
+
+position = Vector2( 16, 43.5 )
+scale = Vector2( 0.25, 0.140625 )
+required_direction = Vector2( 0, 1 )
+distance = 24
+
+[node name="Transition" parent="." index="22" instance=ExtResource( 9 )]
+
+position = Vector2( 79.5, 124 )
+scale = Vector2( 0.515625, 0.125 )
+target_scene = "res://Scenes/Dungeon 1/Dungeon1-10.tscn"
+target_x = 0
+target_y = 16
+direction = "down"
+
+[node name="BlockCircle" parent="." index="23" instance=ExtResource( 10 )]
+
+position = Vector2( 44, 75 )
+radius = 16
+speed = 8.0
+
+[node name="Sprite" parent="BlockCircle" index="0"]
+
+texture = ExtResource( 11 )
+
+[node name="CollisionShape2D" parent="BlockCircle" index="1"]
+
+shape = SubResource( 3 )
+
+[node name="BlockCircle2" parent="." index="24" instance=ExtResource( 10 )]
+
+position = Vector2( 116, 75 )
+radius = 16
+speed = 8.0
+
+[node name="Sprite" parent="BlockCircle2" index="0"]
+
+texture = SubResource( 4 )
+
+[node name="CollisionShape2D" parent="BlockCircle2" index="1"]
+
+shape = SubResource( 3 )
+
+[node name="LogicAND" parent="." index="25" instance=ExtResource( 12 )]
+
+position = Vector2( 112, 112 )
+inputs = 4
+target_flag = "dungeon1_switches2TR"
+
+[node name="Sentry" parent="." index="26" instance=ExtResource( 13 )]
+
+position = Vector2( 80, 33 )
+shot_interval = 2.5
+shot_speed = 45
+expiry_time = 1.75
+
+[connection signal="on_pressed" from="Switch" to="LogicAND" method="set_input" binds= [ 0, true ]]
+
+[connection signal="on_pressed" from="Switch4" to="LogicAND" method="set_input" binds= [ 1, true ]]
+
+[connection signal="on_pressed" from="Switch2" to="LogicAND" method="set_input" binds= [ 2, true ]]
+
+[connection signal="on_pressed" from="Switch3" to="LogicAND" method="set_input" binds= [ 3, true ]]
+
+
+[editable path="BlockCircle"]
+[editable path="BlockCircle2"]

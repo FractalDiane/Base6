@@ -8,6 +8,7 @@
 position = Vector2( 84, 54 )
 script = ExtResource( 1 )
 inputs = 2
+target_flag = null
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
