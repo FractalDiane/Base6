@@ -278,6 +278,9 @@ func deal_damage():
 					node.deal_damage_weak_knockback(dir)
 		if node.is_in_group("OrbSwitch") and not node.pressed: # Orb switch
 			node.press()
+		if node.is_in_group("SentryShot") and not node.fade:
+			$SoundDealDamage.play(0)
+			node.fade = true
 	
 # ================================================================================== TIMERS
 	

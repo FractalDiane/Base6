@@ -17,7 +17,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 5, 7 )
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -25,7 +25,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CellLabel" parent="." index="1" instance=ExtResource( 2 )]
 
-text = "??"
+text = "?1"
 cell_index_x = -1
 cell_index_y = -1
 cell_music = ExtResource( 3 )
@@ -86,8 +86,8 @@ target_flag = "dungeon1_switches2TL"
 
 [node name="Block3" parent="." index="8" instance=ExtResource( 9 )]
 
-position = Vector2( 52, 68 )
-move_range = -16
+position = Vector2( 52, 76 )
+move_range = -12
 time = 1.0
 vertical = true
 
@@ -100,8 +100,8 @@ reemit_signal = true
 
 [node name="Block4" parent="." index="9" instance=ExtResource( 9 )]
 
-position = Vector2( 108, 68 )
-move_range = 16
+position = Vector2( 108, 76 )
+move_range = 12
 time = 1.0
 vertical = true
 
@@ -112,24 +112,9 @@ allow_bow = false
 target_flag = "dungeon1_switchTL2_2"
 reemit_signal = true
 
-[node name="Block" parent="." index="10" instance=ExtResource( 9 )]
+[node name="Block2" parent="." index="10" instance=ExtResource( 9 )]
 
-position = Vector2( 80, 43 )
-move_range = 32
-time = 0.5
-delay = 1.04
-
-[node name="Sprite" parent="Block" index="0"]
-
-texture = ExtResource( 11 )
-
-[node name="CollisionShape2D" parent="Block" index="1"]
-
-shape = SubResource( 1 )
-
-[node name="Block2" parent="." index="11" instance=ExtResource( 9 )]
-
-position = Vector2( 80, 62 )
+position = Vector2( 80, 50 )
 move_range = 32
 time = 0.5
 delay = 0.78
@@ -142,9 +127,9 @@ texture = ExtResource( 11 )
 
 shape = SubResource( 1 )
 
-[node name="Block5" parent="." index="12" instance=ExtResource( 9 )]
+[node name="Block5" parent="." index="11" instance=ExtResource( 9 )]
 
-position = Vector2( 80, 81 )
+position = Vector2( 80, 73 )
 move_range = 32
 time = 0.5
 delay = 0.52
@@ -157,9 +142,9 @@ texture = ExtResource( 11 )
 
 shape = SubResource( 1 )
 
-[node name="Block6" parent="." index="13" instance=ExtResource( 9 )]
+[node name="Block6" parent="." index="12" instance=ExtResource( 9 )]
 
-position = Vector2( 80, 100 )
+position = Vector2( 80, 96 )
 move_range = 32
 time = 0.5
 delay = 0.26
@@ -177,7 +162,6 @@ shape = SubResource( 1 )
 [connection signal="on_trigger" from="Block4/OrbSwitch" to="LogicAND" method="set_input" binds= [ 1, true ]]
 
 
-[editable path="Block"]
 [editable path="Block2"]
 [editable path="Block5"]
 [editable path="Block6"]

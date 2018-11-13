@@ -7,8 +7,8 @@
 [ext_resource path="res://Instances/Props/Torch.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Instances/NPCs/NPCMasterNew.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Sprites/Characters/Elders/Kein left.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Characters/Elders/Kein right.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters/Elders/Kein right.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Characters/Elders/Kein left.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/Characters/Elders/Kein up.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/Characters/Elders/Kein down.png" type="Texture" id=11]
 [ext_resource path="res://Instances/Props/Column.tscn" type="PackedScene" id=12]
@@ -18,12 +18,12 @@
 animations = [ {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ) ],
@@ -50,7 +50,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="CellLabel" parent="." index="1" instance=ExtResource( 2 )]
 
-text = "??"
+text = "?1"
 cell_index_x = -1
 cell_index_y = -1
 cell_music = ExtResource( 3 )
@@ -128,6 +128,7 @@ shape = SubResource( 2 )
 
 visible = true
 position = Vector2( 0, -19 )
+frame = 0
 
 [node name="Transition2" parent="." index="9" instance=ExtResource( 6 )]
 

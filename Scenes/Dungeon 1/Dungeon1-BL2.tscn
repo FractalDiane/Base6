@@ -12,7 +12,7 @@
 [ext_resource path="res://Instances/Objects/Sentry.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Instances/System/LogicAND.tscn" type="PackedScene" id=11]
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -20,7 +20,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CellLabel" parent="." index="1" instance=ExtResource( 2 )]
 
-text = "??"
+text = "?1"
 cell_index_x = -1
 cell_index_y = -1
 cell_music = ExtResource( 3 )
@@ -96,6 +96,7 @@ dir_y = -1
 [node name="Switch" parent="." index="9" instance=ExtResource( 9 )]
 
 position = Vector2( 18, 76 )
+target_flag = "dungeon1_switchBL2_1"
 reemit_signal = true
 
 [node name="Switch2" parent="." index="10" instance=ExtResource( 9 )]

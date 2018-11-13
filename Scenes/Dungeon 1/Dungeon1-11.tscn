@@ -14,7 +14,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="CellLabel" parent="." index="1" instance=ExtResource( 2 )]
 
-text = "??"
+text = "?1"
 cell_index_x = -1
 cell_index_y = -1
 cell_music = ExtResource( 3 )

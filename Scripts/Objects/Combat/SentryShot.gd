@@ -24,7 +24,7 @@ func _physics_process(delta):
 	set_scale(Vector2(sc, sc))
 	move_and_slide(speed * Vector2(dir_x, dir_y))
 	
-	if get_slide_count() > 0:
+	if get_slide_count() > 0 and not fade:
 		controller.player_damage(damage)
 		player.iframes = true
 		player.get_node("TimerIFrames").start()

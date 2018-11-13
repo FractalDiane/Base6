@@ -10,6 +10,9 @@ onready var cont = controller
 # var b = "textvar"
 
 func _ready():
+	if not get_tree().get_root().get_node("Node2D").get_node("CellLabel").text in controller.corrupted_cells:
+		queue_free()
+	
 	$TimerCorrupt.stop()
 	$TimerCorrupt.set_wait_time(corrupt_interval)
 	$TimerCorrupt.start()

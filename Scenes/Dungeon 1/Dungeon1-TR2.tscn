@@ -42,7 +42,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CellLabel" parent="." index="1" instance=ExtResource( 2 )]
 
-text = "??"
+text = "?1"
 cell_index_x = -1
 cell_index_y = -1
 cell_music = ExtResource( 3 )
@@ -119,7 +119,7 @@ position = Vector2( 124, 28 )
 
 [node name="Switch" parent="." index="6" instance=ExtResource( 7 )]
 
-position = Vector2( 16, 39 )
+position = Vector2( 16, 40 )
 target_flag = "dungeon1_switchTR2_1"
 reemit_signal = true
 
@@ -131,7 +131,7 @@ reemit_signal = true
 
 [node name="Switch2" parent="." index="8" instance=ExtResource( 7 )]
 
-position = Vector2( 143, 39 )
+position = Vector2( 143, 40 )
 target_flag = "dungeon1_switchTR2_3"
 reemit_signal = true
 

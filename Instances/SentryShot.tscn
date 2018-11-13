@@ -16,12 +16,14 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[node name="SentryShot" type="KinematicBody2D" index="0"]
+[node name="SentryShot" type="KinematicBody2D" groups=[
+"SentryShot",
+]]
 
 position = Vector2( 82, 77 )
 input_pickable = false
-collision_layer = 8
-collision_mask = 8
+collision_layer = 24
+collision_mask = 24
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
@@ -30,6 +32,7 @@ _sections_unfolded = [ "Collision" ]
 
 frames = SubResource( 1 )
 animation = "default"
+frame = 6
 playing = true
 __meta__ = {
 "_edit_lock_": true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=2]
@@ -24,11 +24,6 @@ extents = Vector2( 5, 7 )
 custom_solver_bias = 0.0
 extents = Vector2( 5, 7 )
 
-[sub_resource type="StreamTexture" id=3]
-
-flags = 0
-load_path = "res://.import/Block 2.png-7438db7c09467e175d76987a1a12bf84.stex"
-
 [node name="Node2D" type="Node2D"]
 
 _sections_unfolded = [ "Transform" ]
@@ -37,7 +32,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CellLabel" parent="." index="1" instance=ExtResource( 2 )]
 
-text = "??"
+text = "?1"
 cell_index_x = -1
 cell_index_y = -1
 cell_music = ExtResource( 3 )
@@ -92,11 +87,11 @@ direction = "up"
 
 [node name="BlockSquare" parent="." index="7" instance=ExtResource( 8 )]
 
-position = Vector2( 52, 52 )
+position = Vector2( 52, 60 )
 _sections_unfolded = [ "Transform" ]
 speed = 120.0
 interval_h = 0.3
-interval_v = 0.5
+interval_v = 0.4
 dir_x = -1
 dir_y = 0
 
@@ -113,7 +108,7 @@ position = Vector2( 19, 108 )
 _sections_unfolded = [ "Transform" ]
 speed = 120.0
 interval_h = 0.3
-interval_v = 0.5
+interval_v = 0.4
 dir_y = 0
 
 [node name="OrbSwitch" parent="BlockSquare3" index="3" instance=ExtResource( 9 )]
@@ -129,7 +124,7 @@ position = Vector2( 141, 108 )
 _sections_unfolded = [ "Transform" ]
 speed = 120.0
 interval_h = 0.3
-interval_v = 0.5
+interval_v = 0.4
 dir_x = 0
 dir_y = -1
 
@@ -142,11 +137,11 @@ reemit_signal = true
 
 [node name="BlockSquare2" parent="." index="10" instance=ExtResource( 8 )]
 
-position = Vector2( 108, 52 )
+position = Vector2( 108, 60 )
 _sections_unfolded = [ "Transform" ]
 speed = 120.0
 interval_h = 0.3
-interval_v = 0.5
+interval_v = 0.4
 dir_x = 0
 
 [node name="OrbSwitch" parent="BlockSquare2" index="3" instance=ExtResource( 9 )]
@@ -160,7 +155,7 @@ reemit_signal = true
 
 position = Vector2( 80, 79 )
 radius = 24
-speed = 8.0
+speed = 4.0
 
 [node name="Sprite" parent="BlockCircle" index="0"]
 
@@ -174,7 +169,7 @@ shape = SubResource( 1 )
 
 position = Vector2( 80, 49 )
 move_range = 48
-time = 0.3
+time = 0.6
 
 [node name="Sprite" parent="Block" index="0"]
 
@@ -184,21 +179,7 @@ texture = ExtResource( 11 )
 
 shape = SubResource( 2 )
 
-[node name="Block2" parent="." index="13" instance=ExtResource( 12 )]
-
-position = Vector2( 80, 110 )
-move_range = -48
-time = 0.3
-
-[node name="Sprite" parent="Block2" index="0"]
-
-texture = SubResource( 3 )
-
-[node name="CollisionShape2D" parent="Block2" index="1"]
-
-shape = SubResource( 2 )
-
-[node name="LogicAND" parent="." index="14" instance=ExtResource( 13 )]
+[node name="LogicAND" parent="." index="13" instance=ExtResource( 13 )]
 
 position = Vector2( 80, 26 )
 inputs = 4
@@ -215,4 +196,3 @@ target_flag = "dungeon1_switches2BR"
 
 [editable path="BlockCircle"]
 [editable path="Block"]
-[editable path="Block2"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=2]
@@ -9,16 +9,15 @@
 [ext_resource path="res://Instances/Props/Torch.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Instances/JumpPoint.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Instances/Objects/Switch.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Instances/Objects/OrbSwitch.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Instances/System/LogicAND.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Instances/Objects/OrbSwitch.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Instances/System/LogicAND.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 12, 8 )
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -26,7 +25,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CellLabel" parent="." index="1" instance=ExtResource( 2 )]
 
-text = "??"
+text = "?1"
 cell_index_x = -1
 cell_index_y = -1
 cell_music = ExtResource( 3 )
@@ -234,49 +233,33 @@ target_x = 0
 target_y = 16
 direction = "down"
 
-[node name="Switch2" parent="." index="22" instance=ExtResource( 10 )]
-
-position = Vector2( 28, 112 )
-target_flag = "dungeon1_switchTR_2"
-reemit_signal = true
-
-[node name="Switch3" parent="." index="23" instance=ExtResource( 10 )]
-
-position = Vector2( 140, 112 )
-target_flag = "dungeon1_switchTR_4"
-reemit_signal = true
-
-[node name="OrbSwitch" parent="." index="24" instance=ExtResource( 11 )]
+[node name="OrbSwitch" parent="." index="22" instance=ExtResource( 10 )]
 
 target_flag = "dungeon1_switchTR_1"
 reemit_signal = true
 
-[node name="OrbSwitch2" parent="." index="25" instance=ExtResource( 11 )]
+[node name="OrbSwitch2" parent="." index="23" instance=ExtResource( 10 )]
 
 position = Vector2( 140, 38 )
 target_flag = "dungeon1_switchTR_3"
 reemit_signal = true
 
-[node name="OrbSwitch3" parent="." index="26" instance=ExtResource( 11 )]
+[node name="OrbSwitch3" parent="." index="24" instance=ExtResource( 10 )]
 
 position = Vector2( 84, 41 )
 target_flag = "dungeon1_switchTR_5"
 reemit_signal = true
 
-[node name="LogicAND" parent="." index="27" instance=ExtResource( 12 )]
+[node name="LogicAND" parent="." index="25" instance=ExtResource( 11 )]
 
 position = Vector2( 84, 71 )
-inputs = 5
+inputs = 3
 target_flag = "dungeon1_switchesTR"
-
-[connection signal="on_pressed" from="Switch2" to="LogicAND" method="set_input" binds= [ 1, true ]]
-
-[connection signal="on_pressed" from="Switch3" to="LogicAND" method="set_input" binds= [ 3, true ]]
 
 [connection signal="on_trigger" from="OrbSwitch" to="LogicAND" method="set_input" binds= [ 0, true ]]
 
 [connection signal="on_trigger" from="OrbSwitch2" to="LogicAND" method="set_input" binds= [ 2, true ]]
 
-[connection signal="on_trigger" from="OrbSwitch3" to="LogicAND" method="set_input" binds= [ 4, true ]]
+[connection signal="on_trigger" from="OrbSwitch3" to="LogicAND" method="set_input" binds= [ 1, true ]]
 
 

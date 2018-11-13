@@ -1,0 +1,194 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sounds/Music/SILENCE.wav" type="AudioStream" id=3]
+[ext_resource path="res://Tilesets/TilesetMain.tres" type="TileSet" id=4]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Instances/System/PitController.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Instances/JumpPoint.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sprites/Props/Switch down 3.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Props/Switch down 2.png" type="Texture" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8, 8 )
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 4.5, 4 )
+
+[node name="Node2D" type="Node2D"]
+
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="UI" parent="." index="0" instance=ExtResource( 1 )]
+
+[node name="CellLabel" parent="." index="1" instance=ExtResource( 2 )]
+
+text = "?1"
+cell_index_x = -1
+cell_index_y = -1
+cell_music = ExtResource( 3 )
+
+[node name="TileMap" type="TileMap" parent="." index="2"]
+
+mode = 0
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 8, 8 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 0, 30, 0, 1, 29, 0, 2, 24, 0, 3, 24, 0, 4, 24, 0, 5, 24, 0, 6, 24, 0, 7, 24, 0, 8, 24, 0, 9, 24, 0, 10, 24, 0, 11, 24, 0, 12, 24, 0, 13, 24, 0, 14, 24, 0, 15, 24, 0, 16, 24, 0, 17, 24, 0, 18, 28, 0, 19, 30, 0, 65536, 30, 0, 65537, 31, 0, 65538, 30, 0, 65539, 30, 0, 65540, 30, 0, 65541, 30, 0, 65542, 30, 0, 65543, 30, 0, 65544, 30, 0, 65545, 30, 0, 65546, 30, 0, 65547, 30, 0, 65548, 30, 0, 65549, 30, 0, 65550, 30, 0, 65551, 30, 0, 65552, 30, 0, 65553, 30, 0, 65554, 22, 0, 65555, 30, 0, 131072, 30, 0, 131073, 31, 0, 131074, 30, 0, 131075, 30, 0, 131076, 30, 0, 131077, 30, 0, 131078, 30, 0, 131079, 30, 0, 131080, 30, 0, 131081, 30, 0, 131082, 30, 0, 131083, 30, 0, 131084, 30, 0, 131085, 30, 0, 131086, 30, 0, 131087, 30, 0, 131088, 30, 0, 131089, 30, 0, 131090, 22, 0, 131091, 30, 0, 196608, 30, 0, 196609, 31, 0, 196610, 39, 0, 196611, 39, 0, 196612, 39, 0, 196613, 39, 0, 196614, 39, 0, 196615, 39, 0, 196616, 39, 0, 196617, 39, 0, 196618, 39, 0, 196619, 39, 0, 196620, 39, 0, 196621, 39, 0, 196622, 39, 0, 196623, 39, 0, 196624, 39, 0, 196625, 39, 0, 196626, 22, 0, 196627, 30, 0, 262144, 30, 0, 262145, 31, 0, 262146, 1, 0, 262147, 1, 0, 262148, 1, 0, 262149, 1, 0, 262150, 1, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 1, 0, 262158, 1, 0, 262159, 1, 0, 262160, 1, 0, 262161, 1, 0, 262162, 22, 0, 262163, 30, 0, 327680, 30, 0, 327681, 31, 0, 327682, 0, 0, 327683, 0, 0, 327684, 1, 0, 327685, 1, 0, 327686, 1, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 1, 0, 327694, 1, 0, 327695, 1, 0, 327696, 0, 0, 327697, 0, 0, 327698, 22, 0, 327699, 30, 0, 393216, 30, 0, 393217, 31, 0, 393218, 0, 0, 393219, 0, 0, 393220, 1, 0, 393221, 1, 0, 393222, 1, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 1, 0, 393230, 1, 0, 393231, 1, 0, 393232, 0, 0, 393233, 0, 0, 393234, 22, 0, 393235, 30, 0, 458752, 30, 0, 458753, 31, 0, 458754, 40, 0, 458755, 40, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 1, 0, 458766, 1, 0, 458767, 1, 0, 458768, 40, 0, 458769, 40, 0, 458770, 22, 0, 458771, 30, 0, 524288, 30, 0, 524289, 31, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 524305, 1, 0, 524306, 22, 0, 524307, 30, 0, 589824, 30, 0, 589825, 31, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589841, 1, 0, 589842, 22, 0, 589843, 30, 0, 655360, 30, 0, 655361, 31, 0, 655362, 1, 0, 655363, 1, 0, 655364, 1, 0, 655365, 1, 0, 655366, 1, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 1, 0, 655374, 1, 0, 655375, 1, 0, 655376, 1, 0, 655377, 1, 0, 655378, 22, 0, 655379, 30, 0, 720896, 30, 0, 720897, 31, 0, 720898, 0, 0, 720899, 0, 0, 720900, 1, 0, 720901, 1, 0, 720902, 1, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 1, 0, 720910, 1, 0, 720911, 1, 0, 720912, 0, 0, 720913, 0, 0, 720914, 22, 0, 720915, 30, 0, 786432, 30, 0, 786433, 31, 0, 786434, 0, 0, 786435, 0, 0, 786436, 1, 0, 786437, 1, 0, 786438, 1, 0, 786439, 0, 0, 786440, 0, 0, 786441, 0, 0, 786442, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 1, 0, 786446, 1, 0, 786447, 1, 0, 786448, 0, 0, 786449, 0, 0, 786450, 22, 0, 786451, 30, 0, 851968, 30, 0, 851969, 31, 0, 851970, 40, 0, 851971, 40, 0, 851972, 1, 0, 851973, 1, 0, 851974, 1, 0, 851975, 0, 0, 851976, 0, 0, 851977, 0, 0, 851978, 0, 0, 851979, 0, 0, 851980, 0, 0, 851981, 1, 0, 851982, 1, 0, 851983, 1, 0, 851984, 40, 0, 851985, 40, 0, 851986, 22, 0, 851987, 30, 0, 917504, 30, 0, 917505, 31, 0, 917506, 1, 0, 917507, 1, 0, 917508, 1, 0, 917509, 1, 0, 917510, 1, 0, 917511, 40, 0, 917512, 0, 0, 917513, 0, 0, 917514, 0, 0, 917515, 0, 0, 917516, 40, 0, 917517, 1, 0, 917518, 1, 0, 917519, 1, 0, 917520, 1, 0, 917521, 1, 0, 917522, 22, 0, 917523, 30, 0, 983040, 30, 0, 983041, 31, 0, 983042, 1, 0, 983043, 1, 0, 983044, 1, 0, 983045, 1, 0, 983046, 1, 0, 983047, 1, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 1, 0, 983053, 1, 0, 983054, 1, 0, 983055, 1, 0, 983056, 1, 0, 983057, 1, 0, 983058, 22, 0, 983059, 30, 0, 1048580, 1, 0, 1048590, 1, 0 )
+_sections_unfolded = [ "Cell" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Transition" parent="." index="3" instance=ExtResource( 5 )]
+
+position = Vector2( 80, 124 )
+scale = Vector2( 0.5, 0.125 )
+target_scene = "res://Scenes/Dungeon 1/Dungeon1-11.tscn"
+target_x = 0
+target_y = 16
+direction = "down"
+
+[node name="PitController" parent="." index="4" instance=ExtResource( 6 )]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PitController" index="3"]
+
+build_mode = 0
+polygon = PoolVector2Array( 55, 32, 103, 32, 103, 112, 95, 112, 95, 126, 63, 126, 63, 112, 55, 112 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PitController" index="4"]
+
+position = Vector2( 23, 96 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="PitController" index="5"]
+
+position = Vector2( 135, 96 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PitController" index="6"]
+
+position = Vector2( 23, 48 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="PitController" index="7"]
+
+position = Vector2( 135, 48 )
+shape = SubResource( 1 )
+
+[node name="JumpPoint" parent="." index="5" instance=ExtResource( 7 )]
+
+position = Vector2( 59.5, 96 )
+scale = Vector2( 0.109375, 0.25 )
+required_direction = Vector2( -1, 0 )
+distance = 30
+
+[node name="JumpPoint7" parent="." index="6" instance=ExtResource( 7 )]
+
+position = Vector2( 131.5, 96 )
+scale = Vector2( 0.109375, 0.25 )
+required_direction = Vector2( -1, 0 )
+distance = 30
+
+[node name="JumpPoint2" parent="." index="7" instance=ExtResource( 7 )]
+
+position = Vector2( 59.5, 48 )
+scale = Vector2( 0.109375, 0.25 )
+required_direction = Vector2( -1, 0 )
+distance = 30
+
+[node name="JumpPoint8" parent="." index="8" instance=ExtResource( 7 )]
+
+position = Vector2( 131.5, 48 )
+scale = Vector2( 0.109375, 0.25 )
+required_direction = Vector2( -1, 0 )
+distance = 30
+
+[node name="JumpPoint3" parent="." index="9" instance=ExtResource( 7 )]
+
+position = Vector2( 100.5, 48 )
+scale = Vector2( 0.109375, 0.25 )
+required_direction = Vector2( 1, 0 )
+distance = 30
+
+[node name="JumpPoint6" parent="." index="10" instance=ExtResource( 7 )]
+
+position = Vector2( 28.5, 48 )
+scale = Vector2( 0.109375, 0.25 )
+required_direction = Vector2( 1, 0 )
+distance = 30
+
+[node name="JumpPoint4" parent="." index="11" instance=ExtResource( 7 )]
+
+position = Vector2( 100.5, 96 )
+scale = Vector2( 0.109375, 0.25 )
+required_direction = Vector2( 1, 0 )
+distance = 30
+
+[node name="JumpPoint5" parent="." index="12" instance=ExtResource( 7 )]
+
+position = Vector2( 28.5, 96 )
+scale = Vector2( 0.109375, 0.25 )
+required_direction = Vector2( 1, 0 )
+distance = 30
+
+[node name="Area2D" type="Area2D" parent="." index="13"]
+
+position = Vector2( 23, 96 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="Sprite" type="AnimatedSprite" parent="Area2D" index="0"]
+
+frames = SubResource( 2 )
+animation = "up"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="1"]
+
+position = Vector2( 0.5, 0 )
+shape = SubResource( 3 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+

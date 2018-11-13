@@ -1,23 +1,81 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scripts/Objects/CorruptionOverlay.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Effects/Noise 1.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Effects/Noise 2.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Effects/Noise 3.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Effects/Noise 4.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Effects/Noise 5.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Effects/Noise 6.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Effects/Noise 7.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Effects/Noise 8.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Effects/Noise 9.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Effects/Noise 10.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Effects/Noise 11.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Effects/Noise 12.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Effects/Noise 13.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Effects/Noise 14.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Effects/Noise 15.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/Effects/Noise 16.png" type="Texture" id=17]
-[ext_resource path="res://Sounds/Player/Corrupt.wav" type="AudioStream" id=18]
+[ext_resource path="res://Sprites/Particles/Corruption.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Effects/Noise 1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Effects/Noise 2.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Effects/Noise 3.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Effects/Noise 4.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Effects/Noise 5.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Effects/Noise 6.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Effects/Noise 7.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Effects/Noise 8.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Effects/Noise 9.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Effects/Noise 10.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Effects/Noise 11.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Effects/Noise 12.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Effects/Noise 13.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Effects/Noise 14.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Effects/Noise 15.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Effects/Noise 16.png" type="Texture" id=18]
+[ext_resource path="res://Sounds/Player/Corrupt.wav" type="AudioStream" id=19]
+
+[sub_resource type="CanvasItemMaterial" id=6]
+
+render_priority = 0
+blend_mode = 0
+light_mode = 0
+
+[sub_resource type="Gradient" id=4]
+
+offsets = PoolRealArray( 0, 0.509868, 1 )
+colors = PoolColorArray( 0.313726, 0.313726, 0.313726, 0, 0.313726, 0.313726, 0.313726, 0.470588, 0.313726, 0.313726, 0.313726, 0 )
+
+[sub_resource type="GradientTexture" id=5]
+
+flags = 4
+gradient = SubResource( 4 )
+width = 2048
+
+[sub_resource type="ParticlesMaterial" id=3]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 2
+emission_box_extents = Vector3( 70, 70, 1 )
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 180.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 25.0
+initial_velocity_random = 0.5
+angular_velocity = 30.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 360.0
+angle_random = 1.0
+scale = 1.0
+scale_random = 0.0
+color_ramp = SubResource( 5 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angle", "Angular Velocity", "Color", "Emission Shape", "Gravity", "Initial Velocity", "Spread", "Trail" ]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -28,7 +86,7 @@ light_mode = 0
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
 "loop": true,
 "name": "default",
 "speed": 30.0
@@ -45,7 +103,31 @@ script = ExtResource( 1 )
 corrupt = true
 corrupt_interval = 5
 
-[node name="CorruptionOverlaySprite" type="AnimatedSprite" parent="." index="0"]
+[node name="Parts" type="Particles2D" parent="." index="0"]
+
+material = SubResource( 6 )
+position = Vector2( 80, 72 )
+emitting = true
+amount = 8
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 3 )
+texture = ExtResource( 2 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Material", "Process Material", "Textures", "Transform" ]
+
+[node name="CorruptionOverlaySprite" type="AnimatedSprite" parent="." index="1"]
 
 material = SubResource( 1 )
 position = Vector2( 80, 72 )
@@ -59,16 +141,16 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TimerCorrupt" type="Timer" parent="." index="1"]
+[node name="TimerCorrupt" type="Timer" parent="." index="2"]
 
 process_mode = 1
 wait_time = 5.0
 one_shot = false
 autostart = true
 
-[node name="SoundCorrupt" type="AudioStreamPlayer" parent="." index="2"]
+[node name="SoundCorrupt" type="AudioStreamPlayer" parent="." index="3"]
 
-stream = ExtResource( 18 )
+stream = ExtResource( 19 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false

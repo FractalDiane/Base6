@@ -53,7 +53,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 17, 16 )
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 _sections_unfolded = [ "Transform", "Z Index" ]
 
@@ -61,7 +61,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="CellLabel" parent="." index="1" instance=ExtResource( 2 )]
 
-text = "??"
+text = "?1"
 cell_index_x = -1
 cell_index_y = -1
 cell_music = ExtResource( 3 )

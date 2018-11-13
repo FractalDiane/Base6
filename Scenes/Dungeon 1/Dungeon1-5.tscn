@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Instances/Props/Torch.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Instances/Objects/Sentry.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sprites/System/Sentry hint.png" type="Texture" id=9]
 
 [node name="Node2D" type="Node2D"]
 
@@ -17,7 +18,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="CellLabel" parent="." index="1" instance=ExtResource( 2 )]
 
-text = "??"
+text = "?1"
 cell_index_x = -1
 cell_index_y = -1
 cell_music = ExtResource( 3 )
@@ -78,5 +79,15 @@ direction = "up"
 
 position = Vector2( 24, 88 )
 expiry_time = 1.75
+
+[node name="Sprite" type="Sprite" parent="." index="8"]
+
+modulate = Color( 0.710938, 0.710938, 0.710938, 1 )
+position = Vector2( 125, 28 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 
