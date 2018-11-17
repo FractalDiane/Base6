@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 9, 11 )
 
-[node name="BlockCircle" type="KinematicBody2D"]
+[node name="BlockCircle" type="KinematicBody2D" index="0"]
 
 position = Vector2( 84, 90 )
 input_pickable = false
@@ -29,6 +29,8 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
+position = Vector2( 0, 6.5698 )
+scale = Vector2( 1, 0.415191 )
 shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
