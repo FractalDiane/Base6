@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=2]
@@ -9,6 +9,9 @@
 [ext_resource path="res://Instances/JumpPoint.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Sprites/Props/Switch down 3.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/Props/Switch down 2.png" type="Texture" id=9]
+[ext_resource path="res://Scripts/Objects/Dungeon 1/BossCore.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/Objects/Dungeon 1/Fist.gd" type="Script" id=11]
+[ext_resource path="res://Sprites/Props/Block.png" type="Texture" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -33,6 +36,16 @@ animations = [ {
 
 custom_solver_bias = 0.0
 extents = Vector2( 4.5, 4 )
+
+[sub_resource type="SpriteFrames" id=4]
+
+animations = [ {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+_sections_unfolded = [ "Resource" ]
 
 [node name="Node2D" type="Node2D" index="0"]
 
@@ -129,14 +142,13 @@ distance = 30
 
 position = Vector2( 80, 68 )
 scale = Vector2( 0.75, 0.125 )
-required_direction = Vector2( -1, 0 )
 distance = 30
 
 [node name="JumpPoint10" parent="." index="7" instance=ExtResource( 7 )]
 
 position = Vector2( 80, 44 )
 scale = Vector2( 0.75, 0.125 )
-required_direction = Vector2( -1, 0 )
+required_direction = Vector2( 0, 1 )
 distance = 30
 
 [node name="JumpPoint7" parent="." index="8" instance=ExtResource( 7 )]
@@ -174,21 +186,47 @@ scale = Vector2( 0.109375, 0.25 )
 required_direction = Vector2( 1, 0 )
 distance = 30
 
-[node name="JumpPoint4" parent="." index="13" instance=ExtResource( 7 )]
+[node name="JumpPoint11" parent="." index="13" instance=ExtResource( 7 )]
+
+position = Vector2( 24, 76.5 )
+scale = Vector2( 0.25, 0.109375 )
+required_direction = Vector2( 0, 1 )
+distance = 30
+
+[node name="JumpPoint12" parent="." index="14" instance=ExtResource( 7 )]
+
+position = Vector2( 136, 76.5 )
+scale = Vector2( 0.25, 0.109375 )
+required_direction = Vector2( 0, 1 )
+distance = 30
+
+[node name="JumpPoint13" parent="." index="15" instance=ExtResource( 7 )]
+
+position = Vector2( 136, 99.5 )
+scale = Vector2( 0.25, 0.109375 )
+distance = 30
+
+[node name="JumpPoint14" parent="." index="16" instance=ExtResource( 7 )]
+
+position = Vector2( 24, 99.5 )
+scale = Vector2( 0.25, 0.109375 )
+distance = 30
+
+[node name="JumpPoint4" parent="." index="17" instance=ExtResource( 7 )]
 
 position = Vector2( 100.5, 104 )
 scale = Vector2( 0.109375, 0.25 )
 required_direction = Vector2( 1, 0 )
 distance = 30
 
-[node name="JumpPoint5" parent="." index="14" instance=ExtResource( 7 )]
+[node name="JumpPoint5" parent="." index="18" instance=ExtResource( 7 )]
 
 position = Vector2( 28.5, 104 )
 scale = Vector2( 0.109375, 0.25 )
 required_direction = Vector2( 1, 0 )
 distance = 30
 
-[node name="Area2D" type="Area2D" parent="." index="15"]
+[node name="Area2D" type="Area2D" parent="." index="19"]
 
 position = Vector2( 23, 104 )
 input_pickable = true
@@ -213,6 +251,55 @@ __meta__ = {
 position = Vector2( 0.5, 0 )
 shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BossCore" type="StaticBody2D" parent="." index="20"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 10 )
+
+[node name="LeftFist" type="KinematicBody2D" parent="BossCore" index="0"]
+
+editor/display_folded = true
+position = Vector2( 65.88, 36.1022 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 11 )
+speed = 40
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="BossCore/LeftFist" index="0"]
+
+frames = SubResource( 4 )
+animation = "default"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="RightFist" type="KinematicBody2D" parent="BossCore" index="1"]
+
+editor/display_folded = true
+position = Vector2( 94.3401, 36.1022 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 11 )
+speed = 40
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="BossCore/RightFist" index="0"]
+
+frames = SubResource( 4 )
+animation = "default"
 __meta__ = {
 "_edit_lock_": true
 }
