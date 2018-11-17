@@ -299,7 +299,8 @@ func _on_TimerSwingAnim_timeout():
 		elif face.x > 0: $Sprite.play("right")
 
 func _on_TimerDash_timeout():
-	state = WALK
+	if state != NO_INPUT:
+		state = WALK	
 	if face.y < 0:
 		$Sprite.play("up")
 		hbU.set_disabled(true)
