@@ -312,6 +312,7 @@ func _on_TimerDash_timeout():
 	elif face.x > 0:
 		$Sprite.play("right")
 		hbR.set_disabled(true)
+	motion = Vector2(0,0)
 	sound = -1
 
 func _on_TimerShoot_timeout():

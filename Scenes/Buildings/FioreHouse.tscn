@@ -20,12 +20,12 @@ extents = Vector2( 20.5, 10 )
 animations = [ {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ) ],
@@ -171,6 +171,7 @@ shape = SubResource( 3 )
 [node name="Interact" parent="NPCCephasNote" index="2"]
 
 position = Vector2( -1, -13 )
+frame = 0
 
 
 [editable path="NPCCephasNote"]
