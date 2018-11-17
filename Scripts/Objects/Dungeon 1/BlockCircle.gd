@@ -18,6 +18,7 @@ func _ready():
 		move = true
 
 func _physics_process(delta):
+	set_z_index(get_position().y)
 	if move:
 		t += speed
 		var angle = deg2rad(t)

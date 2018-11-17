@@ -19,6 +19,7 @@ var add = 0
 onready var startpos = get_position()
 
 func _physics_process(delta):
+	set_z_index(get_position().y)
 	if move:
 		t += 1
 		add = controller.wave(-move_range, move_range, time, 0, t, delta)
