@@ -245,7 +245,7 @@ _sections_unfolded = [ "Color", "Emission Shape", "Initial Velocity", "Scale", "
 custom_solver_bias = 0.0
 extents = Vector2( 11, 4 )
 
-[node name="Ghast" type="KinematicBody2D" groups=[
+[node name="Ghast" type="KinematicBody2D" index="0" groups=[
 "Enemies",
 ]]
 
@@ -265,7 +265,7 @@ knockback_distance = 50.0
 material = SubResource( 2 )
 frames = SubResource( 3 )
 animation = "idle"
-frame = 6
+frame = 2
 playing = true
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 

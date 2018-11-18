@@ -38,7 +38,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
 "frames": [ ExtResource( 9 ) ],
@@ -57,31 +57,31 @@ animations = [ {
 "speed": 8.0
 } ]
 
-[sub_resource type="Gradient" id=2]
+[sub_resource type="Gradient" id=3]
 
 offsets = PoolRealArray( 0, 0.483951, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0 )
 
-[sub_resource type="GradientTexture" id=3]
+[sub_resource type="GradientTexture" id=4]
 
 flags = 4
-gradient = SubResource( 2 )
+gradient = SubResource( 3 )
 width = 2048
 
-[sub_resource type="Curve" id=4]
+[sub_resource type="Curve" id=5]
 
 min_value = 0.0
 max_value = 1.0
 bake_resolution = 100
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.286068, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=5]
+[sub_resource type="CurveTexture" id=6]
 
 flags = 4
 width = 2048
-curve = SubResource( 4 )
+curve = SubResource( 5 )
 
-[sub_resource type="ParticlesMaterial" id=6]
+[sub_resource type="ParticlesMaterial" id=7]
 
 render_priority = 0
 trail_divisor = 1
@@ -110,8 +110,8 @@ angle = 0.0
 angle_random = 0.0
 scale = 1.0
 scale_random = 0.0
-scale_curve = SubResource( 5 )
-color_ramp = SubResource( 3 )
+scale_curve = SubResource( 6 )
+color_ramp = SubResource( 4 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -196,7 +196,7 @@ position = Vector2( 0, -1 )
 
 visible = true
 position = Vector2( 0, -29 )
-frame = 1
+frame = 0
 
 [node name="Fountain" type="StaticBody2D" parent="." index="8"]
 
@@ -214,7 +214,7 @@ _sections_unfolded = [ "Collision", "Transform", "Z Index" ]
 
 [node name="Sprite" type="AnimatedSprite" parent="Fountain" index="0"]
 
-frames = SubResource( 7 )
+frames = SubResource( 2 )
 animation = "idle"
 playing = true
 
@@ -242,7 +242,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 6 )
+process_material = SubResource( 7 )
 texture = ExtResource( 13 )
 normal_map = null
 h_frames = 1

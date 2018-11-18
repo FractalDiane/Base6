@@ -1,36 +1,37 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=1]
-[ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Instances/Worldborder.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Sounds/Music/White Noise.wav" type="AudioStream" id=5]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Instances/NPCs/NPCMasterNew.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Sprites/Characters/Jari/Jari right.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Characters/Jari/Jari left.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Characters/Jari/Jari up.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Characters/Jari/Jari down.png" type="Texture" id=11]
+[ext_resource path="res://Tilesets/TilesetMain.tres" type="TileSet" id=2]
+[ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Instances/Worldborder.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sounds/Music/White Noise.wav" type="AudioStream" id=6]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Instances/NPCs/NPCMasterNew.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sprites/Characters/Jari/Jari right.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters/Jari/Jari left.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Characters/Jari/Jari up.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Characters/Jari/Jari down.png" type="Texture" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "right",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ) ],
+"frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "left",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ) ],
+"frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "down",
 "speed": 5.0
@@ -56,24 +57,48 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="UI" parent="." index="1" instance=ExtResource( 2 )]
+[node name="TileMap" type="TileMap" parent="." index="1"]
 
-[node name="Worldborder2" parent="." index="2" instance=ExtResource( 3 )]
+mode = 0
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 8, 8 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 4, 13, 0, 5, 0, 0, 6, 0, 0, 7, 15, 0, 65540, 13, 0, 65541, 0, 0, 65542, 0, 0, 65543, 15, 0, 131076, 13, 0, 131077, 0, 0, 131078, 0, 0, 131079, 15, 0, 196612, 13, 0, 196613, 0, 0, 196614, 0, 0, 196615, 15, 0, 262148, 13, 0, 262149, 0, 0, 262150, 0, 0, 262151, 15, 0, 327684, 13, 0, 327685, 0, 0, 327686, 0, 0, 327687, 15, 0, 393220, 13, 0, 393221, 0, 0, 393222, 0, 0, 393223, 15, 0, 458756, 13, 0, 458757, 0, 0, 458758, 0, 0, 458759, 15, 0, 524292, 13, 0, 524293, 0, 0, 524294, 0, 0, 524295, 15, 0, 589828, 13, 0, 589829, 0, 0, 589830, 0, 0, 589831, 15, 0, 655364, 13, 0, 655365, 0, 0, 655366, 0, 0, 655367, 15, 0, 720900, 13, 0, 720901, 0, 0, 720902, 0, 0, 720903, 15, 0, 786436, 13, 0, 786437, 0, 0, 786438, 0, 0, 786439, 15, 0, 851972, 13, 0, 851973, 0, 0, 851974, 0, 0, 851975, 15, 0, 917508, 13, 0, 917509, 0, 0, 917510, 0, 0, 917511, 15, 0, 983044, 13, 0, 983045, 0, 0, 983046, 0, 0, 983047, 15, 0 )
+_sections_unfolded = [ "Cell", "Collision" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="UI" parent="." index="2" instance=ExtResource( 3 )]
+
+[node name="Worldborder2" parent="." index="3" instance=ExtResource( 4 )]
 
 position = Vector2( -4, 72 )
 rotation = 1.5708
 
-[node name="CellLabel" parent="." index="3" instance=ExtResource( 4 )]
+[node name="CellLabel" parent="." index="4" instance=ExtResource( 5 )]
 
 text = "10"
 cell_index_y = 1
-cell_music = ExtResource( 5 )
+cell_music = ExtResource( 6 )
 
-[node name="Transition" parent="." index="4" instance=ExtResource( 6 )]
+[node name="Transition" parent="." index="5" instance=ExtResource( 7 )]
 
 target_scene = "res://Scenes/Overworld/11.tscn"
 
-[node name="Transition2" parent="." index="5" instance=ExtResource( 6 )]
+[node name="Transition2" parent="." index="6" instance=ExtResource( 7 )]
 
 position = Vector2( 80, 140 )
 scale = Vector2( 2.5, 0.125 )
@@ -82,7 +107,7 @@ target_x = 0
 target_y = 16
 direction = "down"
 
-[node name="Transition3" parent="." index="6" instance=ExtResource( 6 )]
+[node name="Transition3" parent="." index="7" instance=ExtResource( 7 )]
 
 position = Vector2( 80, -4 )
 scale = Vector2( 2.5, 0.125 )
@@ -90,8 +115,9 @@ target_x = 0
 target_y = 110
 direction = "up"
 
-[node name="NPCJari" parent="." index="7" instance=ExtResource( 7 )]
+[node name="NPCJari" parent="." index="8" instance=ExtResource( 8 )]
 
+position = Vector2( 25, 23 )
 text = [ [ "O-oh. Good morning, Fiore.", "The corruption has gotten worse since yesterday.", "J-just a little worse, though.", "There are still plenty of impures.", "And you should stay away from the east side.", "That's where it's gotten the worst.", "O-or maybe you can handle it.", "You're the one with the sword, after all.", "J-just remember to turn back if you start hearing the... whispers..." ], [ "The w-whispers...", "Just thinking about it makes me shudder..." ], [  ], [  ] ]
 
 [node name="Sprite" parent="NPCJari" index="0"]
@@ -104,7 +130,7 @@ shape = SubResource( 2 )
 
 [node name="Interact" parent="NPCJari" index="2"]
 
-frame = 3
+frame = 2
 
 
 [editable path="NPCJari"]

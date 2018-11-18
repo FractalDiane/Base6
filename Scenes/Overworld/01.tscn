@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=1]
 [ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sounds/Music/White Noise.wav" type="AudioStream" id=6]
+[ext_resource path="res://Instances/Props/Tree.tscn" type="PackedScene" id=7]
 
 [node name="Node2D" type="Node2D"]
 
@@ -31,7 +32,6 @@ position = Vector2( 80, -4 )
 
 position = Vector2( 80, 140 )
 scale = Vector2( 2.5, 0.125 )
-_sections_unfolded = [ "Transform" ]
 target_scene = "res://Scenes/Overworld/11.tscn"
 target_x = 0
 target_y = 16
@@ -52,5 +52,9 @@ direction = "left"
 [node name="Transition3" parent="." index="6" instance=ExtResource( 4 )]
 
 target_scene = "res://Scenes/Overworld/02.tscn"
+
+[node name="Tree" parent="." index="7" instance=ExtResource( 7 )]
+
+position = Vector2( 54, 41 )
 
 

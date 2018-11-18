@@ -1,10 +1,19 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=1]
-[ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Sounds/Music/White Noise.wav" type="AudioStream" id=4]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Tilesets/TilesetMain.tres" type="TileSet" id=2]
+[ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sounds/Music/White Noise.wav" type="AudioStream" id=5]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/Props/Shop.png" type="Texture" id=7]
+[ext_resource path="res://Instances/Props/BigRock.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Instances/Props/SmallRock.tscn" type="PackedScene" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 25 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -21,27 +30,51 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="UI" parent="." index="1" instance=ExtResource( 2 )]
+[node name="TileMap" type="TileMap" parent="." index="1"]
 
-[node name="CellLabel" parent="." index="2" instance=ExtResource( 3 )]
+mode = 0
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 8, 8 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 589824, 5, 0, 589825, 5, 0, 589826, 5, 0, 589827, 5, 0, 589828, 6, 0, 655364, 15, 0, 655372, 4, 0, 655373, 5, 0, 655374, 5, 0, 655375, 6, 0, 720900, 15, 0, 720908, 13, 0, 720911, 15, 0, 786432, 17, 0, 786433, 8, 0, 786436, 12, 0, 786437, 5, 0, 786438, 5, 0, 786439, 5, 0, 786440, 5, 0, 786441, 5, 0, 786442, 5, 0, 786443, 5, 0, 786444, 7, 0, 786447, 15, 0, 851969, 13, 0, 851983, 15, 0, 917505, 13, 0, 917519, 15, 0, 983041, 16, 0, 983042, 17, 0, 983043, 17, 0, 983044, 17, 0, 983045, 17, 0, 983046, 17, 0, 983047, 17, 0, 983048, 17, 0, 983049, 17, 0, 983050, 17, 0, 983051, 17, 0, 983052, 17, 0, 983053, 17, 0, 983054, 17, 0, 983055, 18, 0 )
+_sections_unfolded = [ "Cell" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="UI" parent="." index="2" instance=ExtResource( 3 )]
+
+[node name="CellLabel" parent="." index="3" instance=ExtResource( 4 )]
 
 text = "21"
 cell_index_x = 1
 cell_index_y = 2
-cell_music = ExtResource( 4 )
+cell_music = ExtResource( 5 )
 
-[node name="Transition" parent="." index="3" instance=ExtResource( 5 )]
+[node name="Transition" parent="." index="4" instance=ExtResource( 6 )]
 
 position = Vector2( -4, 72 )
 target_scene = "res://Scenes/Overworld/20.tscn"
 target_x = 144
 direction = "left"
 
-[node name="Transition2" parent="." index="4" instance=ExtResource( 5 )]
+[node name="Transition2" parent="." index="5" instance=ExtResource( 6 )]
 
 target_scene = "res://Scenes/Overworld/22.tscn"
 
-[node name="Transition3" parent="." index="5" instance=ExtResource( 5 )]
+[node name="Transition3" parent="." index="6" instance=ExtResource( 6 )]
 
 position = Vector2( 80, -4 )
 scale = Vector2( 2.5, 0.125 )
@@ -50,7 +83,7 @@ target_x = 0
 target_y = 110
 direction = "up"
 
-[node name="Transition4" parent="." index="6" instance=ExtResource( 5 )]
+[node name="Transition4" parent="." index="7" instance=ExtResource( 6 )]
 
 position = Vector2( 80, 140 )
 scale = Vector2( 2.5, 0.125 )
@@ -58,5 +91,52 @@ target_scene = "res://Scenes/Overworld/31.tscn"
 target_x = 0
 target_y = 16
 direction = "down"
+
+[node name="Shop" type="StaticBody2D" parent="." index="8"]
+
+position = Vector2( 111, 41 )
+z_index = 42
+input_pickable = false
+collision_layer = 3
+collision_mask = 3
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision", "Transform", "Z Index" ]
+
+[node name="Sprite" type="Sprite" parent="Shop" index="0"]
+
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shop" index="1"]
+
+position = Vector2( 0, 8 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Transition5" parent="." index="9" instance=ExtResource( 6 )]
+
+position = Vector2( 111, 76 )
+scale = Vector2( 0.21875, 0.078125 )
+target_scene = "res://Scenes/Buildings/Shop.tscn"
+target_x = 80
+target_y = 100
+direction = "up"
+not_cell = true
+
+[node name="BigRock" parent="." index="10" instance=ExtResource( 8 )]
+
+position = Vector2( 62, 75 )
+
+[node name="SmallRock" parent="." index="11" instance=ExtResource( 9 )]
+
+position = Vector2( 69, 81 )
 
 

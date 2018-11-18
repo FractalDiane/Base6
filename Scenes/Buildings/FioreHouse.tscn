@@ -1,48 +1,89 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Tilesets/TilesetMain.tres" type="TileSet" id=1]
-[ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Sounds/Music/White Noise.wav" type="AudioStream" id=4]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Sprites/Props/Table.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Items/Keystone.png" type="Texture" id=7]
-[ext_resource path="res://Instances/NPCs/NPCMasterNew.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Sprites/Props/Note.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Props/FancyRug.png" type="Texture" id=2]
+[ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sounds/Music/White Noise.wav" type="AudioStream" id=5]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/Props/Table.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Props/TableSmall.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Props/Bowl.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Items/Keystone.png" type="Texture" id=10]
+[ext_resource path="res://Instances/NPCs/NPCMasterNew.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Sprites/Props/Note.png" type="Texture" id=12]
+[ext_resource path="res://Scripts/Objects/Prop.gd" type="Script" id=13]
+[ext_resource path="res://Sprites/Props/Pot.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Props/Bed.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Props/Plant.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Props/Clock.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Props/Wardrobe.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Props/Table vertical.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Props/Plate.png" type="Texture" id=20]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 20.5, 10 )
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 9.5, 10 )
+
+[sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
-"frames": [ ExtResource( 9 ) ],
+"frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "right",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ) ],
+"frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "left",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ) ],
+"frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ) ],
+"frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "down",
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
 extents = Vector2( 4, 5 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 5 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 16 )
+
+[sub_resource type="RectangleShape2D" id=7]
+
+custom_solver_bias = 0.0
+extents = Vector2( 4.5, 4 )
+
+[sub_resource type="RectangleShape2D" id=8]
+
+custom_solver_bias = 0.0
+extents = Vector2( 5, 13 )
+
+[sub_resource type="RectangleShape2D" id=9]
+
+custom_solver_bias = 0.0
+extents = Vector2( 7, 15 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -96,16 +137,21 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="UI" parent="." index="2" instance=ExtResource( 2 )]
+[node name="Rug" type="Sprite" parent="." index="2"]
 
-[node name="CellLabel" parent="." index="3" instance=ExtResource( 3 )]
+position = Vector2( 82, 85 )
+texture = ExtResource( 2 )
+
+[node name="UI" parent="." index="3" instance=ExtResource( 3 )]
+
+[node name="CellLabel" parent="." index="4" instance=ExtResource( 4 )]
 
 visible = false
 cell_index_x = -1
 cell_index_y = -1
-cell_music = ExtResource( 4 )
+cell_music = ExtResource( 5 )
 
-[node name="Transition" parent="." index="4" instance=ExtResource( 5 )]
+[node name="Transition" parent="." index="5" instance=ExtResource( 6 )]
 
 position = Vector2( 80, 123 )
 scale = Vector2( 0.25, 0.0937501 )
@@ -114,7 +160,7 @@ target_y = 80
 direction = "down"
 not_cell = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." index="5"]
+[node name="Table" type="StaticBody2D" parent="." index="6"]
 
 position = Vector2( 70, 50 )
 input_pickable = false
@@ -125,14 +171,14 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="Sprite" type="Sprite" parent="StaticBody2D" index="0"]
+[node name="Sprite" type="Sprite" parent="Table" index="0"]
 
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table" index="1"]
 
 position = Vector2( -0.5, 0 )
 shape = SubResource( 1 )
@@ -141,19 +187,54 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Sprite" type="Sprite" parent="." index="6"]
+[node name="Table2" type="StaticBody2D" parent="." index="7"]
+
+position = Vector2( 108, 50 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="Table2" index="0"]
+
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table2" index="1"]
+
+position = Vector2( -0.5, 0 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite2" type="Sprite" parent="Table2" index="2"]
+
+position = Vector2( 0, -8 )
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="." index="8"]
 
 position = Vector2( 73, 44 )
-texture = ExtResource( 7 )
+texture = ExtResource( 10 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 11, 5 )
 _sections_unfolded = [ "Offset", "Region" ]
 
-[node name="NPCCephasNote" parent="." index="7" instance=ExtResource( 8 )]
+[node name="NPCCephasNote" parent="." index="9" instance=ExtResource( 11 )]
 
 position = Vector2( 62, 47 )
-text = [ [ "Fiore,", "I'll be gone for a few days.", "Please take my keystone piece if you need it.", "Stay safe.", "-Elder Cephas" ] ]
+text = [ [ "Fiore,", "I'll be gone for a few days.", "Please guard my keystone with your life.", "And stay safe.", "-Elder Cephas" ] ]
 dialogue_key = "null"
 auto_advance_set = false
 box_x = 71
@@ -161,17 +242,195 @@ box_width = 80
 
 [node name="Sprite" parent="NPCCephasNote" index="0"]
 
-frames = SubResource( 2 )
+frames = SubResource( 3 )
 
 [node name="CollisionShape2D" parent="NPCCephasNote" index="1"]
 
 position = Vector2( 0, -1 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Interact" parent="NPCCephasNote" index="2"]
 
 position = Vector2( -1, -13 )
-frame = 0
+frame = 1
+
+[node name="Pot" type="StaticBody2D" parent="." index="10"]
+
+position = Vector2( 29, 48 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 13 )
+
+[node name="Sprite" type="Sprite" parent="Pot" index="0"]
+
+texture = ExtResource( 14 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pot" index="1"]
+
+position = Vector2( 0, 7 )
+shape = SubResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Pot2" type="StaticBody2D" parent="." index="11"]
+
+position = Vector2( 29, 57 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 13 )
+
+[node name="Sprite" type="Sprite" parent="Pot2" index="0"]
+
+texture = ExtResource( 14 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pot2" index="1"]
+
+position = Vector2( 0, 7 )
+shape = SubResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Bed" type="StaticBody2D" parent="." index="12"]
+
+position = Vector2( 132, 54 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="Bed" index="0"]
+
+texture = ExtResource( 15 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bed" index="1"]
+
+position = Vector2( -2, 0 )
+shape = SubResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Plant" type="StaticBody2D" parent="." index="13"]
+
+position = Vector2( 57, 110 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 13 )
+
+[node name="Sprite" type="Sprite" parent="Plant" index="0"]
+
+texture = ExtResource( 16 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plant" index="1"]
+
+position = Vector2( 0.5, 5 )
+shape = SubResource( 7 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Clock" type="Sprite" parent="." index="14"]
+
+position = Vector2( 85, 25 )
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Closet" type="StaticBody2D" parent="." index="15"]
+
+position = Vector2( 21, 92 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 13 )
+
+[node name="Sprite" type="Sprite" parent="Closet" index="0"]
+
+texture = ExtResource( 18 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Closet" index="1"]
+
+position = Vector2( 0, 6 )
+shape = SubResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Table3" type="StaticBody2D" parent="." index="16"]
+
+position = Vector2( 138, 100 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 13 )
+
+[node name="Sprite" type="Sprite" parent="Table3" index="0"]
+
+texture = ExtResource( 19 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table3" index="1"]
+
+position = Vector2( 0, 3 )
+shape = SubResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite2" type="Sprite" parent="Table3" index="2"]
+
+position = Vector2( 0, -6 )
+texture = ExtResource( 20 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 
 [editable path="NPCCephasNote"]

@@ -12,7 +12,7 @@
 [ext_resource path="res://Instances/Props/SpikeMedium.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Instances/Props/SpikeSmall.tscn" type="PackedScene" id=11]
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -70,17 +70,17 @@ rotation = 1.5708
 
 corrupt_interval = 1.5
 
-[node name="CorruptionOverlaySprite" parent="CorruptionOverlay" index="0"]
+[node name="CorruptionOverlaySprite" parent="CorruptionOverlay" index="1"]
 
-frame = 3
+frame = 6
 
 [node name="CorruptionOverlay2" parent="." index="8" instance=ExtResource( 7 )]
 
 corrupt = false
 
-[node name="CorruptionOverlaySprite" parent="CorruptionOverlay2" index="0"]
+[node name="CorruptionOverlaySprite" parent="CorruptionOverlay2" index="1"]
 
-frame = 3
+frame = 6
 
 [node name="SpikeSmall" parent="." index="9" instance=ExtResource( 8 )]
 

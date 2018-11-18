@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/Objects/PitController.gd" type="Script" id=1]
 
-[node name="PitController" type="Area2D"]
+[node name="PitController" type="Area2D" index="0"]
 
 position = Vector2( 1, 0 )
 input_pickable = true

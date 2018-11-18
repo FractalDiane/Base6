@@ -64,7 +64,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 6, 3 )
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -172,7 +172,7 @@ position = Vector2( 125, 31 )
 [node name="NPCKein" parent="." index="8" instance=ExtResource( 11 )]
 
 position = Vector2( 96, 60 )
-text = [ [ "Fiore.", "I didn't expect to see you here.", "Elder Cephas has been gone for weeks now.", "Your father was always so interested in these ruins.", "And I'm sure we'll find an answer to the corruption inside.", "Of course, I can't get in without your father's keystone piece.", "Do you know where he left it?", "Somewhere in your house, maybe?", "If you find it, we can get inside." ], [ "Please find your father's keystone piece.", "We need to get inside the ruins as soon as possible." ], [  ] ]
+text = [ [ "Fiore.", "I didn't expect to see you here.", "Elder Cephas has been gone for weeks now.", "Your father was always so interested in these ruins.", "And I'm sure we'll find an answer to the corruption inside.", "Of course, I can't get in without your father's keystone piece.", "Do you know where he left it?", "He was always quite protective of it...", "If you find it, we can get inside." ], [ "Please find your father's keystone piece.", "We need to get inside the ruins as soon as possible." ], [  ] ]
 dialogue_key = "kein_talk"
 box_x = 10
 box_y = 20
@@ -192,6 +192,7 @@ shape = SubResource( 4 )
 
 visible = true
 position = Vector2( 0, -19 )
+frame = 2
 
 
 [editable path="NPCKein"]
