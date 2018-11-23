@@ -53,16 +53,19 @@ __meta__ = {
 build_mode = 0
 polygon = PoolVector2Array( -1, 56, 15, 56, 15, 80, -1, 80 )
 
-[node name="Platform" type="KinematicBody2D" parent="PitController" index="4"]
+[node name="Platform" type="Area2D" parent="PitController" index="4"]
 
 position = Vector2( 27, 73 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
 script = ExtResource( 6 )
 _sections_unfolded = [ "Collision", "collision" ]
-move_range = 56
+move_range = 100
 time = 1.5
 vertical = false
 
@@ -106,5 +109,9 @@ reemit_signal = true
 position = Vector2( 60, 111 )
 allow_sword = true
 reemit_signal = true
+
+[connection signal="body_entered" from="PitController/Platform" to="PitController/Platform" method="_on_Platform_body_entered"]
+
+[connection signal="body_exited" from="PitController/Platform" to="PitController/Platform" method="_on_Platform_body_exited"]
 
 

@@ -1,45 +1,59 @@
-extends KinematicBody2D
+extends Area2D
 
 export(int) var move_range = 32
 export(float) var time = 2
 export(bool) var vertical = false
 
 var colliding = false
-
-func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
+var colliding_body
 
 var t = 0
 var add = 0
 onready var startpos = get_position()
+var startrange
 onready var player = Player
 onready var area = $Area2D
+
+func _ready():
+	if vertical:
+		startrange = startpos.y
+	else:
+		startrange = startpos.x
 
 func _physics_process(delta):
 	#set_z_index(get_position().y)
 	t += 1
-	add = controller.wave(-move_range, move_range, time, 0, t, delta)
+	add = controller.wave(0, move_range, time, 0, t, delta)
 	
 	var add_vector
 	if vertical:
 		add_vector = Vector2(0, add)
 	else:
 		add_vector = Vector2(add, 0)
-	#set_position(startpos + add_vector)
+	var velocity = ((startpos + add_vector) - position) / delta
+	set_position(startpos + add_vector)
+	if colliding:
+		set_player_velocity(velocity)
 	
-	print(get_floor_velocity())
-	
-	move_and_slide(add_vector)
-	
-	if get_slide_count() > 0:
-		colliding = true
-	else:
-		colliding = false
+#	if get_slide_count() > 0:
+#		colliding = true
+#	else:
+#		colliding = false
 	
 
 	
 	#if player in area.get_overlapping_bodies():
 		#player.motion.x += add
 	
+func set_player_velocity(velocity):
+	colliding_body.set("platform_motion", velocity)
+
+func _on_Platform_body_entered(body):
+	colliding = true
+	colliding_body = body
+
+
+func _on_Platform_body_exited(body):
+	body.set("platform_motion", Vector2(0,0))
+	colliding = false
+	colliding_body = null
