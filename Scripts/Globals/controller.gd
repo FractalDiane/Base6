@@ -6,6 +6,7 @@ var flag = {}
 
 var main = null
 var dlg = preload("res://Instances/System/Dialogue.tscn")
+var dlg2 = preload("res://Instances/System/DialogueRegistry.tscn")
 var corr_parts = preload("res://Instances/Particles/PartsPlayerCorrupt.tscn")
 
 const NONE = 0
@@ -54,6 +55,17 @@ func set_flag(key, value):
 func dialogue(text,target_object,box_x,box_y,box_width,box_height):
 	Player.state = Player.DIALOGUE
 	var dialogue_node = dlg.instance()
+	dialogue_node.box_x = box_x
+	dialogue_node.box_y = box_y
+	dialogue_node.box_width = box_width
+	dialogue_node.box_height = box_height
+	dialogue_node.target = target_object
+	dialogue_node.text = text
+	get_tree().get_root().add_child(dialogue_node)
+	
+func dialogue_registry(text,target_object,box_x,box_y,box_width,box_height):
+	#Player.state = Player.DIALOGUE
+	var dialogue_node = dlg2.instance()
 	dialogue_node.box_x = box_x
 	dialogue_node.box_y = box_y
 	dialogue_node.box_width = box_width

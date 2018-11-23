@@ -13,7 +13,11 @@ func _ready():
 	spr3.set_frame(0)
 
 func _physics_process(delta):
-	alpha = 0.1 * cont.player_corruption
-	spr1.set_self_modulate(Color(1,1,1,alpha * 0.8))
-	spr2.set_self_modulate(Color(1,1,1,alpha * 0.8))
-	spr3.set_self_modulate(Color(1,1,1,alpha * 0.8))
+	if cont.player_corruption < 100:
+		alpha = 0.1 * cont.player_corruption
+		spr1.set_self_modulate(Color(1,1,1,alpha * 0.8))
+		spr2.set_self_modulate(Color(1,1,1,alpha * 0.8))
+		spr3.set_self_modulate(Color(1,1,1,alpha * 0.8))
+	else:
+		alpha = 0
+		

@@ -8,7 +8,7 @@
 [ext_resource path="res://Sounds/Music/White Noise.wav" type="AudioStream" id=6]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=7]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -25,6 +25,7 @@ __meta__ = {
 
 [node name="TileMap" type="TileMap" parent="." index="1"]
 
+z_index = -2000
 mode = 0
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 8, 8 )
@@ -42,7 +43,7 @@ collision_mask = 1
 occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( 4, 13, 0, 5, 0, 0, 6, 0, 0, 7, 15, 0, 65540, 13, 0, 65541, 0, 0, 65542, 0, 0, 65543, 15, 0, 131076, 13, 0, 131077, 0, 0, 131078, 0, 0, 131079, 15, 0, 196612, 13, 0, 196613, 0, 0, 196614, 0, 0, 196615, 15, 0, 262148, 13, 0, 262149, 0, 0, 262150, 0, 0, 262151, 15, 0, 327684, 13, 0, 327685, 0, 0, 327686, 0, 0, 327687, 15, 0, 393220, 13, 0, 393221, 0, 0, 393222, 0, 0, 393223, 15, 0, 458756, 13, 0, 458757, 0, 0, 458758, 0, 0, 458759, 15, 0, 524292, 13, 0, 524293, 0, 0, 524294, 0, 0, 524295, 15, 0, 589828, 13, 0, 589829, 0, 0, 589830, 0, 0, 589831, 15, 0, 655364, 13, 0, 655365, 0, 0, 655366, 0, 0, 655367, 15, 0, 720900, 13, 0, 720901, 0, 0, 720902, 0, 0, 720903, 15, 0, 786436, 13, 0, 786437, 0, 0, 786438, 0, 0, 786439, 15, 0, 851972, 13, 0, 851973, 0, 0, 851974, 0, 0, 851975, 15, 0, 917508, 13, 0, 917509, 0, 0, 917510, 0, 0, 917511, 15, 0, 983044, 13, 0, 983045, 0, 0, 983046, 0, 0, 983047, 15, 0 )
-_sections_unfolded = [ "Cell" ]
+_sections_unfolded = [ "Cell", "Z Index" ]
 
 [node name="UI" parent="." index="2" instance=ExtResource( 3 )]
 

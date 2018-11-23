@@ -18,7 +18,6 @@
 [ext_resource path="res://Sprites/Effects/Noise 14-2.png" type="Texture" id=16]
 [ext_resource path="res://Sprites/Effects/Noise 16-2.png" type="Texture" id=17]
 
-
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
@@ -41,7 +40,7 @@ script = ExtResource( 1 )
 
 frames = SubResource( 1 )
 animation = "default"
-frame = 7
+frame = 11
 playing = true
 centered = false
 
@@ -49,7 +48,7 @@ centered = false
 
 frames = SubResource( 1 )
 animation = "default"
-frame = 7
+frame = 11
 playing = true
 centered = false
 
@@ -57,7 +56,7 @@ centered = false
 
 frames = SubResource( 1 )
 animation = "default"
-frame = 7
+frame = 11
 playing = true
 centered = false
 

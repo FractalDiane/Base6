@@ -12,12 +12,12 @@
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ) ],
@@ -63,6 +63,7 @@ box_x = 50
 box_y = 15
 box_width = 100
 box_height = 70
+registry = false
 
 [node name="Sprite" type="AnimatedSprite" parent="." index="0"]
 
@@ -89,7 +90,6 @@ visible = false
 position = Vector2( 0, -17 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 3
 playing = true
 _sections_unfolded = [ "Visibility" ]
 __meta__ = {

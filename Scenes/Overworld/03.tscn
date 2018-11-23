@@ -11,7 +11,7 @@
 [ext_resource path="res://Instances/Props/SpikeSmall.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Sprites/Props/Dungeon entrance.png" type="Texture" id=10]
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 _sections_unfolded = [ "Transform" ]
 

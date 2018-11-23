@@ -234,7 +234,7 @@ _sections_unfolded = [ "Offset", "Region" ]
 [node name="NPCCephasNote" parent="." index="9" instance=ExtResource( 11 )]
 
 position = Vector2( 62, 47 )
-text = [ [ "Fiore,", "I'll be gone for a few days.", "Please guard my keystone with your life.", "And stay safe.", "-Elder Cephas" ] ]
+text = [ [ "Fiore,", "I'll be gone for a few days.", "Please guard my keystone piece with your life.", "And stay safe.", "-Elder Cephas" ] ]
 dialogue_key = "null"
 auto_advance_set = false
 box_x = 71
@@ -252,7 +252,6 @@ shape = SubResource( 4 )
 [node name="Interact" parent="NPCCephasNote" index="2"]
 
 position = Vector2( -1, -13 )
-frame = 1
 
 [node name="Pot" type="StaticBody2D" parent="." index="10"]
 

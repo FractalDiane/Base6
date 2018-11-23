@@ -53,11 +53,16 @@ func _physics_process(delta):
 	#if coll_e != null and coll_e.is_in_group("Enemies"):
 		#print("HELLO")
 	
-	if coll != null:
+	if coll:
 		$SoundPlink.play(0)
+		#print(coll.collider.name)
 		speed = 0
 		vel_y = -6
 		$CollisionPolygon2D.set_disabled(true)
 		hit = true
+		if coll.collider.is_in_group("OrbSwitch"):
+			coll.collider.press()
+		#if obj.is_in_group("OrbSwitch"):
+			#obj.press()
 	
 		

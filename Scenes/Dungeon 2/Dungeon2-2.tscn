@@ -4,11 +4,11 @@
 [ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sounds/Music/Dungeon 2.wav" type="AudioStream" id=3]
 [ext_resource path="res://Tilesets/TilesetMain.tres" type="TileSet" id=4]
-[ext_resource path="res://Instances/BridgeMap.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Instances/Objects/OrbSwitch.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Instances/System/PitController.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Instances/Objects/OrbSwitch.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Instances/System/PitController.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=7]
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -45,16 +45,38 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="BridgeMap" parent="." index="3" instance=ExtResource( 5 )]
+[node name="TileMapBridges" type="TileMap" parent="." index="3"]
 
+visible = false
+mode = 0
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 8, 8 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
 tile_data = PoolIntArray( 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0 )
+_sections_unfolded = [ "Cell" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="OrbSwitch" parent="." index="4" instance=ExtResource( 6 )]
+[node name="OrbSwitch" parent="." index="4" instance=ExtResource( 5 )]
 
 position = Vector2( 20, 49 )
+target_flag = "dungeon2_switchIntro"
 reemit_signal = true
 
-[node name="PitController" parent="." index="5" instance=ExtResource( 7 )]
+[node name="PitController" parent="." index="5" instance=ExtResource( 6 )]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PitController" index="3"]
 
@@ -71,5 +93,28 @@ polygon = PoolVector2Array( 95, 0, 95, 40, 127, 40, 127, 0 )
 
 build_mode = 0
 polygon = PoolVector2Array( 95, 40, 95, 96, 127, 96, 127, 40 )
+disabled = true
+
+[node name="Transition" parent="." index="6" instance=ExtResource( 7 )]
+
+position = Vector2( 96, 126 )
+scale = Vector2( 0.5, 0.109375 )
+target_scene = "res://Scenes/Dungeon 2/Dungeon2-1.tscn"
+target_x = 0
+target_y = 64
+direction = "down"
+
+[node name="Transition2" parent="." index="7" instance=ExtResource( 7 )]
+
+position = Vector2( 112, 4.5 )
+scale = Vector2( 0.5, 0.140625 )
+target_scene = "res://Scenes/Dungeon 2/Dungeon2-3.tscn"
+target_x = 0
+target_y = 100
+direction = "up"
+
+[connection signal="on_trigger" from="OrbSwitch" to="PitController/Bridge" method="set_disabled" binds= [ false ]]
+
+[connection signal="on_trigger" from="OrbSwitch" to="TileMapBridges" method="show"]
 
 

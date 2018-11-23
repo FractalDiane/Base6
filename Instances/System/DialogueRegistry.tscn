@@ -1,0 +1,107 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/System/DialogueRegistry.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/UI/Text box.png" type="Texture" id=2]
+[ext_resource path="res://Sounds/UI/Text box 1.wav" type="AudioStream" id=3]
+[ext_resource path="res://Sounds/UI/Text box 2.wav" type="AudioStream" id=4]
+[ext_resource path="res://Sounds/UI/Text type.wav" type="AudioStream" id=5]
+[ext_resource path="res://Fonts/font_standard.tres" type="DynamicFont" id=6]
+
+[node name="DialogueRegistry" type="CanvasLayer"]
+
+layer = 24
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+script = ExtResource( 1 )
+
+[node name="Box" type="NinePatchRect" parent="." index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 10.0
+margin_bottom = 10.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+_sections_unfolded = [ "Patch Margin", "Rect", "Visibility" ]
+
+[node name="Sound1" type="AudioStreamPlayer" parent="." index="1"]
+
+stream = ExtResource( 3 )
+volume_db = -12.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Sound2" type="AudioStreamPlayer" parent="." index="2"]
+
+stream = ExtResource( 4 )
+volume_db = -12.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="SoundType" type="AudioStreamPlayer" parent="." index="3"]
+
+stream = ExtResource( 5 )
+volume_db = -12.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="TimerStart" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 0.16
+one_shot = true
+autostart = false
+
+[node name="DText" type="Label" parent="." index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "T-this is a test of the dialogue system."
+autowrap = true
+percent_visible = 0.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "custom_colors", "custom_fonts" ]
+
+[node name="TimerBuffer" type="Timer" parent="." index="6"]
+
+process_mode = 1
+wait_time = 0.05
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="TimerStart" to="." method="_on_TimerStart_timeout"]
+
+[connection signal="timeout" from="TimerBuffer" to="." method="_on_TimerBuffer_timeout"]
+
+

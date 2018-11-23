@@ -102,4 +102,13 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Transition2" parent="." index="10" instance=ExtResource( 6 )]
+
+position = Vector2( 96, 58 )
+scale = Vector2( 0.40625, 0.09375 )
+target_scene = "res://Scenes/Dungeon 2/Dungeon2-2.tscn"
+target_x = 0
+target_y = 100
+direction = "up"
+
 

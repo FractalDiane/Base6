@@ -7,6 +7,7 @@ var monitor = false
 var respawning = false
 
 onready var player = Player
+onready var platform = $Platform
 
 func _ready():
 	respawn_pos = Player.get_position()
@@ -15,7 +16,7 @@ func _ready():
 func _physics_process(delta):
 	if monitor and not respawning and not player.falling and not player.jumping and not player.respawn:
 		var coll = get_overlapping_bodies()
-		if not player in coll:
+		if not player in coll and not platform.colliding:
 			fall()
 
 func fall():

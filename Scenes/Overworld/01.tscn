@@ -57,4 +57,8 @@ target_scene = "res://Scenes/Overworld/02.tscn"
 
 position = Vector2( 54, 41 )
 
+[node name="Tree2" parent="." index="8" instance=ExtResource( 7 )]
+
+position = Vector2( 129, 90 )
+
 

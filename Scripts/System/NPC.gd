@@ -10,6 +10,8 @@ export(int) var box_y
 export(int) var box_width
 export(int) var box_height
 
+export(bool) var registry = false
+
 onready var interact = $Interact
 
 var dialogue_set = 0
@@ -32,7 +34,17 @@ func _physics_process(delta):
 func interaction():
 	if Input.is_action_just_pressed("ui_accept"):
 		change_direction()
+		if not registry:
+			controller.dialogue(text[dialogue_set],self,box_x,box_y,box_width,box_height)
+		else:
+			controller.dialogue_registry(text[dialogue_set],self,box_x,box_y,box_width,box_height)
+
+func dialogue_override():
+	print("TEST")
+	if not registry:
 		controller.dialogue(text[dialogue_set],self,box_x,box_y,box_width,box_height)
+	else:
+		controller.dialogue_registry(text[dialogue_set],self,box_x,box_y,box_width,box_height)
 
 func change_direction():
 	if Player.face.x == 0: # Vertical

@@ -13,7 +13,7 @@ onready var cont = controller
 #func _ready():
 
 func _physics_process(delta):
-	if cont.player_corruption > 0:
+	if cont.player_corruption > 0 and cont.player_corruption < 100:
 		if not hum.is_playing():
 			hum.play(0)
 		if cont.player_corruption <= 5:

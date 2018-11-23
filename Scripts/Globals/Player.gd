@@ -10,6 +10,8 @@ var falling = false
 var respawn = false
 var iframes = false
 
+var fully_corrupted = false
+
 var color = 1
 
 var arrow = preload("res://Instances/Arrow.tscn")
@@ -69,10 +71,11 @@ func _physics_process(delta):
 		
 	deal_damage()
 	
-	if controller.player_corruption >= 10:
+	if controller.player_corruption >= 10 and not fully_corrupted:
 		audioplayer.get_node("Music").stop()
 		state = NO_INPUT
 		controller.scene_change("res://Scenes/Corrupted.tscn")
+		fully_corrupted = true
 	
 	footstep_increment()
 	footstep_sound()
@@ -276,7 +279,7 @@ func deal_damage():
 					node.deal_damage_knockback(dir)
 				_:
 					node.deal_damage_weak_knockback(dir)
-		if node.is_in_group("OrbSwitch") and not node.pressed: # Orb switch
+		if node.is_in_group("OrbSwitch") and node.allow_sword and not node.pressed: # Orb switch
 			node.press()
 		if node.is_in_group("SentryShot") and not node.fade:
 			$SoundDealDamage.play(0)
@@ -300,7 +303,7 @@ func _on_TimerSwingAnim_timeout():
 
 func _on_TimerDash_timeout():
 	if state != NO_INPUT:
-		state = WALK	
+		state = WALK
 	if face.y < 0:
 		$Sprite.play("up")
 		hbU.set_disabled(true)
@@ -317,7 +320,8 @@ func _on_TimerDash_timeout():
 	sound = -1
 
 func _on_TimerShoot_timeout():
-	state = WALK
+	if state != NO_INPUT:
+		state = WALK
 	if face.y < 0: $Sprite.play("up")
 	elif face.y > 0: $Sprite.play("down")
 	elif face.x < 0: $Sprite.play("left")

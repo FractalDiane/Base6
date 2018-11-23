@@ -11,7 +11,7 @@
 [ext_resource path="res://Instances/Props/Tree.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Instances/Props/DeadTree.tscn" type="PackedScene" id=10]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -102,6 +102,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="DeadTree2" parent="." index="12" instance=ExtResource( 10 )]
 
-position = Vector2( 110, 45 )
+position = Vector2( 136, 65 )
 
 

@@ -37,12 +37,12 @@ extents = Vector2( 35.5, 19 )
 animations = [ {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 15 ) ],
@@ -142,34 +142,7 @@ target_y = 80
 direction = "down"
 not_cell = true
 
-[node name="Pot" type="StaticBody2D" parent="." index="6"]
-
-position = Vector2( 29, 107 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-script = ExtResource( 7 )
-
-[node name="Sprite" type="Sprite" parent="Pot" index="0"]
-
-texture = ExtResource( 8 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pot" index="1"]
-
-position = Vector2( 0, 7 )
-shape = SubResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Pot2" type="StaticBody2D" parent="." index="7"]
+[node name="Pot2" type="StaticBody2D" parent="." index="6"]
 
 position = Vector2( 133, 93 )
 input_pickable = false
@@ -196,7 +169,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Pot3" type="StaticBody2D" parent="." index="8"]
+[node name="Pot3" type="StaticBody2D" parent="." index="7"]
 
 position = Vector2( 133, 106 )
 input_pickable = false
@@ -216,6 +189,33 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pot3" index="1"]
+
+position = Vector2( 0, 7 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Pot4" type="StaticBody2D" parent="." index="8"]
+
+position = Vector2( 29, 106 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="Pot4" index="0"]
+
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pot4" index="1"]
 
 position = Vector2( 0, 7 )
 shape = SubResource( 1 )
@@ -298,6 +298,7 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 script = ExtResource( 7 )
+_sections_unfolded = [ "Pickable" ]
 
 [node name="Sprite" type="Sprite" parent="Counter" index="0"]
 
@@ -338,6 +339,14 @@ __meta__ = {
 [node name="NPCIiro" parent="." index="13" instance=ExtResource( 14 )]
 
 position = Vector2( 80, 56 )
+text = [ [ "Look who it is.", "Been a while, Fiore.", "I guess the corruption ain't killed you yet.", "That's good.", "Ain't killed me, either.", "Takes more than crap like that to put Iiro down.", "Anyway.", "Buy my junk.", "Because I still got all the stuff.", "And I don't care if the whole world's fallin' down.", "I'm still sellin' stuff." ], [ "This corruption's pissin' me off.", "I mean, seriously. The world endin'?", "That's bad for business.", "Say, about your dad...", "Ain't he the one who caused all this?", "I'm not even sure. Never liked him.", "All I know is that next time I see him...", "I'm gonna slap him.", "Long as he's not dead.", "Heh heh..." ], [ "You seen Jari lately?", "Tell him I said hi.", "He'd appreciate it.", "...Heh heh..." ], [ "Okay, Fiore...", "I know I've got a really cool accent.", "But you should really stop talkin' to me now." ] ]
+dialogue_key = "iiro_talk"
+auto_advance_limit = 3
+box_x = 28
+box_y = 74
+box_width = 110
+box_height = 50
+registry = false
 
 [node name="Sprite" parent="NPCIiro" index="0"]
 
@@ -351,7 +360,7 @@ shape = SubResource( 5 )
 [node name="Interact" parent="NPCIiro" index="2"]
 
 position = Vector2( -1, -19 )
-frame = 0
+frame = 2
 
 [node name="Table2" type="StaticBody2D" parent="." index="14"]
 

@@ -1,16 +1,55 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Scripts/System/Startup.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Scenes/Corrupted.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Splash.png" type="Texture" id=2]
 [ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sounds/Music/SILENCE.wav" type="AudioStream" id=4]
+[ext_resource path="res://Sprites/Particles/Glitch.png" type="Texture" id=5]
+[ext_resource path="res://Sounds/Ambient/CORRUPTED.wav" type="AudioStream" id=6]
+
+[sub_resource type="ParticlesMaterial" id=1]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 2
+emission_box_extents = Vector3( 82, 74, 1 )
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 0.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+color = Color( 0.550781, 0.462032, 0.408783, 1 )
+hue_variation = 1.0
+hue_variation_random = 1.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Color", "Emission Shape", "Gravity", "Hue Variation", "Initial Velocity" ]
 
 [node name="Node2D" type="Node2D"]
 
 script = ExtResource( 1 )
-start_scene = "res://Scenes/Overworld/00.tscn"
-start_position = Vector2( 90, 78 )
-flags = [ "jari_talk", "cultist40_talk", "holding_dungeon1key" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -25,5 +64,83 @@ text = "??"
 cell_index_x = -1
 cell_index_y = -1
 cell_music = ExtResource( 4 )
+
+[node name="GLITCHLAYER" type="CanvasLayer" parent="." index="2"]
+
+layer = 25
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="PartsGLITCH" type="Particles2D" parent="GLITCHLAYER" index="0"]
+
+position = Vector2( 80, 72 )
+z_index = 4096
+emitting = false
+amount = 128
+lifetime = 0.08
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 1.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 1 )
+texture = ExtResource( 5 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform", "Z Index" ]
+
+[node name="GLITCH" type="Sprite" parent="GLITCHLAYER/PartsGLITCH" index="0"]
+
+visible = false
+modulate = Color( 0.429688, 0.429688, 0.429688, 1 )
+position = Vector2( -2.5, 0.120003 )
+scale = Vector2( 4.02273, 6.76 )
+z_index = -50
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="TimerParts" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 3.8
+one_shot = true
+autostart = false
+
+[node name="TimerSoundEffect" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="TimerDarkness" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 7.0
+one_shot = true
+autostart = false
+
+[node name="SoundCORRUPTED" type="AudioStreamPlayer" parent="." index="6"]
+
+stream = ExtResource( 6 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[connection signal="timeout" from="TimerParts" to="." method="_on_TimerParts_timeout"]
+
+[connection signal="timeout" from="TimerSoundEffect" to="." method="_on_TimerSoundEffect_timeout"]
+
+[connection signal="timeout" from="TimerDarkness" to="." method="_on_TimerDarkness_timeout"]
 
 
