@@ -7,8 +7,8 @@
 [node name="Node2D" type="Node2D"]
 
 script = ExtResource( 1 )
-start_scene = "res://Scenes/Dungeon 2/Dungeon2-R.tscn"
-start_position = Vector2( 8, 72 )
+start_scene = "res://Scenes/Dungeon 1/Dungeon1-BOSS.tscn"
+start_position = Vector2( 80, 80 )
 flags = [ "jari_talk", "cultist40_talk", "holding_dungeon1key", "dungeon1_switchesTL", "dungeon1_switchesTR", "dungeon1_switchTL_1", "dungeon1_switchTL_2", "dungeon1_switchTL_3", "dungeon1_switchTL_4", "dungeon1_switchTR_1", "dungeon1_switchTR_2", "dungeon1_switchTR_3", "dungeon1_switchTR_4", "kein_talk", "keininside_talk", "dungeon1_switches2TL", "dungeon1_switches2TR", "dungeon1_switches2BL", "dungeon1_switches2BR", "dungeon1_switchTR_5", "dungeon1_switchBR2_1", "dungeon1_switchBR2_2", "dungeon1_switchBR2_3", "dungeon1_switchBR2_4", "dungeon1_switchTR2_1", "dungeon1_switchTR2_2", "dungeon1_switchTR2_3", "dungeon1_switchTR2_4", "dungeon1_switchTL2_1", "dungeon1_switchTL2_2", "dungeon1_switchBL2_1", "dungeon1_switchBL2_2", "dungeon1_switchBL2_3", "iiro_talk", "dungeon2_switchIntro" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]

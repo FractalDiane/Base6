@@ -1,5 +1,7 @@
 extends Area2D
 
+export(bool) var has_platform = false
+
 var respawn_pos = Vector2(0,0)
 var respawn_direction = Vector2(0,0)
 
@@ -7,16 +9,18 @@ var monitor = false
 var respawning = false
 
 onready var player = Player
-onready var platform = $Platform
+var platform
 
 func _ready():
-	respawn_pos = Player.get_position()
-	respawn_direction = Player.face
+	respawn_pos = player.get_position()
+	respawn_direction = player.face
+	if has_platform:
+		platform = $Platform
 
 func _physics_process(delta):
 	if monitor and not respawning and not player.falling and not player.jumping and not player.respawn:
 		var coll = get_overlapping_bodies()
-		if not player in coll and not platform.colliding:
+		if player_should_fall(coll):
 			fall()
 
 func fall():
@@ -25,6 +29,12 @@ func fall():
 	respawning = true
 	player.state = player.NO_INPUT
 	$TimerRespawn.start()
+	
+func player_should_fall(coll):
+	if has_platform:
+		return not player in coll and not platform.colliding
+	else:
+		return not player in coll
 	
 func _on_TimerStartMonitor_timeout():
 	monitor = true
