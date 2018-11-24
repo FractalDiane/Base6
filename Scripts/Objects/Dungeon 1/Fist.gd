@@ -6,6 +6,7 @@ export(int) var speed = 50
 var motion = Vector2(0, 0)
 var timer
 var fistOffset = 0
+var damage = 1
 
 onready var player = Player
 
@@ -37,6 +38,9 @@ func _on_animation_finished():
 	if $ShadowSprite.animation == "lift": 	#If done lifting, start following.
 		following = true
 	else: 									#If done dropping, deactivate and set the other fist active.
+		var coll = $Hitbox.get_overlapping_bodies()
+		if player in coll and not player.iframes:
+			damage_player(damage)
 		active = false
 		get_parent().switch()
 
@@ -52,3 +56,8 @@ func activate(): #Lift the fist.
 func deactivate(): #Use only at end of fight to completely disable.
 	active = false
 	timer.set_paused(true)
+
+func damage_player(amount):
+	controller.player_damage(amount)
+	player.iframes = true
+	player.get_node("TimerIFrames").start()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://Sprites/Props/Fists/Shadow1.png" type="Texture" id=21]
 [ext_resource path="res://Sprites/Props/Fists/Shadow0.png" type="Texture" id=22]
 [ext_resource path="res://Sprites/Props/Fists/RFist.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Characters/Temple Guardians/Torso0.png" type="Texture" id=24]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -61,6 +62,11 @@ animations = [ {
 "name": "drop",
 "speed": 30.0
 } ]
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
 
 [node name="Node2D" type="Node2D" index="0"]
 
@@ -285,7 +291,7 @@ script = ExtResource( 10 )
 
 [node name="LeftFist" type="KinematicBody2D" parent="BossCore" index="0"]
 
-position = Vector2( 63, 34.0323 )
+position = Vector2( 63, 34 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -314,9 +320,27 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Hitbox" type="Area2D" parent="BossCore/LeftFist" index="2"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="Collider" type="CollisionShape2D" parent="BossCore/LeftFist/Hitbox" index="0"]
+
+position = Vector2( 0, 10 )
+scale = Vector2( 0.6, 0.3 )
+shape = SubResource( 5 )
+_sections_unfolded = [ "Transform" ]
+
 [node name="RightFist" type="KinematicBody2D" parent="BossCore" index="1"]
 
-position = Vector2( 96.8576, 33.8899 )
+position = Vector2( 97, 34 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -344,6 +368,30 @@ _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Hitbox" type="Area2D" parent="BossCore/RightFist" index="2"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="Collider" type="CollisionShape2D" parent="BossCore/RightFist/Hitbox" index="0"]
+
+position = Vector2( 0, 10 )
+scale = Vector2( 0.6, 0.3 )
+shape = SubResource( 5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="BossCore" index="2"]
+
+position = Vector2( 80, 24 )
+texture = ExtResource( 24 )
+_sections_unfolded = [ "Transform" ]
 
 [connection signal="animation_finished" from="BossCore/LeftFist/ShadowSprite" to="BossCore/LeftFist" method="_on_animation_finished"]
 
