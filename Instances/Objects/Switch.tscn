@@ -73,6 +73,10 @@ wait_time = 0.1
 one_shot = true
 autostart = false
 
+[connection signal="body_entered" from="." to="." method="_on_Switch_body_entered"]
+
+[connection signal="body_exited" from="." to="." method="_on_Switch_body_exited"]
+
 [connection signal="timeout" from="TimerReemitSignal" to="." method="_on_TimerReemitSignal_timeout"]
 
 

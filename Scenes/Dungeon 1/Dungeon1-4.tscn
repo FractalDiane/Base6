@@ -53,7 +53,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 17, 16 )
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform", "Z Index" ]
 
@@ -91,6 +91,8 @@ __meta__ = {
 }
 
 [node name="PitController" parent="." index="3" instance=ExtResource( 5 )]
+
+has_platform = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PitController" index="3"]
 

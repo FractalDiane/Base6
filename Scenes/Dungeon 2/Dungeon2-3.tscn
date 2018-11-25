@@ -9,7 +9,7 @@
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Instances/Props/Torch.tscn" type="PackedScene" id=8]
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -75,9 +75,12 @@ __meta__ = {
 
 position = Vector2( 140, 37 )
 time = 3.0
+allow_sword = true
 reemit_signal = false
 
 [node name="PitController" parent="." index="5" instance=ExtResource( 6 )]
+
+has_platform = false
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="PitController" index="3"]
 
@@ -108,6 +111,15 @@ direction = "down"
 [node name="Torch" parent="." index="7" instance=ExtResource( 8 )]
 
 position = Vector2( 36, 15 )
+
+[node name="Transition2" parent="." index="8" instance=ExtResource( 7 )]
+
+position = Vector2( 80, 5 )
+scale = Vector2( 0.5, 0.15625 )
+target_scene = "res://Scenes/Dungeon 2/Dungeon2-4.tscn"
+target_x = 0
+target_y = 104
+direction = "up"
 
 [connection signal="on_timeout" from="OrbSwitch" to="PitController/Bridge" method="set_disabled" binds= [ true ]]
 

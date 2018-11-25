@@ -42,7 +42,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 6, 3 )
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform", "Z Index" ]
 
@@ -128,7 +128,7 @@ shape = SubResource( 2 )
 
 visible = true
 position = Vector2( 0, -19 )
-frame = 0
+frame = 1
 
 [node name="Transition2" parent="." index="9" instance=ExtResource( 6 )]
 

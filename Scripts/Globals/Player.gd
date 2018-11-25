@@ -83,6 +83,11 @@ func _physics_process(delta):
 	debug()
 	move_and_slide(motion + platform_motion)
 	
+	if get_slide_count() > 0:
+		var coll = get_slide_collision(0)
+		if coll.collider.is_in_group("Pushables"):
+			coll.collider.apply_impulse(Vector2(0,0), face * 3)
+	
 func state_walk():
 	# Set Motion and Face
 	var previous = Vector2(motion.x, motion.y)

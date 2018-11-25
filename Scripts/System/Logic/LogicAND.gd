@@ -2,6 +2,7 @@ extends Node2D
 
 export(int) var inputs = 2
 export(String) var target_flag
+#export(bool) var one_shot = false
 
 var input_dict = {}
 
