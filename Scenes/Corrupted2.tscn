@@ -73,7 +73,7 @@ cell_music = ExtResource( 3 )
 
 [node name="NPCRegistry" parent="." index="2" instance=ExtResource( 4 )]
 
-text = [ [ "We are the center of everything.", "We are not perfect.", "We are", "broken.", "It's so dark here.", "We are so", "scared.", "We", "do not", "know what", "has happened.", "We", "are", "not", "perfect.", ".", "..", "...", "HELP!" ] ]
+text = [ [ "We are the center of everything.", "We are not perfect.", "We are", "broken.", "It's so dark here.", "We are so", "scared.", "We", "do not", "know what", "has happened.", "We", "are", "not", "perfect.", ".", "..", "...", "Can you hear them?", "The", "whispers..." ] ]
 dialogue_key = "null"
 auto_advance_set = false
 box_x = 30

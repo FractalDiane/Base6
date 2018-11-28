@@ -6,7 +6,5 @@ extends RigidBody2D
 
 onready var player = Player
 
-func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
+func _physics_process(delta):
+	set_z_index(get_position().y)

@@ -1,0 +1,318 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://Tilesets/TilesetMain.tres" type="TileSet" id=1]
+[ext_resource path="res://Sprites/Props/FancyRug.png" type="Texture" id=2]
+[ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sounds/Music/Red Noise.wav" type="AudioStream" id=5]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/Props/Table.png" type="Texture" id=7]
+[ext_resource path="res://Instances/NPCs/NPCMasterNew.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sprites/Props/Note.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Props/Bed.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/Objects/Prop.gd" type="Script" id=11]
+[ext_resource path="res://Sprites/Props/Plant.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Props/Clock.png" type="Texture" id=13]
+[ext_resource path="res://Instances/Enemies/Ghast.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Sprites/Props/Pot.png" type="Texture" id=15]
+[ext_resource path="res://Instances/CorruptionOverlay.tscn" type="PackedScene" id=16]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 20.5, 10 )
+
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 4, 5 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 16 )
+
+[sub_resource type="RectangleShape2D" id=7]
+
+custom_solver_bias = 0.0
+extents = Vector2( 4.5, 4 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 5 )
+
+[node name="Node2D" type="Node2D"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="TileMap" type="TileMap" parent="." index="0"]
+
+mode = 0
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 8, 8 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0, 9, 1, 0, 10, 1, 0, 11, 1, 0, 12, 1, 0, 13, 1, 0, 14, 1, 0, 15, 1, 0, 16, 1, 0, 17, 1, 0, 18, 1, 0, 19, 1, 0, 65536, 1, 0, 65537, 29, 0, 65538, 24, 0, 65539, 24, 0, 65540, 24, 0, 65541, 24, 0, 65542, 24, 0, 65543, 24, 0, 65544, 24, 0, 65545, 24, 0, 65546, 24, 0, 65547, 24, 0, 65548, 24, 0, 65549, 24, 0, 65550, 24, 0, 65551, 24, 0, 65552, 24, 0, 65553, 24, 0, 65554, 28, 0, 65555, 1, 0, 131072, 1, 0, 131073, 31, 0, 131074, 30, 0, 131075, 30, 0, 131076, 30, 0, 131077, 30, 0, 131078, 30, 0, 131079, 30, 0, 131080, 30, 0, 131081, 30, 0, 131082, 30, 0, 131083, 30, 0, 131084, 30, 0, 131085, 30, 0, 131086, 30, 0, 131087, 30, 0, 131088, 30, 0, 131089, 30, 0, 131090, 22, 0, 131091, 1, 0, 196608, 1, 0, 196609, 31, 0, 196610, 30, 0, 196611, 30, 0, 196612, 30, 0, 196613, 30, 0, 196614, 30, 0, 196615, 30, 0, 196616, 30, 0, 196617, 30, 0, 196618, 30, 0, 196619, 30, 0, 196620, 30, 0, 196621, 30, 0, 196622, 30, 0, 196623, 30, 0, 196624, 30, 0, 196625, 30, 0, 196626, 22, 0, 196627, 1, 0, 262144, 1, 0, 262145, 31, 0, 262146, 30, 0, 262147, 30, 0, 262148, 30, 0, 262149, 30, 0, 262150, 30, 0, 262151, 30, 0, 262152, 30, 0, 262153, 30, 0, 262154, 30, 0, 262155, 30, 0, 262156, 30, 0, 262157, 30, 0, 262158, 30, 0, 262159, 30, 0, 262160, 30, 0, 262161, 30, 0, 262162, 22, 0, 262163, 1, 0, 327680, 1, 0, 327681, 31, 0, 327682, 24, 0, 327683, 24, 0, 327684, 24, 0, 327685, 24, 0, 327686, 24, 0, 327687, 24, 0, 327688, 24, 0, 327689, 24, 0, 327690, 24, 0, 327691, 24, 0, 327692, 24, 0, 327693, 24, 0, 327694, 24, 0, 327695, 24, 0, 327696, 24, 0, 327697, 24, 0, 327698, 22, 0, 327699, 1, 0, 393216, 1, 0, 393217, 31, 0, 393218, 2, 0, 393219, 2, 0, 393220, 2, 0, 393221, 2, 0, 393222, 2, 0, 393223, 2, 0, 393224, 2, 0, 393225, 2, 0, 393226, 2, 0, 393227, 2, 0, 393228, 2, 0, 393229, 2, 0, 393230, 2, 0, 393231, 2, 0, 393232, 2, 0, 393233, 2, 0, 393234, 22, 0, 393235, 1, 0, 458752, 1, 0, 458753, 31, 0, 458754, 2, 0, 458755, 2, 0, 458756, 2, 0, 458757, 2, 0, 458758, 2, 0, 458759, 2, 0, 458760, 2, 0, 458761, 2, 0, 458762, 2, 0, 458763, 2, 0, 458764, 2, 0, 458765, 2, 0, 458766, 2, 0, 458767, 2, 0, 458768, 2, 0, 458769, 2, 0, 458770, 22, 0, 458771, 1, 0, 524288, 1, 0, 524289, 31, 0, 524290, 2, 0, 524291, 2, 0, 524292, 2, 0, 524293, 2, 0, 524294, 2, 0, 524295, 2, 0, 524296, 2, 0, 524297, 2, 0, 524298, 2, 0, 524299, 2, 0, 524300, 2, 0, 524301, 2, 0, 524302, 2, 0, 524303, 2, 0, 524304, 2, 0, 524305, 2, 0, 524306, 22, 0, 524307, 1, 0, 589824, 1, 0, 589825, 31, 0, 589826, 2, 0, 589827, 2, 0, 589828, 2, 0, 589829, 2, 0, 589830, 2, 0, 589831, 2, 0, 589832, 2, 0, 589833, 2, 0, 589834, 2, 0, 589835, 2, 0, 589836, 2, 0, 589837, 2, 0, 589838, 2, 0, 589839, 2, 0, 589840, 2, 0, 589841, 2, 0, 589842, 22, 0, 589843, 1, 0, 655360, 1, 0, 655361, 31, 0, 655362, 2, 0, 655363, 2, 0, 655364, 2, 0, 655365, 2, 0, 655366, 2, 0, 655367, 2, 0, 655368, 2, 0, 655369, 2, 0, 655370, 2, 0, 655371, 2, 0, 655372, 2, 0, 655373, 2, 0, 655374, 2, 0, 655375, 2, 0, 655376, 2, 0, 655377, 2, 0, 655378, 22, 0, 655379, 1, 0, 720896, 1, 0, 720897, 31, 0, 720898, 2, 0, 720899, 2, 0, 720900, 2, 0, 720901, 2, 0, 720902, 2, 0, 720903, 2, 0, 720904, 2, 0, 720905, 2, 0, 720906, 2, 0, 720907, 2, 0, 720908, 2, 0, 720909, 2, 0, 720910, 2, 0, 720911, 2, 0, 720912, 2, 0, 720913, 2, 0, 720914, 22, 0, 720915, 1, 0, 786432, 1, 0, 786433, 31, 0, 786434, 2, 0, 786435, 2, 0, 786436, 2, 0, 786437, 2, 0, 786438, 2, 0, 786439, 2, 0, 786440, 2, 0, 786441, 2, 0, 786442, 2, 0, 786443, 2, 0, 786444, 2, 0, 786445, 2, 0, 786446, 2, 0, 786447, 2, 0, 786448, 2, 0, 786449, 2, 0, 786450, 22, 0, 786451, 1, 0, 851968, 1, 0, 851969, 31, 0, 851970, 2, 0, 851971, 2, 0, 851972, 2, 0, 851973, 2, 0, 851974, 2, 0, 851975, 2, 0, 851976, 2, 0, 851977, 2, 0, 851978, 2, 0, 851979, 2, 0, 851980, 2, 0, 851981, 2, 0, 851982, 2, 0, 851983, 2, 0, 851984, 2, 0, 851985, 2, 0, 851986, 22, 0, 851987, 1, 0, 917504, 1, 0, 917505, 31, 0, 917506, 2, 0, 917507, 2, 0, 917508, 2, 0, 917509, 2, 0, 917510, 2, 0, 917511, 2, 0, 917512, 2, 0, 917513, 2, 0, 917514, 2, 0, 917515, 2, 0, 917516, 2, 0, 917517, 2, 0, 917518, 2, 0, 917519, 2, 0, 917520, 2, 0, 917521, 2, 0, 917522, 22, 0, 917523, 1, 0, 983040, 1, 0, 983041, 27, 0, 983042, 32, 0, 983043, 32, 0, 983044, 32, 0, 983045, 32, 0, 983046, 32, 0, 983047, 32, 0, 983048, 33, 0, 983049, 2, 0, 983050, 2, 0, 983051, 21, 0, 983052, 32, 0, 983053, 32, 0, 983054, 32, 0, 983055, 32, 0, 983056, 32, 0, 983057, 32, 0, 983058, 26, 0, 983059, 1, 0 )
+_sections_unfolded = [ "Cell" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap2" type="TileMap" parent="." index="1"]
+
+mode = 0
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 8, 8 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 196612, 34, 0, 196621, 34, 0 )
+_sections_unfolded = [ "Cell", "Collision" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Rug" type="Sprite" parent="." index="2"]
+
+position = Vector2( 82, 85 )
+texture = ExtResource( 2 )
+
+[node name="UI" parent="." index="3" instance=ExtResource( 3 )]
+
+[node name="CellLabel" parent="." index="4" instance=ExtResource( 4 )]
+
+visible = false
+text = "33"
+cell_index_x = -1
+cell_index_y = -1
+cell_music = ExtResource( 5 )
+
+[node name="Transition" parent="." index="5" instance=ExtResource( 6 )]
+
+position = Vector2( 80, 123 )
+scale = Vector2( 0.25, 0.0937501 )
+target_scene = "res://Scenes/Overworld/33.tscn"
+target_x = 105
+target_y = 96
+direction = "down"
+not_cell = true
+
+[node name="Table" type="StaticBody2D" parent="." index="6"]
+
+position = Vector2( 49, 110 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="Table" index="0"]
+
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table" index="1"]
+
+position = Vector2( -0.5, 0 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="NPCCorruptedHouseNote" parent="." index="7" instance=ExtResource( 8 )]
+
+position = Vector2( 60, 105 )
+text = [ [ "Esther, don't leave the house.", "It's not safe.", "Stay here until I get back." ] ]
+dialogue_key = "null"
+auto_advance_set = false
+box_x = 71
+box_width = 80
+
+[node name="Sprite" parent="NPCCorruptedHouseNote" index="0"]
+
+scale = Vector2( 1, -1 )
+frames = SubResource( 3 )
+
+[node name="CollisionShape2D" parent="NPCCorruptedHouseNote" index="1"]
+
+position = Vector2( 0, 0 )
+shape = SubResource( 4 )
+
+[node name="Interact" parent="NPCCorruptedHouseNote" index="2"]
+
+position = Vector2( -1, -11 )
+
+[node name="Bed" type="StaticBody2D" parent="." index="8"]
+
+position = Vector2( 27, 56 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="Bed" index="0"]
+
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bed" index="1"]
+
+position = Vector2( -2, 0 )
+shape = SubResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Bed2" type="StaticBody2D" parent="." index="9"]
+
+position = Vector2( 132, 103 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="Bed2" index="0"]
+
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bed2" index="1"]
+
+position = Vector2( -2, 0 )
+shape = SubResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Plant" type="StaticBody2D" parent="." index="10"]
+
+position = Vector2( 97, 110 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite" parent="Plant" index="0"]
+
+texture = ExtResource( 12 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plant" index="1"]
+
+position = Vector2( 0.5, 5 )
+shape = SubResource( 7 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Clock" type="Sprite" parent="." index="11"]
+
+position = Vector2( 58, 24 )
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Ghast" parent="." index="12" instance=ExtResource( 14 )]
+
+position = Vector2( 70, 46 )
+
+[node name="Pot" type="StaticBody2D" parent="." index="13"]
+
+position = Vector2( 95, 45 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite" parent="Pot" index="0"]
+
+texture = ExtResource( 15 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pot" index="1"]
+
+position = Vector2( 0, 7 )
+shape = SubResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CorruptionOverlay" parent="." index="14" instance=ExtResource( 16 )]
+
+
+[editable path="NPCCorruptedHouseNote"]

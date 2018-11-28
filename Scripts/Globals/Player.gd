@@ -11,6 +11,7 @@ var falling = false
 var respawn = false
 var iframes = false
 
+var dead = false
 var fully_corrupted = false
 
 var color = 1
@@ -72,7 +73,14 @@ func _physics_process(delta):
 		
 	deal_damage()
 	
-	if controller.player_corruption >= 10 and not fully_corrupted:
+	if controller.player_health <= 0 and not dead:
+		audioplayer.get_node("Music").stop()
+		state = NO_INPUT
+		controller.player_corruption = 0
+		controller.scene_change("res://Scenes/Dead.tscn")
+		dead = true
+	
+	if controller.player_health > 0 and controller.player_corruption >= 10 and not fully_corrupted:
 		audioplayer.get_node("Music").stop()
 		state = NO_INPUT
 		controller.scene_change("res://Scenes/Corrupted.tscn")
@@ -149,7 +157,7 @@ func state_walk():
 	var current_sight = sight.get_overlapping_bodies()
 	
 	for node in current_sight:
-		if node.is_in_group("NPC"):
+		if node.is_in_group("NPC") or node.is_in_group("Item"):
 			node.show_interact = true
 			node.get_node("TimerHideInteract").start()
 		
@@ -343,5 +351,6 @@ func _on_TimerIFrames_timeout():
 # ================================================================================== DEBUG
 
 func debug():
-	if (Input.is_action_pressed("ui_debug1")):
-		controller.flag["holding_dungeon1key"] = 1
+	#if (Input.is_action_pressed("ui_debug1")):
+		#controller.flag["holding_dungeon1key"] = 1
+	pass

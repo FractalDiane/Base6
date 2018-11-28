@@ -9,7 +9,7 @@
 [ext_resource path="res://Sprites/Props/Table.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/Props/TableSmall.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/Props/Bowl.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Items/Keystone.png" type="Texture" id=10]
+[ext_resource path="res://Instances/System/Item.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Instances/NPCs/NPCMasterNew.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Sprites/Props/Note.png" type="Texture" id=12]
 [ext_resource path="res://Scripts/Objects/Prop.gd" type="Script" id=13]
@@ -222,14 +222,14 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Sprite" type="Sprite" parent="." index="8"]
+[node name="ItemKeystonePiece" parent="." index="8" instance=ExtResource( 10 )]
 
-position = Vector2( 73, 44 )
-texture = ExtResource( 10 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 0, 0, 11, 5 )
-_sections_unfolded = [ "Offset", "Region" ]
+item_get_message = "Obtained \"Keystone Piece 1.\""
+collect_flag = "holding_dungeon1key"
+box_x = 71
+box_y = 15
+box_width = 80
+box_height = 70
 
 [node name="NPCCephasNote" parent="." index="9" instance=ExtResource( 11 )]
 
@@ -252,6 +252,7 @@ shape = SubResource( 4 )
 [node name="Interact" parent="NPCCephasNote" index="2"]
 
 position = Vector2( -1, -13 )
+frame = 2
 
 [node name="Pot" type="StaticBody2D" parent="." index="10"]
 

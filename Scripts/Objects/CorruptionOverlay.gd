@@ -3,6 +3,7 @@ extends CanvasLayer
 export(bool) var corrupt = true
 export(float) var corrupt_interval = 5
 
+onready var player = Player
 onready var cont = controller
 
 # class member variables go here, for example:
@@ -18,5 +19,5 @@ func _ready():
 	$TimerCorrupt.start()
 
 func _on_TimerCorrupt_timeout():
-	if corrupt:
+	if corrupt and player.state != player.NO_INPUT and player.state != player.DIALOGUE:
 		cont.player_corrupt(1)

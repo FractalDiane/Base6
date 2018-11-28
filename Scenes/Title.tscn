@@ -1,0 +1,102 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Sprites/Splash.png" type="Texture" id=1]
+[ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Particles/Corruption.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/UI/Logo.png" type="Texture" id=4]
+
+[sub_resource type="Gradient" id=1]
+
+offsets = PoolRealArray( 0, 0.516447, 1 )
+colors = PoolColorArray( 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+
+flags = 4
+gradient = SubResource( 1 )
+width = 2048
+
+[sub_resource type="ParticlesMaterial" id=3]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 2
+emission_box_extents = Vector3( 80, 72, 1 )
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 180.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 25.0
+initial_velocity_random = 0.75
+angular_velocity = 45.0
+angular_velocity_random = 0.25
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+color_ramp = SubResource( 2 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angular Velocity", "Color", "Emission Shape", "Gravity", "Initial Velocity", "Spread" ]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+position = Vector2( 80, 72 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CellLabel" parent="." index="1" instance=ExtResource( 2 )]
+
+text = "TT"
+
+[node name="PartsTitle" type="Particles2D" parent="." index="2"]
+
+position = Vector2( 80, 72 )
+emitting = true
+amount = 8
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 3 )
+texture = ExtResource( 3 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Textures", "Transform", "Z Index" ]
+
+[node name="Logo" type="Sprite" parent="." index="3"]
+
+position = Vector2( 80, 59 )
+texture = ExtResource( 4 )
+
+

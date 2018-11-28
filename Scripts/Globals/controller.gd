@@ -38,6 +38,7 @@ func _scene_start():
 		#Player.get_node("TimerShow").start()
 	
 func _scene_end():
+	Player._on_TimerDash_timeout()
 	for node in get_parent().get_node("Node2D").get_children():
 		if node.is_in_group("Transition"):
 			if node.corr:

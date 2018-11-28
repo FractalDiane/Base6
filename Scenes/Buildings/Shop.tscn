@@ -37,12 +37,12 @@ extents = Vector2( 35.5, 19 )
 animations = [ {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 15 ) ],
@@ -346,7 +346,6 @@ box_x = 28
 box_y = 74
 box_width = 110
 box_height = 50
-registry = false
 
 [node name="Sprite" parent="NPCIiro" index="0"]
 
@@ -360,7 +359,7 @@ shape = SubResource( 5 )
 [node name="Interact" parent="NPCIiro" index="2"]
 
 position = Vector2( -1, -19 )
-frame = 2
+frame = 1
 
 [node name="Table2" type="StaticBody2D" parent="." index="14"]
 

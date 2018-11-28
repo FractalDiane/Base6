@@ -97,9 +97,10 @@ func advance_page():
 		
 func on_destroy():
 	length = 0
-	target.get_node("Sprite").set_animation("down")
-	if target.dialogue_key != "null" and target.auto_advance_set:
-		 controller.flag[target.dialogue_key] = clamp(controller.flag[target.dialogue_key] + 1,0,target.auto_advance_limit)
+	if target.is_in_group("NPC"):
+		target.get_node("Sprite").set_animation("down")
+		if target.dialogue_key != "null" and target.auto_advance_set:
+		 	controller.flag[target.dialogue_key] = clamp(controller.flag[target.dialogue_key] + 1,0,target.auto_advance_limit)
 	Player.state = Player.WALK
 	
 	# CAW!!

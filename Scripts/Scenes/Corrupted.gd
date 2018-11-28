@@ -11,6 +11,7 @@ func _ready():
 	
 func _physics_process(delta):
 	Player.state = Player.NO_INPUT
+	Player.motion = Vector2(0,0)
 
 func _on_TimerSoundEffect_timeout():
 	$SoundCORRUPTED.play(0)

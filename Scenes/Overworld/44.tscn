@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=1]
 [ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=2]
@@ -7,8 +7,11 @@
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Instances/Worldborder.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Instances/CorruptionOverlay.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Instances/Enemies/Ghast.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Instances/Props/SpikeLarge.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Instances/Props/SpikeMedium.tscn" type="PackedScene" id=10]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -58,5 +61,17 @@ position = Vector2( 164, 72 )
 rotation = 1.5708
 
 [node name="CorruptionOverlay" parent="." index="7" instance=ExtResource( 7 )]
+
+[node name="Ghast" parent="." index="8" instance=ExtResource( 8 )]
+
+position = Vector2( 126, 92 )
+
+[node name="SpikeSmall" parent="." index="9" instance=ExtResource( 9 )]
+
+position = Vector2( 126, 48 )
+
+[node name="SpikeSmall2" parent="." index="10" instance=ExtResource( 10 )]
+
+position = Vector2( 50, 102 )
 
 

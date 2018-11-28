@@ -9,10 +9,10 @@
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Instances/Props/Tree.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Instances/Props/BigRock.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Sprites/Props/Leaf 1.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Props/Leaf 2.png" type="Texture" id=11]
+[ext_resource path="res://Instances/Props/Leaf1.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Instances/Props/Leaf2.tscn" type="PackedScene" id=11]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -95,21 +95,14 @@ position = Vector2( 80, 38 )
 
 position = Vector2( 23, 111 )
 
-[node name="Sprite" type="Sprite" parent="." index="10"]
+[node name="Sprite" parent="." index="10" instance=ExtResource( 10 )]
 
-position = Vector2( 90, 64 )
-texture = ExtResource( 10 )
+[node name="Sprite2" parent="." index="11" instance=ExtResource( 11 )]
 
-[node name="Sprite2" type="Sprite" parent="." index="11"]
+[node name="Sprite3" parent="." index="12" instance=ExtResource( 11 )]
 
-position = Vector2( 98, 68 )
-texture = ExtResource( 11 )
-
-[node name="Sprite3" type="Sprite" parent="." index="12"]
-
-position = Vector2( 69.3572, 66.4411 )
+position = Vector2( 70, 67 )
 scale = Vector2( -1, 1 )
-texture = ExtResource( 11 )
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+_sections_unfolded = [ "Transform" ]
 
 

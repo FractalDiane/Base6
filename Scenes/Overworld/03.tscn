@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=1]
 [ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=2]
@@ -10,8 +10,9 @@
 [ext_resource path="res://Instances/Props/SpikeMedium.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Instances/Props/SpikeSmall.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Sprites/Props/Dungeon entrance.png" type="Texture" id=10]
+[ext_resource path="res://Instances/Props/BigRock.tscn" type="PackedScene" id=11]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -95,5 +96,9 @@ target_scene = "res://Scenes/Dungeon 1/Dungeon1-1.tscn"
 target_x = 50
 target_y = 60
 not_cell = true
+
+[node name="BigRock" parent="." index="12" instance=ExtResource( 11 )]
+
+position = Vector2( 81, 107 )
 
 

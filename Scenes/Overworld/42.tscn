@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=1]
 [ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=2]
@@ -8,13 +8,45 @@
 [ext_resource path="res://Instances/Worldborder.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Sprites/Props/House 1.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/Props/House 2.png" type="Texture" id=8]
+[ext_resource path="res://Instances/NPCs/NPCMasterNew.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Instances/Props/DeadTree.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Instances/Props/Tree.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 32, 25 )
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 9, 13 )
+
+[node name="Node2D" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -102,4 +134,39 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="NPCMaster" parent="." index="8" instance=ExtResource( 9 )]
 
+position = Vector2( 104, 71 )
+text = [ [ "It's locked." ] ]
+dialogue_key = "null"
+auto_advance_set = false
+auto_advance_limit = 0
+box_x = 15
+box_width = 50
+box_height = 35
+
+[node name="Sprite" parent="NPCMaster" index="0"]
+
+frames = SubResource( 2 )
+
+[node name="CollisionShape2D" parent="NPCMaster" index="1"]
+
+shape = SubResource( 3 )
+
+[node name="Interact" parent="NPCMaster" index="2"]
+
+visible = true
+position = Vector2( 0, -12 )
+
+[node name="DeadTree" parent="." index="9" instance=ExtResource( 10 )]
+
+position = Vector2( 136.779, 87.9441 )
+scale = Vector2( -1, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tree" parent="." index="10" instance=ExtResource( 11 )]
+
+position = Vector2( 47, 125 )
+
+
+[editable path="NPCMaster"]

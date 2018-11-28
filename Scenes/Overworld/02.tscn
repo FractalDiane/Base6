@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=1]
 [ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=2]
@@ -7,8 +7,12 @@
 [ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sounds/Music/White Noise.wav" type="AudioStream" id=6]
 [ext_resource path="res://Instances/Enemies/Ghast.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Instances/Props/Tree.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Instances/Props/DeadTree.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Instances/Props/SmallRock.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Instances/Props/Leaf1.tscn" type="PackedScene" id=11]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -55,5 +59,21 @@ target_x = 144
 direction = "left"
 
 [node name="Ghast" parent="." index="7" instance=ExtResource( 7 )]
+
+[node name="Tree" parent="." index="8" instance=ExtResource( 8 )]
+
+position = Vector2( 55, 67 )
+
+[node name="DeadTree" parent="." index="9" instance=ExtResource( 9 )]
+
+position = Vector2( 124, 16 )
+
+[node name="SmallRock" parent="." index="10" instance=ExtResource( 10 )]
+
+position = Vector2( 67, 99 )
+
+[node name="Sprite" parent="." index="11" instance=ExtResource( 11 )]
+
+position = Vector2( 45, 92 )
 
 
