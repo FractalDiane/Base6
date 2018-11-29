@@ -3,6 +3,8 @@ extends CanvasLayer
 var alpha = 1
 var fade = false
 
+var reset_state = true
+
 onready var spr = $Sprite
 
 func _ready():
@@ -22,4 +24,5 @@ func _on_TimerRestart_timeout():
 	spr.texture = null
 	alpha = 1
 	
-	Player.state = Player.WALK
+	if reset_state:
+		Player.state = Player.WALK

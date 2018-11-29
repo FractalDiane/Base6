@@ -3,6 +3,10 @@ extends Node
 var main = null
 var current_music = null
 
+var init = true
+var fade_noise = false
+var fade_noise_sub = -0.3
+
 onready var hum = $SoundHum
 onready var cont = controller
 
@@ -20,7 +24,14 @@ func _physics_process(delta):
 			hum.set_volume_db(-46 + (3 * cont.player_corruption))
 		else:
 			hum.set_volume_db(-46 + (3.5 * cont.player_corruption))
-
+			
+	if fade_noise:
+		fade_noise_sub += 0.3
+		$SoundNoiseTransition.set_volume_db(-5 - fade_noise_sub)
+		if fade_noise_sub > 60:
+			fade_noise = false
+			$SoundNoiseTransition.stop()
+			
 func update_music():
 	main = get_parent().get_node("Node2D")
 	if main.get_node("CellLabel").get_text() != "ST":
@@ -37,3 +48,4 @@ func update_music():
 
 func play_sound(sound):
 	get_node(sound).play(0)
+	

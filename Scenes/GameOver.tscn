@@ -65,7 +65,14 @@ wait_time = 3.0
 one_shot = true
 autostart = false
 
-[node name="Label" type="Label" parent="." index="4"]
+[node name="TimerBackToTitle" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = false
+autostart = false
+
+[node name="Label" type="Label" parent="." index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -91,7 +98,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Anchor", "Margin", "Rect", "custom_fonts" ]
 
-[node name="SoundGameOver" type="AudioStreamPlayer" parent="." index="5"]
+[node name="SoundGameOver" type="AudioStreamPlayer" parent="." index="6"]
 
 stream = ExtResource( 6 )
 volume_db = -3.0
@@ -100,7 +107,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="SoundNoise" type="AudioStreamPlayer" parent="." index="6"]
+[node name="SoundNoise" type="AudioStreamPlayer" parent="." index="7"]
 
 stream = ExtResource( 7 )
 volume_db = -5.0
@@ -109,7 +116,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="Noise" type="AnimatedSprite" parent="." index="7"]
+[node name="Noise" type="AnimatedSprite" parent="." index="8"]
 
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
@@ -118,7 +125,7 @@ frame = 4
 playing = true
 centered = false
 
-[node name="Noise2" type="AnimatedSprite" parent="." index="8"]
+[node name="Noise2" type="AnimatedSprite" parent="." index="9"]
 
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
@@ -127,7 +134,7 @@ frame = 4
 playing = true
 centered = false
 
-[node name="Noise3" type="AnimatedSprite" parent="." index="9"]
+[node name="Noise3" type="AnimatedSprite" parent="." index="10"]
 
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
@@ -136,7 +143,7 @@ frame = 4
 playing = true
 centered = false
 
-[node name="Noise4" type="AnimatedSprite" parent="." index="10"]
+[node name="Noise4" type="AnimatedSprite" parent="." index="11"]
 
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
@@ -145,7 +152,7 @@ frame = 4
 playing = true
 centered = false
 
-[node name="Noise5" type="AnimatedSprite" parent="." index="11"]
+[node name="Noise5" type="AnimatedSprite" parent="." index="12"]
 
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
@@ -154,7 +161,7 @@ frame = 4
 playing = true
 centered = false
 
-[node name="Noise6" type="AnimatedSprite" parent="." index="12"]
+[node name="Noise6" type="AnimatedSprite" parent="." index="13"]
 
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
@@ -163,7 +170,7 @@ frame = 4
 playing = true
 centered = false
 
-[node name="Noise7" type="AnimatedSprite" parent="." index="13"]
+[node name="Noise7" type="AnimatedSprite" parent="." index="14"]
 
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
@@ -172,7 +179,7 @@ frame = 4
 playing = true
 centered = false
 
-[node name="Noise8" type="AnimatedSprite" parent="." index="14"]
+[node name="Noise8" type="AnimatedSprite" parent="." index="15"]
 
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
@@ -181,7 +188,7 @@ frame = 4
 playing = true
 centered = false
 
-[node name="Noise9" type="AnimatedSprite" parent="." index="15"]
+[node name="Noise9" type="AnimatedSprite" parent="." index="16"]
 
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
@@ -190,7 +197,7 @@ frame = 4
 playing = true
 centered = false
 
-[node name="Noise10" type="AnimatedSprite" parent="." index="16"]
+[node name="Noise10" type="AnimatedSprite" parent="." index="17"]
 
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
@@ -200,7 +207,7 @@ playing = true
 centered = false
 _sections_unfolded = [ "Material", "Visibility" ]
 
-[node name="Noise11" type="AnimatedSprite" parent="." index="17"]
+[node name="Noise11" type="AnimatedSprite" parent="." index="18"]
 
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
@@ -209,7 +216,7 @@ frame = 4
 playing = true
 centered = false
 
-[node name="Noise12" type="AnimatedSprite" parent="." index="18"]
+[node name="Noise12" type="AnimatedSprite" parent="." index="19"]
 
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
@@ -218,7 +225,7 @@ frame = 4
 playing = true
 centered = false
 
-[node name="Noise13" type="AnimatedSprite" parent="." index="19"]
+[node name="Noise13" type="AnimatedSprite" parent="." index="20"]
 
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
@@ -227,7 +234,7 @@ frame = 4
 playing = true
 centered = false
 
-[node name="Noise14" type="AnimatedSprite" parent="." index="20"]
+[node name="Noise14" type="AnimatedSprite" parent="." index="21"]
 
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
@@ -236,7 +243,7 @@ frame = 4
 playing = true
 centered = false
 
-[node name="Noise15" type="AnimatedSprite" parent="." index="21"]
+[node name="Noise15" type="AnimatedSprite" parent="." index="22"]
 
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
@@ -245,7 +252,7 @@ frame = 4
 playing = true
 centered = false
 
-[node name="Noise16" type="AnimatedSprite" parent="." index="22"]
+[node name="Noise16" type="AnimatedSprite" parent="." index="23"]
 
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
@@ -254,7 +261,7 @@ frame = 4
 playing = true
 centered = false
 
-[node name="Noise17" type="AnimatedSprite" parent="." index="23"]
+[node name="Noise17" type="AnimatedSprite" parent="." index="24"]
 
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
@@ -263,7 +270,7 @@ frame = 4
 playing = true
 centered = false
 
-[node name="Noise18" type="AnimatedSprite" parent="." index="24"]
+[node name="Noise18" type="AnimatedSprite" parent="." index="25"]
 
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
@@ -271,9 +278,17 @@ animation = "default"
 frame = 4
 playing = true
 centered = false
+
+[node name="White" type="Sprite" parent="." index="26"]
+
+visible = false
+position = Vector2( 80, 72 )
+texture = ExtResource( 2 )
 
 [connection signal="timeout" from="TimerNoise" to="." method="_on_TimerNoise_timeout"]
 
 [connection signal="timeout" from="TimerEnd" to="." method="_on_TimerEnd_timeout"]
+
+[connection signal="timeout" from="TimerBackToTitle" to="." method="_on_TimerBackToTitle_timeout"]
 
 

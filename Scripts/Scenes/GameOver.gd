@@ -37,11 +37,17 @@ func _physics_process(delta):
 	for node in spr:
 		node.set_modulate(Color(1,1,1,noise_alpha))
 
-
 func _on_TimerNoise_timeout():
 	noise = true
 	$SoundNoise.play(0)
 	$TimerEnd.start()
 
 func _on_TimerEnd_timeout():
-	get_tree().quit()
+	noise = false
+	noise_alpha = 0
+	$White.show()
+	$SoundNoise.stop()
+	$TimerBackToTitle.start()
+
+func _on_TimerBackToTitle_timeout():
+	controller.scene_change("res://Scenes/Title.tscn", false)

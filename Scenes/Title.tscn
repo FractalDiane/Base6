@@ -1,9 +1,18 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://Sprites/Splash.png" type="Texture" id=1]
-[ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sprites/Particles/Corruption.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/UI/Logo.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Scenes/Title.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Splash.png" type="Texture" id=2]
+[ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sounds/Music/SILENCE.wav" type="AudioStream" id=4]
+[ext_resource path="res://Sprites/Particles/Corruption.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/UI/Logo.png" type="Texture" id=6]
+[ext_resource path="res://Fonts/font_standard.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Shaders/invert.shader" type="Shader" id=8]
+[ext_resource path="res://Sprites/UI/Menu box.png" type="Texture" id=9]
+[ext_resource path="res://Sounds/UI/cursor.wav" type="AudioStream" id=10]
+[ext_resource path="res://Sounds/UI/select2.wav" type="AudioStream" id=11]
+[ext_resource path="res://Fonts/font_large.tres" type="DynamicFont" id=12]
+[ext_resource path="res://Fonts/font_cell.tres" type="DynamicFont" id=13]
 
 [sub_resource type="Gradient" id=1]
 
@@ -56,20 +65,41 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angular Velocity", "Color", "Emission Shape", "Gravity", "Initial Velocity", "Spread" ]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="ShaderMaterial" id=4]
+
+render_priority = 0
+shader = ExtResource( 8 )
+shader_param/invertColor = true
+_sections_unfolded = [ "shader_param" ]
+
+[sub_resource type="ShaderMaterial" id=5]
+
+render_priority = 0
+shader = ExtResource( 8 )
+shader_param/invertColor = true
+_sections_unfolded = [ "shader_param" ]
+
+[sub_resource type="ShaderMaterial" id=6]
+
+render_priority = 0
+shader = ExtResource( 8 )
+shader_param/invertColor = true
+_sections_unfolded = [ "shader_param" ]
+
+[node name="Node2D" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
 position = Vector2( 80, 72 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 _sections_unfolded = [ "Visibility" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
-[node name="CellLabel" parent="." index="1" instance=ExtResource( 2 )]
+[node name="CellLabel" parent="." index="1" instance=ExtResource( 3 )]
 
 text = "TT"
+cell_music = ExtResource( 4 )
 
 [node name="PartsTitle" type="Particles2D" parent="." index="2"]
 
@@ -88,7 +118,7 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
 process_material = SubResource( 3 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 normal_map = null
 h_frames = 1
 v_frames = 1
@@ -96,7 +126,559 @@ _sections_unfolded = [ "Process Material", "Textures", "Transform", "Z Index" ]
 
 [node name="Logo" type="Sprite" parent="." index="3"]
 
-position = Vector2( 80, 59 )
-texture = ExtResource( 4 )
+position = Vector2( 80, 58 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="TimerFadeInLogo" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 1.5
+one_shot = true
+autostart = true
+
+[node name="TimerFadeInOptions" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="TimerFadeInBoxes" type="Timer" parent="." index="6"]
+
+process_mode = 1
+wait_time = 4.5
+one_shot = true
+autostart = true
+
+[node name="TimerClearStuff" type="Timer" parent="." index="7"]
+
+process_mode = 1
+wait_time = 0.75
+one_shot = true
+autostart = false
+
+[node name="TimerTransition" type="Timer" parent="." index="8"]
+
+process_mode = 1
+wait_time = 2.5
+one_shot = true
+autostart = false
+
+[node name="TimerTransition2" type="Timer" parent="." index="9"]
+
+process_mode = 1
+wait_time = 5.5
+one_shot = true
+autostart = false
+
+[node name="TimerStartGame" type="Timer" parent="." index="10"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="TimerExit" type="Timer" parent="." index="11"]
+
+process_mode = 1
+wait_time = 2.5
+one_shot = true
+autostart = false
+
+[node name="TimerShowCredits" type="Timer" parent="." index="12"]
+
+process_mode = 1
+wait_time = 2.5
+one_shot = true
+autostart = false
+
+[node name="TimerAllowExitCredits" type="Timer" parent="." index="13"]
+
+process_mode = 1
+wait_time = 2.5
+one_shot = true
+autostart = false
+
+[node name="TimerShowStuff" type="Timer" parent="." index="14"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="START" type="Label" parent="." index="15"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 60.0
+margin_top = 82.0
+margin_right = 100.0
+margin_bottom = 96.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "START"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "Material", "custom_colors", "custom_fonts" ]
+
+[node name="CREDITS" type="Label" parent="." index="16"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 60.0
+margin_top = 93.0
+margin_right = 100.0
+margin_bottom = 107.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "CREDITS"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "custom_colors", "custom_fonts" ]
+
+[node name="EXIT" type="Label" parent="." index="17"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 60.0
+margin_top = 104.0
+margin_right = 100.0
+margin_bottom = 118.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "EXIT"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "custom_colors", "custom_fonts" ]
+
+[node name="Box1" type="Sprite" parent="." index="18"]
+
+material = SubResource( 4 )
+position = Vector2( 80, 86.5 )
+scale = Vector2( 2.8, 0.9 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Material", "Offset", "Transform", "Visibility" ]
+
+[node name="Box2" type="Sprite" parent="." index="19"]
+
+material = SubResource( 5 )
+position = Vector2( 79.5, 97.5 )
+scale = Vector2( 3.7, 0.9 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Material", "Offset", "Transform", "Visibility" ]
+
+[node name="Box3" type="Sprite" parent="." index="20"]
+
+material = SubResource( 6 )
+position = Vector2( 80, 108.5 )
+scale = Vector2( 2, 0.9 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Material", "Offset", "Transform", "Visibility" ]
+
+[node name="SoundCursor" type="AudioStreamPlayer" parent="." index="21"]
+
+stream = ExtResource( 10 )
+volume_db = -5.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="SoundSelect" type="AudioStreamPlayer" parent="." index="22"]
+
+stream = ExtResource( 11 )
+volume_db = -5.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Transition" type="Sprite" parent="." index="23"]
+
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 80, 72 )
+scale = Vector2( 0.2, 14.4 )
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="CreditsGroup" type="Node2D" parent="." index="24"]
+
+[node name="BASE-6" type="Label" parent="CreditsGroup" index="0"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 5.0
+margin_top = 9.0
+margin_right = 99.0
+margin_bottom = 29.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "BASE-6"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="DevelopedBy" type="Label" parent="CreditsGroup" index="1"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 6.0
+margin_top = 24.0
+margin_right = 106.0
+margin_bottom = 44.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 13 )
+custom_colors/font_color = Color( 0.597656, 0.597656, 0.597656, 1 )
+text = "Developed by:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "custom_colors", "custom_fonts" ]
+
+[node name="Name1" type="Label" parent="CreditsGroup" index="2"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 14.0
+margin_top = 37.0
+margin_right = 118.0
+margin_bottom = 57.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.34375, 0.34375, 0.34375, 1 )
+text = "Duncan Sparks"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="Name2" type="Label" parent="CreditsGroup" index="3"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 14.0
+margin_top = 45.0
+margin_right = 118.0
+margin_bottom = 65.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.34375, 0.34375, 0.34375, 1 )
+text = "Chase Taylor"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="Name3" type="Label" parent="CreditsGroup" index="4"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 14.0
+margin_top = 53.0
+margin_right = 118.0
+margin_bottom = 73.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.34375, 0.34375, 0.34375, 1 )
+text = "Benjamin Sheh"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="Name4" type="Label" parent="CreditsGroup" index="5"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 14.0
+margin_top = 61.0
+margin_right = 118.0
+margin_bottom = 81.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.34375, 0.34375, 0.34375, 1 )
+text = "Kelvin Mai"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="Name5" type="Label" parent="CreditsGroup" index="6"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 14.0
+margin_top = 69.0
+margin_right = 118.0
+margin_bottom = 89.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.34375, 0.34375, 0.34375, 1 )
+text = "Riki Hasegawa"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="Name6" type="Label" parent="CreditsGroup" index="7"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 14.0
+margin_top = 77.0
+margin_right = 118.0
+margin_bottom = 97.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.34375, 0.34375, 0.34375, 1 )
+text = "Andrew Le"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="Name7" type="Label" parent="CreditsGroup" index="8"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 14.0
+margin_top = 85.0
+margin_right = 118.0
+margin_bottom = 105.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.34375, 0.34375, 0.34375, 1 )
+text = "Tyler Witten"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="DevelopedBy2" type="Label" parent="CreditsGroup" index="9"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 6.0
+margin_top = 96.0
+margin_right = 122.0
+margin_bottom = 116.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 13 )
+custom_colors/font_color = Color( 0.597656, 0.597656, 0.597656, 1 )
+text = "Additional Art:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="Name8" type="Label" parent="CreditsGroup" index="10"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 14.0
+margin_top = 109.0
+margin_right = 118.0
+margin_bottom = 129.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.34375, 0.34375, 0.34375, 1 )
+text = "Ramie Shreim"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="DevelopedBy3" type="Label" parent="CreditsGroup" index="11"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 6.0
+margin_top = 120.0
+margin_right = 122.0
+margin_bottom = 140.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 13 )
+custom_colors/font_color = Color( 0.597656, 0.597656, 0.597656, 1 )
+text = "Playtesting:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="Name9" type="Label" parent="CreditsGroup" index="12"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 14.0
+margin_top = 133.0
+margin_right = 118.0
+margin_bottom = 153.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.34375, 0.34375, 0.34375, 1 )
+text = "UCI VGDC Members"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[connection signal="timeout" from="TimerFadeInLogo" to="." method="_on_TimerFadeInLogo_timeout"]
+
+[connection signal="timeout" from="TimerFadeInOptions" to="." method="_on_TimerFadeInOptions_timeout"]
+
+[connection signal="timeout" from="TimerFadeInBoxes" to="." method="_on_TimerFadeInBoxes_timeout"]
+
+[connection signal="timeout" from="TimerClearStuff" to="." method="_on_TimerClearStuff_timeout"]
+
+[connection signal="timeout" from="TimerTransition" to="." method="_on_TimerTransition_timeout"]
+
+[connection signal="timeout" from="TimerTransition2" to="." method="_on_TimerTransition2_timeout"]
+
+[connection signal="timeout" from="TimerStartGame" to="." method="_on_TimerStartGame_timeout"]
+
+[connection signal="timeout" from="TimerExit" to="." method="_on_TimerExit_timeout"]
+
+[connection signal="timeout" from="TimerShowCredits" to="." method="_on_TimerShowCredits_timeout"]
+
+[connection signal="timeout" from="TimerAllowExitCredits" to="." method="_on_TimerAllowExitCredits_timeout"]
+
+[connection signal="timeout" from="TimerShowStuff" to="." method="_on_TimerShowStuff_timeout"]
 
 

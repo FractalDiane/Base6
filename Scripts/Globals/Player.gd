@@ -31,7 +31,7 @@ onready var hbR = $HitboxSwordRight/CollisionPolygon2D
 
 const WALKSPEED = 80
 enum States{WALK, SWING, DASH, SHOOT, DIALOGUE, MENU, NO_INPUT}
-var state = WALK
+var state = NO_INPUT
 
 # ================================================================================== STATES
 

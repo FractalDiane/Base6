@@ -252,7 +252,7 @@ shape = SubResource( 4 )
 [node name="Interact" parent="NPCCephasNote" index="2"]
 
 position = Vector2( -1, -13 )
-frame = 2
+frame = 3
 
 [node name="Pot" type="StaticBody2D" parent="." index="10"]
 

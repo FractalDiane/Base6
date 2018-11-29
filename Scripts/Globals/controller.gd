@@ -30,25 +30,28 @@ func _ready():
 	main = get_parent().get_node("Node2D")
 	audioplayer.update_music()
 
-func _scene_start():
-	audioplayer.call_deferred("update_music")
+func _scene_start(reset_state):
+	if not audioplayer.init:
+		audioplayer.call_deferred("update_music")
 	Screencap.fade = true
+	Screencap.reset_state = reset_state
 	Screencap.get_node("TimerRestart").start()
 	#if not Player.is_visible():
 		#Player.get_node("TimerShow").start()
 	
-func _scene_end():
-	Player._on_TimerDash_timeout()
+func _scene_end(reset_state):
+	if reset_state:
+		Player._on_TimerDash_timeout()
 	for node in get_parent().get_node("Node2D").get_children():
 		if node.is_in_group("Transition"):
 			if node.corr:
 				node.corruption_parts.queue_free()
 	
 # ======================================================================== GLOBAL FUNCTIONS
-func scene_change(scene):
-	_scene_end()
+func scene_change(scene, reset_state = true):
+	_scene_end(reset_state)
 	get_tree().change_scene(scene)
-	_scene_start()
+	_scene_start(reset_state)
 	
 func set_flag(key, value):
 	flag[key] = value

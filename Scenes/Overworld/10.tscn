@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=1]
 [ext_resource path="res://Tilesets/TilesetMain.tres" type="TileSet" id=2]
@@ -7,41 +7,7 @@
 [ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sounds/Music/White Noise.wav" type="AudioStream" id=6]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Instances/NPCs/NPCMasterNew.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Sprites/Characters/Jari/Jari left.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Characters/Jari/Jari right.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Characters/Jari/Jari up.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Characters/Jari/Jari down.png" type="Texture" id=12]
-[ext_resource path="res://Instances/Props/DeadTree.tscn" type="PackedScene" id=13]
-
-[sub_resource type="SpriteFrames" id=1]
-
-animations = [ {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "left",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "down",
-"speed": 5.0
-} ]
-
-[sub_resource type="RectangleShape2D" id=2]
-
-custom_solver_bias = 0.0
-extents = Vector2( 5, 4 )
+[ext_resource path="res://Instances/Props/DeadTree.tscn" type="PackedScene" id=8]
 
 [node name="Node2D" type="Node2D"]
 
@@ -117,32 +83,14 @@ target_x = 0
 target_y = 110
 direction = "up"
 
-[node name="NPCJari" parent="." index="8" instance=ExtResource( 8 )]
-
-position = Vector2( 25, 23 )
-text = [ [ "O-oh. Good morning, Fiore.", "The corruption has gotten worse since yesterday.", "J-just a little worse, though.", "There are still plenty of impures.", "And you should stay away from the east side.", "That's where it's gotten the worst.", "O-or maybe you can handle it.", "You're the one with the sword, after all.", "J-just remember to turn back if you start hearing the... whispers..." ], [ "The w-whispers...", "Just thinking about it makes me shudder..." ], [  ], [  ] ]
-
-[node name="Sprite" parent="NPCJari" index="0"]
-
-frames = SubResource( 1 )
-
-[node name="CollisionShape2D" parent="NPCJari" index="1"]
-
-shape = SubResource( 2 )
-
-[node name="Interact" parent="NPCJari" index="2"]
-
-frame = 2
-
-[node name="DeadTree" parent="." index="9" instance=ExtResource( 13 )]
+[node name="DeadTree" parent="." index="8" instance=ExtResource( 8 )]
 
 position = Vector2( 79, 81 )
 
-[node name="DeadTree2" parent="." index="10" instance=ExtResource( 13 )]
+[node name="DeadTree2" parent="." index="9" instance=ExtResource( 8 )]
 
 position = Vector2( 126.502, 53.7579 )
 scale = Vector2( -1, 1 )
 _sections_unfolded = [ "Transform" ]
 
 
-[editable path="NPCJari"]
