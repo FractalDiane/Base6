@@ -7,6 +7,7 @@ var motion = Vector2(0, 0)
 var timer
 var fistOffset = 0
 var damage = 1
+var switches
 
 onready var player = Player
 
@@ -41,6 +42,12 @@ func _on_animation_finished():
 		var coll = $Hitbox.get_overlapping_bodies()
 		if player in coll and not player.iframes:
 			damage_player(damage)
+		yield( get_tree(), "idle_frame" )
+		yield( get_tree(), "idle_frame" )
+		for i in switches.size():
+			print(coll)
+			if switches[i] in coll:
+				switches[i].activate()
 		active = false
 		get_parent().switch()
 
@@ -52,6 +59,7 @@ func activate(): #Lift the fist.
 	active = true
 	$ShadowSprite.play("lift")
 	fistOffset = -30
+	switches = get_parent().switches
 
 func deactivate(): #Use only at end of fight to completely disable.
 	active = false

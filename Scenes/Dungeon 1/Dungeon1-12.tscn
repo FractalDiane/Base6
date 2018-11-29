@@ -119,7 +119,7 @@ __meta__ = {
 
 position = Vector2( 0, 18 )
 scale = Vector2( 0.40625, 0.0937501 )
-target_scene = "res://Scenes/Dungeon 1/Dungeon1-11.tscn"
+target_scene = "res://Scenes/Dungeon 1/Dungeon1-BOSS.tscn"
 target_x = 0
 target_y = 100
 direction = "up"

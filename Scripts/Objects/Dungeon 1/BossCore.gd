@@ -5,7 +5,12 @@ var fast = false
 var health = 2
 var leftActive = true
 
+onready var switches = [$Switch1]
+
 func _ready():
+	pass
+
+func activate():
 	$LeftFist.activate()
 
 func switch():
