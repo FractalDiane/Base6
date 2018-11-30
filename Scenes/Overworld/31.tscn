@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=1]
 [ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=2]
@@ -8,8 +8,9 @@
 [ext_resource path="res://Instances/Props/Tree.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Instances/Props/DeadTree.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Instances/Props/SmallRock.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Instances/Items/Gold.tscn" type="PackedScene" id=9]
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -79,5 +80,10 @@ position = Vector2( 43, 43 )
 position = Vector2( 38, 75 )
 scale = Vector2( -1, 1 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="Gold" parent="." index="11" instance=ExtResource( 9 )]
+
+position = Vector2( 103, 111 )
+target_flag = "gold_8"
 
 

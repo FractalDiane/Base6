@@ -26,6 +26,7 @@ var flash = 0
 var dead = false
 
 var slam_parts = preload("res://Instances/Particles/PartsSlamImpact.tscn")
+var coin = preload("res://Instances/Items/Gold.tscn")
 
 onready var spr = $Sprite
 onready var player = Player
@@ -205,6 +206,16 @@ func death():
 	$PartsGhast.set_emitting(false)
 	$PartsDeathBurst.set_emitting(true)
 	$PartsDeathGlitch.set_emitting(true)
+	var rng = randf()
+	if rng <= 0.25:
+		var coin_i = coin.instance()
+		coin_i.set_position(get_position())
+		if rng < 0.1:
+			coin_i.gold_value = 20
+			coin_i.large_sprite = true
+		coin_i.enable = false
+		coin_i.get_node("TimerEnable").start()
+		get_tree().get_root().add_child(coin_i)
 	$TimerDeath1.start()
 	
 func get_distance_to_player():

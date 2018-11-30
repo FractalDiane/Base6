@@ -29,26 +29,26 @@
 [ext_resource path="res://Sprites/Characters/Ghast/ghast walk17.png" type="Texture" id=27]
 [ext_resource path="res://Sprites/Characters/Ghast/ghast walk18.png" type="Texture" id=28]
 [ext_resource path="res://Sprites/Characters/Ghast/ghast walk19.png" type="Texture" id=29]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast swat1.png" type="Texture" id=30]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast swat2.png" type="Texture" id=31]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast swat3.png" type="Texture" id=32]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast swat4.png" type="Texture" id=33]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast swat6.png" type="Texture" id=34]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast swat7.png" type="Texture" id=35]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast smash1.png" type="Texture" id=36]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast smash2.png" type="Texture" id=37]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast smash3.png" type="Texture" id=38]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast smash4.png" type="Texture" id=39]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast smash5.png" type="Texture" id=40]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast smash6.png" type="Texture" id=41]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast smash7.png" type="Texture" id=42]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast smash8.png" type="Texture" id=43]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast smash9.png" type="Texture" id=44]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast smash10.png" type="Texture" id=45]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast smash11.png" type="Texture" id=46]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast smash12.png" type="Texture" id=47]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast smash13.png" type="Texture" id=48]
-[ext_resource path="res://Sprites/Characters/Ghast/ghast smash14.png" type="Texture" id=49]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast smash1.png" type="Texture" id=30]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast smash2.png" type="Texture" id=31]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast smash3.png" type="Texture" id=32]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast smash4.png" type="Texture" id=33]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast smash5.png" type="Texture" id=34]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast smash6.png" type="Texture" id=35]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast smash7.png" type="Texture" id=36]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast smash8.png" type="Texture" id=37]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast smash9.png" type="Texture" id=38]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast smash10.png" type="Texture" id=39]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast smash11.png" type="Texture" id=40]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast smash12.png" type="Texture" id=41]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast smash13.png" type="Texture" id=42]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast smash14.png" type="Texture" id=43]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast swat1.png" type="Texture" id=44]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast swat2.png" type="Texture" id=45]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast swat3.png" type="Texture" id=46]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast swat4.png" type="Texture" id=47]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast swat6.png" type="Texture" id=48]
+[ext_resource path="res://Sprites/Characters/Ghast/ghast swat7.png" type="Texture" id=49]
 [ext_resource path="res://Sprites/Particles/Corruption.png" type="Texture" id=50]
 [ext_resource path="res://Sounds/Player/Swing.wav" type="AudioStream" id=51]
 [ext_resource path="res://Sounds/Characters/Impact.wav" type="AudioStream" id=52]
@@ -88,15 +88,15 @@ animations = [ {
 "name": "walk",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ) ],
-"loop": true,
-"name": "swat",
-"speed": 12.0
-}, {
-"frames": [ ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ) ],
+"frames": [ ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ) ],
 "loop": true,
 "name": "slam",
 "speed": 15.0
+}, {
+"frames": [ ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ) ],
+"loop": true,
+"name": "swat",
+"speed": 12.0
 } ]
 
 [sub_resource type="ParticlesMaterial" id=4]
@@ -245,7 +245,7 @@ _sections_unfolded = [ "Color", "Emission Shape", "Initial Velocity", "Scale", "
 custom_solver_bias = 0.0
 extents = Vector2( 11, 4 )
 
-[node name="Ghast" type="KinematicBody2D" index="0" groups=[
+[node name="Ghast" type="KinematicBody2D" groups=[
 "Enemies",
 ]]
 
@@ -265,7 +265,7 @@ knockback_distance = 50.0
 material = SubResource( 2 )
 frames = SubResource( 3 )
 animation = "idle"
-frame = 2
+frame = 5
 playing = true
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 

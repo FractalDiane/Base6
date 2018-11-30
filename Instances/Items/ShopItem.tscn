@@ -1,0 +1,94 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/Items/ShopItem.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Items/PotionBottle.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/font_small.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Sounds/Objects/BuyItem.wav" type="AudioStream" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 2.5, 5 )
+
+[node name="ShopItem" type="StaticBody2D" groups=[
+"Item",
+]]
+
+position = Vector2( 96, 66 )
+z_index = 63
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Z Index" ]
+cost = 20
+item = 0
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( -0.5, -1 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Interact" type="Label" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -20.0
+margin_top = -13.0
+margin_right = 20.0
+margin_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_as_outline = 1
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TimerHideInteract" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 0.01
+one_shot = true
+autostart = false
+
+[node name="SoundBuy" type="AudioStreamPlayer" parent="." index="4"]
+
+stream = ExtResource( 4 )
+volume_db = -5.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[connection signal="timeout" from="TimerHideInteract" to="." method="_on_TimerHideInteract_timeout"]
+
+

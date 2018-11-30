@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Tilesets/TilesetMain.tres" type="TileSet" id=1]
 [ext_resource path="res://Sprites/Props/FancyRug.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Instances/NPCs/NPCMasterNew.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Sprites/Characters/Iiro/Iiro down.png" type="Texture" id=15]
 [ext_resource path="res://Sprites/Props/TableSmall.png" type="Texture" id=16]
+[ext_resource path="res://Instances/Items/ShopItem.tscn" type="PackedScene" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -37,12 +38,12 @@ extents = Vector2( 35.5, 19 )
 animations = [ {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 15 ) ],
@@ -298,7 +299,7 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 script = ExtResource( 7 )
-_sections_unfolded = [ "Pickable" ]
+_sections_unfolded = [ "Pickable", "Z Index" ]
 
 [node name="Sprite" type="Sprite" parent="Counter" index="0"]
 
@@ -338,7 +339,7 @@ __meta__ = {
 
 [node name="NPCIiro" parent="." index="13" instance=ExtResource( 14 )]
 
-position = Vector2( 80, 56 )
+position = Vector2( 73, 56 )
 text = [ [ "Look who it is.", "Been a while, Fiore.", "I guess the corruption ain't killed you yet.", "That's good.", "Ain't killed me, either.", "Takes more than crap like that to put Iiro down.", "Anyway.", "Buy my junk.", "Because I still got all the stuff.", "And I don't care if the whole world's fallin' down.", "I'm still sellin' stuff." ], [ "This corruption's pissin' me off.", "I mean, seriously. The world endin'?", "That's bad for business.", "Say, about your dad...", "Ain't he the one who caused all this?", "I'm not even sure. Never liked him.", "All I know is that next time I see him...", "I'm gonna slap him.", "Long as he's not dead.", "Heh heh..." ], [ "You seen Jari lately?", "Tell him I said hi.", "He'd appreciate it.", "...Heh heh..." ], [ "Okay, Fiore...", "I know I've got a really cool accent.", "But you should really stop talkin' to me now." ] ]
 dialogue_key = "iiro_talk"
 auto_advance_limit = 3
@@ -359,7 +360,7 @@ shape = SubResource( 5 )
 [node name="Interact" parent="NPCIiro" index="2"]
 
 position = Vector2( -1, -19 )
-frame = 1
+frame = 0
 
 [node name="Table2" type="StaticBody2D" parent="." index="14"]
 
@@ -395,6 +396,10 @@ texture = ExtResource( 12 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="ShopItem" parent="." index="15" instance=ExtResource( 17 )]
+
+position = Vector2( 93, 66 )
 
 
 [editable path="NPCIiro"]

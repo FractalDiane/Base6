@@ -1,42 +1,84 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Scripts/System/UI/UI.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/UI/UI frame.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/UI/UI-life_empty.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/UI/UI-life_full.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/System/UI/Health.gd" type="Script" id=5]
-[ext_resource path="res://Sprites/UI/UI-corruption_empty.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/UI/UI-corruption_full.png" type="Texture" id=7]
-[ext_resource path="res://Scripts/System/UI/Corruption.gd" type="Script" id=8]
-[ext_resource path="res://Sprites/UI/Item empty.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/UI/Item bow.png" type="Texture" id=10]
-[ext_resource path="res://Scripts/System/UI/Item1.gd" type="Script" id=11]
-[ext_resource path="res://Fonts/font_standard.tres" type="DynamicFont" id=12]
-[ext_resource path="res://Sprites/UI/Gold.png" type="Texture" id=13]
-[ext_resource path="res://Fonts/font_small.tres" type="DynamicFont" id=14]
-[ext_resource path="res://Scripts/System/UI/GoldValue.gd" type="Script" id=15]
-[ext_resource path="res://Sprites/UI/Minimap.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/UI/Minimap marker.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/UI/Corr1.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/UI/Corr2.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/UI/Corr3.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/UI/Corr4.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/UI/Corr5.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/UI/Corr6.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/UI/Corr7.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/UI/Corr8.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/UI/Corr9.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/UI/Corr10.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/UI/Corr11.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/UI/Corr12.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/UI/Corr13.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/UI/Corr14.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/UI/Corr15.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/UI/Corr16.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/UI/UI-corruption_full.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/UI/UI-corruption_empty.png" type="Texture" id=23]
+[ext_resource path="res://Scripts/System/UI/Corruption.gd" type="Script" id=24]
+[ext_resource path="res://Sprites/UI/Item empty.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/UI/Item bow.png" type="Texture" id=26]
+[ext_resource path="res://Scripts/System/UI/Item1.gd" type="Script" id=27]
+[ext_resource path="res://Scripts/System/UI/Item2.gd" type="Script" id=28]
+[ext_resource path="res://Fonts/font_small.tres" type="DynamicFont" id=29]
+[ext_resource path="res://Sprites/UI/PotionIcon.png" type="Texture" id=30]
+[ext_resource path="res://Sprites/UI/Gold.png" type="Texture" id=31]
+[ext_resource path="res://Sprites/UI/Gold 2.png" type="Texture" id=32]
+[ext_resource path="res://Sprites/UI/Gold 3.png" type="Texture" id=33]
+[ext_resource path="res://Scripts/System/UI/GoldValue.gd" type="Script" id=34]
+[ext_resource path="res://Sprites/UI/Minimap.png" type="Texture" id=35]
+[ext_resource path="res://Sprites/UI/Minimap marker.png" type="Texture" id=36]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
 "loop": true,
 "name": "default",
-"speed": 0.0
+"speed": 30.0
 } ]
 
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 17 ) ],
+"frames": [ ExtResource( 25 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "default",
+"speed": 0.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ {
+"frames": [ ExtResource( 31 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 32 ), ExtResource( 31 ), ExtResource( 33 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 31 ), ExtResource( 33 ) ],
+"loop": true,
+"name": "move",
+"speed": 12.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+
+animations = [ {
+"frames": [ ExtResource( 36 ) ],
 "loop": true,
 "name": "default",
 "speed": 2.5
 } ]
 
-[node name="UI" type="CanvasLayer"]
+[node name="UI" type="CanvasLayer" index="0"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -135,7 +177,18 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Corruption" type="TextureProgress" parent="Base/Vitals" index="1"]
+[node name="CorruptionBack" type="AnimatedSprite" parent="Base/Vitals" index="1"]
+
+position = Vector2( 46, 6 )
+frames = SubResource( 1 )
+animation = "default"
+frame = 6
+playing = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Corruption" type="TextureProgress" parent="Base/Vitals" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -155,16 +208,17 @@ min_value = 0.0
 max_value = 10.0
 step = 1.0
 page = 0.0
-value = 0.0
+value = 10.0
 exp_edit = false
 rounded = false
-texture_under = ExtResource( 6 )
+texture_under = ExtResource( 22 )
 texture_over = null
-texture_progress = ExtResource( 7 )
+texture_progress = ExtResource( 23 )
+fill_mode = 1
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
-script = ExtResource( 8 )
+script = ExtResource( 24 )
 _sections_unfolded = [ "Textures" ]
 __meta__ = {
 "_edit_lock_": true
@@ -193,36 +247,9 @@ __meta__ = {
 [node name="Item1" type="AnimatedSprite" parent="Base/Items" index="0"]
 
 position = Vector2( 11, 6 )
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "default"
-script = ExtResource( 11 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Label" type="Label" parent="Base/Items/Item1" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 7.0
-margin_top = -7.0
-margin_right = 47.0
-margin_bottom = 19.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = ExtResource( 12 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "1"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+script = ExtResource( 27 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -230,8 +257,9 @@ __meta__ = {
 [node name="Item2" type="AnimatedSprite" parent="Base/Items" index="1"]
 
 position = Vector2( 37, 6 )
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "default"
+script = ExtResource( 28 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -242,23 +270,31 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 7.0
-margin_top = -7.0
-margin_right = 47.0
-margin_bottom = 19.0
+margin_left = -9.0
+margin_top = -5.0
+margin_right = 31.0
+margin_bottom = 21.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 12 )
+custom_fonts/font = ExtResource( 29 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "2"
+align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Base/Items/Item2" index="1"]
+
+texture = ExtResource( 30 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -283,24 +319,12 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="GoldSprite" type="TextureRect" parent="Gold" index="0"]
+[node name="GoldSprite" type="AnimatedSprite" parent="Gold" index="0"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 2.0
-margin_top = 1.0
-margin_right = 42.0
-margin_bottom = 41.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 13 )
-stretch_mode = 0
+position = Vector2( 5, 4 )
+frames = SubResource( 3 )
+animation = "idle"
+playing = true
 __meta__ = {
 "_edit_lock_": true
 }
@@ -321,13 +345,13 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 14 )
+custom_fonts/font = ExtResource( 29 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "000"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 15 )
+script = ExtResource( 34 )
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 __meta__ = {
 "_edit_lock_": true
@@ -370,7 +394,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 16 )
+texture = ExtResource( 35 )
 stretch_mode = 0
 __meta__ = {
 "_edit_lock_": true
@@ -379,10 +403,12 @@ __meta__ = {
 [node name="MapMarkerSprite" type="AnimatedSprite" parent="Map" index="1"]
 
 position = Vector2( 1, 1 )
-frames = SubResource( 2 )
+frames = SubResource( 4 )
 animation = "default"
 playing = true
 centered = false
 _sections_unfolded = [ "Margin", "Rect" ]
+
+[connection signal="animation_finished" from="Gold/GoldSprite" to="Gold/GoldSprite" method="play" binds= [ "idle" ]]
 
 

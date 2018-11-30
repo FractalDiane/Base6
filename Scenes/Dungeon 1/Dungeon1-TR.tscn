@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Instances/Objects/OrbSwitch.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Instances/System/LogicAND.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Instances/Items/Gold.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -55,6 +56,8 @@ __meta__ = {
 }
 
 [node name="PitController" parent="." index="3" instance=ExtResource( 5 )]
+
+has_platform = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PitController" index="2"]
 
@@ -235,18 +238,21 @@ direction = "down"
 
 [node name="OrbSwitch" parent="." index="22" instance=ExtResource( 10 )]
 
+allow_sword = true
 target_flag = "dungeon1_switchTR_1"
 reemit_signal = true
 
 [node name="OrbSwitch2" parent="." index="23" instance=ExtResource( 10 )]
 
 position = Vector2( 140, 38 )
+allow_sword = true
 target_flag = "dungeon1_switchTR_3"
 reemit_signal = true
 
 [node name="OrbSwitch3" parent="." index="24" instance=ExtResource( 10 )]
 
 position = Vector2( 84, 41 )
+allow_sword = true
 target_flag = "dungeon1_switchTR_5"
 reemit_signal = true
 
@@ -255,6 +261,10 @@ reemit_signal = true
 position = Vector2( 84, 71 )
 inputs = 3
 target_flag = "dungeon1_switchesTR"
+
+[node name="Gold" parent="." index="26" instance=ExtResource( 12 )]
+
+target_flag = "gold_1"
 
 [connection signal="on_trigger" from="OrbSwitch" to="LogicAND" method="set_input" binds= [ 0, true ]]
 

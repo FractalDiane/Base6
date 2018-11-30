@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=1]
 [ext_resource path="res://Tilesets/TilesetMain.tres" type="TileSet" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Sprites/Characters/Jari/Jari right.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/Characters/Jari/Jari up.png" type="Texture" id=13]
 [ext_resource path="res://Sprites/Characters/Jari/Jari down.png" type="Texture" id=14]
+[ext_resource path="res://Instances/Items/Gold.tscn" type="PackedScene" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -181,9 +182,12 @@ frames = SubResource( 2 )
 position = Vector2( 0, 8 )
 shape = SubResource( 3 )
 
-[node name="Interact" parent="NPCJari" index="2"]
+[node name="Gold" parent="." index="12" instance=ExtResource( 15 )]
 
-frame = 2
+position = Vector2( 74, 18 )
+gold_value = 20
+large_sprite = true
+target_flag = "gold_4"
 
 
 [editable path="NPCJari"]

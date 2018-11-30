@@ -121,12 +121,12 @@ target_x = 0
 target_y = 104
 direction = "up"
 
-[connection signal="on_timeout" from="OrbSwitch" to="PitController/Bridge" method="set_disabled" binds= [ true ]]
-
 [connection signal="on_timeout" from="OrbSwitch" to="TileMapBridges" method="hide"]
 
-[connection signal="on_trigger" from="OrbSwitch" to="PitController/Bridge" method="set_disabled" binds= [ false ]]
+[connection signal="on_timeout" from="OrbSwitch" to="PitController/Bridge" method="set_disabled" binds= [ true ]]
 
 [connection signal="on_trigger" from="OrbSwitch" to="TileMapBridges" method="show"]
+
+[connection signal="on_trigger" from="OrbSwitch" to="PitController/Bridge" method="set_disabled" binds= [ false ]]
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=1]
 [ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=2]
@@ -11,8 +11,9 @@
 [ext_resource path="res://Instances/Props/SpikeSmall.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Sprites/Props/Dungeon entrance.png" type="Texture" id=10]
 [ext_resource path="res://Instances/Props/BigRock.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Instances/Items/Gold.tscn" type="PackedScene" id=12]
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -90,8 +91,8 @@ __meta__ = {
 
 [node name="Transition4" parent="." index="11" instance=ExtResource( 4 )]
 
-position = Vector2( 53, 63 )
-scale = Vector2( 0.625, 0.59375 )
+position = Vector2( 53, 62.5 )
+scale = Vector2( 0.3125, 0.265625 )
 target_scene = "res://Scenes/Dungeon 1/Dungeon1-1.tscn"
 target_x = 50
 target_y = 60
@@ -100,5 +101,12 @@ not_cell = true
 [node name="BigRock" parent="." index="12" instance=ExtResource( 11 )]
 
 position = Vector2( 81, 107 )
+
+[node name="Gold" parent="." index="13" instance=ExtResource( 12 )]
+
+position = Vector2( 104, 34 )
+gold_value = 20
+large_sprite = true
+target_flag = "gold_9"
 
 

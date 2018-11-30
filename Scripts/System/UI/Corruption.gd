@@ -3,4 +3,4 @@ extends TextureProgress
 onready var cont = controller
 
 func _process(delta):
-	set_value(cont.player_corruption)
+	set_value(10 - cont.player_corruption)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=1]
 [ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Instances/Props/Leaf1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Instances/Props/BigRock.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Instances/Props/SmallRock.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Instances/Items/Gold.tscn" type="PackedScene" id=11]
 
 [node name="Node2D" type="Node2D" index="0"]
 
@@ -118,5 +119,13 @@ position = Vector2( 47, 35 )
 [node name="SmallRock" parent="." index="18" instance=ExtResource( 10 )]
 
 position = Vector2( 81, 92 )
+
+[node name="Gold" parent="." index="19" instance=ExtResource( 11 )]
+
+position = Vector2( 129, 84 )
+input_pickable = false
+gold_value = 20
+large_sprite = true
+target_flag = "gold_2"
 
 

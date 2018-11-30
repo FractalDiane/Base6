@@ -9,16 +9,13 @@ var dlg = preload("res://Instances/System/Dialogue.tscn")
 var dlg2 = preload("res://Instances/System/DialogueRegistry.tscn")
 var corr_parts = preload("res://Instances/Particles/PartsPlayerCorrupt.tscn")
 
-const NONE = 0
-const BOW = 1
-
 # Global variables
 var player_health = 10
 var player_corruption = 0
 var player_gold = 20
+var player_potions = 3
 
-var player_item_1 = BOW
-var player_item_2 = NONE
+var player_item_1 = 0
 
 var current_scene = null
 var corrupted_cells = ["14","23","24","33","34","44"]

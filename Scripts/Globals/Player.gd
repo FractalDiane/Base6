@@ -149,10 +149,17 @@ func state_walk():
 	if Input.is_action_just_pressed("ui_dash"):
 		state = DASH
 		dash_attack()
-		
-	if Input.is_action_just_pressed("ui_shoot"):
+	
+	# SHOOT
+	if Input.is_action_just_pressed("ui_shoot") and controller.player_item_1 == 1:
 		state = SHOOT
 		shoot_bow()
+		
+	# POTION
+	if Input.is_action_just_pressed("ui_heal"):
+		if controller.player_potions > 0 and controller.player_health < 10:
+			use_potion()
+			controller.player_potions -= 1
 		
 	var current_sight = sight.get_overlapping_bodies()
 	
@@ -267,6 +274,11 @@ func shoot_bow():
 		else: shootarrow.direction = 0
 	get_tree().get_root().add_child(shootarrow)
 	$TimerShoot.start()
+	
+func use_potion():
+	$SoundPotion.play(0)
+	$PartsPotion.set_emitting(true)
+	controller.player_health = clamp(controller.player_health + 4, 0, 10)
 
 func footstep_increment():
 	if state == WALK:

@@ -21,7 +21,7 @@ _sections_unfolded = [ "Z Index" ]
 [node name="TimerRestart" type="Timer" parent="." index="1"]
 
 process_mode = 1
-wait_time = 0.3
+wait_time = 0.33
 one_shot = true
 autostart = false
 

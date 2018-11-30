@@ -172,6 +172,8 @@ func input():
 					controller.player_health = 10
 					controller.player_corruption = 0
 					controller.player_gold = 20
+					controller.player_potions = 3
+					controller.player_item_1 = 0
 					controller.corrupted_cells = ["14","23","24","33","34","44"]
 					
 					Player.dead = false

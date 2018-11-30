@@ -9,7 +9,7 @@
 [ext_resource path="res://Sprites/Props/Table.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/Props/TableSmall.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/Props/Bowl.png" type="Texture" id=9]
-[ext_resource path="res://Instances/System/Item.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Instances/Items/Item.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Instances/NPCs/NPCMasterNew.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Sprites/Props/Note.png" type="Texture" id=12]
 [ext_resource path="res://Scripts/Objects/Prop.gd" type="Script" id=13]
@@ -20,6 +20,8 @@
 [ext_resource path="res://Sprites/Props/Wardrobe.png" type="Texture" id=18]
 [ext_resource path="res://Sprites/Props/Table vertical.png" type="Texture" id=19]
 [ext_resource path="res://Sprites/Props/Plate.png" type="Texture" id=20]
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -36,12 +38,12 @@ extents = Vector2( 9.5, 10 )
 animations = [ {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 12 ) ],
@@ -252,7 +254,6 @@ shape = SubResource( 4 )
 [node name="Interact" parent="NPCCephasNote" index="2"]
 
 position = Vector2( -1, -13 )
-frame = 3
 
 [node name="Pot" type="StaticBody2D" parent="." index="10"]
 

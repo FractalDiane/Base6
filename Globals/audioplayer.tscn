@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Globals/audioplayer.gd" type="Script" id=1]
 [ext_resource path="res://Sounds/Player/Hit 2.wav" type="AudioStream" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Sounds/Ambient/Hum.wav" type="AudioStream" id=5]
 [ext_resource path="res://Sounds/Characters/Crow.wav" type="AudioStream" id=6]
 [ext_resource path="res://Sounds/Ambient/Noise 2.wav" type="AudioStream" id=7]
+[ext_resource path="res://Sounds/Objects/GetItem.wav" type="AudioStream" id=8]
 
 [node name="audioplayer" type="Node"]
 
@@ -60,6 +61,15 @@ bus = "Master"
 [node name="SoundNoiseTransition" type="AudioStreamPlayer" parent="." index="5"]
 
 stream = ExtResource( 7 )
+volume_db = -5.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="SoundGetItem" type="AudioStreamPlayer" parent="." index="6"]
+
+stream = ExtResource( 8 )
 volume_db = -5.0
 pitch_scale = 1.0
 autoplay = false

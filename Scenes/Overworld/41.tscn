@@ -79,8 +79,8 @@ __meta__ = {
 
 [node name="Transition4" parent="." index="8" instance=ExtResource( 5 )]
 
-position = Vector2( 105, 100 )
-scale = Vector2( 0.625, 0.59375 )
+position = Vector2( 105, 99.5 )
+scale = Vector2( 0.3125, 0.265625 )
 target_scene = "res://Scenes/Dungeon 2/Dungeon2-1.tscn"
 target_x = 50
 target_y = 60
