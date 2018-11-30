@@ -42,10 +42,8 @@ func _on_animation_finished():
 		var coll = $Hitbox.get_overlapping_bodies()
 		if player in coll and not player.iframes:
 			damage_player(damage)
-		yield( get_tree(), "idle_frame" )
-		yield( get_tree(), "idle_frame" )
+		coll = $Hitbox.get_overlapping_areas()
 		for i in switches.size():
-			print(coll)
 			if switches[i] in coll:
 				switches[i].activate()
 		active = false

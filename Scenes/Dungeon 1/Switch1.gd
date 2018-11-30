@@ -15,3 +15,10 @@ func _ready():
 func activate():
 	active = true
 	print("active")
+	$Sprite.play("down")
+	get_parent().checkSwitches()
+	
+func deactivate():
+	active = false
+	print("inactive")
+	$Sprite.play("up")

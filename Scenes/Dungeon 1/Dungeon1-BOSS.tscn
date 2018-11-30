@@ -5,10 +5,10 @@
 [ext_resource path="res://Sounds/Music/SILENCE.wav" type="AudioStream" id=3]
 [ext_resource path="res://Tilesets/TilesetMain.tres" type="TileSet" id=4]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Instances/System/PitController.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Instances/JumpPoint.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scripts/Objects/Dungeon 1/BossCore.gd" type="Script" id=8]
-[ext_resource path="res://Scenes/Dungeon 1/EnterTrigger.gd" type="Script" id=9]
+[ext_resource path="res://Instances/JumpPoint.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scripts/Objects/Dungeon 1/BossCore.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/Dungeon 1/EnterTrigger.gd" type="Script" id=8]
+[ext_resource path="res://Instances/System/PitController.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scripts/Objects/Dungeon 1/Fist.gd" type="Script" id=10]
 [ext_resource path="res://Sprites/Props/Fists/LFist.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/Props/Fists/Shadow9.png" type="Texture" id=12]
@@ -32,7 +32,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 8, 8 )
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
 "frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
@@ -46,12 +46,12 @@ animations = [ {
 "speed": 30.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=4]
 
 animations = [ {
 "frames": [ ExtResource( 25 ) ],
@@ -64,8 +64,9 @@ animations = [ {
 "name": "down",
 "speed": 5.0
 } ]
+_sections_unfolded = [ "Resource" ]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
 extents = Vector2( 4.5, 4 )
@@ -116,128 +117,88 @@ target_x = 0
 target_y = 56
 direction = "down"
 
-[node name="PitController" parent="." index="4" instance=ExtResource( 6 )]
-
-has_platform = false
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PitController" index="3"]
-
-build_mode = 0
-polygon = PoolVector2Array( 55, 64, 103, 64, 103, 112, 95, 112, 95, 126, 63, 126, 63, 112, 55, 112 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PitController" index="4"]
-
-position = Vector2( 23, 104 )
-shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="PitController" index="5"]
-
-position = Vector2( 135, 104 )
-shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="PitController" index="6"]
-
-position = Vector2( 23, 72 )
-shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="PitController" index="7"]
-
-position = Vector2( 135, 72 )
-shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="PitController" index="8"]
-
-position = Vector2( 79, 40 )
-scale = Vector2( 3, 1 )
-shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="JumpPoint9" parent="." index="5" instance=ExtResource( 7 )]
+[node name="JumpPoint9" parent="." index="4" instance=ExtResource( 6 )]
 
 position = Vector2( 80, 68 )
 scale = Vector2( 0.75, 0.125 )
 distance = 30
 
-[node name="JumpPoint10" parent="." index="6" instance=ExtResource( 7 )]
+[node name="JumpPoint10" parent="." index="5" instance=ExtResource( 6 )]
 
 position = Vector2( 80, 44 )
 scale = Vector2( 0.75, 0.125 )
 required_direction = Vector2( 0, 1 )
 distance = 30
 
-[node name="JumpPoint7" parent="." index="7" instance=ExtResource( 7 )]
+[node name="JumpPoint7" parent="." index="6" instance=ExtResource( 6 )]
 
 position = Vector2( 131.5, 104 )
 scale = Vector2( 0.109375, 0.25 )
 required_direction = Vector2( -1, 0 )
 distance = 30
 
-[node name="JumpPoint2" parent="." index="8" instance=ExtResource( 7 )]
+[node name="JumpPoint2" parent="." index="7" instance=ExtResource( 6 )]
 
 position = Vector2( 59.5, 72 )
 scale = Vector2( 0.109375, 0.25 )
 required_direction = Vector2( -1, 0 )
 distance = 30
 
-[node name="JumpPoint8" parent="." index="9" instance=ExtResource( 7 )]
+[node name="JumpPoint8" parent="." index="8" instance=ExtResource( 6 )]
 
 position = Vector2( 131.5, 72 )
 scale = Vector2( 0.109375, 0.25 )
 required_direction = Vector2( -1, 0 )
 distance = 30
 
-[node name="JumpPoint3" parent="." index="10" instance=ExtResource( 7 )]
+[node name="JumpPoint3" parent="." index="9" instance=ExtResource( 6 )]
 
 position = Vector2( 100.5, 72 )
 scale = Vector2( 0.109375, 0.25 )
 required_direction = Vector2( 1, 0 )
 distance = 30
 
-[node name="JumpPoint6" parent="." index="11" instance=ExtResource( 7 )]
+[node name="JumpPoint6" parent="." index="10" instance=ExtResource( 6 )]
 
 position = Vector2( 28.5, 72 )
 scale = Vector2( 0.109375, 0.25 )
 required_direction = Vector2( 1, 0 )
 distance = 30
 
-[node name="JumpPoint11" parent="." index="12" instance=ExtResource( 7 )]
+[node name="JumpPoint11" parent="." index="11" instance=ExtResource( 6 )]
 
 position = Vector2( 24, 76.5 )
 scale = Vector2( 0.25, 0.109375 )
 required_direction = Vector2( 0, 1 )
 distance = 30
 
-[node name="JumpPoint12" parent="." index="13" instance=ExtResource( 7 )]
+[node name="JumpPoint12" parent="." index="12" instance=ExtResource( 6 )]
 
 position = Vector2( 136, 76.5 )
 scale = Vector2( 0.25, 0.109375 )
 required_direction = Vector2( 0, 1 )
 distance = 30
 
-[node name="JumpPoint13" parent="." index="14" instance=ExtResource( 7 )]
+[node name="JumpPoint13" parent="." index="13" instance=ExtResource( 6 )]
 
 position = Vector2( 136, 99.5 )
 scale = Vector2( 0.25, 0.109375 )
 distance = 30
 
-[node name="JumpPoint14" parent="." index="15" instance=ExtResource( 7 )]
+[node name="JumpPoint14" parent="." index="14" instance=ExtResource( 6 )]
 
 position = Vector2( 24, 99.5 )
 scale = Vector2( 0.25, 0.109375 )
 distance = 30
 
-[node name="JumpPoint5" parent="." index="16" instance=ExtResource( 7 )]
+[node name="JumpPoint5" parent="." index="15" instance=ExtResource( 6 )]
 
 position = Vector2( 28.5, 104 )
 scale = Vector2( 0.109375, 0.25 )
 required_direction = Vector2( 1, 0 )
 distance = 30
 
-[node name="BossCore" type="StaticBody2D" parent="." index="17"]
+[node name="BossCore" type="StaticBody2D" parent="." index="16"]
 
 input_pickable = false
 collision_layer = 1
@@ -246,7 +207,7 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-script = ExtResource( 8 )
+script = ExtResource( 7 )
 
 [node name="EnterTrigger" type="Area2D" parent="BossCore" index="0"]
 
@@ -257,26 +218,66 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BossCore/EnterTrigger" index="0"]
 
 build_mode = 0
 polygon = PoolVector2Array( 56, 112, 64, 112, 64, 104, 96, 104, 96, 112, 104, 112, 104, 96, 56, 96 )
 
-[node name="JumpPoint" parent="BossCore/EnterTrigger" index="1" instance=ExtResource( 7 )]
+[node name="JumpPoint" parent="BossCore/EnterTrigger" index="1" instance=ExtResource( 6 )]
 
 position = Vector2( 59.5, 104 )
 scale = Vector2( 0.109375, 0.25 )
 required_direction = Vector2( -1, 0 )
 distance = 30
 
-[node name="JumpPoint2" parent="BossCore/EnterTrigger" index="2" instance=ExtResource( 7 )]
+[node name="JumpPoint2" parent="BossCore/EnterTrigger" index="2" instance=ExtResource( 6 )]
 
 position = Vector2( 100.5, 104 )
 scale = Vector2( 0.109375, 0.25 )
 required_direction = Vector2( 1, 0 )
 distance = 30
+
+[node name="PitController" parent="BossCore/EnterTrigger" index="3" instance=ExtResource( 9 )]
+
+has_platform = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BossCore/EnterTrigger/PitController" index="3"]
+
+build_mode = 0
+polygon = PoolVector2Array( 55, 64, 103, 64, 103, 112, 95, 112, 95, 126, 63, 126, 63, 112, 55, 112 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossCore/EnterTrigger/PitController" index="4"]
+
+position = Vector2( 23, 104 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="BossCore/EnterTrigger/PitController" index="5"]
+
+position = Vector2( 135, 104 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BossCore/EnterTrigger/PitController" index="6"]
+
+position = Vector2( 23, 72 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="BossCore/EnterTrigger/PitController" index="7"]
+
+position = Vector2( 135, 72 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="BossCore/EnterTrigger/PitController" index="8"]
+
+position = Vector2( 79, 40 )
+scale = Vector2( 3, 1 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="LeftFist" type="KinematicBody2D" parent="BossCore" index="1"]
 
@@ -302,7 +303,7 @@ __meta__ = {
 [node name="ShadowSprite" type="AnimatedSprite" parent="BossCore/LeftFist" index="1"]
 
 position = Vector2( 0, 10 )
-frames = SubResource( 4 )
+frames = SubResource( 2 )
 animation = "lift"
 _sections_unfolded = [ "Transform", "Z Index" ]
 __meta__ = {
@@ -324,7 +325,7 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 0, 10 )
 scale = Vector2( 0.6, 0.3 )
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="RightFist" type="KinematicBody2D" parent="BossCore" index="2"]
@@ -352,7 +353,7 @@ __meta__ = {
 [node name="ShadowSprite" type="AnimatedSprite" parent="BossCore/RightFist" index="1"]
 
 position = Vector2( 0, 10 )
-frames = SubResource( 4 )
+frames = SubResource( 2 )
 animation = "lift"
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
@@ -374,7 +375,7 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 0, 10 )
 scale = Vector2( 0.6, 0.3 )
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="BossCore" index="3"]
@@ -385,7 +386,8 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Switch1" type="Area2D" parent="BossCore" index="4"]
 
-position = Vector2( 23, 104 )
+editor/display_folded = true
+position = Vector2( 23.4293, 104 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -395,10 +397,13 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 24 )
 _sections_unfolded = [ "Collision" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Sprite" type="AnimatedSprite" parent="BossCore/Switch1" index="0"]
 
-frames = SubResource( 2 )
+frames = SubResource( 4 )
 animation = "up"
 __meta__ = {
 "_edit_lock_": true
@@ -407,7 +412,109 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossCore/Switch1" index="1"]
 
 position = Vector2( 0.5, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 5 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Switch2" type="Area2D" parent="BossCore" index="5"]
+
+editor/display_folded = true
+position = Vector2( 135.685, 104 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 24 )
+_sections_unfolded = [ "Collision" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="BossCore/Switch2" index="0"]
+
+frames = SubResource( 4 )
+animation = "up"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossCore/Switch2" index="1"]
+
+position = Vector2( 0.5, 0 )
+shape = SubResource( 5 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Switch3" type="Area2D" parent="BossCore" index="6"]
+
+editor/display_folded = true
+position = Vector2( 135.685, 72.0189 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 24 )
+_sections_unfolded = [ "Collision" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="BossCore/Switch3" index="0"]
+
+frames = SubResource( 4 )
+animation = "up"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossCore/Switch3" index="1"]
+
+position = Vector2( 0.5, 0 )
+shape = SubResource( 5 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Switch4" type="Area2D" parent="BossCore" index="7"]
+
+editor/display_folded = true
+position = Vector2( 23.4293, 72.0189 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 24 )
+_sections_unfolded = [ "Collision" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="BossCore/Switch4" index="0"]
+
+frames = SubResource( 4 )
+animation = "up"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossCore/Switch4" index="1"]
+
+position = Vector2( 0.5, 0 )
+shape = SubResource( 5 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
