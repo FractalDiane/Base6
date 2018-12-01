@@ -6,6 +6,7 @@ export(bool) var allow_bow = true
 export(bool) var allow_sword = true
 export(String) var target_flag = "null"
 export(bool) var reemit_signal
+export(bool) var is_boss = false
 
 signal on_trigger
 signal on_timeout
@@ -35,7 +36,8 @@ func press():
 	if not pressed:
 		$SoundPressed.play(0)
 		if time == 0:
-			$Sprite.set_animation("on")
+			if not is_boss:
+				$Sprite.set_animation("on")
 		emit_signal("on_trigger")
 		if target_flag != "null":
 			controller.flag[target_flag] = 1

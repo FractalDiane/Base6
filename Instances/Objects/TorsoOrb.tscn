@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Objects/OrbSwitch.gd" type="Script" id=1]
 [ext_resource path="res://Sounds/Objects/Switch.wav" type="AudioStream" id=2]
@@ -9,6 +9,11 @@
 
 custom_solver_bias = 0.0
 extents = Vector2( 4, 4 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 4.00356, 4.08405 )
 
 [node name="OrbSwitch" type="StaticBody2D" index="0" groups=[
 "OrbSwitch",
@@ -29,6 +34,7 @@ allow_bow = true
 allow_sword = true
 target_flag = "null"
 reemit_signal = null
+is_boss = false
 
 [node name="Area2D" type="Area2D" parent="." index="0"]
 
@@ -122,6 +128,12 @@ _sections_unfolded = [ "Radial Fill", "Textures", "Visibility" ]
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="6"]
+
+position = Vector2( 0, -1.99354 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [connection signal="timeout" from="TimerReemitSignal" to="." method="_on_TimerReemitSignal_timeout"]
 
