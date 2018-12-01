@@ -26,7 +26,7 @@ func _physics_process(delta):
 	var velocity = ((startpos + add_vector) - position) / delta
 	set_position(startpos + add_vector)
 	if colliding:
-		set_player_velocity(velocity)
+		player.move_and_slide(velocity)
 	
 #	if get_slide_count() > 0:
 #		colliding = true
@@ -38,8 +38,6 @@ func _physics_process(delta):
 	#if player in area.get_overlapping_bodies():
 		#player.motion.x += add
 	
-func set_player_velocity(velocity):
-	colliding_body.set("platform_motion", velocity)
 
 func _on_Platform_body_entered(body):
 	colliding = true

@@ -1,7 +1,6 @@
 extends KinematicBody2D
 
 var motion = Vector2(0,0)
-var platform_motion = Vector2(0,0)
 var dash = Vector2(0,0)
 var face = Vector2(0,0)
 var sound = -1
@@ -89,7 +88,7 @@ func _physics_process(delta):
 	footstep_increment()
 	footstep_sound()
 	debug()
-	move_and_slide(motion + platform_motion)
+	move_and_slide(motion)
 	
 	if get_slide_count() > 0:
 		var coll = get_slide_collision(0)
