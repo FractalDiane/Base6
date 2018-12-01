@@ -108,7 +108,9 @@ _sections_unfolded = [ "Collision", "Transform", "Z Index" ]
 
 [node name="Sprite" type="Sprite" parent="Shop" index="0"]
 
+z_index = 20
 texture = ExtResource( 7 )
+_sections_unfolded = [ "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }

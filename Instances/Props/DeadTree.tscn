@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 2, 8 )
+extents = Vector2( 2, 2 )
 
 [node name="DeadTree" type="StaticBody2D"]
 
@@ -22,14 +22,16 @@ script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+z_index = 17
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( 1, 22 )
+position = Vector2( 1, 28 )
 shape = SubResource( 1 )
 
 

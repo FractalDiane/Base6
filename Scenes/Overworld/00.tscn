@@ -115,7 +115,9 @@ _sections_unfolded = [ "Collision", "Transform", "Z Index" ]
 
 [node name="Sprite" type="Sprite" parent="FioreHouse" index="0"]
 
+z_index = 20
 texture = ExtResource( 5 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
@@ -125,9 +127,6 @@ __meta__ = {
 position = Vector2( 0, 8 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Transition2" parent="." index="6" instance=ExtResource( 6 )]
 

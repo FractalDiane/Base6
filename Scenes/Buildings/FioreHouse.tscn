@@ -21,8 +21,6 @@
 [ext_resource path="res://Sprites/Props/Table vertical.png" type="Texture" id=19]
 [ext_resource path="res://Sprites/Props/Plate.png" type="Texture" id=20]
 
-
-
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
@@ -254,6 +252,7 @@ shape = SubResource( 4 )
 [node name="Interact" parent="NPCCephasNote" index="2"]
 
 position = Vector2( -1, -13 )
+frame = 0
 
 [node name="Pot" type="StaticBody2D" parent="." index="10"]
 
@@ -374,6 +373,7 @@ __meta__ = {
 [node name="Closet" type="StaticBody2D" parent="." index="15"]
 
 position = Vector2( 21, 92 )
+z_index = 6
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -382,6 +382,7 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 script = ExtResource( 13 )
+_sections_unfolded = [ "Z Index" ]
 
 [node name="Sprite" type="Sprite" parent="Closet" index="0"]
 
@@ -409,10 +410,13 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 script = ExtResource( 13 )
+_sections_unfolded = [ "Z Index" ]
 
 [node name="Sprite" type="Sprite" parent="Table3" index="0"]
 
+z_index = -18
 texture = ExtResource( 19 )
+_sections_unfolded = [ "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }

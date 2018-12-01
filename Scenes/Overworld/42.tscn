@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=1]
 [ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=2]
@@ -8,9 +8,13 @@
 [ext_resource path="res://Instances/Worldborder.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Sprites/Props/House 1.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/Props/House 2.png" type="Texture" id=8]
-[ext_resource path="res://Instances/NPCs/NPCMasterNew.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Instances/Props/DeadTree.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Instances/Props/Tree.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scripts/System/NPC.gd" type="Script" id=9]
+[ext_resource path="res://Sprites/UI/Interact 1.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/UI/Interact 2.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/UI/Interact 3.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/UI/Interact 4.png" type="Texture" id=13]
+[ext_resource path="res://Instances/Props/DeadTree.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Instances/Props/Tree.tscn" type="PackedScene" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -22,12 +26,12 @@ extents = Vector2( 32, 25 )
 animations = [ {
 "frames": [  ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [  ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -45,6 +49,15 @@ animations = [ {
 
 custom_solver_bias = 0.0
 extents = Vector2( 9, 13 )
+
+[sub_resource type="SpriteFrames" id=4]
+
+animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
 
 [node name="Node2D" type="Node2D" index="0"]
 
@@ -109,12 +122,14 @@ _sections_unfolded = [ "Collision", "Transform", "Z Index" ]
 
 [node name="Sprite" type="Sprite" parent="EmptyHouse" index="0"]
 
+z_index = 20
 texture = ExtResource( 7 )
+_sections_unfolded = [ "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="SpriteDoor" type="Sprite" parent="EmptyHouse" index="1"]
+[node name="SpriteDoor" type="Sprite" parent="EmptyHouse/Sprite" index="0"]
 
 position = Vector2( 0, 20 )
 texture = ExtResource( 8 )
@@ -125,7 +140,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EmptyHouse" index="2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EmptyHouse" index="1"]
 
 position = Vector2( 0, 8 )
 shape = SubResource( 1 )
@@ -134,39 +149,76 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="NPCMaster" parent="." index="8" instance=ExtResource( 9 )]
+[node name="NPCMaster" type="KinematicBody2D" parent="." index="8" groups=[
+"NPC",
+]]
 
 position = Vector2( 104, 71 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 9 )
+_sections_unfolded = [ "Z Index" ]
 text = [ [ "It's locked." ] ]
 dialogue_key = "null"
 auto_advance_set = false
 auto_advance_limit = 0
 box_x = 15
+box_y = 15
 box_width = 50
 box_height = 35
+registry = false
 
-[node name="Sprite" parent="NPCMaster" index="0"]
+[node name="Sprite" type="AnimatedSprite" parent="NPCMaster" index="0"]
 
 frames = SubResource( 2 )
+animation = "down"
+offset = Vector2( 0, -1 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="CollisionShape2D" parent="NPCMaster" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCMaster" index="1"]
 
+position = Vector2( 0, 7 )
 shape = SubResource( 3 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="Interact" parent="NPCMaster" index="2"]
+[node name="Interact" type="AnimatedSprite" parent="NPCMaster" index="2"]
 
-visible = true
 position = Vector2( 0, -12 )
+z_index = 200
+frames = SubResource( 4 )
+animation = "default"
+frame = 3
+playing = true
+_sections_unfolded = [ "Visibility", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="DeadTree" parent="." index="9" instance=ExtResource( 10 )]
+[node name="TimerHideInteract" type="Timer" parent="NPCMaster" index="3"]
+
+process_mode = 1
+wait_time = 0.01
+one_shot = true
+autostart = false
+
+[node name="DeadTree" parent="." index="9" instance=ExtResource( 14 )]
 
 position = Vector2( 136.779, 87.9441 )
 scale = Vector2( -1, 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Tree" parent="." index="10" instance=ExtResource( 11 )]
+[node name="Tree" parent="." index="10" instance=ExtResource( 15 )]
 
 position = Vector2( 47, 125 )
 
+[connection signal="timeout" from="NPCMaster/TimerHideInteract" to="NPCMaster" method="_on_TimerHideInteract_timeout"]
 
-[editable path="NPCMaster"]
+
