@@ -8,3 +8,4 @@ onready var player = Player
 
 func _physics_process(delta):
 	set_z_index(get_position().y)
+	

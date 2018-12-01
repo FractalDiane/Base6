@@ -38,7 +38,7 @@ extents = Vector2( 17, 16 )
 custom_solver_bias = 0.0
 extents = Vector2( 5, 3 )
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -125,7 +125,7 @@ __meta__ = {
 
 position = Vector2( 0, 18 )
 scale = Vector2( 0.40625, 0.0937501 )
-target_scene = "res://Scenes/Dungeon 1/Dungeon1-11.tscn"
+target_scene = "res://Scenes/Dungeon 2/Dungeon2-7.tscn"
 target_x = 0
 target_y = 100
 direction = "up"
