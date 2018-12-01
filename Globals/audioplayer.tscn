@@ -9,7 +9,7 @@
 [ext_resource path="res://Sounds/Ambient/Noise 2.wav" type="AudioStream" id=7]
 [ext_resource path="res://Sounds/Objects/GetItem.wav" type="AudioStream" id=8]
 
-[node name="audioplayer" type="Node"]
+[node name="audioplayer" type="Node" index="0"]
 
 script = ExtResource( 1 )
 

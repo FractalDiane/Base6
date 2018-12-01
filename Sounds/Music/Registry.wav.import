@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Registry.wav-36888e7d149cdfdaacff22c342fba611.sample"
+
+[deps]
+
+source_file="res://Sounds/Music/Registry.wav"
+dest_files=[ "res://.import/Registry.wav-36888e7d149cdfdaacff22c342fba611.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0
