@@ -1,51 +1,58 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sounds/Music/SILENCE.wav" type="AudioStream" id=3]
 [ext_resource path="res://Tilesets/TilesetMain.tres" type="TileSet" id=4]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Instances/JumpPoint.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Instances/JumpPoint.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Instances/Objects/Block.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/Objects/Dungeon 1/BossCore.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/Dungeon 1/EnterTrigger.gd" type="Script" id=8]
-[ext_resource path="res://Instances/System/PitController.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scripts/Objects/Dungeon 1/Fist.gd" type="Script" id=10]
-[ext_resource path="res://Sprites/Props/Fists/LFist.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Props/Fists/Shadow0.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Props/Fists/Shadow1.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Props/Fists/Shadow2.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Props/Fists/Shadow3.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Props/Fists/Shadow4.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/Props/Fists/Shadow5.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/Props/Fists/Shadow6.png" type="Texture" id=18]
-[ext_resource path="res://Sprites/Props/Fists/Shadow7.png" type="Texture" id=19]
-[ext_resource path="res://Sprites/Props/Fists/Shadow8.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/Props/Fists/Shadow9.png" type="Texture" id=21]
-[ext_resource path="res://Sprites/Props/Fists/RFist.png" type="Texture" id=22]
-[ext_resource path="res://Sprites/Characters/Temple Guardians/Torso0.png" type="Texture" id=23]
-[ext_resource path="res://Instances/Objects/TorsoOrb.tscn" type="PackedScene" id=24]
-[ext_resource path="res://Scenes/Dungeon 1/Switch1.gd" type="Script" id=25]
-[ext_resource path="res://Sprites/Props/Switch down 3.png" type="Texture" id=26]
-[ext_resource path="res://Sprites/Props/Switch down 2.png" type="Texture" id=27]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Instances/System/PitController.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scripts/Objects/Dungeon 1/Fist.gd" type="Script" id=11]
+[ext_resource path="res://Sprites/Props/Fists/LFist.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Props/Fists/Shadow0.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Props/Fists/Shadow1.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Props/Fists/Shadow2.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Props/Fists/Shadow3.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Props/Fists/Shadow4.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Props/Fists/Shadow5.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Props/Fists/Shadow6.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Props/Fists/Shadow7.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Props/Fists/Shadow8.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Props/Fists/Shadow9.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Props/Fists/RFist.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Characters/Temple Guardians/Torso0.png" type="Texture" id=24]
+[ext_resource path="res://Instances/Objects/TorsoOrb.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Scenes/Dungeon 1/Switch1.gd" type="Script" id=26]
+[ext_resource path="res://Sprites/Props/Switch down 3.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/Props/Switch down 2.png" type="Texture" id=28]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 8, 8 )
 
+[sub_resource type="RectangleShape2D" id=8]
+
+custom_solver_bias = 0.0
+extents = Vector2( 24.0917, 24.0206 )
+
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
 "loop": false,
 "name": "drop",
 "speed": 30.0
 }, {
-"frames": [ ExtResource( 21 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 12 ) ],
+"frames": [ ExtResource( 22 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 13 ) ],
 "loop": false,
 "name": "lift",
-"speed": 10.0
+"speed": 17.0
 } ]
+_sections_unfolded = [ "Resource" ]
 
 [sub_resource type="RectangleShape2D" id=7]
 
@@ -60,12 +67,12 @@ extents = Vector2( 10, 10 )
 [sub_resource type="SpriteFrames" id=4]
 
 animations = [ {
-"frames": [ ExtResource( 26 ) ],
+"frames": [ ExtResource( 27 ) ],
 "loop": true,
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 27 ) ],
+"frames": [ ExtResource( 28 ) ],
 "loop": true,
 "name": "down",
 "speed": 5.0
@@ -82,7 +89,7 @@ extents = Vector2( 4.5, 4 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform", "Z Index" ]
 
@@ -113,103 +120,108 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 0, 30, 0, 1, 29, 0, 2, 24, 0, 3, 24, 0, 4, 24, 0, 5, 24, 0, 6, 24, 0, 7, 24, 0, 8, 24, 0, 9, 24, 0, 10, 24, 0, 11, 24, 0, 12, 24, 0, 13, 24, 0, 14, 24, 0, 15, 24, 0, 16, 24, 0, 17, 24, 0, 18, 28, 0, 19, 30, 0, 65536, 30, 0, 65537, 31, 0, 65538, 30, 0, 65539, 30, 0, 65540, 30, 0, 65541, 30, 0, 65542, 30, 0, 65543, 30, 0, 65544, 30, 0, 65545, 30, 0, 65546, 30, 0, 65547, 30, 0, 65548, 30, 0, 65549, 30, 0, 65550, 30, 0, 65551, 30, 0, 65552, 30, 0, 65553, 30, 0, 65554, 22, 0, 65555, 30, 0, 131072, 30, 0, 131073, 31, 0, 131074, 30, 0, 131075, 30, 0, 131076, 30, 0, 131077, 30, 0, 131078, 30, 0, 131079, 30, 0, 131080, 30, 0, 131081, 30, 0, 131082, 30, 0, 131083, 30, 0, 131084, 30, 0, 131085, 30, 0, 131086, 30, 0, 131087, 30, 0, 131088, 30, 0, 131089, 30, 0, 131090, 22, 0, 131091, 30, 0, 196608, 30, 0, 196609, 31, 0, 196610, 30, 0, 196611, 30, 0, 196612, 30, 0, 196613, 30, 0, 196614, 30, 0, 196615, 24, 0, 196616, 24, 0, 196617, 24, 0, 196618, 24, 0, 196619, 24, 0, 196620, 24, 0, 196621, 30, 0, 196622, 30, 0, 196623, 30, 0, 196624, 30, 0, 196625, 30, 0, 196626, 22, 0, 196627, 30, 0, 262144, 30, 0, 262145, 31, 0, 262146, 39, 0, 262147, 39, 0, 262148, 39, 0, 262149, 39, 0, 262150, 39, 0, 262151, 14, 0, 262152, 14, 0, 262153, 14, 0, 262154, 14, 0, 262155, 14, 0, 262156, 14, 0, 262157, 39, 0, 262158, 39, 0, 262159, 39, 0, 262160, 39, 0, 262161, 39, 0, 262162, 22, 0, 262163, 30, 0, 327680, 30, 0, 327681, 31, 0, 327682, 1, 0, 327683, 1, 0, 327684, 1, 0, 327685, 1, 0, 327686, 1, 0, 327687, 14, 0, 327688, 14, 0, 327689, 14, 0, 327690, 14, 0, 327691, 14, 0, 327692, 14, 0, 327693, 1, 0, 327694, 1, 0, 327695, 1, 0, 327696, 1, 0, 327697, 1, 0, 327698, 22, 0, 327699, 30, 0, 393216, 30, 0, 393217, 31, 0, 393218, 1, 0, 393219, 1, 0, 393220, 1, 0, 393221, 1, 0, 393222, 1, 0, 393223, 40, 0, 393224, 40, 0, 393225, 40, 0, 393226, 40, 0, 393227, 40, 0, 393228, 40, 0, 393229, 1, 0, 393230, 1, 0, 393231, 1, 0, 393232, 1, 0, 393233, 1, 0, 393234, 22, 0, 393235, 30, 0, 458752, 30, 0, 458753, 31, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 458760, 1, 0, 458761, 1, 0, 458762, 1, 0, 458763, 1, 0, 458764, 1, 0, 458765, 1, 0, 458766, 1, 0, 458767, 1, 0, 458768, 1, 0, 458769, 1, 0, 458770, 22, 0, 458771, 30, 0, 524288, 30, 0, 524289, 31, 0, 524290, 14, 0, 524291, 14, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 14, 0, 524305, 14, 0, 524306, 22, 0, 524307, 30, 0, 589824, 30, 0, 589825, 31, 0, 589826, 14, 0, 589827, 14, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 14, 0, 589841, 14, 0, 589842, 22, 0, 589843, 30, 0, 655360, 30, 0, 655361, 31, 0, 655362, 40, 0, 655363, 40, 0, 655364, 1, 0, 655365, 1, 0, 655366, 1, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 1, 0, 655374, 1, 0, 655375, 1, 0, 655376, 40, 0, 655377, 40, 0, 655378, 22, 0, 655379, 30, 0, 720896, 30, 0, 720897, 31, 0, 720898, 1, 0, 720899, 1, 0, 720900, 1, 0, 720901, 1, 0, 720902, 1, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 1, 0, 720910, 1, 0, 720911, 1, 0, 720912, 1, 0, 720913, 1, 0, 720914, 22, 0, 720915, 30, 0, 786432, 30, 0, 786433, 31, 0, 786434, 0, 0, 786435, 0, 0, 786436, 1, 0, 786437, 1, 0, 786438, 1, 0, 786439, 0, 0, 786440, 0, 0, 786441, 0, 0, 786442, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 1, 0, 786446, 1, 0, 786447, 1, 0, 786448, 0, 0, 786449, 0, 0, 786450, 22, 0, 786451, 30, 0, 851968, 30, 0, 851969, 31, 0, 851970, 14, 0, 851971, 14, 0, 851972, 1, 0, 851973, 1, 0, 851974, 1, 0, 851975, 0, 0, 851976, 0, 0, 851977, 0, 0, 851978, 0, 0, 851979, 0, 0, 851980, 0, 0, 851981, 1, 0, 851982, 1, 0, 851983, 1, 0, 851984, 14, 0, 851985, 14, 0, 851986, 22, 0, 851987, 30, 0, 917504, 30, 0, 917505, 31, 0, 917506, 40, 0, 917507, 40, 0, 917508, 1, 0, 917509, 1, 0, 917510, 1, 0, 917511, 40, 0, 917512, 0, 0, 917513, 0, 0, 917514, 0, 0, 917515, 0, 0, 917516, 40, 0, 917517, 1, 0, 917518, 1, 0, 917519, 1, 0, 917520, 40, 0, 917521, 40, 0, 917522, 22, 0, 917523, 30, 0, 983040, 30, 0, 983041, 31, 0, 983042, 1, 0, 983043, 1, 0, 983044, 1, 0, 983045, 1, 0, 983046, 1, 0, 983047, 1, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 1, 0, 983053, 1, 0, 983054, 1, 0, 983055, 1, 0, 983056, 1, 0, 983057, 1, 0, 983058, 22, 0, 983059, 30, 0, 1048580, 1, 0, 1048590, 1, 0 )
+tile_data = PoolIntArray( -1, 30, 0, -65536, 30, 0, -65535, 30, 0, -65534, 30, 0, -65533, 30, 0, -65532, 30, 0, -65531, 30, 0, -65530, 30, 0, -65529, 30, 0, -65528, 30, 0, -65527, 30, 0, -65526, 30, 0, -65525, 30, 0, -65524, 30, 0, -65523, 30, 0, -65522, 30, 0, -65521, 30, 0, -65520, 30, 0, -65519, 30, 0, -65518, 30, 0, -65517, 30, 0, -65516, 30, 0, 65535, 30, 0, 0, 30, 0, 1, 29, 0, 2, 24, 0, 3, 24, 0, 4, 24, 0, 5, 24, 0, 6, 24, 0, 7, 24, 0, 8, 24, 0, 9, 24, 0, 10, 24, 0, 11, 24, 0, 12, 24, 0, 13, 24, 0, 14, 24, 0, 15, 24, 0, 16, 24, 0, 17, 24, 0, 18, 28, 0, 19, 30, 0, 20, 30, 0, 131071, 30, 0, 65536, 30, 0, 65537, 31, 0, 65538, 30, 0, 65539, 30, 0, 65540, 30, 0, 65541, 30, 0, 65542, 30, 0, 65543, 30, 0, 65544, 30, 0, 65545, 30, 0, 65546, 30, 0, 65547, 30, 0, 65548, 30, 0, 65549, 30, 0, 65550, 30, 0, 65551, 30, 0, 65552, 30, 0, 65553, 30, 0, 65554, 22, 0, 65555, 30, 0, 65556, 30, 0, 196607, 30, 0, 131072, 30, 0, 131073, 31, 0, 131074, 30, 0, 131075, 30, 0, 131076, 30, 0, 131077, 30, 0, 131078, 30, 0, 131079, 30, 0, 131080, 30, 0, 131081, 30, 0, 131082, 30, 0, 131083, 30, 0, 131084, 30, 0, 131085, 30, 0, 131086, 30, 0, 131087, 30, 0, 131088, 30, 0, 131089, 30, 0, 131090, 22, 0, 131091, 30, 0, 131092, 30, 0, 262143, 30, 0, 196608, 30, 0, 196609, 31, 0, 196610, 30, 0, 196611, 30, 0, 196612, 30, 0, 196613, 30, 0, 196614, 30, 0, 196615, 24, 0, 196616, 24, 0, 196617, 24, 0, 196618, 24, 0, 196619, 24, 0, 196620, 24, 0, 196621, 30, 0, 196622, 30, 0, 196623, 30, 0, 196624, 30, 0, 196625, 30, 0, 196626, 22, 0, 196627, 30, 0, 196628, 30, 0, 327679, 30, 0, 262144, 30, 0, 262145, 31, 0, 262146, 39, 0, 262147, 39, 0, 262148, 39, 0, 262149, 39, 0, 262150, 39, 0, 262151, 14, 0, 262152, 14, 0, 262153, 14, 0, 262154, 14, 0, 262155, 14, 0, 262156, 14, 0, 262157, 39, 0, 262158, 39, 0, 262159, 39, 0, 262160, 39, 0, 262161, 39, 0, 262162, 22, 0, 262163, 30, 0, 262164, 30, 0, 393215, 30, 0, 327680, 30, 0, 327681, 31, 0, 327682, 1, 0, 327683, 1, 0, 327684, 1, 0, 327685, 1, 0, 327686, 1, 0, 327687, 14, 0, 327688, 14, 0, 327689, 14, 0, 327690, 14, 0, 327691, 14, 0, 327692, 14, 0, 327693, 1, 0, 327694, 1, 0, 327695, 1, 0, 327696, 1, 0, 327697, 1, 0, 327698, 22, 0, 327699, 30, 0, 327700, 30, 0, 458751, 30, 0, 393216, 30, 0, 393217, 31, 0, 393218, 1, 0, 393219, 1, 0, 393220, 1, 0, 393221, 1, 0, 393222, 1, 0, 393223, 40, 0, 393224, 40, 0, 393225, 40, 0, 393226, 40, 0, 393227, 40, 0, 393228, 40, 0, 393229, 1, 0, 393230, 1, 0, 393231, 1, 0, 393232, 1, 0, 393233, 1, 0, 393234, 22, 0, 393235, 30, 0, 393236, 30, 0, 524287, 30, 0, 458752, 30, 0, 458753, 31, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 458760, 1, 0, 458761, 1, 0, 458762, 1, 0, 458763, 1, 0, 458764, 1, 0, 458765, 1, 0, 458766, 1, 0, 458767, 1, 0, 458768, 1, 0, 458769, 1, 0, 458770, 22, 0, 458771, 30, 0, 458772, 30, 0, 589823, 30, 0, 524288, 30, 0, 524289, 31, 0, 524290, 14, 0, 524291, 14, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 14, 0, 524305, 14, 0, 524306, 22, 0, 524307, 30, 0, 524308, 30, 0, 655359, 30, 0, 589824, 30, 0, 589825, 31, 0, 589826, 14, 0, 589827, 14, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 14, 0, 589841, 14, 0, 589842, 22, 0, 589843, 30, 0, 589844, 30, 0, 720895, 30, 0, 655360, 30, 0, 655361, 31, 0, 655362, 40, 0, 655363, 40, 0, 655364, 1, 0, 655365, 1, 0, 655366, 1, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 1, 0, 655374, 1, 0, 655375, 1, 0, 655376, 40, 0, 655377, 40, 0, 655378, 22, 0, 655379, 30, 0, 655380, 30, 0, 786431, 30, 0, 720896, 30, 0, 720897, 31, 0, 720898, 1, 0, 720899, 1, 0, 720900, 1, 0, 720901, 1, 0, 720902, 1, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 1, 0, 720910, 1, 0, 720911, 1, 0, 720912, 1, 0, 720913, 1, 0, 720914, 22, 0, 720915, 30, 0, 720916, 30, 0, 851967, 30, 0, 786432, 30, 0, 786433, 31, 0, 786434, 0, 0, 786435, 0, 0, 786436, 1, 0, 786437, 1, 0, 786438, 1, 0, 786439, 0, 0, 786440, 0, 0, 786441, 0, 0, 786442, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 1, 0, 786446, 1, 0, 786447, 1, 0, 786448, 0, 0, 786449, 0, 0, 786450, 22, 0, 786451, 30, 0, 786452, 30, 0, 917503, 30, 0, 851968, 30, 0, 851969, 31, 0, 851970, 14, 0, 851971, 14, 0, 851972, 1, 0, 851973, 1, 0, 851974, 1, 0, 851975, 0, 0, 851976, 0, 0, 851977, 0, 0, 851978, 0, 0, 851979, 0, 0, 851980, 0, 0, 851981, 1, 0, 851982, 1, 0, 851983, 1, 0, 851984, 14, 0, 851985, 14, 0, 851986, 22, 0, 851987, 30, 0, 851988, 30, 0, 983039, 30, 0, 917504, 30, 0, 917505, 31, 0, 917506, 40, 0, 917507, 40, 0, 917508, 1, 0, 917509, 1, 0, 917510, 1, 0, 917511, 40, 0, 917512, 0, 0, 917513, 0, 0, 917514, 0, 0, 917515, 0, 0, 917516, 40, 0, 917517, 1, 0, 917518, 1, 0, 917519, 1, 0, 917520, 40, 0, 917521, 40, 0, 917522, 22, 0, 917523, 30, 0, 917524, 30, 0, 1048575, 30, 0, 983040, 30, 0, 983041, 31, 0, 983042, 1, 0, 983043, 1, 0, 983044, 1, 0, 983045, 1, 0, 983046, 1, 0, 983047, 1, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 1, 0, 983053, 1, 0, 983054, 1, 0, 983055, 1, 0, 983056, 1, 0, 983057, 1, 0, 983058, 22, 0, 983059, 30, 0, 983060, 30, 0, 1114111, 30, 0, 1048576, 30, 0, 1048577, 31, 0, 1048578, 1, 0, 1048579, 1, 0, 1048580, 1, 0, 1048581, 1, 0, 1048582, 1, 0, 1048583, 1, 0, 1048584, 14, 0, 1048585, 14, 0, 1048586, 14, 0, 1048587, 14, 0, 1048588, 1, 0, 1048589, 1, 0, 1048590, 1, 0, 1048591, 1, 0, 1048592, 1, 0, 1048593, 1, 0, 1048594, 22, 0, 1048595, 30, 0, 1048596, 30, 0 )
 _sections_unfolded = [ "Cell" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Transition" parent="." index="3" instance=ExtResource( 5 )]
-
-position = Vector2( 80, 124 )
-scale = Vector2( 0.5, 0.125 )
-target_scene = "res://Scenes/Dungeon 1/Dungeon1-12.tscn"
-target_x = 0
-target_y = 56
-direction = "down"
-
-[node name="JumpPoint9" parent="." index="4" instance=ExtResource( 6 )]
+[node name="JumpPoint9" parent="." index="3" instance=ExtResource( 5 )]
 
 position = Vector2( 80, 68 )
 scale = Vector2( 0.75, 0.125 )
 distance = 30
 
-[node name="JumpPoint10" parent="." index="5" instance=ExtResource( 6 )]
+[node name="JumpPoint10" parent="." index="4" instance=ExtResource( 5 )]
 
 position = Vector2( 80, 44 )
 scale = Vector2( 0.75, 0.125 )
 required_direction = Vector2( 0, 1 )
 distance = 30
 
-[node name="JumpPoint7" parent="." index="6" instance=ExtResource( 6 )]
+[node name="JumpPoint7" parent="." index="5" instance=ExtResource( 5 )]
 
 position = Vector2( 131.5, 104 )
 scale = Vector2( 0.109375, 0.25 )
 required_direction = Vector2( -1, 0 )
 distance = 30
 
-[node name="JumpPoint2" parent="." index="7" instance=ExtResource( 6 )]
+[node name="JumpPoint2" parent="." index="6" instance=ExtResource( 5 )]
 
 position = Vector2( 59.5, 72 )
 scale = Vector2( 0.109375, 0.25 )
 required_direction = Vector2( -1, 0 )
 distance = 30
 
-[node name="JumpPoint8" parent="." index="8" instance=ExtResource( 6 )]
+[node name="JumpPoint8" parent="." index="7" instance=ExtResource( 5 )]
 
 position = Vector2( 131.5, 72 )
 scale = Vector2( 0.109375, 0.25 )
 required_direction = Vector2( -1, 0 )
 distance = 30
 
-[node name="JumpPoint3" parent="." index="9" instance=ExtResource( 6 )]
+[node name="JumpPoint3" parent="." index="8" instance=ExtResource( 5 )]
 
 position = Vector2( 100.5, 72 )
 scale = Vector2( 0.109375, 0.25 )
 required_direction = Vector2( 1, 0 )
 distance = 30
 
-[node name="JumpPoint6" parent="." index="10" instance=ExtResource( 6 )]
+[node name="JumpPoint6" parent="." index="9" instance=ExtResource( 5 )]
 
 position = Vector2( 28.5, 72 )
 scale = Vector2( 0.109375, 0.25 )
 required_direction = Vector2( 1, 0 )
 distance = 30
 
-[node name="JumpPoint11" parent="." index="11" instance=ExtResource( 6 )]
+[node name="JumpPoint11" parent="." index="10" instance=ExtResource( 5 )]
 
 position = Vector2( 24, 76.5 )
 scale = Vector2( 0.25, 0.109375 )
 required_direction = Vector2( 0, 1 )
 distance = 30
 
-[node name="JumpPoint12" parent="." index="12" instance=ExtResource( 6 )]
+[node name="JumpPoint12" parent="." index="11" instance=ExtResource( 5 )]
 
 position = Vector2( 136, 76.5 )
 scale = Vector2( 0.25, 0.109375 )
 required_direction = Vector2( 0, 1 )
 distance = 30
 
-[node name="JumpPoint13" parent="." index="13" instance=ExtResource( 6 )]
+[node name="JumpPoint13" parent="." index="12" instance=ExtResource( 5 )]
 
 position = Vector2( 136, 99.5 )
 scale = Vector2( 0.25, 0.109375 )
 distance = 30
 
-[node name="JumpPoint14" parent="." index="14" instance=ExtResource( 6 )]
+[node name="JumpPoint14" parent="." index="13" instance=ExtResource( 5 )]
 
 position = Vector2( 24, 99.5 )
 scale = Vector2( 0.25, 0.109375 )
 distance = 30
 
-[node name="JumpPoint5" parent="." index="15" instance=ExtResource( 6 )]
+[node name="JumpPoint5" parent="." index="14" instance=ExtResource( 5 )]
 
 position = Vector2( 28.5, 104 )
 scale = Vector2( 0.109375, 0.25 )
 required_direction = Vector2( 1, 0 )
 distance = 30
 
-[node name="BossCore" type="StaticBody2D" parent="." index="16"]
+[node name="Block" parent="." index="15" instance=ExtResource( 6 )]
+
+position = Vector2( 43.9205, 83.0563 )
+move_range = 24
+time = 1.5
+vertical = true
+
+[node name="Block2" parent="." index="16" instance=ExtResource( 6 )]
+
+position = Vector2( 115.634, 83.0563 )
+move_range = 24
+time = 1.5
+vertical = true
+
+[node name="BossCore" type="StaticBody2D" parent="." index="17"]
 
 input_pickable = false
 collision_layer = 1
@@ -231,64 +243,73 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 8 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BossCore/EnterTrigger" index="0"]
+[node name="Transition" parent="BossCore/EnterTrigger" index="0" instance=ExtResource( 9 )]
+
+position = Vector2( 80, 124 )
+scale = Vector2( 0.5, 0.125 )
+target_scene = "res://Scenes/Dungeon 1/Dungeon1-12.tscn"
+target_x = 0
+target_y = 56
+direction = "down"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BossCore/EnterTrigger" index="1"]
 
 build_mode = 0
 polygon = PoolVector2Array( 56, 112, 64, 112, 64, 104, 96, 104, 96, 112, 104, 112, 104, 96, 56, 96 )
 
-[node name="JumpPoint" parent="BossCore/EnterTrigger" index="1" instance=ExtResource( 6 )]
+[node name="JumpPoint" parent="BossCore/EnterTrigger" index="2" instance=ExtResource( 5 )]
 
 position = Vector2( 59.5, 104 )
 scale = Vector2( 0.109375, 0.25 )
 required_direction = Vector2( -1, 0 )
 distance = 30
 
-[node name="JumpPoint2" parent="BossCore/EnterTrigger" index="2" instance=ExtResource( 6 )]
+[node name="JumpPoint2" parent="BossCore/EnterTrigger" index="3" instance=ExtResource( 5 )]
 
 position = Vector2( 100.5, 104 )
 scale = Vector2( 0.109375, 0.25 )
 required_direction = Vector2( 1, 0 )
 distance = 30
 
-[node name="PitController" parent="BossCore/EnterTrigger" index="3" instance=ExtResource( 9 )]
+[node name="PitController" parent="BossCore/EnterTrigger" index="4" instance=ExtResource( 10 )]
 
 has_platform = false
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BossCore/EnterTrigger/PitController" index="3"]
-
-build_mode = 0
-polygon = PoolVector2Array( 55, 64, 103, 64, 103, 112, 95, 112, 95, 126, 63, 126, 63, 112, 55, 112 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BossCore/EnterTrigger/PitController" index="4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossCore/EnterTrigger/PitController" index="3"]
 
 position = Vector2( 23, 104 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="BossCore/EnterTrigger/PitController" index="5"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="BossCore/EnterTrigger/PitController" index="4"]
 
 position = Vector2( 135, 104 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="BossCore/EnterTrigger/PitController" index="6"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BossCore/EnterTrigger/PitController" index="5"]
 
 position = Vector2( 23, 72 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="BossCore/EnterTrigger/PitController" index="7"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="BossCore/EnterTrigger/PitController" index="6"]
 
 position = Vector2( 135, 72 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="BossCore/EnterTrigger/PitController" index="8"]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="BossCore/EnterTrigger/PitController" index="7"]
 
 position = Vector2( 79, 40 )
 scale = Vector2( 3, 1 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="BossCore/EnterTrigger/PitController" index="8"]
+
+position = Vector2( 78.8819, 88.1136 )
+shape = SubResource( 8 )
 
 [node name="LeftFist" type="KinematicBody2D" parent="BossCore" index="1"]
 
@@ -297,7 +318,7 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 10 )
+script = ExtResource( 11 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform" ]
 speed = 50
 
@@ -305,8 +326,8 @@ speed = 50
 
 position = Vector2( 0, 6 )
 z_index = 1
-texture = ExtResource( 11 )
-_sections_unfolded = [ "Transform", "Z Index" ]
+texture = ExtResource( 12 )
+_sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
@@ -351,7 +372,7 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 10 )
+script = ExtResource( 11 )
 _sections_unfolded = [ "Transform" ]
 speed = 50
 
@@ -359,7 +380,7 @@ speed = 50
 
 position = Vector2( 0, 6 )
 z_index = 1
-texture = ExtResource( 22 )
+texture = ExtResource( 23 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
@@ -402,10 +423,10 @@ _sections_unfolded = [ "Transform" ]
 [node name="Sprite" type="Sprite" parent="BossCore" index="3"]
 
 position = Vector2( 80, 24 )
-texture = ExtResource( 23 )
+texture = ExtResource( 24 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="OrbSwitch" parent="BossCore" index="4" instance=ExtResource( 24 )]
+[node name="OrbSwitch" parent="BossCore" index="4" instance=ExtResource( 25 )]
 
 position = Vector2( 80.0599, 33.9128 )
 _sections_unfolded = [ "Collision", "Transform", "Visibility" ]
@@ -422,7 +443,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 25 )
+script = ExtResource( 26 )
 _sections_unfolded = [ "Collision" ]
 __meta__ = {
 "_edit_lock_": true
@@ -456,7 +477,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 25 )
+script = ExtResource( 26 )
 _sections_unfolded = [ "Collision" ]
 __meta__ = {
 "_edit_lock_": true
@@ -490,7 +511,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 25 )
+script = ExtResource( 26 )
 _sections_unfolded = [ "Collision" ]
 __meta__ = {
 "_edit_lock_": true
@@ -524,7 +545,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 25 )
+script = ExtResource( 26 )
 _sections_unfolded = [ "Collision" ]
 __meta__ = {
 "_edit_lock_": true

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=9]
+
+custom_solver_bias = 0.0
+extents = Vector2( 15.9822, 7.03817 )
+
+[node name="PathCollision" type="CollisionShape2D"]
+
+position = Vector2( 78.9873, 119.216 )
+shape = SubResource( 9 )
+
+

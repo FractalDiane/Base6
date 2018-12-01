@@ -1,10 +1,16 @@
 extends Area2D
 
 var timer
-onready var player = Player
+var pathblocker = preload("res://Instances/Objects/PathBlocker.tscn")
 var pathblock
+var pathcollider = preload("res://Instances/Objects/PathCollision.tscn")
+var pathExists = true
+
+onready var path = pathcollider.instance()
+onready var player = Player
 
 func _ready():
+	$PitController.add_child(path)
 	$JumpPoint.set_physics_process(false)
 	$JumpPoint2.set_physics_process(false)
 	timer = Timer.new()
@@ -19,8 +25,22 @@ func _process(delta):
 		get_parent().activate()
 		set_process(false)
 		timer.start()
-		pathblock = add_child(load("res://Instances/Objects/PathBlocker.tscn").instance())
+		togglePath()
 
 func _on_timer_timeout():
 	$JumpPoint.set_physics_process(true)
 	$JumpPoint2.set_physics_process(true)
+
+func togglePath():
+	pathExists = not pathExists
+	if pathExists:
+		path = pathcollider.instance()
+		$PitController.add_child(path)
+		$Transition.position.y -= 100
+		if pathblock != null:
+			remove_child(pathblock)
+	else:
+		path.get_parent().remove_child(path)
+		pathblock = pathblocker.instance()
+		add_child(pathblock)
+		$Transition.position.y += 100

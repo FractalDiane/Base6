@@ -10,7 +10,11 @@ var torso_tex1 = preload("res://Sprites/Characters/Temple Guardians/Torso1.png")
 var torso_tex2 = preload("res://Sprites/Characters/Temple Guardians/Torso2.png")
 var timer
 var shake = false
+var shake_amount = 0
 
+onready var room = get_tree().get_root().get_node("Node2D")
+onready var roomLocation = room.position
+onready var switchLocation = $OrbSwitch.position
 onready var switches = [$Switch1, $Switch2, $Switch3, $Switch4]
 
 func _ready():
@@ -23,9 +27,16 @@ func _ready():
 
 func _on_timer_timeout():
 	$Sprite.set_texture(torso_tex0)
-	shake = false
-	for i in range(switches.size()):
-		switches[i].deactivate()
+	$OrbSwitch.pressed = false
+
+func _process(delta):
+	if shake:
+		if shake_amount <= 0:
+			shake = false
+			return
+		var shake_vector = Vector2(floor(rand_range(-shake_amount, shake_amount)), floor(rand_range(-shake_amount, shake_amount)))
+		shake_amount -= .04
+		room.position = roomLocation + shake_vector
 
 func activate():
 	$LeftFist.activate()
@@ -38,17 +49,26 @@ func switch():
 		$RightFist.activate()
 
 func torsoHit():
-	$OrbSwitch.translate(Vector2(0, -100))
+	for i in range(switches.size()):
+		switches[i].deactivate()
+	$OrbSwitch.position = switchLocation - Vector2(0, 100)
 	$Sprite.set_texture(torso_tex2)
 	timer.start()
-	if not fast:
-		$LeftFist.speedup = true
-		$RightFist.speedup = true
-		fast = true
+	if orbit:
+		$LeftFist.deactivate()
+		$RightFist.deactivate()
+		$EnterTrigger.togglePath()
 		return
-	if not orbit:
+	elif not fast:
+		$LeftFist.phase2 = true
+		$RightFist.phase2 = true
+		fast = true
+	else:
+		$LeftFist.phase3 = true
+		$RightFist.phase3 = true
 		orbit = true
-	#get_tree().get_root().get_node("Node2D")
+	shake = true
+	shake_amount = 5
 
 func checkSwitches():
 	var flag = true
@@ -57,6 +77,4 @@ func checkSwitches():
 			flag = false
 	if flag:
 		$Sprite.set_texture(torso_tex1)
-		$OrbSwitch.translate(Vector2(0, 100))
-		$OrbSwitch.pressed = false
-		shake = true
+		$OrbSwitch.position = switchLocation

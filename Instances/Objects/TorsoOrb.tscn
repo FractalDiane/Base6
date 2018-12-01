@@ -15,7 +15,7 @@ extents = Vector2( 4, 4 )
 custom_solver_bias = 0.0
 extents = Vector2( 4.00356, 4.08405 )
 
-[node name="OrbSwitch" type="StaticBody2D" index="0" groups=[
+[node name="OrbSwitch" type="StaticBody2D" groups=[
 "OrbSwitch",
 ]]
 
