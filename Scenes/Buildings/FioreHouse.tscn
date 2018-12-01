@@ -21,6 +21,8 @@
 [ext_resource path="res://Sprites/Props/Table vertical.png" type="Texture" id=19]
 [ext_resource path="res://Sprites/Props/Plate.png" type="Texture" id=20]
 
+
+
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
@@ -252,6 +254,7 @@ shape = SubResource( 4 )
 [node name="Interact" parent="NPCCephasNote" index="2"]
 
 position = Vector2( -1, -13 )
+
 frame = 0
 
 [node name="Pot" type="StaticBody2D" parent="." index="10"]
