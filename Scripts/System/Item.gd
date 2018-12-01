@@ -17,11 +17,11 @@ onready var interact = $Interact
 onready var collision = $CollisionShape2D
 
 func _ready():
+	enable = start_enabled
+	
 	if controller.flag[collect_flag] == 1:
 		remove()
-		
-	enable = start_enabled
-
+	
 func _physics_process(delta):
 	#set_z_index(get_position().y)
 	if enable:

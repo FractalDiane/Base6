@@ -17,6 +17,7 @@ func set_input(num, state):
 	input_dict[num] = state
 	if all_true() and not output:
 		controller.flag[target_flag] = 1
+		audioplayer.get_node("SoundPuzzleSolved").play(0)
 		output = true
 		
 func all_true():

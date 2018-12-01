@@ -96,6 +96,7 @@ position = Vector2( 44, 31 )
 allow_sword = false
 target_flag = "dungeon2_switchR1"
 reemit_signal = true
+is_boss = false
 
 [node name="OrbSwitch2" parent="." index="5" instance=ExtResource( 8 )]
 
@@ -103,6 +104,7 @@ position = Vector2( 124, 31 )
 allow_sword = false
 target_flag = "dungeon2_switchR2"
 reemit_signal = true
+is_boss = false
 
 [node name="OrbSwitch3" parent="." index="6" instance=ExtResource( 8 )]
 
@@ -110,6 +112,7 @@ position = Vector2( 60, 111 )
 allow_sword = false
 target_flag = "dungeon2_switchR4"
 reemit_signal = true
+is_boss = false
 
 [node name="OrbSwitch4" parent="." index="7" instance=ExtResource( 8 )]
 
@@ -117,6 +120,7 @@ position = Vector2( 108, 111 )
 allow_sword = false
 target_flag = "dungeon2_switchR3"
 reemit_signal = true
+is_boss = false
 
 [node name="LogicAND" parent="." index="8" instance=ExtResource( 9 )]
 

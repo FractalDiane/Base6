@@ -232,29 +232,30 @@ distance = 28
 position = Vector2( 84, 125 )
 scale = Vector2( 0.625, 0.15625 )
 target_scene = "res://Scenes/Dungeon 1/Dungeon1-6.tscn"
-target_x = 0
+target_x = 80
 target_y = 16
 direction = "down"
+not_cell = true
 
 [node name="OrbSwitch" parent="." index="22" instance=ExtResource( 10 )]
 
-allow_sword = true
 target_flag = "dungeon1_switchTR_1"
 reemit_signal = true
+is_boss = false
 
 [node name="OrbSwitch2" parent="." index="23" instance=ExtResource( 10 )]
 
 position = Vector2( 140, 38 )
-allow_sword = true
 target_flag = "dungeon1_switchTR_3"
 reemit_signal = true
+is_boss = false
 
 [node name="OrbSwitch3" parent="." index="24" instance=ExtResource( 10 )]
 
 position = Vector2( 84, 41 )
-allow_sword = true
 target_flag = "dungeon1_switchTR_5"
 reemit_signal = true
+is_boss = false
 
 [node name="LogicAND" parent="." index="25" instance=ExtResource( 11 )]
 

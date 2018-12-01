@@ -1,24 +1,42 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sounds/Music/Dungeon 2.wav" type="AudioStream" id=3]
 [ext_resource path="res://Tilesets/TilesetMain.tres" type="TileSet" id=4]
-[ext_resource path="res://Instances/Props/Torch.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Instances/Objects/Switch.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scripts/Objects/Dungeon 2/Box.gd" type="Script" id=7]
-[ext_resource path="res://Sprites/Props/Block 2.png" type="Texture" id=8]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Instances/System/PitController.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Instances/Props/Torch.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Instances/Objects/Switch.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/Objects/Dungeon 2/Box.gd" type="Script" id=8]
+[ext_resource path="res://Sprites/Props/Block 2.png" type="Texture" id=9]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Instances/System/LogicAND.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Instances/Objects/Sentry.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
-extents = Vector2( 5, 3 )
+extents = Vector2( 76, 8 )
 
 [sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 33 )
+extents = Vector2( 72, 8 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 16, 24 )
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 5, 3 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 40, 24 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -51,30 +69,69 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 0, 24, 0, 1, 24, 0, 2, 24, 0, 3, 24, 0, 4, 24, 0, 5, 24, 0, 6, 24, 0, 7, 24, 0, 8, 24, 0, 9, 24, 0, 10, 24, 0, 11, 24, 0, 12, 24, 0, 13, 24, 0, 14, 24, 0, 15, 24, 0, 16, 24, 0, 17, 24, 0, 18, 24, 0, 19, 28, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 65553, 0, 0, 65554, 0, 0, 65555, 22, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 131088, 0, 0, 131089, 0, 0, 131090, 0, 0, 131091, 22, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 196624, 0, 0, 196625, 0, 0, 196626, 0, 0, 196627, 22, 0, 262144, 24, 0, 262145, 24, 0, 262146, 24, 0, 262147, 24, 0, 262148, 24, 0, 262149, 24, 0, 262150, 24, 0, 262151, 24, 0, 262152, 24, 0, 262153, 24, 0, 262154, 24, 0, 262155, 24, 0, 262156, 24, 0, 262157, 24, 0, 262158, 24, 0, 262159, 24, 0, 262160, 24, 0, 262161, 24, 0, 262162, 24, 0, 262163, 22, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 1, 0, 327691, 1, 0, 327692, 1, 0, 327693, 1, 0, 327694, 1, 0, 327695, 1, 0, 327696, 1, 0, 327697, 1, 0, 327698, 1, 0, 327699, 22, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 1, 0, 393227, 1, 0, 393228, 1, 0, 393229, 1, 0, 393230, 1, 0, 393231, 1, 0, 393232, 1, 0, 393233, 1, 0, 393234, 1, 0, 393235, 22, 0, 458752, 33, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 40, 0, 458759, 40, 0, 458760, 40, 0, 458761, 40, 0, 458762, 1, 0, 458763, 1, 0, 458764, 1, 0, 458765, 1, 0, 458766, 1, 0, 458767, 1, 0, 458768, 1, 0, 458769, 1, 0, 458770, 1, 0, 458771, 22, 0, 524288, 31, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 22, 0, 589824, 31, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589841, 1, 0, 589842, 1, 0, 589843, 22, 0, 655360, 31, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 1, 0, 655367, 1, 0, 655368, 1, 0, 655369, 1, 0, 655370, 1, 0, 655371, 1, 0, 655372, 1, 0, 655373, 1, 0, 655374, 1, 0, 655375, 1, 0, 655376, 1, 0, 655377, 1, 0, 655378, 1, 0, 655379, 22, 0, 720896, 31, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 1, 0, 720903, 1, 0, 720904, 1, 0, 720905, 1, 0, 720906, 1, 0, 720907, 1, 0, 720908, 1, 0, 720909, 1, 0, 720910, 1, 0, 720911, 1, 0, 720912, 1, 0, 720913, 1, 0, 720914, 1, 0, 720915, 22, 0, 786432, 31, 0, 786433, 0, 0, 786434, 0, 0, 786435, 0, 0, 786436, 0, 0, 786437, 0, 0, 786438, 1, 0, 786439, 1, 0, 786440, 1, 0, 786441, 1, 0, 786442, 1, 0, 786443, 1, 0, 786444, 1, 0, 786445, 1, 0, 786446, 1, 0, 786447, 1, 0, 786448, 1, 0, 786449, 1, 0, 786450, 1, 0, 786451, 22, 0, 851968, 31, 0, 851969, 0, 0, 851970, 0, 0, 851971, 0, 0, 851972, 0, 0, 851973, 0, 0, 851974, 1, 0, 851975, 1, 0, 851976, 1, 0, 851977, 1, 0, 851978, 1, 0, 851979, 1, 0, 851980, 1, 0, 851981, 1, 0, 851982, 1, 0, 851983, 1, 0, 851984, 1, 0, 851985, 1, 0, 851986, 1, 0, 851987, 22, 0, 917504, 31, 0, 917505, 0, 0, 917506, 0, 0, 917507, 0, 0, 917508, 0, 0, 917509, 0, 0, 917510, 1, 0, 917511, 1, 0, 917512, 1, 0, 917513, 1, 0, 917514, 1, 0, 917515, 1, 0, 917516, 1, 0, 917517, 1, 0, 917518, 1, 0, 917519, 1, 0, 917520, 1, 0, 917521, 1, 0, 917522, 1, 0, 917523, 22, 0, 983040, 27, 0, 983041, 32, 0, 983042, 32, 0, 983043, 32, 0, 983044, 32, 0, 983045, 32, 0, 983046, 32, 0, 983047, 32, 0, 983048, 32, 0, 983049, 32, 0, 983050, 32, 0, 983051, 32, 0, 983052, 32, 0, 983053, 32, 0, 983054, 32, 0, 983055, 32, 0, 983056, 32, 0, 983057, 32, 0, 983058, 32, 0, 983059, 26, 0 )
+tile_data = PoolIntArray( 0, 24, 0, 1, 24, 0, 2, 24, 0, 3, 24, 0, 4, 24, 0, 5, 24, 0, 6, 24, 0, 7, 24, 0, 8, 24, 0, 9, 24, 0, 10, 24, 0, 11, 24, 0, 12, 24, 0, 13, 24, 0, 14, 24, 0, 15, 24, 0, 16, 24, 0, 17, 24, 0, 18, 24, 0, 19, 28, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 65553, 0, 0, 65554, 0, 0, 65555, 22, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 131088, 0, 0, 131089, 0, 0, 131090, 0, 0, 131091, 22, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 196624, 0, 0, 196625, 0, 0, 196626, 0, 0, 196627, 22, 0, 262144, 24, 0, 262145, 24, 0, 262146, 24, 0, 262147, 24, 0, 262148, 24, 0, 262149, 24, 0, 262150, 24, 0, 262151, 24, 0, 262152, 24, 0, 262153, 24, 0, 262154, 24, 0, 262155, 24, 0, 262156, 24, 0, 262157, 24, 0, 262158, 24, 0, 262159, 24, 0, 262160, 24, 0, 262161, 24, 0, 262162, 24, 0, 262163, 22, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 327696, 0, 0, 327697, 0, 0, 327698, 0, 0, 327699, 22, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 393234, 0, 0, 393235, 22, 0, 458752, 33, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 40, 0, 458758, 40, 0, 458759, 40, 0, 458760, 40, 0, 458761, 40, 0, 458762, 40, 0, 458763, 40, 0, 458764, 40, 0, 458765, 40, 0, 458766, 40, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 458771, 22, 0, 524288, 31, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0, 524307, 22, 0, 589824, 31, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 0, 0, 589834, 0, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 0, 0, 589840, 0, 0, 589841, 0, 0, 589842, 0, 0, 589843, 22, 0, 655360, 31, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 1, 0, 655366, 1, 0, 655367, 1, 0, 655368, 1, 0, 655369, 0, 0, 655370, 0, 0, 655371, 1, 0, 655372, 1, 0, 655373, 1, 0, 655374, 1, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 22, 0, 720896, 31, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 1, 0, 720902, 1, 0, 720903, 1, 0, 720904, 1, 0, 720905, 40, 0, 720906, 40, 0, 720907, 1, 0, 720908, 1, 0, 720909, 1, 0, 720910, 1, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 22, 0, 786432, 31, 0, 786433, 0, 0, 786434, 0, 0, 786435, 0, 0, 786436, 0, 0, 786437, 1, 0, 786438, 1, 0, 786439, 1, 0, 786440, 1, 0, 786441, 1, 0, 786442, 1, 0, 786443, 1, 0, 786444, 1, 0, 786445, 1, 0, 786446, 1, 0, 786447, 0, 0, 786448, 0, 0, 786449, 0, 0, 786450, 0, 0, 786451, 22, 0, 851968, 31, 0, 851969, 0, 0, 851970, 0, 0, 851971, 0, 0, 851972, 0, 0, 851973, 0, 0, 851974, 0, 0, 851975, 0, 0, 851976, 0, 0, 851977, 0, 0, 851978, 0, 0, 851979, 0, 0, 851980, 0, 0, 851981, 0, 0, 851982, 0, 0, 851983, 0, 0, 851984, 0, 0, 851985, 0, 0, 851986, 0, 0, 851987, 22, 0, 917504, 31, 0, 917505, 0, 0, 917506, 0, 0, 917507, 0, 0, 917508, 0, 0, 917509, 0, 0, 917510, 0, 0, 917511, 0, 0, 917512, 0, 0, 917513, 0, 0, 917514, 0, 0, 917515, 0, 0, 917516, 0, 0, 917517, 0, 0, 917518, 0, 0, 917519, 0, 0, 917520, 0, 0, 917521, 0, 0, 917522, 0, 0, 917523, 22, 0, 983040, 27, 0, 983041, 32, 0, 983042, 32, 0, 983043, 32, 0, 983044, 32, 0, 983045, 32, 0, 983046, 32, 0, 983047, 32, 0, 983048, 32, 0, 983049, 32, 0, 983050, 32, 0, 983051, 32, 0, 983052, 32, 0, 983053, 32, 0, 983054, 32, 0, 983055, 32, 0, 983056, 32, 0, 983057, 32, 0, 983058, 32, 0, 983059, 26, 0 )
 _sections_unfolded = [ "Cell", "Collision" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Torch" parent="." index="3" instance=ExtResource( 5 )]
+[node name="PitController" parent="." index="3" instance=ExtResource( 5 )]
+
+has_platform = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PitController" index="3"]
+
+position = Vector2( 75, 48 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PitController" index="4"]
+
+position = Vector2( 79, 112 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="PitController" index="5"]
+
+position = Vector2( 23, 80 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="PitController" index="6"]
+
+position = Vector2( 135, 80 )
+shape = SubResource( 5 )
+
+[node name="Torch" parent="." index="4" instance=ExtResource( 6 )]
 
 position = Vector2( 36, 18 )
 
-[node name="Torch2" parent="." index="4" instance=ExtResource( 5 )]
+[node name="Torch2" parent="." index="5" instance=ExtResource( 6 )]
 
 position = Vector2( 125, 18 )
 
-[node name="Switch" parent="." index="5" instance=ExtResource( 6 )]
+[node name="Switch1" parent="." index="6" instance=ExtResource( 7 )]
+
+position = Vector2( 25, 79 )
+one_shot = false
+
+[node name="Switch2" parent="." index="7" instance=ExtResource( 7 )]
 
 position = Vector2( 65, 48 )
 one_shot = false
 
-[node name="Box" type="RigidBody2D" parent="." index="6" groups=[
+[node name="Switch3" parent="." index="8" instance=ExtResource( 7 )]
+
+position = Vector2( 85, 111 )
+one_shot = false
+
+[node name="Switch4" parent="." index="9" instance=ExtResource( 7 )]
+
+position = Vector2( 135, 66 )
+one_shot = false
+
+[node name="Box" type="RigidBody2D" parent="." index="10" groups=[
 "Pushables",
 ]]
 
-position = Vector2( 15, 62 )
+position = Vector2( 29, 103 )
 input_pickable = false
 collision_layer = 1024
 collision_mask = 1
@@ -93,12 +150,12 @@ linear_velocity = Vector2( 0, 0 )
 linear_damp = 4.0
 angular_velocity = 0.0
 angular_damp = -1.0
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear" ]
 
 [node name="Sprite" type="Sprite" parent="Box" index="0"]
 
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -106,16 +163,16 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Box" index="1"]
 
 position = Vector2( 0, 4 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Box2" type="RigidBody2D" parent="." index="7" groups=[
+[node name="Box2" type="RigidBody2D" parent="." index="11" groups=[
 "Pushables",
 ]]
 
-position = Vector2( 28, 62 )
+position = Vector2( 34, 44 )
 input_pickable = false
 collision_layer = 1025
 collision_mask = 1025
@@ -134,12 +191,12 @@ linear_velocity = Vector2( 0, 0 )
 linear_damp = 4.0
 angular_velocity = 0.0
 angular_damp = -1.0
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear" ]
 
 [node name="Sprite" type="Sprite" parent="Box2" index="0"]
 
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -147,16 +204,16 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Box2" index="1"]
 
 position = Vector2( 0, 4 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Box3" type="RigidBody2D" parent="." index="8" groups=[
+[node name="Box3" type="RigidBody2D" parent="." index="12" groups=[
 "Pushables",
 ]]
 
-position = Vector2( 41, 62 )
+position = Vector2( 136, 101 )
 input_pickable = false
 collision_layer = 1025
 collision_mask = 1025
@@ -175,12 +232,12 @@ linear_velocity = Vector2( 0, 0 )
 linear_damp = 4.0
 angular_velocity = 0.0
 angular_damp = -1.0
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear" ]
 
 [node name="Sprite" type="Sprite" parent="Box3" index="0"]
 
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -188,258 +245,12 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Box3" index="1"]
 
 position = Vector2( 0, 4 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Box4" type="RigidBody2D" parent="." index="9" groups=[
-"Pushables",
-]]
-
-position = Vector2( 28, 73 )
-input_pickable = false
-collision_layer = 1025
-collision_mask = 1025
-mode = 2
-mass = 0.5
-friction = 1.0
-bounce = 0.0
-gravity_scale = 0.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 1
-contact_monitor = true
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = 4.0
-angular_velocity = 0.0
-angular_damp = -1.0
-script = ExtResource( 7 )
-_sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear" ]
-
-[node name="Sprite" type="Sprite" parent="Box4" index="0"]
-
-texture = ExtResource( 8 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Box4" index="1"]
-
-position = Vector2( 0, 4 )
-shape = SubResource( 3 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Box5" type="RigidBody2D" parent="." index="10" groups=[
-"Pushables",
-]]
-
-position = Vector2( 28, 96 )
-input_pickable = false
-collision_layer = 1025
-collision_mask = 1025
-mode = 2
-mass = 0.5
-friction = 1.0
-bounce = 0.0
-gravity_scale = 0.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 1
-contact_monitor = true
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = 4.0
-angular_velocity = 0.0
-angular_damp = -1.0
-script = ExtResource( 7 )
-_sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear" ]
-
-[node name="Sprite" type="Sprite" parent="Box5" index="0"]
-
-texture = ExtResource( 8 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Box5" index="1"]
-
-position = Vector2( 0, 4 )
-shape = SubResource( 3 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Box8" type="RigidBody2D" parent="." index="11" groups=[
-"Pushables",
-]]
-
-position = Vector2( 15, 105 )
-input_pickable = false
-collision_layer = 1025
-collision_mask = 1025
-mode = 2
-mass = 0.5
-friction = 1.0
-bounce = 0.0
-gravity_scale = 0.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 1
-contact_monitor = true
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = 4.0
-angular_velocity = 0.0
-angular_damp = -1.0
-script = ExtResource( 7 )
-_sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear" ]
-
-[node name="Sprite" type="Sprite" parent="Box8" index="0"]
-
-texture = ExtResource( 8 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Box8" index="1"]
-
-position = Vector2( 0, 4 )
-shape = SubResource( 3 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Box9" type="RigidBody2D" parent="." index="12" groups=[
-"Pushables",
-]]
-
-position = Vector2( 41, 105 )
-input_pickable = false
-collision_layer = 1025
-collision_mask = 1025
-mode = 2
-mass = 0.5
-friction = 1.0
-bounce = 0.0
-gravity_scale = 0.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 1
-contact_monitor = true
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = 4.0
-angular_velocity = 0.0
-angular_damp = -1.0
-script = ExtResource( 7 )
-_sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear" ]
-
-[node name="Sprite" type="Sprite" parent="Box9" index="0"]
-
-texture = ExtResource( 8 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Box9" index="1"]
-
-position = Vector2( 0, 4 )
-shape = SubResource( 3 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Box6" type="RigidBody2D" parent="." index="13" groups=[
-"Pushables",
-]]
-
-position = Vector2( 15, 84 )
-input_pickable = false
-collision_layer = 1025
-collision_mask = 1025
-mode = 2
-mass = 0.5
-friction = 1.0
-bounce = 0.0
-gravity_scale = 0.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 1
-contact_monitor = true
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = 4.0
-angular_velocity = 0.0
-angular_damp = -1.0
-script = ExtResource( 7 )
-_sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear" ]
-
-[node name="Sprite" type="Sprite" parent="Box6" index="0"]
-
-texture = ExtResource( 8 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Box6" index="1"]
-
-position = Vector2( 0, 4 )
-shape = SubResource( 3 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Box7" type="RigidBody2D" parent="." index="14" groups=[
-"Pushables",
-]]
-
-position = Vector2( 41, 84 )
-input_pickable = false
-collision_layer = 1025
-collision_mask = 1025
-mode = 2
-mass = 0.5
-friction = 1.0
-bounce = 0.0
-gravity_scale = 0.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 1
-contact_monitor = true
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = 4.0
-angular_velocity = 0.0
-angular_damp = -1.0
-script = ExtResource( 7 )
-_sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear" ]
-
-[node name="Sprite" type="Sprite" parent="Box7" index="0"]
-
-texture = ExtResource( 8 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Box7" index="1"]
-
-position = Vector2( 0, 4 )
-shape = SubResource( 3 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Transition" parent="." index="15" instance=ExtResource( 9 )]
+[node name="Transition" parent="." index="13" instance=ExtResource( 10 )]
 
 position = Vector2( 3.5, 48 )
 scale = Vector2( 0.109375, 0.25 )
@@ -449,7 +260,7 @@ target_y = 72
 direction = "left"
 not_cell = true
 
-[node name="Area2D" type="StaticBody2D" parent="." index="16"]
+[node name="Area2D" type="StaticBody2D" parent="." index="14"]
 
 input_pickable = false
 collision_layer = 1024
@@ -459,10 +270,43 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 _sections_unfolded = [ "Collision" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 
-position = Vector2( 58, 89 )
-shape = SubResource( 4 )
+position = Vector2( 80, 80 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LogicAND" parent="." index="15" instance=ExtResource( 11 )]
+
+position = Vector2( 81, 24 )
+inputs = 4
+target_flag = "dungeon2_switchesR2"
+
+[node name="Sentry" parent="." index="16" instance=ExtResource( 12 )]
+
+position = Vector2( 80, 72 )
+shot_damage = 2
+
+[connection signal="on_pressed" from="Switch1" to="LogicAND" method="set_input" binds= [ 0, true ]]
+
+[connection signal="on_released" from="Switch1" to="LogicAND" method="set_input" binds= [ 0, false ]]
+
+[connection signal="on_pressed" from="Switch2" to="LogicAND" method="set_input" binds= [ 1, true ]]
+
+[connection signal="on_released" from="Switch2" to="LogicAND" method="set_input" binds= [ 1, false ]]
+
+[connection signal="on_pressed" from="Switch3" to="LogicAND" method="set_input" binds= [ 2, true ]]
+
+[connection signal="on_released" from="Switch3" to="LogicAND" method="set_input" binds= [ 2, false ]]
+
+[connection signal="on_pressed" from="Switch4" to="LogicAND" method="set_input" binds= [ 3, true ]]
+
+[connection signal="on_released" from="Switch4" to="LogicAND" method="set_input" binds= [ 3, false ]]
 
 

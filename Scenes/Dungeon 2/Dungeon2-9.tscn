@@ -9,7 +9,7 @@
 [ext_resource path="res://Instances/Objects/Sentry.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Instances/JumpPoint.tscn" type="PackedScene" id=8]
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -48,7 +48,7 @@ __meta__ = {
 
 [node name="PitController" parent="." index="3" instance=ExtResource( 5 )]
 
-has_platform = true
+has_platform = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PitController" index="3"]
 
@@ -102,8 +102,8 @@ direction = "down"
 
 [node name="Transition4" parent="." index="7" instance=ExtResource( 6 )]
 
-position = Vector2( 128, 3 )
-scale = Vector2( 0.25, 0.09375 )
+position = Vector2( 128, 4 )
+scale = Vector2( 0.25, 0.125 )
 target_scene = "res://Scenes/Dungeon 2/Dungeon2-10.tscn"
 target_x = 0
 target_y = 100

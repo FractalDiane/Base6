@@ -48,6 +48,8 @@ __meta__ = {
 
 [node name="PitController" parent="." index="3" instance=ExtResource( 5 )]
 
+has_platform = false
+
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PitController" index="3"]
 
 build_mode = 0
@@ -83,8 +85,9 @@ direction = "left"
 position = Vector2( 80, 5 )
 scale = Vector2( 0.5, 0.15625 )
 target_scene = "res://Scenes/Dungeon 1/Dungeon1-TR.tscn"
-target_x = 0
+target_x = 80
 target_y = 100
 direction = "up"
+not_cell = true
 
 
