@@ -15,8 +15,10 @@ func _ready():
 func activate():
 	active = true
 	$Sprite.play("down")
+	$SoundPress.play(0)
 	get_parent().checkSwitches()
 	
 func deactivate():
 	active = false
 	$Sprite.play("up")
+	$SoundPress.play(0)

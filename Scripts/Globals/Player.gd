@@ -150,7 +150,7 @@ func state_walk():
 		dash_attack()
 	
 	# SHOOT
-	if Input.is_action_just_pressed("ui_shoot") and controller.player_item_1 == 1:
+	if Input.is_action_just_pressed("ui_shoot") and controller.flag["holding_bow"] == 1:
 		state = SHOOT
 		shoot_bow()
 		

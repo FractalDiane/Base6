@@ -12,6 +12,8 @@ var timer
 var shake = false
 var shake_amount = 0
 
+var dialogue_text = ["You have proven yourself.", "Take this keystone piece.", "Purge the land of this evil."]
+
 onready var room = get_tree().get_root().get_node("Node2D")
 onready var roomLocation = room.position
 onready var switchLocation = $OrbSwitch.position
@@ -37,6 +39,11 @@ func _process(delta):
 		var shake_vector = Vector2(floor(rand_range(-shake_amount, shake_amount)), floor(rand_range(-shake_amount, shake_amount)))
 		shake_amount -= .04
 		room.position = roomLocation + shake_vector
+		
+	if controller.flag["holding_bow"] == 1 and controller.flag["holding_dungeon2key"] == 1 and controller.flag["dungeon1_complete"] == 0:
+		$EnterTrigger/SoundDoorClose.play(0)
+		$EnterTrigger.togglePath()
+		controller.flag["dungeon1_complete"] = 1
 
 func activate():
 	$LeftFist.activate()
@@ -49,6 +56,8 @@ func switch():
 		$RightFist.activate()
 
 func torsoHit():
+	if not orbit:
+		$SoundHit.play(0)
 	for i in range(switches.size()):
 		switches[i].deactivate()
 	$OrbSwitch.position = switchLocation - Vector2(0, 100)
@@ -57,7 +66,12 @@ func torsoHit():
 	if orbit:
 		$LeftFist.deactivate()
 		$RightFist.deactivate()
-		$EnterTrigger.togglePath()
+		Player.state = Player.NO_INPUT
+		Player.motion = Vector2(0,0)
+		#$EnterTrigger.togglePath()
+		$SoundDie.play(0)
+		$MusicBoss.stop()
+		$TimerShatter.start()
 		return
 	elif not fast:
 		$LeftFist.phase2 = true
@@ -78,3 +92,11 @@ func checkSwitches():
 	if flag:
 		$Sprite.set_texture(torso_tex1)
 		$OrbSwitch.position = switchLocation
+
+func _on_TimerShatter_timeout():
+	$LeftFist.shatter()
+	$RightFist.shatter()
+	$TimerDialogue.start()
+
+func _on_TimerDialogue_timeout():
+	controller.dialogue(dialogue_text, self, 40, 70, 100, 50)

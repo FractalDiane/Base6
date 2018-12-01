@@ -15,8 +15,6 @@ var player_corruption = 0
 var player_gold = 20
 var player_potions = 3
 
-var player_item_1 = 0
-
 var current_scene = null
 var corrupted_cells = ["14","23","24","33","34","44"]
 # Cells to add after first dungeon: ["03","04","12","13","32","?1"]

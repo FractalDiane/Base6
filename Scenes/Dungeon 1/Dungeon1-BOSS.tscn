@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=2]
@@ -9,85 +9,191 @@
 [ext_resource path="res://Scripts/Objects/Dungeon 1/BossCore.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/Dungeon 1/EnterTrigger.gd" type="Script" id=8]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Instances/System/PitController.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scripts/Objects/Dungeon 1/Fist.gd" type="Script" id=11]
-[ext_resource path="res://Sprites/Props/Fists/LFist.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Props/Fists/Shadow0.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Props/Fists/Shadow1.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Props/Fists/Shadow2.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Props/Fists/Shadow3.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/Props/Fists/Shadow4.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/Props/Fists/Shadow5.png" type="Texture" id=18]
-[ext_resource path="res://Sprites/Props/Fists/Shadow6.png" type="Texture" id=19]
-[ext_resource path="res://Sprites/Props/Fists/Shadow7.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/Props/Fists/Shadow8.png" type="Texture" id=21]
-[ext_resource path="res://Sprites/Props/Fists/Shadow9.png" type="Texture" id=22]
-[ext_resource path="res://Sprites/Props/Fists/RFist.png" type="Texture" id=23]
-[ext_resource path="res://Sprites/Characters/Temple Guardians/Torso0.png" type="Texture" id=24]
-[ext_resource path="res://Instances/Objects/TorsoOrb.tscn" type="PackedScene" id=25]
-[ext_resource path="res://Scenes/Dungeon 1/Switch1.gd" type="Script" id=26]
-[ext_resource path="res://Sprites/Props/Switch down 3.png" type="Texture" id=27]
-[ext_resource path="res://Sprites/Props/Switch down 2.png" type="Texture" id=28]
+[ext_resource path="res://Sounds/Ambient/BossDoor.wav" type="AudioStream" id=10]
+[ext_resource path="res://Instances/System/PitController.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scripts/Objects/Dungeon 1/Fist.gd" type="Script" id=12]
+[ext_resource path="res://Sprites/Props/Fists/LFist.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Props/Fists/Shadow0.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Props/Fists/Shadow1.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Props/Fists/Shadow2.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Props/Fists/Shadow3.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Props/Fists/Shadow4.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Props/Fists/Shadow5.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Props/Fists/Shadow6.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Props/Fists/Shadow7.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Props/Fists/Shadow8.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Props/Fists/Shadow9.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Particles/Corruption.png" type="Texture" id=24]
+[ext_resource path="res://Sounds/Characters/Impact.wav" type="AudioStream" id=25]
+[ext_resource path="res://Sprites/Particles/Shatter.png" type="Texture" id=26]
+[ext_resource path="res://Sounds/Ambient/BossShatter.wav" type="AudioStream" id=27]
+[ext_resource path="res://Sprites/Props/Fists/RFist.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/Characters/Temple Guardians/Torso0.png" type="Texture" id=29]
+[ext_resource path="res://Instances/Objects/TorsoOrb.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Scenes/Dungeon 1/Switch1.gd" type="Script" id=31]
+[ext_resource path="res://Sprites/Props/Switch down 3.png" type="Texture" id=32]
+[ext_resource path="res://Sprites/Props/Switch down 2.png" type="Texture" id=33]
+[ext_resource path="res://Sounds/Objects/Switch.wav" type="AudioStream" id=34]
+[ext_resource path="res://Sounds/Music/Miniboss.wav" type="AudioStream" id=35]
+[ext_resource path="res://Sounds/Ambient/BossHit.wav" type="AudioStream" id=36]
+[ext_resource path="res://Sounds/Ambient/BossDie.wav" type="AudioStream" id=37]
+[ext_resource path="res://Instances/Props/Torch.tscn" type="PackedScene" id=38]
+[ext_resource path="res://Instances/Items/Item.tscn" type="PackedScene" id=39]
+[ext_resource path="res://Sprites/Items/Bow.png" type="Texture" id=40]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 8, 8 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 24.0917, 24.0206 )
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
-"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ) ],
 "loop": false,
 "name": "drop",
 "speed": 30.0
 }, {
-"frames": [ ExtResource( 22 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 13 ) ],
+"frames": [ ExtResource( 23 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 14 ) ],
 "loop": false,
 "name": "lift",
 "speed": 17.0
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
 extents = Vector2( 5.73882, 3.71872 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="Gradient" id=9]
+
+offsets = PoolRealArray( 0, 0.526316, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=10]
+
+flags = 4
+gradient = SubResource( 9 )
+width = 2048
+
+[sub_resource type="ParticlesMaterial" id=11]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 60.0
+flatness = 0.0
+gravity = Vector3( -140, 0, 0 )
+initial_velocity = 90.0
+initial_velocity_random = 0.25
+angular_velocity = 180.0
+angular_velocity_random = 0.33
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 0.2
+scale_random = 0.25
+color_ramp = SubResource( 10 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angular Velocity", "Color", "Gravity", "Initial Velocity", "Scale", "Spread" ]
+
+[sub_resource type="ParticlesMaterial" id=12]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 90.0
+flatness = 0.0
+gravity = Vector3( -60, 0, 0 )
+initial_velocity = 90.0
+initial_velocity_random = 0.25
+angular_velocity = 150.0
+angular_velocity_random = 0.25
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 0.8
+scale_random = 0.5
+color = Color( 1, 1, 1, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angular Velocity", "Gravity", "Initial Velocity", "Scale", "Spread" ]
+
+[sub_resource type="SpriteFrames" id=6]
 
 animations = [ {
-"frames": [ ExtResource( 27 ) ],
+"frames": [ ExtResource( 32 ) ],
 "loop": true,
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 28 ) ],
+"frames": [ ExtResource( 33 ) ],
 "loop": true,
 "name": "down",
 "speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=7]
 
 custom_solver_bias = 0.0
 extents = Vector2( 4.5, 4 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=8]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
+
+[sub_resource type="RectangleShape2D" id=13]
+
+custom_solver_bias = 0.0
+extents = Vector2( 3, 7 )
 
 [node name="Node2D" type="Node2D" index="0"]
 
@@ -210,7 +316,7 @@ distance = 30
 [node name="Block" parent="." index="15" instance=ExtResource( 6 )]
 
 position = Vector2( 43.9205, 83.0563 )
-move_range = 24
+move_range = -24
 time = 1.5
 vertical = true
 
@@ -252,26 +358,42 @@ target_x = 0
 target_y = 56
 direction = "down"
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BossCore/EnterTrigger" index="1"]
+[node name="SoundDoorClose" type="AudioStreamPlayer" parent="BossCore/EnterTrigger" index="1"]
+
+stream = ExtResource( 10 )
+volume_db = 1.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="TimerStartBoss" type="Timer" parent="BossCore/EnterTrigger" index="2"]
+
+process_mode = 1
+wait_time = 3.0
+one_shot = true
+autostart = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BossCore/EnterTrigger" index="3"]
 
 build_mode = 0
 polygon = PoolVector2Array( 56, 112, 64, 112, 64, 104, 96, 104, 96, 112, 104, 112, 104, 96, 56, 96 )
 
-[node name="JumpPoint" parent="BossCore/EnterTrigger" index="2" instance=ExtResource( 5 )]
+[node name="JumpPoint" parent="BossCore/EnterTrigger" index="4" instance=ExtResource( 5 )]
 
 position = Vector2( 59.5, 104 )
 scale = Vector2( 0.109375, 0.25 )
 required_direction = Vector2( -1, 0 )
 distance = 30
 
-[node name="JumpPoint2" parent="BossCore/EnterTrigger" index="3" instance=ExtResource( 5 )]
+[node name="JumpPoint2" parent="BossCore/EnterTrigger" index="5" instance=ExtResource( 5 )]
 
 position = Vector2( 100.5, 104 )
 scale = Vector2( 0.109375, 0.25 )
 required_direction = Vector2( 1, 0 )
 distance = 30
 
-[node name="PitController" parent="BossCore/EnterTrigger" index="4" instance=ExtResource( 10 )]
+[node name="PitController" parent="BossCore/EnterTrigger" index="6" instance=ExtResource( 11 )]
 
 has_platform = false
 
@@ -309,7 +431,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="BossCore/EnterTrigger/PitController" index="8"]
 
 position = Vector2( 78.8819, 88.1136 )
-shape = SubResource( 8 )
+shape = SubResource( 2 )
 
 [node name="LeftFist" type="KinematicBody2D" parent="BossCore" index="1"]
 
@@ -318,7 +440,7 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 11 )
+script = ExtResource( 12 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform" ]
 speed = 50
 
@@ -326,7 +448,7 @@ speed = 50
 
 position = Vector2( 0, 6 )
 z_index = 1
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
@@ -335,7 +457,7 @@ __meta__ = {
 [node name="ShadowSprite" type="AnimatedSprite" parent="BossCore/LeftFist" index="1"]
 
 position = Vector2( 0, 10 )
-frames = SubResource( 2 )
+frames = SubResource( 3 )
 animation = "lift"
 _sections_unfolded = [ "Transform", "Z Index" ]
 __meta__ = {
@@ -345,7 +467,7 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossCore/LeftFist" index="2"]
 
 position = Vector2( 0, 9.27854 )
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 
 [node name="Hitbox" type="Area2D" parent="BossCore/LeftFist" index="3"]
 
@@ -362,8 +484,81 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 0, 10 )
 scale = Vector2( 0.6, 0.3 )
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="PartsSlam" type="Particles2D" parent="BossCore/LeftFist" index="4"]
+
+position = Vector2( -5.1277e-007, 9 )
+rotation = 4.71239
+emitting = false
+amount = 15
+lifetime = 1.0
+one_shot = true
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 1.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 11 )
+texture = ExtResource( 24 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Textures", "Time", "Transform" ]
+
+[node name="SoundSlam" type="AudioStreamPlayer" parent="BossCore/LeftFist" index="5"]
+
+stream = ExtResource( 25 )
+volume_db = -3.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="PartsShatter" type="Particles2D" parent="BossCore/LeftFist" index="6"]
+
+position = Vector2( 3.11531e-006, -16 )
+rotation = -1.5708
+emitting = false
+amount = 16
+lifetime = 5.0
+one_shot = true
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 1.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 12 )
+texture = ExtResource( 26 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Textures", "Time" ]
+
+[node name="SoundShatter" type="AudioStreamPlayer" parent="BossCore/LeftFist" index="7"]
+
+stream = ExtResource( 27 )
+volume_db = 1.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="TimerDie" type="Timer" parent="BossCore/LeftFist" index="8"]
+
+process_mode = 1
+wait_time = 4.8
+one_shot = true
+autostart = false
 
 [node name="RightFist" type="KinematicBody2D" parent="BossCore" index="2"]
 
@@ -372,7 +567,7 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 11 )
+script = ExtResource( 12 )
 _sections_unfolded = [ "Transform" ]
 speed = 50
 
@@ -380,7 +575,7 @@ speed = 50
 
 position = Vector2( 0, 6 )
 z_index = 1
-texture = ExtResource( 23 )
+texture = ExtResource( 28 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
@@ -389,7 +584,7 @@ __meta__ = {
 [node name="ShadowSprite" type="AnimatedSprite" parent="BossCore/RightFist" index="1"]
 
 position = Vector2( 0, 10 )
-frames = SubResource( 2 )
+frames = SubResource( 3 )
 animation = "lift"
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
@@ -399,7 +594,7 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossCore/RightFist" index="2"]
 
 position = Vector2( 0, 9.27854 )
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Hitbox" type="Area2D" parent="BossCore/RightFist" index="3"]
@@ -417,16 +612,89 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 0, 10 )
 scale = Vector2( 0.6, 0.3 )
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="PartsSlam" type="Particles2D" parent="BossCore/RightFist" index="4"]
+
+position = Vector2( 2, 9 )
+rotation = -1.5708
+emitting = false
+amount = 15
+lifetime = 1.0
+one_shot = true
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 1.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 11 )
+texture = ExtResource( 24 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Textures", "Time", "Transform" ]
+
+[node name="SoundSlam" type="AudioStreamPlayer" parent="BossCore/RightFist" index="5"]
+
+stream = ExtResource( 25 )
+volume_db = -3.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="PartsShatter" type="Particles2D" parent="BossCore/RightFist" index="6"]
+
+position = Vector2( 1, -16 )
+rotation = -1.5708
+emitting = false
+amount = 16
+lifetime = 5.0
+one_shot = true
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 1.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 12 )
+texture = ExtResource( 26 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Textures", "Time" ]
+
+[node name="SoundShatter" type="AudioStreamPlayer" parent="BossCore/RightFist" index="7"]
+
+stream = null
+volume_db = 1.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="TimerDie" type="Timer" parent="BossCore/RightFist" index="8"]
+
+process_mode = 1
+wait_time = 4.8
+one_shot = true
+autostart = false
 
 [node name="Sprite" type="Sprite" parent="BossCore" index="3"]
 
 position = Vector2( 80, 24 )
-texture = ExtResource( 24 )
+texture = ExtResource( 29 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="OrbSwitch" parent="BossCore" index="4" instance=ExtResource( 25 )]
+[node name="OrbSwitch" parent="BossCore" index="4" instance=ExtResource( 30 )]
 
 position = Vector2( 80.0599, 33.9128 )
 _sections_unfolded = [ "Collision", "Transform", "Visibility" ]
@@ -434,7 +702,6 @@ is_boss = true
 
 [node name="Switch1" type="Area2D" parent="BossCore" index="5"]
 
-editor/display_folded = true
 position = Vector2( 23.4293, 104 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -443,7 +710,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 26 )
+script = ExtResource( 31 )
 _sections_unfolded = [ "Collision" ]
 __meta__ = {
 "_edit_lock_": true
@@ -451,7 +718,7 @@ __meta__ = {
 
 [node name="Sprite" type="AnimatedSprite" parent="BossCore/Switch1" index="0"]
 
-frames = SubResource( 4 )
+frames = SubResource( 6 )
 animation = "up"
 __meta__ = {
 "_edit_lock_": true
@@ -460,15 +727,23 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossCore/Switch1" index="1"]
 
 position = Vector2( 0.5, 0 )
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="SoundPress" type="AudioStreamPlayer" parent="BossCore/Switch1" index="2"]
+
+stream = ExtResource( 34 )
+volume_db = -3.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
 [node name="Switch2" type="Area2D" parent="BossCore" index="6"]
 
-editor/display_folded = true
 position = Vector2( 135.685, 104 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -477,7 +752,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 26 )
+script = ExtResource( 31 )
 _sections_unfolded = [ "Collision" ]
 __meta__ = {
 "_edit_lock_": true
@@ -485,7 +760,7 @@ __meta__ = {
 
 [node name="Sprite" type="AnimatedSprite" parent="BossCore/Switch2" index="0"]
 
-frames = SubResource( 4 )
+frames = SubResource( 6 )
 animation = "up"
 __meta__ = {
 "_edit_lock_": true
@@ -494,15 +769,23 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossCore/Switch2" index="1"]
 
 position = Vector2( 0.5, 0 )
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="SoundPress" type="AudioStreamPlayer" parent="BossCore/Switch2" index="2"]
+
+stream = ExtResource( 34 )
+volume_db = -3.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
 [node name="Switch3" type="Area2D" parent="BossCore" index="7"]
 
-editor/display_folded = true
 position = Vector2( 135.685, 72.0189 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -511,7 +794,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 26 )
+script = ExtResource( 31 )
 _sections_unfolded = [ "Collision" ]
 __meta__ = {
 "_edit_lock_": true
@@ -519,7 +802,7 @@ __meta__ = {
 
 [node name="Sprite" type="AnimatedSprite" parent="BossCore/Switch3" index="0"]
 
-frames = SubResource( 4 )
+frames = SubResource( 6 )
 animation = "up"
 __meta__ = {
 "_edit_lock_": true
@@ -528,15 +811,23 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossCore/Switch3" index="1"]
 
 position = Vector2( 0.5, 0 )
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="SoundPress" type="AudioStreamPlayer" parent="BossCore/Switch3" index="2"]
+
+stream = ExtResource( 34 )
+volume_db = -3.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
 [node name="Switch4" type="Area2D" parent="BossCore" index="8"]
 
-editor/display_folded = true
 position = Vector2( 23.4293, 72.0189 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -545,7 +836,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 26 )
+script = ExtResource( 31 )
 _sections_unfolded = [ "Collision" ]
 __meta__ = {
 "_edit_lock_": true
@@ -553,7 +844,7 @@ __meta__ = {
 
 [node name="Sprite" type="AnimatedSprite" parent="BossCore/Switch4" index="0"]
 
-frames = SubResource( 4 )
+frames = SubResource( 6 )
 animation = "up"
 __meta__ = {
 "_edit_lock_": true
@@ -562,15 +853,23 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossCore/Switch4" index="1"]
 
 position = Vector2( 0.5, 0 )
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="SoundPress" type="AudioStreamPlayer" parent="BossCore/Switch4" index="2"]
+
+stream = ExtResource( 34 )
+volume_db = -3.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
 [node name="StaticBody2D" type="StaticBody2D" parent="BossCore" index="9"]
 
-editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -583,13 +882,108 @@ bounce = 0.0
 
 position = Vector2( 80, 36 )
 scale = Vector2( 1, 0.4 )
-shape = SubResource( 6 )
+shape = SubResource( 8 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="MusicBoss" type="AudioStreamPlayer" parent="BossCore" index="10"]
+
+stream = ExtResource( 35 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="SoundHit" type="AudioStreamPlayer" parent="BossCore" index="11"]
+
+stream = ExtResource( 36 )
+volume_db = 5.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="SoundDie" type="AudioStreamPlayer" parent="BossCore" index="12"]
+
+stream = ExtResource( 37 )
+volume_db = 5.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="TimerShatter" type="Timer" parent="BossCore" index="13"]
+
+process_mode = 1
+wait_time = 3.0
+one_shot = true
+autostart = false
+
+[node name="TimerDialogue" type="Timer" parent="BossCore" index="14"]
+
+process_mode = 1
+wait_time = 4.5
+one_shot = true
+autostart = false
+
+[node name="Torch" parent="." index="18" instance=ExtResource( 38 )]
+
+position = Vector2( 40, 15 )
+
+[node name="Torch2" parent="." index="19" instance=ExtResource( 38 )]
+
+position = Vector2( 120, 15 )
+
+[node name="ItemKeystonePiece2" parent="." index="20" instance=ExtResource( 39 )]
+
+position = Vector2( 70, 88 )
+item_get_message = [ "Obtained \"keystone piece 2.\"" ]
+collect_flag = "holding_dungeon2key"
+start_enabled = false
+box_x = 40
+box_y = 70
+box_width = 100
+box_height = 50
+
+[node name="ItemBow" parent="." index="21" instance=ExtResource( 39 )]
+
+position = Vector2( 92, 88 )
+item_get_message = [ "Obtained the bow.", "Press CTRL to fire arrows.", "Arrows can activate distant switches." ]
+collect_flag = "holding_bow"
+start_enabled = false
+box_x = 40
+box_y = 70
+box_width = 100
+box_height = 50
+
+[node name="Sprite" parent="ItemBow" index="0"]
+
+texture = ExtResource( 40 )
+region_enabled = false
+
+[node name="CollisionShape2D" parent="ItemBow" index="1"]
+
+shape = SubResource( 13 )
+
+[node name="Interact" parent="ItemBow" index="2"]
+
+frame = 0
+
+[connection signal="timeout" from="BossCore/EnterTrigger/TimerStartBoss" to="BossCore/EnterTrigger" method="_on_TimerStartBoss_timeout"]
 
 [connection signal="animation_finished" from="BossCore/LeftFist/ShadowSprite" to="BossCore/LeftFist" method="_on_animation_finished"]
 
+[connection signal="timeout" from="BossCore/LeftFist/TimerDie" to="BossCore/LeftFist" method="_on_TimerDie_timeout"]
+
 [connection signal="animation_finished" from="BossCore/RightFist/ShadowSprite" to="BossCore/RightFist" method="_on_animation_finished"]
+
+[connection signal="timeout" from="BossCore/RightFist/TimerDie" to="BossCore/RightFist" method="_on_TimerDie_timeout"]
 
 [connection signal="on_trigger" from="BossCore/OrbSwitch" to="BossCore" method="torsoHit"]
 
+[connection signal="timeout" from="BossCore/TimerShatter" to="BossCore" method="_on_TimerShatter_timeout"]
 
+[connection signal="timeout" from="BossCore/TimerDialogue" to="BossCore" method="_on_TimerDialogue_timeout"]
+
+
+[editable path="ItemBow"]

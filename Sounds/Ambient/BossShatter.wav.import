@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/BossShatter.wav-519e3264aa10825b6b1d4fd0f75f31a5.sample"
+
+[deps]
+
+source_file="res://Sounds/Ambient/BossShatter.wav"
+dest_files=[ "res://.import/BossShatter.wav-519e3264aa10825b6b1d4fd0f75f31a5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -21,8 +21,6 @@
 [ext_resource path="res://Sprites/Props/Table vertical.png" type="Texture" id=19]
 [ext_resource path="res://Sprites/Props/Plate.png" type="Texture" id=20]
 
-
-
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
@@ -38,12 +36,12 @@ extents = Vector2( 9.5, 10 )
 animations = [ {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 12 ) ],
@@ -226,7 +224,7 @@ __meta__ = {
 
 [node name="ItemKeystonePiece" parent="." index="8" instance=ExtResource( 10 )]
 
-item_get_message = "Obtained \"Keystone Piece 1.\""
+item_get_message = [ "Obtained \"keystone piece 1.\"" ]
 collect_flag = "holding_dungeon1key"
 box_x = 71
 box_y = 15
@@ -254,8 +252,7 @@ shape = SubResource( 4 )
 [node name="Interact" parent="NPCCephasNote" index="2"]
 
 position = Vector2( -1, -13 )
-
-frame = 0
+frame = 1
 
 [node name="Pot" type="StaticBody2D" parent="." index="10"]
 

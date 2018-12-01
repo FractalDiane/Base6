@@ -108,6 +108,12 @@ func on_destroy():
 		audioplayer.get_node("SoundCrow").play(0)
 		var fountainparts = get_tree().get_root().get_node("Node2D").get_node("Fountain").get_node("PartsCaw")
 		fountainparts.set_emitting(true)
+		
+	# Items after boss 1
+	if target.get_name() == "BossCore":
+		get_tree().get_root().get_node("Node2D").get_node("ItemKeystonePiece2").enable = true
+		get_tree().get_root().get_node("Node2D").get_node("ItemBow").enable = true
+		
 
 func _on_TimerStart_timeout():
 	text_roll = true

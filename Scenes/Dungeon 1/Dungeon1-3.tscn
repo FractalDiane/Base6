@@ -48,6 +48,8 @@ __meta__ = {
 
 [node name="PitController" parent="." index="3" instance=ExtResource( 5 )]
 
+has_platform = false
+
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PitController" index="2"]
 
 position = Vector2( -1, 0 )

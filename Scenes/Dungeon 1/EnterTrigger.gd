@@ -10,6 +10,10 @@ onready var path = pathcollider.instance()
 onready var player = Player
 
 func _ready():
+	if controller.flag["dungeon1_complete"] == 1:
+		$Transition.set_position(Vector2(80,124))
+		queue_free()
+	
 	$PitController.add_child(path)
 	$JumpPoint.set_physics_process(false)
 	$JumpPoint2.set_physics_process(false)
@@ -22,9 +26,15 @@ func _ready():
 func _process(delta):
 	var coll = get_overlapping_bodies()
 	if player in coll:
-		get_parent().activate()
+		$SoundDoorClose.play(0)
+		Player.state = Player.NO_INPUT
+		Player.motion = Vector2(0,0)
+		Player.face = Vector2(0,-1)
+		Player.get_node("Sprite").play("up")
+		#get_parent().activate()
 		set_process(false)
 		timer.start()
+		$TimerStartBoss.start()
 		togglePath()
 
 func _on_timer_timeout():
@@ -44,3 +54,8 @@ func togglePath():
 		pathblock = pathblocker.instance()
 		add_child(pathblock)
 		$Transition.position.y += 100
+
+func _on_TimerStartBoss_timeout():
+	get_parent().get_node("MusicBoss").play(0)
+	get_parent().activate()
+	Player.state = Player.WALK

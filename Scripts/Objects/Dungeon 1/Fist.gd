@@ -22,6 +22,8 @@ onready var idealY = 0
 onready var player = Player
 
 func _ready(): #Create a personal timer object in the ready event
+	if controller.flag["dungeon1_complete"] == 1:
+		queue_free()
 	timer = Timer.new()
 	timer.connect("timeout",self,"_on_timer_timeout") 
 	add_child(timer)
@@ -63,6 +65,9 @@ func _on_animation_finished():
 			orbit_radius = 0
 		var coll = $Hitbox.get_overlapping_bodies()
 		$CollisionShape2D.set_disabled(false)
+		$PartsSlam.set_emitting(true)
+		$SoundSlam.play(0)
+		$SoundSlam.set_pitch_scale(rand_range(0.9,1.05))
 		if player in coll and not player.iframes:
 			damage_player(damage)
 		coll = $Hitbox.get_overlapping_areas()
@@ -92,9 +97,10 @@ func deactivate(): #Use only at end of fight to completely disable.
 	$CollisionShape2D.set_disabled(true)
 
 func damage_player(amount):
-	controller.player_damage(amount)
-	player.iframes = true
-	player.get_node("TimerIFrames").start()
+	if player.state != player.NO_INPUT:
+		controller.player_damage(amount)
+		player.iframes = true
+		player.get_node("TimerIFrames").start()
 
 func checkPhase():
 	if phase2:
@@ -125,3 +131,13 @@ func phase3():
 	translateSpeed = 1.6
 	$ShadowSprite.frames.set_animation_speed("lift", 34)
 	$ShadowSprite.frames.set_animation_speed("drop", 60)
+	
+func shatter():
+	$SoundShatter.play(0)
+	$PartsShatter.set_emitting(true)
+	$FistSprite.hide()
+	$ShadowSprite.hide()
+	$TimerDie.start()
+
+func _on_TimerDie_timeout():
+	queue_free()

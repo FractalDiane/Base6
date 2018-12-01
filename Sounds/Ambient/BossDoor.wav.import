@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/BossDoor.wav-6657f1fb2b54e7d17db81ee01c4fba07.sample"
+
+[deps]
+
+source_file="res://Sounds/Ambient/BossDoor.wav"
+dest_files=[ "res://.import/BossDoor.wav-6657f1fb2b54e7d17db81ee01c4fba07.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
