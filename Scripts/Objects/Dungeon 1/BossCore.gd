@@ -31,13 +31,13 @@ func _on_timer_timeout():
 	$Sprite.set_texture(torso_tex0)
 	$OrbSwitch.pressed = false
 
-func _process(delta):
+func _physics_process(delta):
 	if shake:
 		if shake_amount <= 0:
 			shake = false
 			return
 		var shake_vector = Vector2(floor(rand_range(-shake_amount, shake_amount)), floor(rand_range(-shake_amount, shake_amount)))
-		shake_amount -= .04
+		shake_amount -= .12
 		room.position = roomLocation + shake_vector
 		
 	if controller.flag["holding_bow"] == 1 and controller.flag["holding_dungeon2key"] == 1 and controller.flag["dungeon1_complete"] == 0:
@@ -68,6 +68,8 @@ func torsoHit():
 		$RightFist.deactivate()
 		Player.state = Player.NO_INPUT
 		Player.motion = Vector2(0,0)
+		Player.jumping = false
+		Player.falling = false
 		#$EnterTrigger.togglePath()
 		$SoundDie.play(0)
 		$MusicBoss.stop()

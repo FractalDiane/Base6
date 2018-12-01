@@ -76,18 +76,18 @@ extents = Vector2( 5.73882, 3.71872 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[sub_resource type="Gradient" id=9]
+[sub_resource type="Gradient" id=6]
 
 offsets = PoolRealArray( 0, 0.526316, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0 )
 
-[sub_resource type="GradientTexture" id=10]
+[sub_resource type="GradientTexture" id=7]
 
 flags = 4
-gradient = SubResource( 9 )
+gradient = SubResource( 6 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=11]
+[sub_resource type="ParticlesMaterial" id=8]
 
 render_priority = 0
 trail_divisor = 1
@@ -116,7 +116,7 @@ angle = 0.0
 angle_random = 0.0
 scale = 0.2
 scale_random = 0.25
-color_ramp = SubResource( 10 )
+color_ramp = SubResource( 7 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -126,7 +126,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angular Velocity", "Color", "Gravity", "Initial Velocity", "Scale", "Spread" ]
 
-[sub_resource type="ParticlesMaterial" id=12]
+[sub_resource type="ParticlesMaterial" id=9]
 
 render_priority = 0
 trail_divisor = 1
@@ -165,7 +165,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angular Velocity", "Gravity", "Initial Velocity", "Scale", "Spread" ]
 
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=10]
 
 animations = [ {
 "frames": [ ExtResource( 32 ) ],
@@ -180,12 +180,12 @@ animations = [ {
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=11]
 
 custom_solver_bias = 0.0
 extents = Vector2( 4.5, 4 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=12]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
@@ -504,7 +504,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 11 )
+process_material = SubResource( 8 )
 texture = ExtResource( 24 )
 normal_map = null
 h_frames = 1
@@ -537,7 +537,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 12 )
+process_material = SubResource( 9 )
 texture = ExtResource( 26 )
 normal_map = null
 h_frames = 1
@@ -632,7 +632,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 11 )
+process_material = SubResource( 8 )
 texture = ExtResource( 24 )
 normal_map = null
 h_frames = 1
@@ -665,7 +665,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 12 )
+process_material = SubResource( 9 )
 texture = ExtResource( 26 )
 normal_map = null
 h_frames = 1
@@ -712,13 +712,10 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 31 )
 _sections_unfolded = [ "Collision" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Sprite" type="AnimatedSprite" parent="BossCore/Switch1" index="0"]
 
-frames = SubResource( 6 )
+frames = SubResource( 10 )
 animation = "up"
 __meta__ = {
 "_edit_lock_": true
@@ -727,7 +724,7 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossCore/Switch1" index="1"]
 
 position = Vector2( 0.5, 0 )
-shape = SubResource( 7 )
+shape = SubResource( 11 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -754,13 +751,10 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 31 )
 _sections_unfolded = [ "Collision" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Sprite" type="AnimatedSprite" parent="BossCore/Switch2" index="0"]
 
-frames = SubResource( 6 )
+frames = SubResource( 10 )
 animation = "up"
 __meta__ = {
 "_edit_lock_": true
@@ -769,7 +763,7 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossCore/Switch2" index="1"]
 
 position = Vector2( 0.5, 0 )
-shape = SubResource( 7 )
+shape = SubResource( 11 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -796,13 +790,10 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 31 )
 _sections_unfolded = [ "Collision" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Sprite" type="AnimatedSprite" parent="BossCore/Switch3" index="0"]
 
-frames = SubResource( 6 )
+frames = SubResource( 10 )
 animation = "up"
 __meta__ = {
 "_edit_lock_": true
@@ -811,7 +802,7 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossCore/Switch3" index="1"]
 
 position = Vector2( 0.5, 0 )
-shape = SubResource( 7 )
+shape = SubResource( 11 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -838,13 +829,10 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 31 )
 _sections_unfolded = [ "Collision" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Sprite" type="AnimatedSprite" parent="BossCore/Switch4" index="0"]
 
-frames = SubResource( 6 )
+frames = SubResource( 10 )
 animation = "up"
 __meta__ = {
 "_edit_lock_": true
@@ -853,7 +841,7 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossCore/Switch4" index="1"]
 
 position = Vector2( 0.5, 0 )
-shape = SubResource( 7 )
+shape = SubResource( 11 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -882,7 +870,7 @@ bounce = 0.0
 
 position = Vector2( 80, 36 )
 scale = Vector2( 1, 0.4 )
-shape = SubResource( 8 )
+shape = SubResource( 12 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="MusicBoss" type="AudioStreamPlayer" parent="BossCore" index="10"]

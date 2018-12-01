@@ -1,39 +1,75 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=1]
-[ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Instances/Worldborder.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Sounds/Music/White Noise.wav" type="AudioStream" id=6]
-[ext_resource path="res://Instances/Props/SpikeLarge.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Instances/Props/SpikeMedium.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Instances/Props/SpikeSmall.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Sprites/Props/Dungeon entrance.png" type="Texture" id=10]
-[ext_resource path="res://Instances/Props/BigRock.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Instances/Items/Gold.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scripts/Scenes/03.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=2]
+[ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Instances/Worldborder.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sounds/Music/White Noise.wav" type="AudioStream" id=7]
+[ext_resource path="res://Instances/Props/SpikeLarge.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Instances/Props/SpikeMedium.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Instances/Props/SpikeSmall.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Sprites/Props/Dungeon entrance.png" type="Texture" id=11]
+[ext_resource path="res://Instances/Props/BigRock.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Instances/Items/Gold.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Instances/NPCs/NPCMasterNew.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Sprites/Characters/Elders/Kein left.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Characters/Elders/Kein right.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Characters/Elders/Kein up.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Characters/Elders/Kein down.png" type="Texture" id=18]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 6, 3 )
 
 [node name="Node2D" type="Node2D"]
 
+script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Background" type="Sprite" parent="." index="0"]
 
 position = Vector2( 80, 72 )
 z_index = -4096
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 _sections_unfolded = [ "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="UI" parent="." index="1" instance=ExtResource( 2 )]
+[node name="UI" parent="." index="1" instance=ExtResource( 3 )]
 
-[node name="Worldborder" parent="." index="2" instance=ExtResource( 3 )]
+[node name="Worldborder" parent="." index="2" instance=ExtResource( 4 )]
 
 position = Vector2( 80, -4 )
 
-[node name="Transition2" parent="." index="3" instance=ExtResource( 4 )]
+[node name="Transition2" parent="." index="3" instance=ExtResource( 5 )]
 
 position = Vector2( 80, 140 )
 scale = Vector2( 2.5, 0.125 )
@@ -42,32 +78,32 @@ target_x = 0
 target_y = 16
 direction = "down"
 
-[node name="CellLabel" parent="." index="4" instance=ExtResource( 5 )]
+[node name="CellLabel" parent="." index="4" instance=ExtResource( 6 )]
 
 text = "03"
 cell_index_x = 3
-cell_music = ExtResource( 6 )
+cell_music = ExtResource( 7 )
 
-[node name="SpikeSmall" parent="." index="5" instance=ExtResource( 7 )]
+[node name="SpikeSmall" parent="." index="5" instance=ExtResource( 8 )]
 
 position = Vector2( 94, 28 )
 
-[node name="SpikeSmall2" parent="." index="6" instance=ExtResource( 8 )]
+[node name="SpikeSmall2" parent="." index="6" instance=ExtResource( 9 )]
 
 position = Vector2( 101, 38 )
 
-[node name="SpikeSmall3" parent="." index="7" instance=ExtResource( 9 )]
+[node name="SpikeSmall3" parent="." index="7" instance=ExtResource( 10 )]
 
 position = Vector2( 134, 98 )
 
-[node name="Transition" parent="." index="8" instance=ExtResource( 4 )]
+[node name="Transition" parent="." index="8" instance=ExtResource( 5 )]
 
 position = Vector2( -4, 72 )
 target_scene = "res://Scenes/Overworld/02.tscn"
 target_x = 144
 direction = "left"
 
-[node name="Transition3" parent="." index="9" instance=ExtResource( 4 )]
+[node name="Transition3" parent="." index="9" instance=ExtResource( 5 )]
 
 target_scene = "res://Scenes/Overworld/04.tscn"
 
@@ -84,12 +120,12 @@ bounce = 0.0
 
 [node name="Sprite" type="Sprite" parent="DungeonEntrance" index="0"]
 
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Transition4" parent="." index="11" instance=ExtResource( 4 )]
+[node name="Transition4" parent="." index="11" instance=ExtResource( 5 )]
 
 position = Vector2( 53, 62.5 )
 scale = Vector2( 0.3125, 0.265625 )
@@ -98,15 +134,33 @@ target_x = 50
 target_y = 60
 not_cell = true
 
-[node name="BigRock" parent="." index="12" instance=ExtResource( 11 )]
+[node name="BigRock" parent="." index="12" instance=ExtResource( 12 )]
 
 position = Vector2( 81, 107 )
 
-[node name="Gold" parent="." index="13" instance=ExtResource( 12 )]
+[node name="Gold" parent="." index="13" instance=ExtResource( 13 )]
 
 position = Vector2( 104, 34 )
 gold_value = 20
 large_sprite = true
 target_flag = "gold_9"
 
+[node name="NPCKeinOutside" parent="." index="14" instance=ExtResource( 14 )]
 
+text = [ [ "Oh, Fiore!", "You made it out.", "I felt the whole ruin rumbling, so I...", "...Made a break for it.", "...", "But I did that knowing you would be fine.", "Ahem. Yes.", "Now...", "Is that another piece of the keystone?", "It is! I suspected it would be in there.", "That means there's just one more.", "And it's probably in another ruin.", "I know it's a lot to ask, but...", "Do you think you could find it?", "Time is short. The corruption is spreading.", "This may be our last chance.", "We're counting on you, Fiore." ], [ "We're counting on you, Fiore." ] ]
+dialogue_key = "keinoutside_talk"
+
+[node name="Sprite" parent="NPCKeinOutside" index="0"]
+
+frames = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="NPCKeinOutside" index="1"]
+
+shape = SubResource( 2 )
+
+[node name="Interact" parent="NPCKeinOutside" index="2"]
+
+frame = 1
+
+
+[editable path="NPCKeinOutside"]
