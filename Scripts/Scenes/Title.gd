@@ -174,7 +174,7 @@ func input():
 					controller.player_gold = 20
 					controller.player_potions = 3
 
-					controller.corrupted_cells = ["14","23","24","33","34","44"]
+					controller.corrupted_cells_add = []
 					
 					Player.dead = false
 					Player.fully_corrupted = false

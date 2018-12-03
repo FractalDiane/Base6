@@ -68,22 +68,31 @@ target_x = 0
 target_y = 16
 direction = "down"
 
-[node name="Sentry" parent="." index="5" instance=ExtResource( 7 )]
+[node name="Transition2" parent="." index="5" instance=ExtResource( 6 )]
+
+position = Vector2( 32, 5.96046e-008 )
+scale = Vector2( 0.25, 0.109375 )
+target_scene = "res://Scenes/Dungeon 2/Dungeon2-11.tscn"
+target_x = 0
+target_y = 100
+direction = "up"
+
+[node name="Sentry" parent="." index="6" instance=ExtResource( 7 )]
 
 position = Vector2( 64, 72 )
 shot_damage = 2
 
-[node name="Sentry2" parent="." index="6" instance=ExtResource( 7 )]
+[node name="Sentry2" parent="." index="7" instance=ExtResource( 7 )]
 
 position = Vector2( 104, 72 )
 shot_damage = 2
 
-[node name="Sentry3" parent="." index="7" instance=ExtResource( 7 )]
+[node name="Sentry3" parent="." index="8" instance=ExtResource( 7 )]
 
 position = Vector2( 80, 24 )
 shot_damage = 2
 
-[node name="Sentry4" parent="." index="8" instance=ExtResource( 7 )]
+[node name="Sentry4" parent="." index="9" instance=ExtResource( 7 )]
 
 position = Vector2( 40, 24 )
 shot_damage = 2

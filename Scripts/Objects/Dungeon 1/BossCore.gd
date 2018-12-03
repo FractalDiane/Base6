@@ -44,6 +44,7 @@ func _physics_process(delta):
 		$EnterTrigger/SoundDoorClose.play(0)
 		$EnterTrigger.togglePath()
 		controller.flag["dungeon1_complete"] = 1
+		controller.corrupted_cells_add += ["04","12","13","32", "43"]
 
 func activate():
 	$LeftFist.activate()

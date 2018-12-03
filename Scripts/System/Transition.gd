@@ -16,7 +16,7 @@ func _ready():
 	#var current_cell_str = current_cell.replace(current_cell.get_extension(),"").substr(0,2)
 	#if current_cell_str in controller.corrupted_cells:
 	var target_cell_str = target_scene.get_file().replace(target_scene.get_extension(),"").substr(0,2)
-	if target_cell_str in controller.corrupted_cells:
+	if target_cell_str in controller.corrupted_cells or target_cell_str in controller.corrupted_cells_add:
 		if get_scale().x > get_scale().y: # Horizontal
 			corruption_parts = load("res://Instances/Particles/PartsCorruptionBorder.tscn").instance()
 		elif get_scale().y > get_scale().x: # Vertical

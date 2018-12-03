@@ -80,7 +80,7 @@ bus = "Master"
 [node name="SoundPuzzleSolved" type="AudioStreamPlayer" parent="." index="7"]
 
 stream = ExtResource( 9 )
-volume_db = -4.0
+volume_db = -6.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0

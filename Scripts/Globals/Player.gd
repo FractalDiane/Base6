@@ -87,7 +87,6 @@ func _physics_process(delta):
 	
 	footstep_increment()
 	footstep_sound()
-	debug()
 	move_and_slide(motion)
 	
 	if get_slide_count() > 0:
@@ -313,7 +312,8 @@ func deal_damage():
 # ================================================================================== TIMERS
 	
 func _on_TimerSwing_timeout():
-	state = WALK
+	if state != NO_INPUT:
+		state = WALK
 	if face.y == -1: hbU.set_disabled(true)
 	elif face.y == 1: hbD.set_disabled(true)
 	elif face.x == -1: hbL.set_disabled(true)
@@ -358,10 +358,3 @@ func _on_TimerWarp_timeout():
 	
 func _on_TimerIFrames_timeout():
 	iframes = false
-	
-# ================================================================================== DEBUG
-
-func debug():
-	#if (Input.is_action_pressed("ui_debug1")):
-		#controller.flag["holding_dungeon1key"] = 1
-	pass
