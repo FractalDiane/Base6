@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SesdinSpike.wav-16fe1f039ab291050d47873fd1d86b9e.sample"
+
+[deps]
+
+source_file="res://Sounds/Characters/SesdinSpike.wav"
+dest_files=[ "res://.import/SesdinSpike.wav-16fe1f039ab291050d47873fd1d86b9e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

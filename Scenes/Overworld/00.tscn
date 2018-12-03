@@ -148,10 +148,9 @@ target_scene = "res://Scenes/Overworld/01.tscn"
 [node name="SpriteTutorial" type="Sprite" parent="." index="9"]
 
 modulate = Color( 0.859375, 0.859375, 0.859375, 1 )
-position = Vector2( 123, 58 )
+position = Vector2( 113, 44 )
 z_index = -4000
 texture = ExtResource( 9 )
-region_enabled = true
 region_rect = Rect2( 0, 30, 58, 36 )
 _sections_unfolded = [ "Region", "Visibility", "Z Index" ]
 
@@ -167,7 +166,7 @@ not_cell = true
 
 [node name="NPCJari" parent="." index="11" instance=ExtResource( 10 )]
 
-position = Vector2( 110, 26 )
+position = Vector2( 117, 26 )
 text = [ [ "O-oh. Good morning, Fiore.", "The corruption has gotten worse since yesterday.", "J-just a little worse, though.", "There are still plenty of impures.", "And you should stay away from the east side.", "That's where it's gotten the worst.", "O-or maybe you can handle it.", "You're the one with the sword, after all.", "J-just remember to turn back if you start hearing the... whispers..." ], [ "The w-whispers...", "Just thinking about it makes me shudder..." ], [  ], [  ] ]
 box_x = 12
 box_y = 50
@@ -180,6 +179,10 @@ frames = SubResource( 2 )
 
 position = Vector2( 0, 8 )
 shape = SubResource( 3 )
+
+[node name="Interact" parent="NPCJari" index="2"]
+
+frame = 0
 
 [node name="Gold" parent="." index="12" instance=ExtResource( 15 )]
 

@@ -7,8 +7,11 @@ var attack_dir = "castdown"
 
 var shot = preload("res://Instances/Enemies/SesdinShot.tscn")
 var shot_homing = preload("res://Instances/Enemies/SesdinShotHoming.tscn")
+var spike = preload("res://Instances/Enemies/SesdinSpike.tscn")
+var spikepoint = preload("res://Instances/Enemies/Spikepoint.tscn")
 
 onready var points = get_tree().get_root().get_node("Node2D").get_node("TeleportPoints")
+onready var pitcontroller = get_tree().get_root().get_node("Node2D").get_node("PitController")
 
 func _ready():
 	$Sprite.hide()
@@ -73,7 +76,31 @@ func _on_TimerAttack_timeout():
 			get_tree().get_root().add_child(shot2)
 			
 			$TimerHomingPose.start()
-
+			
+		2: # Spikes
+			$Sprite.play(attack_dir)
+			var spike1 = spike.instance()
+			spike1.set_position(Player.get_position())
+			get_tree().get_root().add_child(spike1)
+			
+			var spike2p = spikepoint.instance()
+			get_tree().get_root().add_child(spike2p)
+			while not spike2p in pitcontroller.get_overlapping_areas():
+				spike2p.set_position(Vector2(rand_range(8,152), rand_range(32,120)))
+			var spike2 = spike.instance()
+			get_tree().get_root().add_child(spike2)
+			spike2.set_position(spike2p.get_position())
+			spike2p.queue_free()
+			
+			var spike3p = spikepoint.instance()
+			get_tree().get_root().add_child(spike3p)
+			while not spike3p in pitcontroller.get_overlapping_areas():
+				spike3p.set_position(Vector2(rand_range(8,152), rand_range(32,120)))
+			var spike3 = spike.instance()
+			get_tree().get_root().add_child(spike3)
+			spike3.set_position(spike2p.get_position())
+			spike3p.queue_free()
+			
 func _on_TimerTPOut_timeout():
 	$SoundTeleport.play(0)
 	$PartsTeleport2.set_emitting(true)

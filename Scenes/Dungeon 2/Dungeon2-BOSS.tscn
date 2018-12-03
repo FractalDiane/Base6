@@ -21,24 +21,24 @@
 [ext_resource path="res://Scripts/Objects/Dungeon 2/SesdinBoss.gd" type="Script" id=19]
 [ext_resource path="res://Sprites/Characters/Sesdin/Sesdin left.png" type="Texture" id=20]
 [ext_resource path="res://Sprites/Characters/Sesdin/Sesdin right.png" type="Texture" id=21]
-[ext_resource path="res://Sprites/Characters/Sesdin/Sesdin cast down.png" type="Texture" id=22]
-[ext_resource path="res://Sprites/Characters/Sesdin/Sesdin cast left.png" type="Texture" id=23]
-[ext_resource path="res://Sprites/Characters/Sesdin/Sesdin cast right.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Characters/Sesdin/Sesdin cast left.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Characters/Sesdin/Sesdin cast right.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Characters/Sesdin/Sesdin cast down.png" type="Texture" id=24]
 [ext_resource path="res://Sounds/Objects/Turret.wav" type="AudioStream" id=25]
 [ext_resource path="res://Sounds/Characters/Charge.wav" type="AudioStream" id=26]
 [ext_resource path="res://Instances/JumpPoint.tscn" type="PackedScene" id=27]
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 8, 8 )
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 24, 9 )
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
 "frames": [ ExtResource( 10 ) ],
@@ -52,28 +52,28 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
 extents = Vector2( 6, 3 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
 extents = Vector2( 27, 9 )
 
-[sub_resource type="Gradient" id=4]
+[sub_resource type="Gradient" id=6]
 
 offsets = PoolRealArray( 0.493421, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=5]
+[sub_resource type="GradientTexture" id=7]
 
 flags = 4
-gradient = SubResource( 4 )
+gradient = SubResource( 6 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=6]
+[sub_resource type="ParticlesMaterial" id=8]
 
 render_priority = 0
 trail_divisor = 1
@@ -102,7 +102,7 @@ angle = 0.0
 angle_random = 0.0
 scale = 0.4
 scale_random = 0.5
-color_ramp = SubResource( 5 )
+color_ramp = SubResource( 7 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -112,12 +112,12 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Gravity", "Scale", "Spread" ]
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=9]
 
 custom_solver_bias = 0.0
 extents = Vector2( 23, 4 )
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=10]
 
 animations = [ {
 "frames": [ ExtResource( 20 ) ],
@@ -137,26 +137,26 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 22 ) ],
 "loop": true,
-"name": "castdown",
+"name": "castleft",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 23 ) ],
 "loop": true,
-"name": "castleft",
+"name": "castright",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 24 ) ],
 "loop": true,
-"name": "castright",
+"name": "castdown",
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=11]
 
 custom_solver_bias = 0.0
 extents = Vector2( 6, 3 )
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 _sections_unfolded = [ "Transform", "Z Index" ]
 
@@ -216,27 +216,27 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PitController" index="4"]
 
 position = Vector2( 23, 80 )
-shape = SubResource( 10 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="PitController" index="5"]
 
 position = Vector2( 23, 48 )
-shape = SubResource( 10 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="PitController" index="6"]
 
 position = Vector2( 135, 48 )
-shape = SubResource( 10 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="PitController" index="7"]
 
 position = Vector2( 135, 80 )
-shape = SubResource( 10 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="PitController" index="8"]
 
 position = Vector2( 79, 40 )
-shape = SubResource( 11 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="." index="6"]
 
@@ -268,7 +268,7 @@ __meta__ = {
 
 [node name="Sprite" type="AnimatedSprite" parent="SesdinIntro" index="0"]
 
-frames = SubResource( 1 )
+frames = SubResource( 3 )
 animation = "up"
 __meta__ = {
 "_edit_lock_": true
@@ -277,7 +277,7 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SesdinIntro" index="1"]
 
 position = Vector2( 1, 10 )
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -299,7 +299,7 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SesdinIntro/EnterTrigger" index="0"]
 
 position = Vector2( 80, 111 )
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -319,7 +319,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 6 )
+process_material = SubResource( 8 )
 texture = ExtResource( 12 )
 normal_map = null
 h_frames = 1
@@ -399,7 +399,7 @@ __meta__ = {
 [node name="DoorHB" type="CollisionShape2D" parent="SesdinIntro" index="12"]
 
 position = Vector2( 1, 56 )
-shape = SubResource( 7 )
+shape = SubResource( 9 )
 disabled = true
 __meta__ = {
 "_edit_lock_": true
@@ -489,7 +489,7 @@ _sections_unfolded = [ "Collision" ]
 [node name="Sprite" type="AnimatedSprite" parent="SesdinBoss" index="0"]
 
 position = Vector2( 1, 0 )
-frames = SubResource( 8 )
+frames = SubResource( 10 )
 animation = "down"
 offset = Vector2( -1, -8 )
 __meta__ = {
@@ -499,7 +499,7 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SesdinBoss" index="1"]
 
 position = Vector2( 1, 2 )
-shape = SubResource( 9 )
+shape = SubResource( 11 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -546,7 +546,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 6 )
+process_material = SubResource( 8 )
 texture = ExtResource( 12 )
 normal_map = null
 h_frames = 1
@@ -572,7 +572,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 6 )
+process_material = SubResource( 8 )
 texture = ExtResource( 12 )
 normal_map = null
 h_frames = 1
