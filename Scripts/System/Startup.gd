@@ -6,6 +6,8 @@ export(Array, String) var flags
 export(bool) var title_screen = false
 
 func _on_TimerGameStart_timeout():
+	randomize()
+	
 	# Initialize flags in global game controller
 	for key in flags:
 		controller.flag[key] = 0

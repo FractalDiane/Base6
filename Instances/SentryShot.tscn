@@ -32,7 +32,7 @@ _sections_unfolded = [ "Collision" ]
 
 frames = SubResource( 1 )
 animation = "default"
-frame = 2
+frame = 4
 playing = true
 __meta__ = {
 "_edit_lock_": true

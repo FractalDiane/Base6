@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=2]
@@ -19,8 +19,24 @@
 [ext_resource path="res://Sprites/Items/Coin large.png" type="Texture" id=17]
 [ext_resource path="res://Scripts/Objects/Dungeon 2/TPPoint.gd" type="Script" id=18]
 [ext_resource path="res://Scripts/Objects/Dungeon 2/SesdinBoss.gd" type="Script" id=19]
-[ext_resource path="res://Sprites/Characters/Sesdin/Sesdin right.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/Characters/Sesdin/Sesdin left.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Characters/Sesdin/Sesdin left.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Characters/Sesdin/Sesdin right.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Characters/Sesdin/Sesdin cast down.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Characters/Sesdin/Sesdin cast left.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Characters/Sesdin/Sesdin cast right.png" type="Texture" id=24]
+[ext_resource path="res://Sounds/Objects/Turret.wav" type="AudioStream" id=25]
+[ext_resource path="res://Sounds/Characters/Charge.wav" type="AudioStream" id=26]
+[ext_resource path="res://Instances/JumpPoint.tscn" type="PackedScene" id=27]
+
+[sub_resource type="RectangleShape2D" id=10]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=11]
+
+custom_solver_bias = 0.0
+extents = Vector2( 24, 9 )
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -36,28 +52,28 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 6, 3 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 27, 9 )
 
-[sub_resource type="Gradient" id=5]
+[sub_resource type="Gradient" id=4]
 
 offsets = PoolRealArray( 0.493421, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=6]
+[sub_resource type="GradientTexture" id=5]
 
 flags = 4
-gradient = SubResource( 5 )
+gradient = SubResource( 4 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=4]
+[sub_resource type="ParticlesMaterial" id=6]
 
 render_priority = 0
 trail_divisor = 1
@@ -86,7 +102,7 @@ angle = 0.0
 angle_random = 0.0
 scale = 0.4
 scale_random = 0.5
-color_ramp = SubResource( 6 )
+color_ramp = SubResource( 5 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -96,31 +112,51 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Gravity", "Scale", "Spread" ]
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=7]
 
 custom_solver_bias = 0.0
 extents = Vector2( 23, 4 )
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=8]
 
 animations = [ {
 "frames": [ ExtResource( 20 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 21 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "down",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "castdown",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 23 ) ],
+"loop": true,
+"name": "castleft",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 24 ) ],
+"loop": true,
+"name": "castright",
+"speed": 5.0
 } ]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=9]
+
+custom_solver_bias = 0.0
+extents = Vector2( 6, 3 )
+
+[node name="Node2D" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform", "Z Index" ]
 
@@ -173,6 +209,34 @@ has_platform = false
 
 build_mode = 0
 polygon = PoolVector2Array( 95, 126, 95, 120, 151, 120, 151, 104, 111, 104, 111, 64, 47, 64, 47, 104, 7, 104, 7, 120, 63, 120, 63, 126 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PitController" index="4"]
+
+position = Vector2( 23, 80 )
+shape = SubResource( 10 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PitController" index="5"]
+
+position = Vector2( 23, 48 )
+shape = SubResource( 10 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="PitController" index="6"]
+
+position = Vector2( 135, 48 )
+shape = SubResource( 10 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="PitController" index="7"]
+
+position = Vector2( 135, 80 )
+shape = SubResource( 10 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="PitController" index="8"]
+
+position = Vector2( 79, 40 )
+shape = SubResource( 11 )
 
 [node name="Sprite" type="Sprite" parent="." index="6"]
 
@@ -198,6 +262,9 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Sprite" type="AnimatedSprite" parent="SesdinIntro" index="0"]
 
@@ -210,7 +277,7 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SesdinIntro" index="1"]
 
 position = Vector2( 1, 10 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -225,11 +292,14 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SesdinIntro/EnterTrigger" index="0"]
 
 position = Vector2( 80, 111 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -249,12 +319,15 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 4 )
+process_material = SubResource( 6 )
 texture = ExtResource( 12 )
 normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Process Material", "Textures", "Time" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="SoundDoorShut" type="AudioStreamPlayer" parent="SesdinIntro" index="4"]
 
@@ -326,7 +399,7 @@ __meta__ = {
 [node name="DoorHB" type="CollisionShape2D" parent="SesdinIntro" index="12"]
 
 position = Vector2( 1, 56 )
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 disabled = true
 __meta__ = {
 "_edit_lock_": true
@@ -349,6 +422,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 sesdin_direction = "right"
+sesdin_attack_direction = "castright"
 
 [node name="Point2" type="Sprite" parent="TeleportPoints" index="1"]
 
@@ -361,6 +435,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 sesdin_direction = "right"
+sesdin_attack_direction = "castright"
 
 [node name="Point3" type="Sprite" parent="TeleportPoints" index="2"]
 
@@ -373,6 +448,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 sesdin_direction = "left"
+sesdin_attack_direction = "castleft"
 
 [node name="Point4" type="Sprite" parent="TeleportPoints" index="3"]
 
@@ -385,6 +461,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 sesdin_direction = "left"
+sesdin_attack_direction = "castleft"
 
 [node name="Point5" type="Sprite" parent="TeleportPoints" index="4"]
 
@@ -397,6 +474,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 sesdin_direction = "down"
+sesdin_attack_direction = "castdown"
 
 [node name="SesdinBoss" type="KinematicBody2D" parent="." index="10"]
 
@@ -406,18 +484,44 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 19 )
+_sections_unfolded = [ "Collision" ]
 
 [node name="Sprite" type="AnimatedSprite" parent="SesdinBoss" index="0"]
 
 position = Vector2( 1, 0 )
-frames = SubResource( 7 )
+frames = SubResource( 8 )
 animation = "down"
 offset = Vector2( -1, -8 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SesdinBoss" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SesdinBoss" index="1"]
+
+position = Vector2( 1, 2 )
+shape = SubResource( 9 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="HB" type="Area2D" parent="SesdinBoss" index="2"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 128
+collision_mask = 128
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Audio Bus", "Collision" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SesdinBoss/HB" index="0"]
 
 position = Vector2( 0, -8 )
 build_mode = 0
@@ -426,7 +530,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="PartsTeleport" type="Particles2D" parent="SesdinBoss" index="2"]
+[node name="PartsTeleport" type="Particles2D" parent="SesdinBoss" index="3"]
 
 position = Vector2( 0, -8 )
 emitting = false
@@ -442,7 +546,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 4 )
+process_material = SubResource( 6 )
 texture = ExtResource( 12 )
 normal_map = null
 h_frames = 1
@@ -452,7 +556,33 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="SoundTeleport" type="AudioStreamPlayer" parent="SesdinBoss" index="3"]
+[node name="PartsTeleport2" type="Particles2D" parent="SesdinBoss" index="4"]
+
+position = Vector2( 0, -8 )
+emitting = false
+amount = 14
+lifetime = 1.0
+one_shot = true
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 1.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 6 )
+texture = ExtResource( 12 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Textures", "Time" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="SoundTeleport" type="AudioStreamPlayer" parent="SesdinBoss" index="5"]
 
 stream = ExtResource( 14 )
 volume_db = -5.0
@@ -461,12 +591,168 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="TimerTP" type="Timer" parent="SesdinBoss" index="4"]
+[node name="SoundShoot" type="AudioStreamPlayer" parent="SesdinBoss" index="6"]
+
+stream = ExtResource( 25 )
+volume_db = -3.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="SoundCharge" type="AudioStreamPlayer" parent="SesdinBoss" index="7"]
+
+stream = ExtResource( 26 )
+volume_db = -4.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="TimerTP" type="Timer" parent="SesdinBoss" index="8"]
 
 process_mode = 1
 wait_time = 2.5
-one_shot = false
+one_shot = true
 autostart = false
+
+[node name="TimerTPOut" type="Timer" parent="SesdinBoss" index="9"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="TimerAttack" type="Timer" parent="SesdinBoss" index="10"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="TimerHomingPose" type="Timer" parent="SesdinBoss" index="11"]
+
+process_mode = 1
+wait_time = 1.5
+one_shot = true
+autostart = false
+
+[node name="JumpPoint" parent="." index="11" instance=ExtResource( 27 )]
+
+position = Vector2( 28, 80 )
+scale = Vector2( 0.125, 0.25 )
+required_direction = Vector2( 1, 0 )
+distance = 24
+
+[node name="JumpPoint5" parent="." index="12" instance=ExtResource( 27 )]
+
+position = Vector2( 24, 76 )
+scale = Vector2( 0.25, 0.125 )
+distance = 24
+
+[node name="JumpPoint15" parent="." index="13" instance=ExtResource( 27 )]
+
+position = Vector2( 24, 84 )
+scale = Vector2( 0.25, 0.125 )
+required_direction = Vector2( 0, 1 )
+distance = 24
+
+[node name="JumpPoint16" parent="." index="14" instance=ExtResource( 27 )]
+
+position = Vector2( 136, 84 )
+scale = Vector2( 0.25, 0.125 )
+required_direction = Vector2( 0, 1 )
+distance = 24
+
+[node name="JumpPoint17" parent="." index="15" instance=ExtResource( 27 )]
+
+position = Vector2( 136, 108 )
+scale = Vector2( 0.25, 0.125 )
+distance = 24
+
+[node name="JumpPoint18" parent="." index="16" instance=ExtResource( 27 )]
+
+position = Vector2( 24, 108 )
+scale = Vector2( 0.25, 0.125 )
+distance = 24
+
+[node name="JumpPoint6" parent="." index="17" instance=ExtResource( 27 )]
+
+position = Vector2( 136, 76 )
+scale = Vector2( 0.25, 0.125 )
+distance = 24
+
+[node name="JumpPoint7" parent="." index="18" instance=ExtResource( 27 )]
+
+position = Vector2( 136, 52 )
+scale = Vector2( 0.25, 0.125 )
+required_direction = Vector2( 0, 1 )
+distance = 24
+
+[node name="JumpPoint8" parent="." index="19" instance=ExtResource( 27 )]
+
+position = Vector2( 24, 52 )
+scale = Vector2( 0.25, 0.125 )
+required_direction = Vector2( 0, 1 )
+distance = 24
+
+[node name="JumpPoint11" parent="." index="20" instance=ExtResource( 27 )]
+
+position = Vector2( 28, 44 )
+required_direction = Vector2( 1, 0 )
+distance = 32
+
+[node name="JumpPoint14" parent="." index="21" instance=ExtResource( 27 )]
+
+position = Vector2( 100, 44 )
+required_direction = Vector2( 1, 0 )
+distance = 32
+
+[node name="JumpPoint12" parent="." index="22" instance=ExtResource( 27 )]
+
+position = Vector2( 132, 44 )
+required_direction = Vector2( -1, 0 )
+distance = 32
+
+[node name="JumpPoint13" parent="." index="23" instance=ExtResource( 27 )]
+
+position = Vector2( 60, 44 )
+required_direction = Vector2( -1, 0 )
+distance = 32
+
+[node name="JumpPoint9" parent="." index="24" instance=ExtResource( 27 )]
+
+position = Vector2( 80, 44 )
+scale = Vector2( 0.75, 0.125 )
+required_direction = Vector2( 0, 1 )
+distance = 24
+
+[node name="JumpPoint10" parent="." index="25" instance=ExtResource( 27 )]
+
+position = Vector2( 80, 68 )
+scale = Vector2( 0.75, 0.125 )
+distance = 24
+
+[node name="JumpPoint2" parent="." index="26" instance=ExtResource( 27 )]
+
+position = Vector2( 108, 80 )
+scale = Vector2( 0.125, 0.25 )
+required_direction = Vector2( 1, 0 )
+distance = 24
+
+[node name="JumpPoint3" parent="." index="27" instance=ExtResource( 27 )]
+
+position = Vector2( 132, 80 )
+scale = Vector2( 0.125, 0.25 )
+required_direction = Vector2( -1, 0 )
+distance = 24
+
+[node name="JumpPoint4" parent="." index="28" instance=ExtResource( 27 )]
+
+position = Vector2( 52, 80 )
+scale = Vector2( 0.125, 0.25 )
+required_direction = Vector2( -1, 0 )
+distance = 24
 
 [connection signal="timeout" from="SesdinIntro/TimerShutDoor" to="SesdinIntro" method="_on_TimerShutDoor_timeout"]
 
@@ -477,5 +763,11 @@ autostart = false
 [connection signal="timeout" from="SesdinIntro/TimerStartBoss" to="SesdinIntro" method="_on_TimerStartBoss_timeout"]
 
 [connection signal="timeout" from="SesdinBoss/TimerTP" to="SesdinBoss" method="_on_TimerTP_timeout"]
+
+[connection signal="timeout" from="SesdinBoss/TimerTPOut" to="SesdinBoss" method="_on_TimerTPOut_timeout"]
+
+[connection signal="timeout" from="SesdinBoss/TimerAttack" to="SesdinBoss" method="_on_TimerAttack_timeout"]
+
+[connection signal="timeout" from="SesdinBoss/TimerHomingPose" to="SesdinBoss" method="_on_TimerHomingPose_timeout"]
 
 
