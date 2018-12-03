@@ -24,7 +24,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 4.5, 4 )
 
-[node name="Switch" type="Area2D"]
+[node name="Switch" type="Area2D" index="0"]
 
 position = Vector2( 121, 80 )
 input_pickable = true

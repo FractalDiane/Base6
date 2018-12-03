@@ -18,7 +18,7 @@ var player_potions = 3
 var current_scene = null
 var corrupted_cells = ["14","23","24","33","34","44"]
 var corrupted_cells_add = []
-# Cells to add after first dungeon: ["04","12","13","32", "33", "?1"]
+# Cells to add after first dungeon: ["04","12","13","32", "43"]
 
 func _ready():
 	var root = get_tree().get_root()

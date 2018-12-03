@@ -51,7 +51,9 @@ func _on_TimerReemitSignal_timeout():
 
 func _on_Switch_body_entered(body):
 	if not pressed:
-		if body == player or body.is_in_group("Pushables"):
+		if body == player and player.state != player.NO_INPUT:
+			push()
+		if body.is_in_group("Pushables"):
 			push()
 
 func _on_Switch_body_exited(body):

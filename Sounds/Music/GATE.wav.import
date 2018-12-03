@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/GATE.wav-9233c22d0a8723650009aa8e98de0b65.sample"
+
+[deps]
+
+source_file="res://Sounds/Music/GATE.wav"
+dest_files=[ "res://.import/GATE.wav-9233c22d0a8723650009aa8e98de0b65.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=true
+edit/loop=true
+compress/mode=0

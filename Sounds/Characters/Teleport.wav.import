@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Teleport.wav-27d78d415a44e7ec1a937eacb134151e.sample"
+
+[deps]
+
+source_file="res://Sounds/Characters/Teleport.wav"
+dest_files=[ "res://.import/Teleport.wav-27d78d415a44e7ec1a937eacb134151e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

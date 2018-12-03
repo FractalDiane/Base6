@@ -114,6 +114,10 @@ func on_destroy():
 		get_tree().get_root().get_node("Node2D").get_node("ItemKeystonePiece2").enable = true
 		get_tree().get_root().get_node("Node2D").get_node("ItemBow").enable = true
 		
+	# Start boss 2
+	if target.get_name() == "SesdinIntro":
+		get_tree().get_root().get_node("Node2D").get_node("SesdinIntro").get_node("TimerTeleport").start()
+		
 
 func _on_TimerStart_timeout():
 	text_roll = true
