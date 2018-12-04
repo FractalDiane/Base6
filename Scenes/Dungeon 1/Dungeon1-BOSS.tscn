@@ -195,7 +195,7 @@ extents = Vector2( 10, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 3, 7 )
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 _sections_unfolded = [ "Transform", "Z Index" ]
 
@@ -955,7 +955,7 @@ shape = SubResource( 13 )
 
 [node name="Interact" parent="ItemBow" index="2"]
 
-frame = 1
+frame = 2
 
 [connection signal="timeout" from="BossCore/EnterTrigger/TimerStartBoss" to="BossCore/EnterTrigger" method="_on_TimerStartBoss_timeout"]
 

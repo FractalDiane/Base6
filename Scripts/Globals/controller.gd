@@ -81,14 +81,15 @@ func player_damage(amount):
 		Player.get_node("PartsHurt").set_emitting(true)
 
 func player_corrupt(amount):
-	audioplayer.play_sound("SoundPlayerCorrupt")
-	player_corruption += amount
-	Player.color = 0
-	var parts = corr_parts.instance()
-	parts.set_position(Player.get_position())
-	parts.set_amount(player_corruption * 2)
-	parts.set_emitting(true)
-	get_parent().get_node("Node2D").add_child(parts)
+	if flag["holding_gatekey"] == 0:
+		audioplayer.play_sound("SoundPlayerCorrupt")
+		player_corruption += amount
+		Player.color = 0
+		var parts = corr_parts.instance()
+		parts.set_position(Player.get_position())
+		parts.set_amount(player_corruption * 2)
+		parts.set_emitting(true)
+		get_parent().get_node("Node2D").add_child(parts)
 	
 # ======================================================================== TOOL FUNCTIONS
 func wave(from, to, duration, offset, time_var, delta):

@@ -73,9 +73,10 @@ __meta__ = {
 position = Vector2( 32, 126 )
 scale = Vector2( 0.25, 0.125 )
 target_scene = "res://Scenes/Dungeon 2/Dungeon2-10.tscn"
-target_x = 0
+target_x = 32
 target_y = 10
 direction = "down"
+not_cell = true
 
 [node name="Sprite" type="Sprite" parent="." index="4"]
 

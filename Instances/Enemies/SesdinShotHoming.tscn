@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Objects/Combat/SesdinShotHoming.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Particles/Teleport.png" type="Texture" id=2]
 [ext_resource path="res://Sounds/Characters/Burst.wav" type="AudioStream" id=3]
+[ext_resource path="res://Sounds/Characters/Shock.wav" type="AudioStream" id=4]
 
 [sub_resource type="Gradient" id=1]
 
@@ -80,7 +81,9 @@ animations = [ {
 custom_solver_bias = 0.0
 radius = 5.09902
 
-[node name="SesdinShotHoming" type="KinematicBody2D"]
+[node name="SesdinShotHoming" type="KinematicBody2D" groups=[
+"SesdinShots",
+]]
 
 position = Vector2( 15, 102 )
 input_pickable = false
@@ -141,7 +144,25 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="TimerFire" type="Timer" parent="." index="4"]
+[node name="SoundExplode" type="AudioStreamPlayer" parent="." index="4"]
+
+stream = ExtResource( 4 )
+volume_db = 4.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="SoundExplode2" type="AudioStreamPlayer" parent="." index="5"]
+
+stream = ExtResource( 3 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="TimerFire" type="Timer" parent="." index="6"]
 
 process_mode = 1
 wait_time = 2.0

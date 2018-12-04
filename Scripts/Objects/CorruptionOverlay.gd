@@ -16,5 +16,5 @@ func _ready():
 	$TimerCorrupt.start()
 
 func _on_TimerCorrupt_timeout():
-	if corrupt and player.state != player.NO_INPUT and player.state != player.DIALOGUE:
+	if corrupt and controller.flag["holding_gatekey"] == 0 and player.state != player.NO_INPUT and player.state != player.DIALOGUE:
 		cont.player_corrupt(1)

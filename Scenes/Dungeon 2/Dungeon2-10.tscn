@@ -73,9 +73,10 @@ direction = "down"
 position = Vector2( 32, 4 )
 scale = Vector2( 0.25, 0.15625 )
 target_scene = "res://Scenes/Dungeon 2/Dungeon2-11.tscn"
-target_x = 0
+target_x = 32
 target_y = 100
 direction = "up"
+not_cell = true
 
 [node name="Sentry" parent="." index="6" instance=ExtResource( 7 )]
 

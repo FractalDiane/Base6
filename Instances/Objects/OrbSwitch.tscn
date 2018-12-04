@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Objects/OrbSwitch.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Props/Orb switch on.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Props/Orb switch.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Props/Orb switch.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Props/Orb switch on.png" type="Texture" id=3]
 [ext_resource path="res://Sounds/Objects/Switch.wav" type="AudioStream" id=4]
 [ext_resource path="res://Sounds/Objects/Tick.wav" type="AudioStream" id=5]
 [ext_resource path="res://Sprites/Props/Orb switch progress.png" type="Texture" id=6]
@@ -12,12 +12,12 @@
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "on",
+"name": "off",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "off",
+"name": "on",
 "speed": 5.0
 } ]
 
@@ -51,6 +51,7 @@ allow_bow = true
 allow_sword = true
 target_flag = "null"
 reemit_signal = null
+is_boss = false
 
 [node name="Sprite" type="AnimatedSprite" parent="." index="0"]
 

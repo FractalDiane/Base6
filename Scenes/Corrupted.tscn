@@ -47,7 +47,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Emission Shape", "Gravity", "Hue Variation", "Initial Velocity" ]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -137,10 +137,19 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
+[node name="Timer" type="Timer" parent="." index="7"]
+
+process_mode = 1
+wait_time = 1.4
+one_shot = true
+autostart = true
+
 [connection signal="timeout" from="TimerParts" to="." method="_on_TimerParts_timeout"]
 
 [connection signal="timeout" from="TimerSoundEffect" to="." method="_on_TimerSoundEffect_timeout"]
 
 [connection signal="timeout" from="TimerDarkness" to="." method="_on_TimerDarkness_timeout"]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 

@@ -259,3 +259,10 @@ func _on_TimerEnableSlamHitbox_timeout():
 	else:
 		hbslam.set_scale(Vector2(1,1))
 	hbslam.get_node("CollisionPolygon2D").set_disabled(false)
+
+func _on_HBRanged_body_entered(body):
+	if body.is_in_group("Arrow"):
+		body.coll_manually()
+		Player.get_node("SoundDealDamage").play(0)
+		deal_damage()
+		alert = true

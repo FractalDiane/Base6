@@ -29,7 +29,7 @@ func _physics_process(delta):
 	var colliding = get_overlapping_bodies()
 	
 	for obj in colliding:
-		if obj.get_name() == "Player" and not Player.warp:
+		if obj.get_name() == "Player" and not Player.warp and Player.state != Player.NO_INPUT:
 			var player_x = obj.get_position().x
 			var player_y = obj.get_position().y
 			var target_x_f

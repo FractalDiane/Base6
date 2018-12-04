@@ -3,9 +3,9 @@
 [ext_resource path="res://Scripts/Objects/Combat/SesdinSpike.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Combat/Sesdin spike 1.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Combat/Sesdin spike 2.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Combat/Sesdin spike 3.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Combat/Sesdin spike 4.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Combat/Sesdin spike 5.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Combat/Sesdin spike 4.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Combat/Sesdin spike 5.png" type="Texture" id=5]
+[ext_resource path="res://Sounds/Characters/SesdinSpike.wav" type="AudioStream" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -15,7 +15,7 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "active",
 "speed": 15.0
@@ -38,12 +38,17 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Sprite" type="AnimatedSprite" parent="." index="0"]
 
+position = Vector2( 1, 7 )
+scale = Vector2( 1e-005, 1e-005 )
 frames = SubResource( 1 )
 animation = "idle"
 playing = true
+offset = Vector2( -1, -7 )
+_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
@@ -59,13 +64,31 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TimerActivate" type="Timer" parent="." index="2"]
+[node name="SoundSpike" type="AudioStreamPlayer" parent="." index="2"]
+
+stream = ExtResource( 6 )
+volume_db = -3.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="TimerActivate" type="Timer" parent="." index="3"]
 
 process_mode = 1
 wait_time = 1.25
 one_shot = true
 autostart = true
 
+[node name="TimerFade" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 0.6
+one_shot = true
+autostart = false
+
 [connection signal="timeout" from="TimerActivate" to="." method="_on_TimerActivate_timeout"]
+
+[connection signal="timeout" from="TimerFade" to="." method="_on_TimerFade_timeout"]
 
 

@@ -49,7 +49,6 @@ func interaction():
 			controller.dialogue_registry(text[dialogue_set],self,box_x,box_y,box_width,box_height)
 
 func dialogue_override():
-	print("TEST")
 	if not registry:
 		controller.dialogue(text[dialogue_set],self,box_x,box_y,box_width,box_height)
 	else:

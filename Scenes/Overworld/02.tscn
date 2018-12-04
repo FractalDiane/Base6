@@ -63,6 +63,7 @@ direction = "left"
 [node name="Tree" parent="." index="8" instance=ExtResource( 8 )]
 
 position = Vector2( 55, 67 )
+_sections_unfolded = [ "Z Index" ]
 
 [node name="DeadTree" parent="." index="9" instance=ExtResource( 9 )]
 

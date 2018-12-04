@@ -8,9 +8,6 @@ var hit = false
 var vel_x = 0
 var vel_y = 0
 
-func _ready():
-	pass
-
 func _physics_process(delta):
 	set_z_index(get_position().y)
 	
@@ -49,20 +46,26 @@ func _physics_process(delta):
 	set_rotation_degrees(-direction)
 	var coll = move_and_collide(velocity)
 	
-	#var coll_e = get_slide_collision(1)
-	#if coll_e != null and coll_e.is_in_group("Enemies"):
-		#print("HELLO")
-	
 	if coll:
 		$SoundPlink.play(0)
-		#print(coll.collider.name)
 		speed = 0
 		vel_y = -6
 		$CollisionPolygon2D.set_disabled(true)
 		hit = true
 		if coll.collider.is_in_group("OrbSwitch"):
 			coll.collider.press()
-		#if obj.is_in_group("OrbSwitch"):
-			#obj.press()
-	
-		
+		if coll.collider.is_in_group("Enemies"):
+			coll.collider.deal_damage()
+		if coll.collider.is_in_group("SesdinBoss"):
+			coll.collider.block()
+		if coll.collider.is_in_group("SesdinShots"):
+			if not coll.collider.exploded and not coll.collider.fired:
+				coll.collider.explode()
+				get_tree().get_root().get_node("Node2D").get_node("SesdinBoss").damage()
+
+func coll_manually():
+	$SoundPlink.play(0)
+	speed = 0
+	vel_y = -6
+	$CollisionPolygon2D.set_disabled(true)
+	hit = true

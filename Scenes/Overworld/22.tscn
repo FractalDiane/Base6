@@ -19,12 +19,12 @@
 animations = [ {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
@@ -196,7 +196,6 @@ position = Vector2( 0, -1 )
 
 visible = true
 position = Vector2( 0, -29 )
-frame = 2
 
 [node name="Fountain" type="StaticBody2D" parent="." index="8"]
 

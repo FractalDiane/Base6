@@ -1,22 +1,23 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
-[ext_resource path="res://Tilesets/TilesetMain.tres" type="TileSet" id=1]
-[ext_resource path="res://Sprites/Props/FancyRug.png" type="Texture" id=2]
-[ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Sounds/Music/White Noise.wav" type="AudioStream" id=5]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scripts/Objects/Prop.gd" type="Script" id=7]
-[ext_resource path="res://Sprites/Props/Pot.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Props/Plant.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Props/Clock.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Props/Shop counter.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Props/Note.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Props/Coins.png" type="Texture" id=13]
-[ext_resource path="res://Instances/NPCs/NPCMasterNew.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Sprites/Characters/Iiro/Iiro down.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Props/TableSmall.png" type="Texture" id=16]
-[ext_resource path="res://Instances/Items/ShopItem.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scripts/Scenes/Shop.gd" type="Script" id=1]
+[ext_resource path="res://Tilesets/TilesetMain.tres" type="TileSet" id=2]
+[ext_resource path="res://Sprites/Props/FancyRug.png" type="Texture" id=3]
+[ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sounds/Music/White Noise.wav" type="AudioStream" id=6]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/Objects/Prop.gd" type="Script" id=8]
+[ext_resource path="res://Sprites/Props/Pot.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Props/Plant.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Props/Clock.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Props/Shop counter.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Props/Note.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Props/Coins.png" type="Texture" id=14]
+[ext_resource path="res://Instances/NPCs/NPCMasterNew.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Sprites/Characters/Iiro/Iiro down.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Props/TableSmall.png" type="Texture" id=17]
+[ext_resource path="res://Instances/Items/ShopItem.tscn" type="PackedScene" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -36,22 +37,22 @@ extents = Vector2( 35.5, 19 )
 [sub_resource type="SpriteFrames" id=4]
 
 animations = [ {
-"frames": [ ExtResource( 15 ) ],
-"loop": true,
-"name": "left",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 15 ) ],
+"frames": [ ExtResource( 16 ) ],
 "loop": true,
 "name": "right",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ) ],
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
 "loop": true,
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ) ],
+"frames": [ ExtResource( 16 ) ],
 "loop": true,
 "name": "down",
 "speed": 5.0
@@ -69,12 +70,13 @@ extents = Vector2( 9.5, 10 )
 
 [node name="Node2D" type="Node2D"]
 
+script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
 
 mode = 0
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 8, 8 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -98,7 +100,7 @@ __meta__ = {
 [node name="TileMap2" type="TileMap" parent="." index="1"]
 
 mode = 0
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 8, 8 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -122,18 +124,19 @@ __meta__ = {
 [node name="Rug" type="Sprite" parent="." index="2"]
 
 position = Vector2( 81, 102 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
-[node name="UI" parent="." index="3" instance=ExtResource( 3 )]
+[node name="UI" parent="." index="3" instance=ExtResource( 4 )]
 
-[node name="CellLabel" parent="." index="4" instance=ExtResource( 4 )]
+[node name="CellLabel" parent="." index="4" instance=ExtResource( 5 )]
 
 visible = false
+text = "21"
 cell_index_x = -1
 cell_index_y = -1
-cell_music = ExtResource( 5 )
+cell_music = ExtResource( 6 )
 
-[node name="Transition" parent="." index="5" instance=ExtResource( 6 )]
+[node name="Transition" parent="." index="5" instance=ExtResource( 7 )]
 
 position = Vector2( 80, 123 )
 scale = Vector2( 0.25, 0.0937501 )
@@ -153,11 +156,11 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 
 [node name="Sprite" type="Sprite" parent="Pot2" index="0"]
 
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -180,11 +183,11 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 
 [node name="Sprite" type="Sprite" parent="Pot3" index="0"]
 
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -207,11 +210,11 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 
 [node name="Sprite" type="Sprite" parent="Pot4" index="0"]
 
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -234,11 +237,11 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 
 [node name="Sprite" type="Sprite" parent="Plant" index="0"]
 
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -262,11 +265,11 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 
 [node name="Sprite" type="Sprite" parent="Plant2" index="0"]
 
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -283,7 +286,7 @@ __meta__ = {
 [node name="Clock" type="Sprite" parent="." index="11"]
 
 position = Vector2( 59, 24 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -298,13 +301,13 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Pickable", "Z Index" ]
 
 [node name="Sprite" type="Sprite" parent="Counter" index="0"]
 
 position = Vector2( -1, 10 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 offset = Vector2( 1, -10 )
 __meta__ = {
 "_edit_lock_": true
@@ -314,7 +317,7 @@ __meta__ = {
 
 position = Vector2( -23, 3 )
 scale = Vector2( 1, -1 )
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -323,7 +326,7 @@ __meta__ = {
 [node name="Sprite3" type="Sprite" parent="Counter" index="2"]
 
 position = Vector2( -24, -12 )
-texture = ExtResource( 13 )
+texture = ExtResource( 14 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -337,10 +340,10 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="NPCIiro" parent="." index="13" instance=ExtResource( 14 )]
+[node name="NPCIiro" parent="." index="13" instance=ExtResource( 15 )]
 
 position = Vector2( 73, 56 )
-text = [ [ "Look who it is.", "Been a while, Fiore.", "I guess the corruption ain't killed you yet.", "That's good.", "Ain't killed me, either.", "Takes more than crap like that to put Iiro down.", "Anyway.", "Buy my junk.", "Because I still got all the stuff.", "And I don't care if the whole world's fallin' down.", "I'm still sellin' stuff." ], [ "This corruption's pissin' me off.", "I mean, seriously. The world endin'?", "That's bad for business.", "Say, about your dad...", "Ain't he the one who caused all this?", "I'm not even sure. Never liked him.", "All I know is that next time I see him...", "I'm gonna slap him.", "Long as he's not dead.", "Heh heh..." ], [ "You seen Jari lately?", "Tell him I said hi.", "He'd appreciate it.", "...Heh heh..." ], [ "Okay, Fiore...", "I know I've got a really cool accent.", "But you should really stop talkin' to me now." ] ]
+text = [ [ "Look who it is.", "Been a while, Fiore.", "I guess the corruption ain't killed you yet.", "That's good.", "Ain't killed me, either.", "Takes more than crap like that to put Iiro down.", "Anyway.", "Buy my junk.", "Because I still got all the stuff.", "And I don't care if the whole world's fallin' down.", "I'm still sellin' stuff.", "Everythin' I'm selling is on the right counter." ], [ "This corruption's pissin' me off.", "I mean, seriously. The world endin'?", "That's bad for business.", "Say, about your dad...", "Ain't he the one who caused all this?", "I'm not even sure. Never liked him.", "All I know is that next time I see him...", "I'm gonna slap him.", "Long as he's not dead.", "Heh heh..." ], [ "You seen Jari lately?", "Tell him I said hi.", "He'd appreciate it.", "...Heh heh..." ], [ "Okay, Fiore...", "I know I've got a really cool accent.", "But you should really stop talkin' to me now." ] ]
 dialogue_key = "iiro_talk"
 auto_advance_limit = 3
 box_x = 28
@@ -360,7 +363,7 @@ shape = SubResource( 5 )
 [node name="Interact" parent="NPCIiro" index="2"]
 
 position = Vector2( -1, -19 )
-frame = 0
+frame = 1
 
 [node name="Table2" type="StaticBody2D" parent="." index="14"]
 
@@ -375,7 +378,7 @@ bounce = 0.0
 
 [node name="Sprite" type="Sprite" parent="Table2" index="0"]
 
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -392,12 +395,12 @@ __meta__ = {
 [node name="Sprite2" type="Sprite" parent="Table2" index="2"]
 
 position = Vector2( 0, -4 )
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="ShopItem" parent="." index="15" instance=ExtResource( 17 )]
+[node name="ShopItem" parent="." index="15" instance=ExtResource( 18 )]
 
 position = Vector2( 93, 66 )
 

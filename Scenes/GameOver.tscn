@@ -121,7 +121,7 @@ bus = "Master"
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 4
+frame = 10
 playing = true
 centered = false
 
@@ -130,7 +130,7 @@ centered = false
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 4
+frame = 10
 playing = true
 centered = false
 
@@ -139,7 +139,7 @@ centered = false
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 4
+frame = 10
 playing = true
 centered = false
 
@@ -148,7 +148,7 @@ centered = false
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 4
+frame = 10
 playing = true
 centered = false
 
@@ -157,7 +157,7 @@ centered = false
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 4
+frame = 10
 playing = true
 centered = false
 
@@ -166,7 +166,7 @@ centered = false
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 4
+frame = 10
 playing = true
 centered = false
 
@@ -175,7 +175,7 @@ centered = false
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 4
+frame = 10
 playing = true
 centered = false
 
@@ -184,7 +184,7 @@ centered = false
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 4
+frame = 10
 playing = true
 centered = false
 
@@ -193,7 +193,7 @@ centered = false
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 4
+frame = 10
 playing = true
 centered = false
 
@@ -202,7 +202,7 @@ centered = false
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 4
+frame = 10
 playing = true
 centered = false
 _sections_unfolded = [ "Material", "Visibility" ]
@@ -212,7 +212,7 @@ _sections_unfolded = [ "Material", "Visibility" ]
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 4
+frame = 10
 playing = true
 centered = false
 
@@ -221,7 +221,7 @@ centered = false
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 4
+frame = 10
 playing = true
 centered = false
 
@@ -230,7 +230,7 @@ centered = false
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 4
+frame = 10
 playing = true
 centered = false
 
@@ -239,7 +239,7 @@ centered = false
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 4
+frame = 10
 playing = true
 centered = false
 
@@ -248,7 +248,7 @@ centered = false
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 4
+frame = 10
 playing = true
 centered = false
 
@@ -257,7 +257,7 @@ centered = false
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 4
+frame = 10
 playing = true
 centered = false
 
@@ -266,7 +266,7 @@ centered = false
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 4
+frame = 10
 playing = true
 centered = false
 
@@ -275,7 +275,7 @@ centered = false
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 4
+frame = 10
 playing = true
 centered = false
 
