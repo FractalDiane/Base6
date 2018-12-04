@@ -93,9 +93,6 @@ func _physics_process(delta):
 		var coll = get_slide_collision(0)
 		if coll.collider.is_in_group("Pushables"):
 			coll.collider.apply_impulse(Vector2(0,0), face * 3)
-			
-	if Input.is_action_just_pressed("ui_debug1"):
-		controller.flag["holding_bow"] = 1
 	
 func state_walk():
 	# Set Motion and Face
