@@ -13,7 +13,7 @@ config_version=3
 config/name="BASE-6"
 run/main_scene="res://Scenes/Startup.tscn"
 boot_splash/image="res://Sprites/Splash.png"
-config/icon="res://icon.png"
+config/icon="res://Icon large.png"
 
 [autoload]
 
