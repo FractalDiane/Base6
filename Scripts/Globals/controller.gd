@@ -16,9 +16,7 @@ var player_gold = 20
 var player_potions = 3
 
 # Audio variables
-var audio_music_volume = 0.0
 var audio_music_percent = 100.0
-var audio_effects_volume = 0.0
 var audio_effects_percent = 100.0
 
 var current_scene = null
@@ -28,9 +26,9 @@ var corrupted_cells_add = []
 
 func _ready():
 	audio_music_percent = Config.file.get_value("Audio", "music_volume", 100)
-	audio_music_volume = percent_to_decibel(audio_music_percent)
+	update_bus_volume(1, audio_music_percent)
 	audio_effects_percent = Config.file.get_value("Audio", "effects_volume", 100)
-	audio_effects_volume = percent_to_decibel(audio_effects_percent)
+	update_bus_volume(1, audio_music_percent)
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
 	main = get_parent().get_node("Node2D")
@@ -107,4 +105,11 @@ func wave(from, to, duration, offset, time_var, delta):
 	return from + a + sin((((time_var * delta) + duration * offset) / duration) * (PI/2)) * a
 
 func percent_to_decibel(percent):
-	return 10 * log(percent / 100)
+	return (percent - 100) + (40 - 40*(percent / 100))
+
+func update_bus_volume(bus_idx, percent):
+	AudioServer.set_bus_volume_db(bus_idx, percent_to_decibel(percent))
+	if percent <= 0:
+		AudioServer.set_bus_mute(bus_idx, true)
+	else:
+		AudioServer.set_bus_mute(bus_idx, false)

@@ -26,7 +26,6 @@ var credits_accs = [1,1,1,1,1,1,1,1,1,1,1,1,1]
 var credits_alphas = [0,0,0,0,0,0,0,0,0,0,0,0,0]
 var credits_cancel = false
 
-var settings_t = 0
 var go_to_settings = false
 var settings_state = 0
 var settings_alpha = 0
@@ -282,7 +281,7 @@ func _on_TimerTransition2_timeout():
 	TransitionNoise.active = true
 	audioplayer.fade_noise = false
 	audioplayer.fade_noise_sub = -0.3
-	audioplayer.get_node("SoundNoiseTransition").set_volume_db(-5 + controller.audio_effects_volume)
+	audioplayer.get_node("SoundNoiseTransition").set_volume_db(-5)
 	audioplayer.get_node("SoundNoiseTransition").play(0)
 	$TimerStartGame.start()
 
@@ -317,29 +316,14 @@ func _on_TimerShowSettings_timeout():
 	settings_state = 0
 	$"OptionsGroup/Music Slider".visible = true
 	$"OptionsGroup/Effects Slider".visible = true
-#	for node in $OptionsGroup.get_children():
-#		node.set_modulate(Color(1, 1, 1, 1))
-
 
 func _on_Music_Slider_value_changed(value):
-	controller.audio_music_volume = controller.percent_to_decibel(value)
 	controller.audio_music_percent = value
-	$MusicSample.set_volume_db(controller.audio_music_volume)
-	for node in audioplayer.get_children():
-		if node is AudioStreamPlayer:
-			node.update_volume()
+	controller.update_bus_volume(1, controller.audio_music_percent)
 	
 func _on_Effects_Slider_value_changed(value):
-	controller.audio_effects_volume = controller.percent_to_decibel(value)
 	controller.audio_effects_percent = value
-	$SoundCursor.update_volume()
-	$SoundSelect.update_volume()
-	for node in Player.get_children():
-		if node is AudioStreamPlayer:
-			node.update_volume()
-	for node in audioplayer.get_children():
-		if node is AudioStreamPlayer:
-			node.update_volume()
+	controller.update_bus_volume(2, controller.audio_effects_percent)
 
 func _on_Music_Slider_gui_input(ev):
 	if ev is InputEventMouseButton:

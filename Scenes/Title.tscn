@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Scripts/Scenes/Title.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Splash.png" type="Texture" id=2]
@@ -12,21 +12,22 @@
 [ext_resource path="res://Sounds/UI/cursor.wav" type="AudioStream" id=10]
 [ext_resource path="res://Scripts/System/EffectAudio.gd" type="Script" id=11]
 [ext_resource path="res://Sounds/UI/select2.wav" type="AudioStream" id=12]
-[ext_resource path="res://Fonts/font_large.tres" type="DynamicFont" id=13]
-[ext_resource path="res://Fonts/font_cell.tres" type="DynamicFont" id=14]
+[ext_resource path="res://Scripts/System/MusicAudio.gd" type="Script" id=13]
+[ext_resource path="res://Fonts/font_large.tres" type="DynamicFont" id=14]
+[ext_resource path="res://Fonts/font_cell.tres" type="DynamicFont" id=15]
 
-[sub_resource type="Gradient" id=8]
+[sub_resource type="Gradient" id=1]
 
 offsets = PoolRealArray( 0, 0.516447, 1 )
 colors = PoolColorArray( 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0 )
 
-[sub_resource type="GradientTexture" id=9]
+[sub_resource type="GradientTexture" id=2]
 
 flags = 4
-gradient = SubResource( 8 )
+gradient = SubResource( 1 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=10]
+[sub_resource type="ParticlesMaterial" id=3]
 
 render_priority = 0
 trail_divisor = 1
@@ -56,7 +57,7 @@ angle = 0.0
 angle_random = 0.0
 scale = 1.0
 scale_random = 0.0
-color_ramp = SubResource( 9 )
+color_ramp = SubResource( 2 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -66,42 +67,42 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angular Velocity", "Color", "Emission Shape", "Gravity", "Initial Velocity", "Spread" ]
 
-[sub_resource type="ShaderMaterial" id=11]
+[sub_resource type="ShaderMaterial" id=4]
 
 render_priority = 0
 shader = ExtResource( 8 )
 shader_param/invertColor = true
 _sections_unfolded = [ "shader_param" ]
 
-[sub_resource type="ShaderMaterial" id=12]
+[sub_resource type="ShaderMaterial" id=5]
 
 render_priority = 0
 shader = ExtResource( 8 )
 shader_param/invertColor = true
 _sections_unfolded = [ "shader_param" ]
 
-[sub_resource type="ShaderMaterial" id=13]
+[sub_resource type="ShaderMaterial" id=6]
 
 render_priority = 0
 shader = ExtResource( 8 )
 shader_param/invertColor = true
 _sections_unfolded = [ "shader_param" ]
 
-[sub_resource type="StyleBoxEmpty" id=18]
+[sub_resource type="StyleBoxEmpty" id=7]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
 content_margin_top = -1.0
 content_margin_bottom = -1.0
 
-[sub_resource type="StyleBoxEmpty" id=14]
+[sub_resource type="StyleBoxEmpty" id=8]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
 content_margin_top = -1.0
 content_margin_bottom = -1.0
 
-[sub_resource type="StyleBoxFlat" id=15]
+[sub_resource type="StyleBoxFlat" id=9]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -129,14 +130,14 @@ shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
 
-[sub_resource type="StyleBoxEmpty" id=19]
+[sub_resource type="StyleBoxEmpty" id=10]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
 content_margin_top = -1.0
 content_margin_bottom = -1.0
 
-[sub_resource type="StyleBoxEmpty" id=17]
+[sub_resource type="StyleBoxEmpty" id=11]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -174,7 +175,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 10 )
+process_material = SubResource( 3 )
 texture = ExtResource( 5 )
 normal_map = null
 h_frames = 1
@@ -373,7 +374,7 @@ _sections_unfolded = [ "Margin", "custom_colors", "custom_fonts" ]
 
 [node name="Box1" type="Sprite" parent="." index="20"]
 
-material = SubResource( 11 )
+material = SubResource( 4 )
 position = Vector2( 80, 86.5 )
 scale = Vector2( 2.8, 0.9 )
 texture = ExtResource( 9 )
@@ -381,7 +382,7 @@ _sections_unfolded = [ "Material", "Offset", "Transform", "Visibility" ]
 
 [node name="Box2" type="Sprite" parent="." index="21"]
 
-material = SubResource( 11 )
+material = SubResource( 4 )
 position = Vector2( 79.5, 97.5 )
 scale = Vector2( 3.9, 0.9 )
 texture = ExtResource( 9 )
@@ -389,7 +390,7 @@ _sections_unfolded = [ "Material", "Offset", "Transform", "Visibility" ]
 
 [node name="Box3" type="Sprite" parent="." index="22"]
 
-material = SubResource( 12 )
+material = SubResource( 5 )
 position = Vector2( 79.5, 108.5 )
 scale = Vector2( 3.7, 0.9 )
 texture = ExtResource( 9 )
@@ -397,7 +398,7 @@ _sections_unfolded = [ "Material", "Offset", "Transform", "Visibility" ]
 
 [node name="Box4" type="Sprite" parent="." index="23"]
 
-material = SubResource( 13 )
+material = SubResource( 6 )
 position = Vector2( 80, 119.5 )
 scale = Vector2( 2, 0.9 )
 texture = ExtResource( 9 )
@@ -431,7 +432,7 @@ pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
-script = ExtResource( 11 )
+script = ExtResource( 13 )
 
 [node name="Transition" type="Sprite" parent="." index="27"]
 
@@ -462,7 +463,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 13 )
+custom_fonts/font = ExtResource( 14 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "BASE-6"
 percent_visible = 1.0
@@ -487,7 +488,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 14 )
+custom_fonts/font = ExtResource( 15 )
 custom_colors/font_color = Color( 0.597656, 0.597656, 0.597656, 1 )
 text = "Developed by:"
 percent_visible = 1.0
@@ -687,7 +688,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 14 )
+custom_fonts/font = ExtResource( 15 )
 custom_colors/font_color = Color( 0.597656, 0.597656, 0.597656, 1 )
 text = "Additional Art:"
 percent_visible = 1.0
@@ -737,7 +738,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 14 )
+custom_fonts/font = ExtResource( 15 )
 custom_colors/font_color = Color( 0.597656, 0.597656, 0.597656, 1 )
 text = "Playtesting:"
 percent_visible = 1.0
@@ -789,7 +790,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 13 )
+custom_fonts/font = ExtResource( 14 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "OPTIONS"
 percent_visible = 1.0
@@ -851,7 +852,7 @@ _sections_unfolded = [ "Margin", "Material", "Rect", "Visibility", "custom_color
 
 visible = false
 modulate = Color( 1, 1, 1, 0 )
-material = SubResource( 11 )
+material = SubResource( 4 )
 position = Vector2( 21, 33.5 )
 scale = Vector2( 2.8, 0.9 )
 texture = ExtResource( 9 )
@@ -861,7 +862,7 @@ _sections_unfolded = [ "Material", "Offset", "Transform", "Visibility", "Z Index
 
 visible = false
 modulate = Color( 1, 1, 1, 0 )
-material = SubResource( 11 )
+material = SubResource( 4 )
 position = Vector2( 25.5, 62.5 )
 scale = Vector2( 3.7, 0.9 )
 texture = ExtResource( 9 )
@@ -871,7 +872,7 @@ _sections_unfolded = [ "Material", "Offset", "Transform", "Visibility" ]
 
 visible = false
 modulate = Color( 1, 1, 1, 0 )
-material = SubResource( 11 )
+material = SubResource( 4 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -890,11 +891,11 @@ size_flags_vertical = 0
 custom_icons/tick = ExtResource( 9 )
 custom_icons/grabber_highlight = ExtResource( 9 )
 custom_icons/grabber = ExtResource( 9 )
-custom_styles/slider = SubResource( 18 )
-custom_styles/grabber_disabled = SubResource( 14 )
-custom_styles/grabber_highlight = SubResource( 15 )
-custom_styles/grabber_area = SubResource( 19 )
-custom_styles/focus = SubResource( 17 )
+custom_styles/slider = SubResource( 7 )
+custom_styles/grabber_disabled = SubResource( 8 )
+custom_styles/grabber_highlight = SubResource( 9 )
+custom_styles/grabber_area = SubResource( 10 )
+custom_styles/focus = SubResource( 11 )
 min_value = 0.0
 max_value = 100.0
 step = 1.0
@@ -910,7 +911,7 @@ _sections_unfolded = [ "Material", "Rect", "Visibility", "custom_icons", "custom
 
 [node name="Bar" type="Sprite" parent="OptionsGroup/Music Slider" index="0"]
 
-material = SubResource( 11 )
+material = SubResource( 4 )
 position = Vector2( 73, 8 )
 scale = Vector2( 14.6, 0.2 )
 texture = ExtResource( 9 )
@@ -920,7 +921,7 @@ _sections_unfolded = [ "Material", "Offset" ]
 
 visible = false
 modulate = Color( 1, 1, 1, 0 )
-material = SubResource( 11 )
+material = SubResource( 4 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -939,11 +940,11 @@ size_flags_vertical = 0
 custom_icons/tick = ExtResource( 9 )
 custom_icons/grabber_highlight = ExtResource( 9 )
 custom_icons/grabber = ExtResource( 9 )
-custom_styles/slider = SubResource( 18 )
-custom_styles/grabber_disabled = SubResource( 14 )
-custom_styles/grabber_highlight = SubResource( 15 )
-custom_styles/grabber_area = SubResource( 19 )
-custom_styles/focus = SubResource( 17 )
+custom_styles/slider = SubResource( 7 )
+custom_styles/grabber_disabled = SubResource( 8 )
+custom_styles/grabber_highlight = SubResource( 9 )
+custom_styles/grabber_area = SubResource( 10 )
+custom_styles/focus = SubResource( 11 )
 min_value = 0.0
 max_value = 100.0
 step = 1.0
@@ -959,7 +960,7 @@ _sections_unfolded = [ "Material", "Rect", "Visibility", "custom_icons", "custom
 
 [node name="Bar" type="Sprite" parent="OptionsGroup/Effects Slider" index="0"]
 
-material = SubResource( 11 )
+material = SubResource( 4 )
 position = Vector2( 73, 8 )
 scale = Vector2( 14.6, 0.2 )
 texture = ExtResource( 9 )
