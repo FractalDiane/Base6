@@ -1,16 +1,17 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Items/ShopItem.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Items/PotionBottle.png" type="Texture" id=2]
 [ext_resource path="res://Fonts/font_small.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Sounds/Objects/BuyItem.wav" type="AudioStream" id=4]
+[ext_resource path="res://Scripts/System/EffectAudio.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 2.5, 5 )
 
-[node name="ShopItem" type="StaticBody2D" groups=[
+[node name="ShopItem" type="StaticBody2D" index="0" groups=[
 "Item",
 ]]
 
@@ -88,6 +89,7 @@ pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+script = ExtResource( 5 )
 
 [connection signal="timeout" from="TimerHideInteract" to="." method="_on_TimerHideInteract_timeout"]
 

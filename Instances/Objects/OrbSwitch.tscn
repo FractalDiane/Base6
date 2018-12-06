@@ -1,23 +1,24 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Objects/OrbSwitch.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Props/Orb switch.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Props/Orb switch on.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Props/Orb switch on.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Props/Orb switch.png" type="Texture" id=3]
 [ext_resource path="res://Sounds/Objects/Switch.wav" type="AudioStream" id=4]
-[ext_resource path="res://Sounds/Objects/Tick.wav" type="AudioStream" id=5]
-[ext_resource path="res://Sprites/Props/Orb switch progress.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/System/EffectAudio.gd" type="Script" id=5]
+[ext_resource path="res://Sounds/Objects/Tick.wav" type="AudioStream" id=6]
+[ext_resource path="res://Sprites/Props/Orb switch progress.png" type="Texture" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "off",
+"name": "on",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "on",
+"name": "off",
 "speed": 5.0
 } ]
 
@@ -31,7 +32,7 @@ extents = Vector2( 5, 6 )
 custom_solver_bias = 0.0
 extents = Vector2( 4, 4 )
 
-[node name="OrbSwitch" type="StaticBody2D" groups=[
+[node name="OrbSwitch" type="StaticBody2D" index="0" groups=[
 "OrbSwitch",
 ]]
 
@@ -103,6 +104,7 @@ pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+script = ExtResource( 5 )
 
 [node name="TimerReemitSignal" type="Timer" parent="." index="4"]
 
@@ -120,12 +122,13 @@ autostart = false
 
 [node name="SoundTimer" type="AudioStreamPlayer" parent="." index="6"]
 
-stream = ExtResource( 5 )
+stream = ExtResource( 6 )
 volume_db = -4.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+script = ExtResource( 5 )
 
 [node name="TimerDisplay" type="TextureProgress" parent="." index="7"]
 
@@ -152,7 +155,7 @@ exp_edit = false
 rounded = false
 texture_under = null
 texture_over = null
-texture_progress = ExtResource( 6 )
+texture_progress = ExtResource( 7 )
 fill_mode = 5
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )

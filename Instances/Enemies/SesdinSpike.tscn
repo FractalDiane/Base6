@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Objects/Combat/SesdinSpike.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Combat/Sesdin spike 1.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Sprites/Combat/Sesdin spike 4.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Combat/Sesdin spike 5.png" type="Texture" id=5]
 [ext_resource path="res://Sounds/Characters/SesdinSpike.wav" type="AudioStream" id=6]
+[ext_resource path="res://Scripts/System/EffectAudio.gd" type="Script" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -27,7 +28,7 @@ custom_solver_bias = 0.0
 radius = 4.0
 height = 4.0
 
-[node name="SesdinSpike" type="Area2D"]
+[node name="SesdinSpike" type="Area2D" index="0"]
 
 position = Vector2( 69, 87 )
 input_pickable = true
@@ -43,7 +44,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="Sprite" type="AnimatedSprite" parent="." index="0"]
 
 position = Vector2( 1, 7 )
-scale = Vector2( 1e-005, 1e-005 )
+scale = Vector2( 1e-05, 1e-05 )
 frames = SubResource( 1 )
 animation = "idle"
 playing = true
@@ -72,6 +73,7 @@ pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+script = ExtResource( 7 )
 
 [node name="TimerActivate" type="Timer" parent="." index="3"]
 

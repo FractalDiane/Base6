@@ -26,13 +26,18 @@ var credits_accs = [1,1,1,1,1,1,1,1,1,1,1,1,1]
 var credits_alphas = [0,0,0,0,0,0,0,0,0,0,0,0,0]
 var credits_cancel = false
 
+var settings_t = 0
+var go_to_settings = false
+var settings_state = 0
+var settings_alpha = 0
+
 var transition_acc = 1
 var transition_active = false
 
 onready var logo = $Logo
 onready var wipe = $Transition
 onready var credits = $CreditsGroup
-onready var box2 = $Box2
+onready var box3 = $Box3
 
 func _ready():
 	Player.state = Player.NO_INPUT
@@ -41,6 +46,7 @@ func _ready():
 	logo.set_modulate(Color(1,1,1,0))
 	logo.position.y -= 40
 	options.append(get_node("START"))
+	options.append(get_node("OPTIONS"))
 	options.append(get_node("CREDITS"))
 	options.append(get_node("EXIT"))
 	
@@ -51,6 +57,7 @@ func _ready():
 	boxes[0] = get_node("Box1")
 	boxes[1] = get_node("Box2")
 	boxes[2] = get_node("Box3")
+	boxes[3] = get_node("Box4")
 	
 	for box in boxes:
 		boxes[box].set_modulate(Color(1,1,1,0))
@@ -61,6 +68,9 @@ func _ready():
 		
 	for node in credits.get_children():
 		node.margin_left -= 100
+	
+	$"OptionsGroup/Music Slider".value = controller.audio_music_percent
+	$"OptionsGroup/Effects Slider".value = controller.audio_effects_percent
 	
 func _physics_process(delta):
 	if logo_active:
@@ -92,8 +102,8 @@ func _physics_process(delta):
 			op.set_modulate(Color(1,1,1,options_alpha))
 			
 	if boxes_active:
-		if not box2.is_visible():
-			box2.show()
+		if not boxes[cursor].is_visible():
+			boxes[cursor].show()
 		boxes_alpha = clamp(boxes_alpha + 0.025,0,1)
 		for box in boxes:
 			if box == cursor:
@@ -142,6 +152,39 @@ func _physics_process(delta):
 
 				credits.get_child(i).margin_left = max(credits.get_child(i).margin_left - 4 * credits_accs[i],-95)
 				credits.get_child(i).set_modulate(Color(1,1,1,credits_alphas[i]))
+	
+	if go_to_settings:
+		match settings_state:
+			0:
+				for node in $OptionsGroup.get_children():
+					settings_alpha += delta
+					if settings_alpha < 1:
+						node.set_modulate(Color(0, 0, 0, settings_alpha))
+					else:
+						node.set_modulate(Color(0, 0, 0, 1))
+				if settings_alpha >= 1:
+					settings_state = 1
+			1:
+				pass
+			2:
+				for node in $OptionsGroup.get_children():
+					settings_alpha -= delta
+					if settings_alpha > 0:
+						node.set_modulate(Color(0, 0, 0, settings_alpha))
+					else:
+						node.set_modulate(Color(0, 0, 0, 0))
+				if settings_alpha <= 0:
+					settings_state = 0
+					go_to_settings = false
+					$"OptionsGroup/Music Slider".visible = false
+					$"OptionsGroup/Effects Slider".visible = false
+					for node in $OptionsGroup.get_children():
+						node.set_modulate(Color(1, 1, 1, 0))
+					$TimerShowStuff.start()
+					Config.file.set_value("Audio", "music_volume", controller.audio_music_percent)
+					Config.file.set_value("Audio", "effects_volume", controller.audio_effects_percent)
+					Config.save()
+				
 		
 	input()
 		
@@ -154,13 +197,13 @@ func input():
 		if Input.is_action_just_pressed("ui_up"):
 			$SoundCursor.play(0)
 			cursor -= 1
-			if cursor < 0:
-				cursor = 2
+			# Godot's modulo operator doesn't wrap negative numbers for some reason
+			# So we have to use fposmod, which does, and cast it back to int.
+			cursor = int(fposmod(cursor, len(boxes))) 
 		if Input.is_action_just_pressed("ui_down"):
 			$SoundCursor.play(0)
 			cursor += 1
-			if cursor > 2:
-				cursor = 0
+			cursor = cursor % len(boxes)
 	
 		if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("ui_select"):
 			$SoundSelect.play(0)
@@ -184,14 +227,18 @@ func input():
 					$TimerClearStuff.start()
 					$TimerTransition.start()
 					$TimerTransition2.start()
+				
+				1: # SETTINGS
+					$TimerClearStuff.start()
+					$TimerShowSettings.start()
 					
-				1: # CREDITS
+				2: # CREDITS
 					$TimerClearStuff.start()
 					credits_t = 0
 					credits_stage = -1
 					$TimerShowCredits.start()
 					
-				2: # EXIT
+				3: # EXIT
 					$TimerClearStuff.start()
 					$TimerExit.start()
 					$PartsTitle.set_emitting(false)
@@ -202,6 +249,9 @@ func input():
 			credits_stage = 0
 			roll_credits = false
 			$TimerShowStuff.start()
+	if go_to_settings:
+		if Input.is_action_just_pressed("ui_cancel"):
+			settings_state = 2
 
 func _on_TimerFadeInLogo_timeout():
 	logo_speed = 1.5
@@ -213,7 +263,8 @@ func _on_TimerFadeInOptions_timeout():
 func _on_TimerFadeInBoxes_timeout():
 	boxes_alpha = 0
 	boxes_active = true
-	box2.scale = Vector2(3.7,0.9)
+	$Box2.scale = Vector2(3.9, 0.9)
+	box3.scale = Vector2(3.7,0.9)
 	selected = false
 
 func _on_TimerClearStuff_timeout():
@@ -231,7 +282,7 @@ func _on_TimerTransition2_timeout():
 	TransitionNoise.active = true
 	audioplayer.fade_noise = false
 	audioplayer.fade_noise_sub = -0.3
-	audioplayer.get_node("SoundNoiseTransition").set_volume_db(-5)
+	audioplayer.get_node("SoundNoiseTransition").set_volume_db(-5 + controller.audio_effects_volume)
 	audioplayer.get_node("SoundNoiseTransition").play(0)
 	$TimerStartGame.start()
 
@@ -259,3 +310,44 @@ func _on_TimerShowStuff_timeout():
 	$TimerFadeInLogo.start()
 	$TimerFadeInOptions.start()
 	$TimerFadeInBoxes.start()
+
+
+func _on_TimerShowSettings_timeout():
+	go_to_settings = true
+	settings_state = 0
+	$"OptionsGroup/Music Slider".visible = true
+	$"OptionsGroup/Effects Slider".visible = true
+#	for node in $OptionsGroup.get_children():
+#		node.set_modulate(Color(1, 1, 1, 1))
+
+
+func _on_Music_Slider_value_changed(value):
+	controller.audio_music_volume = controller.percent_to_decibel(value)
+	controller.audio_music_percent = value
+	$MusicSample.set_volume_db(controller.audio_music_volume)
+	for node in audioplayer.get_children():
+		if node is AudioStreamPlayer:
+			node.update_volume()
+	
+func _on_Effects_Slider_value_changed(value):
+	controller.audio_effects_volume = controller.percent_to_decibel(value)
+	controller.audio_effects_percent = value
+	$SoundCursor.update_volume()
+	$SoundSelect.update_volume()
+	for node in Player.get_children():
+		if node is AudioStreamPlayer:
+			node.update_volume()
+	for node in audioplayer.get_children():
+		if node is AudioStreamPlayer:
+			node.update_volume()
+
+func _on_Music_Slider_gui_input(ev):
+	if ev is InputEventMouseButton:
+		if ev.pressed == false:
+			$MusicSample.play()
+
+
+func _on_Effects_Slider_gui_input(ev):
+	if ev is InputEventMouseButton:
+		if ev.pressed == false:
+			$SoundCursor.play()

@@ -78,6 +78,8 @@ reemit_signal = true
 
 [node name="PitController" parent="." index="5" instance=ExtResource( 6 )]
 
+has_platform = false
+
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PitController" index="3"]
 
 position = Vector2( -1, 0 )
@@ -113,8 +115,8 @@ target_x = 0
 target_y = 100
 direction = "up"
 
-[connection signal="on_trigger" from="OrbSwitch" to="PitController/Bridge" method="set_disabled" binds= [ false ]]
-
 [connection signal="on_trigger" from="OrbSwitch" to="TileMapBridges" method="show"]
+
+[connection signal="on_trigger" from="OrbSwitch" to="PitController/Bridge" method="set_disabled" binds= [ false ]]
 
 

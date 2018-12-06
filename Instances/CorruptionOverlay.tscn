@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Scripts/Objects/CorruptionOverlay.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Particles/Corruption.png" type="Texture" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Sprites/Effects/Noise 15.png" type="Texture" id=17]
 [ext_resource path="res://Sprites/Effects/Noise 16.png" type="Texture" id=18]
 [ext_resource path="res://Sounds/Player/Corrupt.wav" type="AudioStream" id=19]
+[ext_resource path="res://Scripts/System/EffectAudio.gd" type="Script" id=20]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -92,7 +93,7 @@ animations = [ {
 "speed": 30.0
 } ]
 
-[node name="CorruptionOverlay" type="CanvasLayer"]
+[node name="CorruptionOverlay" type="CanvasLayer" index="0"]
 
 layer = 10
 offset = Vector2( 0, 0 )
@@ -134,7 +135,7 @@ position = Vector2( 80, 72 )
 z_index = 2000
 frames = SubResource( 6 )
 animation = "default"
-frame = 13
+frame = 14
 playing = true
 _sections_unfolded = [ "Material", "Z Index" ]
 __meta__ = {
@@ -156,6 +157,7 @@ pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+script = ExtResource( 20 )
 
 [connection signal="timeout" from="TimerCorrupt" to="." method="_on_TimerCorrupt_timeout"]
 

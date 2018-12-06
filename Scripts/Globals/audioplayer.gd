@@ -21,14 +21,14 @@ func _physics_process(delta):
 		if not hum.is_playing():
 			hum.play(0)
 		if cont.player_corruption <= 5:
-			hum.set_volume_db(-46 + (3 * cont.player_corruption))
+			hum.set_volume_db(-46 + (3 * cont.player_corruption) + cont.audio_music_volume)
 		else:
-			hum.set_volume_db(-46 + (3.5 * cont.player_corruption))
+			hum.set_volume_db(-46 + (3.5 * cont.player_corruption) + cont.audio_music_volume)
 			
 	if fade_noise:
 		fade_noise_sub += 0.3
-		$SoundNoiseTransition.set_volume_db(-5 - fade_noise_sub)
-		if fade_noise_sub > 60:
+		$SoundNoiseTransition.set_volume_db(-5 - fade_noise_sub + cont.audio_music_volume)
+		if $SoundNoiseTransition.volume_db > 60:
 			fade_noise = false
 			$SoundNoiseTransition.stop()
 			

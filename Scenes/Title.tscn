@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scripts/Scenes/Title.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Splash.png" type="Texture" id=2]
@@ -10,22 +10,23 @@
 [ext_resource path="res://Shaders/invert.shader" type="Shader" id=8]
 [ext_resource path="res://Sprites/UI/Menu box.png" type="Texture" id=9]
 [ext_resource path="res://Sounds/UI/cursor.wav" type="AudioStream" id=10]
-[ext_resource path="res://Sounds/UI/select2.wav" type="AudioStream" id=11]
-[ext_resource path="res://Fonts/font_large.tres" type="DynamicFont" id=12]
-[ext_resource path="res://Fonts/font_cell.tres" type="DynamicFont" id=13]
+[ext_resource path="res://Scripts/System/EffectAudio.gd" type="Script" id=11]
+[ext_resource path="res://Sounds/UI/select2.wav" type="AudioStream" id=12]
+[ext_resource path="res://Fonts/font_large.tres" type="DynamicFont" id=13]
+[ext_resource path="res://Fonts/font_cell.tres" type="DynamicFont" id=14]
 
-[sub_resource type="Gradient" id=1]
+[sub_resource type="Gradient" id=8]
 
 offsets = PoolRealArray( 0, 0.516447, 1 )
 colors = PoolColorArray( 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0 )
 
-[sub_resource type="GradientTexture" id=2]
+[sub_resource type="GradientTexture" id=9]
 
 flags = 4
-gradient = SubResource( 1 )
+gradient = SubResource( 8 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="ParticlesMaterial" id=10]
 
 render_priority = 0
 trail_divisor = 1
@@ -55,7 +56,7 @@ angle = 0.0
 angle_random = 0.0
 scale = 1.0
 scale_random = 0.0
-color_ramp = SubResource( 2 )
+color_ramp = SubResource( 9 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -65,26 +66,82 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angular Velocity", "Color", "Emission Shape", "Gravity", "Initial Velocity", "Spread" ]
 
-[sub_resource type="ShaderMaterial" id=4]
+[sub_resource type="ShaderMaterial" id=11]
 
 render_priority = 0
 shader = ExtResource( 8 )
 shader_param/invertColor = true
 _sections_unfolded = [ "shader_param" ]
 
-[sub_resource type="ShaderMaterial" id=5]
+[sub_resource type="ShaderMaterial" id=12]
 
 render_priority = 0
 shader = ExtResource( 8 )
 shader_param/invertColor = true
 _sections_unfolded = [ "shader_param" ]
 
-[sub_resource type="ShaderMaterial" id=6]
+[sub_resource type="ShaderMaterial" id=13]
 
 render_priority = 0
 shader = ExtResource( 8 )
 shader_param/invertColor = true
 _sections_unfolded = [ "shader_param" ]
+
+[sub_resource type="StyleBoxEmpty" id=18]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=14]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxFlat" id=15]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+bg_color = Color( 0, 0, 0, 1 )
+draw_center = true
+border_width_left = 0
+border_width_top = 0
+border_width_right = 0
+border_width_bottom = 0
+border_color = Color( 0.8, 0.8, 0.8, 1 )
+border_blend = false
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+corner_detail = 8
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+shadow_color = Color( 0, 0, 0, 0.6 )
+shadow_size = 0
+anti_aliasing = true
+anti_aliasing_size = 1
+
+[sub_resource type="StyleBoxEmpty" id=19]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=17]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
 
 [node name="Node2D" type="Node2D" index="0"]
 
@@ -117,7 +174,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 3 )
+process_material = SubResource( 10 )
 texture = ExtResource( 5 )
 normal_map = null
 h_frames = 1
@@ -193,21 +250,28 @@ wait_time = 2.5
 one_shot = true
 autostart = false
 
-[node name="TimerAllowExitCredits" type="Timer" parent="." index="13"]
+[node name="TimerShowSettings" type="Timer" parent="." index="13"]
 
 process_mode = 1
 wait_time = 2.5
 one_shot = true
 autostart = false
 
-[node name="TimerShowStuff" type="Timer" parent="." index="14"]
+[node name="TimerAllowExitCredits" type="Timer" parent="." index="14"]
+
+process_mode = 1
+wait_time = 2.5
+one_shot = true
+autostart = false
+
+[node name="TimerShowStuff" type="Timer" parent="." index="15"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="START" type="Label" parent="." index="15"]
+[node name="START" type="Label" parent="." index="16"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -230,9 +294,9 @@ align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Margin", "Material", "custom_colors", "custom_fonts" ]
+_sections_unfolded = [ "Margin", "Material", "Visibility", "custom_colors", "custom_fonts" ]
 
-[node name="CREDITS" type="Label" parent="." index="16"]
+[node name="OPTIONS" type="Label" parent="." index="17"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -240,7 +304,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 60.0
 margin_top = 93.0
-margin_right = 100.0
+margin_right = 99.0
 margin_bottom = 107.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -250,14 +314,14 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "CREDITS"
+text = "OPTIONS"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Margin", "custom_colors", "custom_fonts" ]
+_sections_unfolded = [ "Margin", "Material", "custom_colors", "custom_fonts" ]
 
-[node name="EXIT" type="Label" parent="." index="17"]
+[node name="CREDITS" type="Label" parent="." index="18"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -275,6 +339,31 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "CREDITS"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "custom_colors", "custom_fonts" ]
+
+[node name="EXIT" type="Label" parent="." index="19"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 60.0
+margin_top = 115.0
+margin_right = 100.0
+margin_bottom = 129.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "EXIT"
 align = 1
 percent_visible = 1.0
@@ -282,31 +371,39 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin", "custom_colors", "custom_fonts" ]
 
-[node name="Box1" type="Sprite" parent="." index="18"]
+[node name="Box1" type="Sprite" parent="." index="20"]
 
-material = SubResource( 4 )
+material = SubResource( 11 )
 position = Vector2( 80, 86.5 )
 scale = Vector2( 2.8, 0.9 )
 texture = ExtResource( 9 )
 _sections_unfolded = [ "Material", "Offset", "Transform", "Visibility" ]
 
-[node name="Box2" type="Sprite" parent="." index="19"]
+[node name="Box2" type="Sprite" parent="." index="21"]
 
-material = SubResource( 5 )
+material = SubResource( 11 )
 position = Vector2( 79.5, 97.5 )
+scale = Vector2( 3.9, 0.9 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Material", "Offset", "Transform", "Visibility" ]
+
+[node name="Box3" type="Sprite" parent="." index="22"]
+
+material = SubResource( 12 )
+position = Vector2( 79.5, 108.5 )
 scale = Vector2( 3.7, 0.9 )
 texture = ExtResource( 9 )
 _sections_unfolded = [ "Material", "Offset", "Transform", "Visibility" ]
 
-[node name="Box3" type="Sprite" parent="." index="20"]
+[node name="Box4" type="Sprite" parent="." index="23"]
 
-material = SubResource( 6 )
-position = Vector2( 80, 108.5 )
+material = SubResource( 13 )
+position = Vector2( 80, 119.5 )
 scale = Vector2( 2, 0.9 )
 texture = ExtResource( 9 )
 _sections_unfolded = [ "Material", "Offset", "Transform", "Visibility" ]
 
-[node name="SoundCursor" type="AudioStreamPlayer" parent="." index="21"]
+[node name="SoundCursor" type="AudioStreamPlayer" parent="." index="24"]
 
 stream = ExtResource( 10 )
 volume_db = -5.0
@@ -314,17 +411,29 @@ pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+script = ExtResource( 11 )
 
-[node name="SoundSelect" type="AudioStreamPlayer" parent="." index="22"]
+[node name="SoundSelect" type="AudioStreamPlayer" parent="." index="25"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 12 )
 volume_db = -5.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+script = ExtResource( 11 )
 
-[node name="Transition" type="Sprite" parent="." index="23"]
+[node name="MusicSample" type="AudioStreamPlayer" parent="." index="26"]
+
+stream = ExtResource( 10 )
+volume_db = -5.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+script = ExtResource( 11 )
+
+[node name="Transition" type="Sprite" parent="." index="27"]
 
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 80, 72 )
@@ -332,7 +441,9 @@ scale = Vector2( 0.2, 14.4 )
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="CreditsGroup" type="Node2D" parent="." index="24"]
+[node name="CreditsGroup" type="Node2D" parent="." index="28"]
+
+editor/display_folded = true
 
 [node name="BASE-6" type="Label" parent="CreditsGroup" index="0"]
 
@@ -351,13 +462,13 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 12 )
+custom_fonts/font = ExtResource( 13 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "BASE-6"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+_sections_unfolded = [ "Visibility", "custom_colors", "custom_fonts" ]
 
 [node name="DevelopedBy" type="Label" parent="CreditsGroup" index="1"]
 
@@ -376,7 +487,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 13 )
+custom_fonts/font = ExtResource( 14 )
 custom_colors/font_color = Color( 0.597656, 0.597656, 0.597656, 1 )
 text = "Developed by:"
 percent_visible = 1.0
@@ -576,7 +687,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 13 )
+custom_fonts/font = ExtResource( 14 )
 custom_colors/font_color = Color( 0.597656, 0.597656, 0.597656, 1 )
 text = "Additional Art:"
 percent_visible = 1.0
@@ -626,7 +737,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 13 )
+custom_fonts/font = ExtResource( 14 )
 custom_colors/font_color = Color( 0.597656, 0.597656, 0.597656, 1 )
 text = "Playtesting:"
 percent_visible = 1.0
@@ -659,6 +770,201 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
+[node name="OptionsGroup" type="Node2D" parent="." index="29"]
+
+[node name="OPTIONS" type="Label" parent="OptionsGroup" index="0"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 5.0
+margin_top = 9.0
+margin_right = 113.0
+margin_bottom = 29.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 13 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "OPTIONS"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility", "custom_colors", "custom_fonts" ]
+
+[node name="MUSIC" type="Label" parent="OptionsGroup" index="1"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 7.0
+margin_top = 29.0
+margin_right = 47.0
+margin_bottom = 43.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "MUSIC"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "Material", "Rect", "Visibility", "custom_colors", "custom_fonts" ]
+
+[node name="EFFECTS" type="Label" parent="OptionsGroup" index="2"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 7.0
+margin_top = 58.0
+margin_right = 47.0
+margin_bottom = 72.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "EFFECTS"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "Material", "Rect", "Visibility", "custom_colors", "custom_fonts" ]
+
+[node name="OptionsBox1" type="Sprite" parent="OptionsGroup" index="3"]
+
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+material = SubResource( 11 )
+position = Vector2( 21, 33.5 )
+scale = Vector2( 2.8, 0.9 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Material", "Offset", "Transform", "Visibility", "Z Index" ]
+
+[node name="OptionsBox2" type="Sprite" parent="OptionsGroup" index="4"]
+
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+material = SubResource( 11 )
+position = Vector2( 25.5, 62.5 )
+scale = Vector2( 3.7, 0.9 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Material", "Offset", "Transform", "Visibility" ]
+
+[node name="Music Slider" type="HSlider" parent="OptionsGroup" index="5"]
+
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+material = SubResource( 11 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 7.0
+margin_top = 40.0
+margin_right = 153.0
+margin_bottom = 56.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+custom_icons/tick = ExtResource( 9 )
+custom_icons/grabber_highlight = ExtResource( 9 )
+custom_icons/grabber = ExtResource( 9 )
+custom_styles/slider = SubResource( 18 )
+custom_styles/grabber_disabled = SubResource( 14 )
+custom_styles/grabber_highlight = SubResource( 15 )
+custom_styles/grabber_area = SubResource( 19 )
+custom_styles/focus = SubResource( 17 )
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 100.0
+exp_edit = false
+rounded = false
+editable = true
+tick_count = 0
+ticks_on_borders = false
+focus_mode = 2
+_sections_unfolded = [ "Material", "Rect", "Visibility", "custom_icons", "custom_styles" ]
+
+[node name="Bar" type="Sprite" parent="OptionsGroup/Music Slider" index="0"]
+
+material = SubResource( 11 )
+position = Vector2( 73, 8 )
+scale = Vector2( 14.6, 0.2 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Material", "Offset" ]
+
+[node name="Effects Slider" type="HSlider" parent="OptionsGroup" index="6"]
+
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+material = SubResource( 11 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 7.0
+margin_top = 69.0
+margin_right = 153.0
+margin_bottom = 85.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+custom_icons/tick = ExtResource( 9 )
+custom_icons/grabber_highlight = ExtResource( 9 )
+custom_icons/grabber = ExtResource( 9 )
+custom_styles/slider = SubResource( 18 )
+custom_styles/grabber_disabled = SubResource( 14 )
+custom_styles/grabber_highlight = SubResource( 15 )
+custom_styles/grabber_area = SubResource( 19 )
+custom_styles/focus = SubResource( 17 )
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 100.0
+exp_edit = false
+rounded = false
+editable = true
+tick_count = 0
+ticks_on_borders = false
+focus_mode = 2
+_sections_unfolded = [ "Material", "Rect", "Visibility", "custom_icons", "custom_styles" ]
+
+[node name="Bar" type="Sprite" parent="OptionsGroup/Effects Slider" index="0"]
+
+material = SubResource( 11 )
+position = Vector2( 73, 8 )
+scale = Vector2( 14.6, 0.2 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Material" ]
+
 [connection signal="timeout" from="TimerFadeInLogo" to="." method="_on_TimerFadeInLogo_timeout"]
 
 [connection signal="timeout" from="TimerFadeInOptions" to="." method="_on_TimerFadeInOptions_timeout"]
@@ -677,8 +983,18 @@ _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
 [connection signal="timeout" from="TimerShowCredits" to="." method="_on_TimerShowCredits_timeout"]
 
+[connection signal="timeout" from="TimerShowSettings" to="." method="_on_TimerShowSettings_timeout"]
+
 [connection signal="timeout" from="TimerAllowExitCredits" to="." method="_on_TimerAllowExitCredits_timeout"]
 
 [connection signal="timeout" from="TimerShowStuff" to="." method="_on_TimerShowStuff_timeout"]
+
+[connection signal="gui_input" from="OptionsGroup/Music Slider" to="." method="_on_Music_Slider_gui_input"]
+
+[connection signal="value_changed" from="OptionsGroup/Music Slider" to="." method="_on_Music_Slider_value_changed"]
+
+[connection signal="gui_input" from="OptionsGroup/Effects Slider" to="." method="_on_Effects_Slider_gui_input"]
+
+[connection signal="value_changed" from="OptionsGroup/Effects Slider" to="." method="_on_Effects_Slider_value_changed"]
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=2]
@@ -10,36 +10,38 @@
 [ext_resource path="res://Scenes/Dungeon 1/EnterTrigger.gd" type="Script" id=8]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Sounds/Ambient/BossDoor.wav" type="AudioStream" id=10]
-[ext_resource path="res://Instances/System/PitController.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scripts/Objects/Dungeon 1/Fist.gd" type="Script" id=12]
-[ext_resource path="res://Sprites/Props/Fists/LFist.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Props/Fists/Shadow0.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Props/Fists/Shadow1.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Props/Fists/Shadow2.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/Props/Fists/Shadow3.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/Props/Fists/Shadow4.png" type="Texture" id=18]
+[ext_resource path="res://Scripts/System/EffectAudio.gd" type="Script" id=11]
+[ext_resource path="res://Instances/System/PitController.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scripts/Objects/Dungeon 1/Fist.gd" type="Script" id=13]
+[ext_resource path="res://Sprites/Props/Fists/LFist.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Props/Fists/Shadow9.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Props/Fists/Shadow8.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Props/Fists/Shadow7.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Props/Fists/Shadow6.png" type="Texture" id=18]
 [ext_resource path="res://Sprites/Props/Fists/Shadow5.png" type="Texture" id=19]
-[ext_resource path="res://Sprites/Props/Fists/Shadow6.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/Props/Fists/Shadow7.png" type="Texture" id=21]
-[ext_resource path="res://Sprites/Props/Fists/Shadow8.png" type="Texture" id=22]
-[ext_resource path="res://Sprites/Props/Fists/Shadow9.png" type="Texture" id=23]
-[ext_resource path="res://Sprites/Particles/Corruption.png" type="Texture" id=24]
-[ext_resource path="res://Sounds/Characters/Impact.wav" type="AudioStream" id=25]
-[ext_resource path="res://Sprites/Particles/Shatter.png" type="Texture" id=26]
-[ext_resource path="res://Sounds/Ambient/BossShatter.wav" type="AudioStream" id=27]
-[ext_resource path="res://Sprites/Props/Fists/RFist.png" type="Texture" id=28]
-[ext_resource path="res://Sprites/Characters/Temple Guardians/Torso0.png" type="Texture" id=29]
-[ext_resource path="res://Instances/Objects/TorsoOrb.tscn" type="PackedScene" id=30]
-[ext_resource path="res://Scenes/Dungeon 1/Switch1.gd" type="Script" id=31]
-[ext_resource path="res://Sprites/Props/Switch down 3.png" type="Texture" id=32]
-[ext_resource path="res://Sprites/Props/Switch down 2.png" type="Texture" id=33]
-[ext_resource path="res://Sounds/Objects/Switch.wav" type="AudioStream" id=34]
-[ext_resource path="res://Sounds/Music/Miniboss.wav" type="AudioStream" id=35]
-[ext_resource path="res://Sounds/Ambient/BossHit.wav" type="AudioStream" id=36]
-[ext_resource path="res://Sounds/Ambient/BossDie.wav" type="AudioStream" id=37]
-[ext_resource path="res://Instances/Props/Torch.tscn" type="PackedScene" id=38]
-[ext_resource path="res://Instances/Items/Item.tscn" type="PackedScene" id=39]
-[ext_resource path="res://Sprites/Items/Bow.png" type="Texture" id=40]
+[ext_resource path="res://Sprites/Props/Fists/Shadow4.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Props/Fists/Shadow3.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Props/Fists/Shadow2.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Props/Fists/Shadow1.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Props/Fists/Shadow0.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Particles/Corruption.png" type="Texture" id=25]
+[ext_resource path="res://Sounds/Characters/Impact.wav" type="AudioStream" id=26]
+[ext_resource path="res://Sprites/Particles/Shatter.png" type="Texture" id=27]
+[ext_resource path="res://Sounds/Ambient/BossShatter.wav" type="AudioStream" id=28]
+[ext_resource path="res://Sprites/Props/Fists/RFist.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/Characters/Temple Guardians/Torso0.png" type="Texture" id=30]
+[ext_resource path="res://Instances/Objects/TorsoOrb.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Scenes/Dungeon 1/Switch1.gd" type="Script" id=32]
+[ext_resource path="res://Sprites/Props/Switch down 3.png" type="Texture" id=33]
+[ext_resource path="res://Sprites/Props/Switch down 2.png" type="Texture" id=34]
+[ext_resource path="res://Sounds/Objects/Switch.wav" type="AudioStream" id=35]
+[ext_resource path="res://Sounds/Music/Miniboss.wav" type="AudioStream" id=36]
+[ext_resource path="res://Scripts/System/MusicAudio.gd" type="Script" id=37]
+[ext_resource path="res://Sounds/Ambient/BossHit.wav" type="AudioStream" id=38]
+[ext_resource path="res://Sounds/Ambient/BossDie.wav" type="AudioStream" id=39]
+[ext_resource path="res://Instances/Props/Torch.tscn" type="PackedScene" id=40]
+[ext_resource path="res://Instances/Items/Item.tscn" type="PackedScene" id=41]
+[ext_resource path="res://Sprites/Items/Bow.png" type="Texture" id=42]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -54,15 +56,15 @@ extents = Vector2( 24.0917, 24.0206 )
 [sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ) ],
-"loop": false,
-"name": "drop",
-"speed": 30.0
-}, {
-"frames": [ ExtResource( 23 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 14 ) ],
+"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
 "loop": false,
 "name": "lift",
 "speed": 17.0
+}, {
+"frames": [ ExtResource( 24 ), ExtResource( 23 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 15 ) ],
+"loop": false,
+"name": "drop",
+"speed": 30.0
 } ]
 _sections_unfolded = [ "Resource" ]
 
@@ -168,12 +170,12 @@ _sections_unfolded = [ "Angular Velocity", "Gravity", "Initial Velocity", "Scale
 [sub_resource type="SpriteFrames" id=10]
 
 animations = [ {
-"frames": [ ExtResource( 32 ) ],
+"frames": [ ExtResource( 33 ) ],
 "loop": true,
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 33 ) ],
+"frames": [ ExtResource( 34 ) ],
 "loop": true,
 "name": "down",
 "speed": 5.0
@@ -366,6 +368,7 @@ pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+script = ExtResource( 11 )
 
 [node name="TimerStartBoss" type="Timer" parent="BossCore/EnterTrigger" index="2"]
 
@@ -393,7 +396,7 @@ scale = Vector2( 0.109375, 0.25 )
 required_direction = Vector2( 1, 0 )
 distance = 30
 
-[node name="PitController" parent="BossCore/EnterTrigger" index="6" instance=ExtResource( 11 )]
+[node name="PitController" parent="BossCore/EnterTrigger" index="6" instance=ExtResource( 12 )]
 
 has_platform = false
 
@@ -440,7 +443,7 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 12 )
+script = ExtResource( 13 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform" ]
 speed = 50
 
@@ -448,7 +451,7 @@ speed = 50
 
 position = Vector2( 0, 6 )
 z_index = 1
-texture = ExtResource( 13 )
+texture = ExtResource( 14 )
 _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
@@ -489,7 +492,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="PartsSlam" type="Particles2D" parent="BossCore/LeftFist" index="4"]
 
-position = Vector2( -5.1277e-007, 9 )
+position = Vector2( -5.1277e-07, 9 )
 rotation = 4.71239
 emitting = false
 amount = 15
@@ -505,7 +508,7 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
 process_material = SubResource( 8 )
-texture = ExtResource( 24 )
+texture = ExtResource( 25 )
 normal_map = null
 h_frames = 1
 v_frames = 1
@@ -513,16 +516,17 @@ _sections_unfolded = [ "Process Material", "Textures", "Time", "Transform" ]
 
 [node name="SoundSlam" type="AudioStreamPlayer" parent="BossCore/LeftFist" index="5"]
 
-stream = ExtResource( 25 )
+stream = ExtResource( 26 )
 volume_db = -3.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+script = ExtResource( 11 )
 
 [node name="PartsShatter" type="Particles2D" parent="BossCore/LeftFist" index="6"]
 
-position = Vector2( 3.11531e-006, -16 )
+position = Vector2( 3.11531e-06, -16 )
 rotation = -1.5708
 emitting = false
 amount = 16
@@ -538,7 +542,7 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
 process_material = SubResource( 9 )
-texture = ExtResource( 26 )
+texture = ExtResource( 27 )
 normal_map = null
 h_frames = 1
 v_frames = 1
@@ -546,12 +550,13 @@ _sections_unfolded = [ "Process Material", "Textures", "Time" ]
 
 [node name="SoundShatter" type="AudioStreamPlayer" parent="BossCore/LeftFist" index="7"]
 
-stream = ExtResource( 27 )
+stream = ExtResource( 28 )
 volume_db = 1.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+script = ExtResource( 11 )
 
 [node name="TimerDie" type="Timer" parent="BossCore/LeftFist" index="8"]
 
@@ -567,7 +572,7 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 12 )
+script = ExtResource( 13 )
 _sections_unfolded = [ "Transform" ]
 speed = 50
 
@@ -575,7 +580,7 @@ speed = 50
 
 position = Vector2( 0, 6 )
 z_index = 1
-texture = ExtResource( 28 )
+texture = ExtResource( 29 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
@@ -633,7 +638,7 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
 process_material = SubResource( 8 )
-texture = ExtResource( 24 )
+texture = ExtResource( 25 )
 normal_map = null
 h_frames = 1
 v_frames = 1
@@ -641,12 +646,13 @@ _sections_unfolded = [ "Process Material", "Textures", "Time", "Transform" ]
 
 [node name="SoundSlam" type="AudioStreamPlayer" parent="BossCore/RightFist" index="5"]
 
-stream = ExtResource( 25 )
+stream = ExtResource( 26 )
 volume_db = -3.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+script = ExtResource( 11 )
 
 [node name="PartsShatter" type="Particles2D" parent="BossCore/RightFist" index="6"]
 
@@ -666,7 +672,7 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
 process_material = SubResource( 9 )
-texture = ExtResource( 26 )
+texture = ExtResource( 27 )
 normal_map = null
 h_frames = 1
 v_frames = 1
@@ -680,6 +686,7 @@ pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+script = ExtResource( 11 )
 
 [node name="TimerDie" type="Timer" parent="BossCore/RightFist" index="8"]
 
@@ -691,10 +698,10 @@ autostart = false
 [node name="Sprite" type="Sprite" parent="BossCore" index="3"]
 
 position = Vector2( 80, 24 )
-texture = ExtResource( 29 )
+texture = ExtResource( 30 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="OrbSwitch" parent="BossCore" index="4" instance=ExtResource( 30 )]
+[node name="OrbSwitch" parent="BossCore" index="4" instance=ExtResource( 31 )]
 
 position = Vector2( 80.0599, 33.9128 )
 _sections_unfolded = [ "Collision", "Transform", "Visibility" ]
@@ -710,7 +717,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 31 )
+script = ExtResource( 32 )
 _sections_unfolded = [ "Collision" ]
 
 [node name="Sprite" type="AnimatedSprite" parent="BossCore/Switch1" index="0"]
@@ -732,12 +739,13 @@ __meta__ = {
 
 [node name="SoundPress" type="AudioStreamPlayer" parent="BossCore/Switch1" index="2"]
 
-stream = ExtResource( 34 )
+stream = ExtResource( 35 )
 volume_db = -3.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+script = ExtResource( 11 )
 
 [node name="Switch2" type="Area2D" parent="BossCore" index="6"]
 
@@ -749,7 +757,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 31 )
+script = ExtResource( 32 )
 _sections_unfolded = [ "Collision" ]
 
 [node name="Sprite" type="AnimatedSprite" parent="BossCore/Switch2" index="0"]
@@ -771,12 +779,13 @@ __meta__ = {
 
 [node name="SoundPress" type="AudioStreamPlayer" parent="BossCore/Switch2" index="2"]
 
-stream = ExtResource( 34 )
+stream = ExtResource( 35 )
 volume_db = -3.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+script = ExtResource( 11 )
 
 [node name="Switch3" type="Area2D" parent="BossCore" index="7"]
 
@@ -788,7 +797,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 31 )
+script = ExtResource( 32 )
 _sections_unfolded = [ "Collision" ]
 
 [node name="Sprite" type="AnimatedSprite" parent="BossCore/Switch3" index="0"]
@@ -810,12 +819,13 @@ __meta__ = {
 
 [node name="SoundPress" type="AudioStreamPlayer" parent="BossCore/Switch3" index="2"]
 
-stream = ExtResource( 34 )
+stream = ExtResource( 35 )
 volume_db = -3.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+script = ExtResource( 11 )
 
 [node name="Switch4" type="Area2D" parent="BossCore" index="8"]
 
@@ -827,7 +837,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 31 )
+script = ExtResource( 32 )
 _sections_unfolded = [ "Collision" ]
 
 [node name="Sprite" type="AnimatedSprite" parent="BossCore/Switch4" index="0"]
@@ -849,12 +859,13 @@ __meta__ = {
 
 [node name="SoundPress" type="AudioStreamPlayer" parent="BossCore/Switch4" index="2"]
 
-stream = ExtResource( 34 )
+stream = ExtResource( 35 )
 volume_db = -3.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+script = ExtResource( 11 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="BossCore" index="9"]
 
@@ -875,30 +886,33 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="MusicBoss" type="AudioStreamPlayer" parent="BossCore" index="10"]
 
-stream = ExtResource( 35 )
+stream = ExtResource( 36 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+script = ExtResource( 37 )
 
 [node name="SoundHit" type="AudioStreamPlayer" parent="BossCore" index="11"]
 
-stream = ExtResource( 36 )
+stream = ExtResource( 38 )
 volume_db = 5.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+script = ExtResource( 11 )
 
 [node name="SoundDie" type="AudioStreamPlayer" parent="BossCore" index="12"]
 
-stream = ExtResource( 37 )
+stream = ExtResource( 39 )
 volume_db = 5.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+script = ExtResource( 11 )
 
 [node name="TimerShatter" type="Timer" parent="BossCore" index="13"]
 
@@ -914,15 +928,15 @@ wait_time = 4.5
 one_shot = true
 autostart = false
 
-[node name="Torch" parent="." index="18" instance=ExtResource( 38 )]
+[node name="Torch" parent="." index="18" instance=ExtResource( 40 )]
 
 position = Vector2( 40, 15 )
 
-[node name="Torch2" parent="." index="19" instance=ExtResource( 38 )]
+[node name="Torch2" parent="." index="19" instance=ExtResource( 40 )]
 
 position = Vector2( 120, 15 )
 
-[node name="ItemKeystonePiece2" parent="." index="20" instance=ExtResource( 39 )]
+[node name="ItemKeystonePiece2" parent="." index="20" instance=ExtResource( 41 )]
 
 position = Vector2( 70, 88 )
 item_get_message = [ "Obtained \"keystone piece 2.\"" ]
@@ -933,7 +947,7 @@ box_y = 70
 box_width = 100
 box_height = 50
 
-[node name="ItemBow" parent="." index="21" instance=ExtResource( 39 )]
+[node name="ItemBow" parent="." index="21" instance=ExtResource( 41 )]
 
 position = Vector2( 92, 88 )
 item_get_message = [ "Obtained the bow.", "Press CTRL to fire arrows.", "Arrows can activate distant switches." ]
@@ -946,16 +960,12 @@ box_height = 50
 
 [node name="Sprite" parent="ItemBow" index="0"]
 
-texture = ExtResource( 40 )
+texture = ExtResource( 42 )
 region_enabled = false
 
 [node name="CollisionShape2D" parent="ItemBow" index="1"]
 
 shape = SubResource( 13 )
-
-[node name="Interact" parent="ItemBow" index="2"]
-
-frame = 2
 
 [connection signal="timeout" from="BossCore/EnterTrigger/TimerStartBoss" to="BossCore/EnterTrigger" method="_on_TimerStartBoss_timeout"]
 

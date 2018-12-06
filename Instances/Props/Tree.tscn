@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 5, 2 )
 
-[node name="Tree" type="StaticBody2D"]
+[node name="Tree" type="StaticBody2D" index="0"]
 
 position = Vector2( 67, 49 )
 input_pickable = false

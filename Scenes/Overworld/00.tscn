@@ -182,7 +182,7 @@ shape = SubResource( 3 )
 
 [node name="Interact" parent="NPCJari" index="2"]
 
-frame = 0
+frame = 1
 
 [node name="Gold" parent="." index="12" instance=ExtResource( 15 )]
 

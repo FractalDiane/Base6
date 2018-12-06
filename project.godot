@@ -17,6 +17,7 @@ config/icon="res://Icon large.png"
 
 [autoload]
 
+Config="*res://Scripts/Globals/Config.gd"
 TransitionNoise="*res://Globals/TransitionNoise.tscn"
 PlayerNoise="*res://Globals/PlayerNoise.tscn"
 Screencap="*res://Globals/Screencap.tscn"

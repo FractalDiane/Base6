@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Scenes/Corrupted2.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Splash.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Instances/NPCs/NPCMasterNew.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sprites/Particles/Glitch.png" type="Texture" id=6]
 [ext_resource path="res://Sounds/Ambient/Static temp.wav" type="AudioStream" id=7]
+[ext_resource path="res://Scripts/System/EffectAudio.gd" type="Script" id=8]
 
 [sub_resource type="ParticlesMaterial" id=1]
 
@@ -48,7 +49,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Emission Shape", "Gravity", "Hue Variation", "Initial Velocity" ]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -142,6 +143,7 @@ pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+script = ExtResource( 8 )
 
 [node name="TimerGlitch" type="Timer" parent="." index="6"]
 

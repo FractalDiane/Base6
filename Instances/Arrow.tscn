@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Objects/Arrow.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Combat/Arrow.png" type="Texture" id=2]
 [ext_resource path="res://Sounds/Player/Arrow plink.wav" type="AudioStream" id=3]
+[ext_resource path="res://Scripts/System/EffectAudio.gd" type="Script" id=4]
 
-[node name="Arrow" type="KinematicBody2D" groups=[
+[node name="Arrow" type="KinematicBody2D" index="0" groups=[
 "Arrow",
 ]]
 
@@ -39,5 +40,6 @@ pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+script = ExtResource( 4 )
 
 
