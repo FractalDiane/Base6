@@ -25,14 +25,16 @@ var corrupted_cells_add = []
 # Cells to add after first dungeon: ["04","12","13","32", "43"]
 
 func _ready():
-	audio_music_percent = Config.file.get_value("Audio", "music_volume", 100)
-	update_bus_volume(1, audio_music_percent)
-	audio_effects_percent = Config.file.get_value("Audio", "effects_volume", 100)
-	update_bus_volume(1, audio_music_percent)
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
 	main = get_parent().get_node("Node2D")
 	audioplayer.update_music()
+
+func update_audio():
+	audio_music_percent = Config.file.get_value("Audio", "music_volume", 100)
+	update_bus_volume(1, audio_music_percent)
+	audio_effects_percent = Config.file.get_value("Audio", "effects_volume", 100)
+	update_bus_volume(2, audio_music_percent)
 
 func _scene_start(reset_state):
 	if not audioplayer.init:

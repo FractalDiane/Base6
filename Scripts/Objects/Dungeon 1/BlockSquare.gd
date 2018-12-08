@@ -17,21 +17,23 @@ func _ready():
 	else:
 		move = true
 
-var t = 0
+var t = 0.0
 var add = 0
 onready var startpos = get_position()
 
 func _physics_process(delta):
 	set_z_index(get_position().y)
 	if move:
-		t += 1
+		t += controller.convert_to_seconds(1, delta)
 		
 		if dir_x != 0 and dir_y == 0:
-			if t % int(interval_h * 60) == 0:
+			if t > interval_h * 60:
+				t = 0
 				change_direction()
 		elif dir_y != 0 and dir_x == 0:
-			 if t % int(interval_v * 60) == 0:
-			 	change_direction()
+			if t > interval_v * 60:
+				t = 0
+				change_direction()
 
 		set_position(get_position() + (speed * delta * Vector2(dir_x, dir_y)))
 		

@@ -4,6 +4,7 @@ var file
 
 func _ready():
 	load_file()
+	controller.update_audio()
 
 func load_file():
 	file = ConfigFile.new()

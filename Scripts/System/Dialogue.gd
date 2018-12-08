@@ -15,8 +15,8 @@ var length = 0
 onready var page_length = len(text[0].replace(' ', ''))
 
 var text_roll = false
-var t = -1
-var sound = -1
+var t = -1.0
+var sound = -1.0
 
 var target = null
 
@@ -35,24 +35,24 @@ func _ready():
 
 func _physics_process(delta):
 	if stage == 0: # Expand H
-		ww = clamp(ww + (box_width / 20),5,box_width)
+		ww = clamp(ww + controller.convert_to_seconds((box_width / 20), delta),5,box_width)
 		if ww >= box_width:
 			$Sound2.play(0)
 			stage = 1
 	if stage == 1: # Expand V
-		hh = clamp(hh + (box_height / 20),5,box_height)
+		hh = clamp(hh + controller.convert_to_seconds((box_height / 20), delta),5,box_height)
 		if hh >= box_height:
 			$TimerStart.start()
 			stage = 2
 	if stage == 2 and text_roll: # Text rolling
-		roll_text()
+		roll_text(delta)
 	if stage == 3: # Contract V
-		hh = clamp(hh - (box_height / 18),5,box_height)
+		hh = clamp(hh - controller.convert_to_seconds((box_height / 18), delta),5,box_height)
 		if hh <= 5:
 			$Sound2.play(0)
 			stage = 4
 	if stage == 4: # Contract H
-		ww = clamp(ww - (box_width / 18),5,box_width)
+		ww = clamp(ww - controller.convert_to_seconds((box_width / 18), delta),5,box_width)
 		if ww <= 5:
 			on_destroy()
 			queue_free()
@@ -61,18 +61,20 @@ func _physics_process(delta):
 	DText.set_text(text[text_page]) # Get the current page of text we're on
 	DText.set_visible_characters(length) # Set the visible text to however long it has progressed
 	
-func roll_text():
+func roll_text(delta):
 	# Godot labels ignore spaces when counting visible characters
 	# So we need to delete all the spaces when we calculate the length of a string.
 	if length < page_length:
-		t += 1
-		sound += 1
+		t += controller.convert_to_seconds(1, delta)
+		sound += controller.convert_to_seconds(1, delta)
 		
-		if sound % 6 == 0: # Type sound timer
+		if sound > 6: # Type sound timer
+			sound = 0
 			SoundType.set_pitch_scale(rand_range(0.9,1.1))
 			SoundType.play(0)
 		
-		if t % 3 == 0: # Text progress timer
+		if t > 3: # Text progress timer
+			t = 0
 			length += 1
 		
 		if Input.is_action_just_pressed("ui_accept") and not buffer: # Show all text

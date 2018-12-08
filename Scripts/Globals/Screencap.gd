@@ -12,7 +12,7 @@ func _ready():
 
 func _physics_process(delta):
 	if fade:
-		alpha = clamp(alpha - 0.06,0,1)
+		alpha = clamp(alpha - controller.convert_to_seconds(0.06, delta),0,1)
 		
 	spr.set_modulate(Color(1, 1, 1, alpha))
 

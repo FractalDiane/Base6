@@ -20,7 +20,7 @@ func _ready():
 func _physics_process(delta):
 	set_z_index(get_position().y)
 	if move:
-		t += speed
+		t += controller.convert_to_seconds(speed, delta)
 		var angle = deg2rad(t)
 
 		var add_x = radius * cos(angle)
