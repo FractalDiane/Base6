@@ -30,7 +30,7 @@ func _physics_process(delta):
 	if active:
 		alpha = 1
 	else:
-		alpha = clamp(alpha - 0.006,0,1)
+		alpha = clamp(alpha - controller.convert_to_seconds(0.006, delta),0,1)
 		
 	for node in noise:
 		node.set_modulate(Color(1,1,1,alpha))

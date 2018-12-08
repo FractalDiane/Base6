@@ -26,7 +26,7 @@ func _physics_process(delta):
 			hum.set_volume_db(-46 + (3.5 * cont.player_corruption))
 			
 	if fade_noise:
-		fade_noise_sub += 0.3
+		fade_noise_sub += controller.convert_to_seconds(0.3, delta)
 		$SoundNoiseTransition.set_volume_db(-5 - fade_noise_sub)
 		if $SoundNoiseTransition.volume_db > 60:
 			fade_noise = false

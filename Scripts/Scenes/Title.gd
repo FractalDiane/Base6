@@ -18,7 +18,7 @@ var boxes_active = false
 var cursor = 0
 var selected = false
 
-var credits_t = 0
+var credits_t = 0.0
 var credits_stage = -1
 var roll_credits = false
 var credits_actives = [false]
@@ -73,31 +73,31 @@ func _ready():
 	
 func _physics_process(delta):
 	if logo_active:
-		logo_acc = clamp(logo_acc - 0.0185,0,1)
-		logo_alpha = clamp(logo_alpha + 0.025,0,1)
+		logo_acc = clamp(logo_acc - controller.convert_to_seconds(0.0185, delta),0,1)
+		logo_alpha = clamp(logo_alpha + controller.convert_to_seconds(0.025, delta),0,1)
 		
-		logo.position.y = min(logo.position.y + (logo_speed * logo_acc), 58)
+		logo.position.y = min(logo.position.y + (controller.convert_to_seconds(logo_speed * logo_acc, delta)), 58)
 		logo.set_modulate(Color(1,1,1,logo_alpha))
 	else:
-		logo_acc = clamp(logo_acc + 0.0185,0,1)
-		logo_alpha = clamp(logo_alpha - 0.025,0,1)
+		logo_acc = clamp(logo_acc + controller.convert_to_seconds(0.0185, delta),0,1)
+		logo_alpha = clamp(logo_alpha - controller.convert_to_seconds(0.025, delta),0,1)
 		
-		logo.position.y = max(logo.position.y - (logo_speed * logo_acc), 18)
+		logo.position.y = max(logo.position.y - (controller.convert_to_seconds(logo_speed * logo_acc, delta)), 18)
 		logo.set_modulate(Color(1,1,1,logo_alpha))
 		
 	if options_active:
-		options_acc = clamp(options_acc - 0.015,0,1)
-		options_alpha = clamp(options_alpha + 0.025,0,1)
+		options_acc = clamp(options_acc - controller.convert_to_seconds(0.015, delta),0,1)
+		options_alpha = clamp(options_alpha + controller.convert_to_seconds(0.025, delta),0,1)
 		
 		for op in options:
-			op.margin_top = max(op.margin_top - (options_speed * options_acc),82 + 11 * options.find(op))
+			op.margin_top = max(op.margin_top - (controller.convert_to_seconds(options_speed * options_acc, delta)),82 + 11 * options.find(op))
 			op.set_modulate(Color(1,1,1,options_alpha))
 	else:
-		options_acc = clamp(options_acc + 0.015,0,1)
-		options_alpha = clamp(options_alpha - 0.025,0,1)
+		options_acc = clamp(options_acc + controller.convert_to_seconds(0.015, delta),0,1)
+		options_alpha = clamp(options_alpha - controller.convert_to_seconds(0.025, delta),0,1)
 		
 		for op in options:
-			op.margin_top = min(op.margin_top + (options_speed * options_acc),122 + 11 * options.find(op))
+			op.margin_top = min(op.margin_top + (controller.convert_to_seconds(options_speed * options_acc, delta)),122 + 11 * options.find(op))
 			op.set_modulate(Color(1,1,1,options_alpha))
 			
 	if boxes_active:
@@ -111,15 +111,15 @@ func _physics_process(delta):
 				boxes[box].set_modulate(Color(1,1,1,0))
 			
 		if selected:
-			boxes[cursor].scale.x += 0.1
-			boxes[cursor].scale.y -= 0.1
+			boxes[cursor].scale.x += controller.convert_to_seconds(0.1, delta)
+			boxes[cursor].scale.y -= controller.convert_to_seconds(0.1, delta)
 			if boxes[cursor].scale.y <= 0:
 				boxes[cursor].hide()
 				boxes_active = false
 				
 	if roll_credits:
-		credits_t += 1
-		if credits_t % 6 == 0:
+		credits_t += controller.convert_to_seconds(1, delta)
+		if int(credits_t) % 6 == 0:
 			credits_stage += 1
 		for node in credits.get_children():
 			var i = credits.get_children().find(node)
@@ -129,14 +129,14 @@ func _physics_process(delta):
 		for node in credits.get_children():
 			var i = credits.get_children().find(node)
 			if credits_actives[i]:
-				credits_alphas[i] = clamp(credits_alphas[i] + 0.03,0,1)
-				credits_accs[i] = clamp(credits_accs[i] - 0.02,0,1)
+				credits_alphas[i] = clamp(credits_alphas[i] + controller.convert_to_seconds(0.03, delta),0,1)
+				credits_accs[i] = clamp(credits_accs[i] - controller.convert_to_seconds(0.02, delta),0,1)
 				
-				credits.get_child(i).margin_left += 4 * credits_accs[i]
+				credits.get_child(i).margin_left += controller.convert_to_seconds(4 * credits_accs[i], delta)
 				credits.get_child(i).set_modulate(Color(1,1,1,credits_alphas[i]))
 	else:
-		credits_t += 1
-		if credits_t % 6 == 0:
+		credits_t += controller.convert_to_seconds(1, delta)
+		if int(credits_t) % 6 == 0:
 			credits_stage += 1
 		for node in credits.get_children():
 			var i = credits.get_children().find(node)
@@ -146,10 +146,10 @@ func _physics_process(delta):
 		for node in credits.get_children():
 			var i = credits.get_children().find(node)
 			if not credits_actives[i]:
-				credits_alphas[i] = clamp(credits_alphas[i] - 0.03,0,1)
-				credits_accs[i] = clamp(credits_accs[i] + 0.02,0,1)
+				credits_alphas[i] = clamp(credits_alphas[i] - controller.convert_to_seconds(0.03, delta),0,1)
+				credits_accs[i] = clamp(credits_accs[i] + controller.convert_to_seconds(0.02, delta),0,1)
 
-				credits.get_child(i).margin_left = max(credits.get_child(i).margin_left - 4 * credits_accs[i],-95)
+				credits.get_child(i).margin_left = max(credits.get_child(i).margin_left - controller.convert_to_seconds(4 * credits_accs[i], delta),-95)
 				credits.get_child(i).set_modulate(Color(1,1,1,credits_alphas[i]))
 	
 	if go_to_settings:
@@ -188,8 +188,8 @@ func _physics_process(delta):
 	input()
 		
 	if transition_active:
-		transition_acc = clamp(transition_acc - 0.0115,0,1)
-		wipe.scale.x += (0.375 * transition_acc)
+		transition_acc = clamp(transition_acc - controller.convert_to_seconds(0.0115, delta),0,1)
+		wipe.scale.x += controller.convert_to_seconds((0.375 * transition_acc), delta)
 		
 func input():
 	if not selected and boxes_active:

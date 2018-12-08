@@ -113,3 +113,6 @@ func update_bus_volume(bus_idx, percent):
 		AudioServer.set_bus_mute(bus_idx, true)
 	else:
 		AudioServer.set_bus_mute(bus_idx, false)
+
+func convert_to_seconds(initial, delta):
+	return initial * 60 * delta

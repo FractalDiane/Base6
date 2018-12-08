@@ -41,7 +41,7 @@ func _physics_process(delta):
 	# Depth correction
 	set_z_index(get_position().y)
 	# Color shift for corruption animation
-	color = clamp(color + 0.008,0,1)
+	color = clamp(color + controller.convert_to_seconds(0.008, delta),0,1)
 	set_modulate(Color(color,color,color))
 	
 	# Move sight
@@ -60,7 +60,7 @@ func _physics_process(delta):
 		SWING:
 			state_swing()
 		DASH:
-			state_dash()
+			state_dash(delta)
 		SHOOT:
 			state_shoot()
 		DIALOGUE:
@@ -68,7 +68,7 @@ func _physics_process(delta):
 		MENU:
 			state_menu()
 		NO_INPUT:
-			state_noinput()
+			state_noinput(delta)
 		
 	deal_damage()
 	
@@ -85,7 +85,7 @@ func _physics_process(delta):
 		controller.scene_change("res://Scenes/Corrupted.tscn")
 		fully_corrupted = true
 	
-	footstep_increment()
+	footstep_increment(delta)
 	footstep_sound()
 	move_and_slide(motion)
 	
@@ -169,20 +169,20 @@ func state_walk():
 func state_swing():
 	stop_animation()
 
-func state_dash():
+func state_dash(delta):
 	stop_animation()
 	
 	# Decrease velocity after dash
 	if not jumping:
 		if motion.x < 0: # Left
-			motion.x = clamp(motion.x + 6,-200,0)
+			motion.x = clamp(motion.x + controller.convert_to_seconds(6, delta),-200,0)
 		elif motion.x > 0: # Right
-			motion.x = clamp(motion.x - 6,0,200)
+			motion.x = clamp(motion.x - controller.convert_to_seconds(6, delta),0,200)
 	
 		if motion.y < 0: # Up
-			motion.y = clamp(motion.y + 6,-200,0)
+			motion.y = clamp(motion.y + controller.convert_to_seconds(6, delta),-200,0)
 		elif motion.y > 0: # Down
-			motion.y = clamp(motion.y - 6,0,200)
+			motion.y = clamp(motion.y - controller.convert_to_seconds(6, delta),0,200)
 	
 func state_shoot():
 	stop_animation()
@@ -193,11 +193,11 @@ func state_dialogue():
 func state_menu():
 	pass
 	
-func state_noinput():
+func state_noinput(delta):
 	if falling and not respawn:
 		motion = Vector2(0,0)
-		scale.x = clamp(scale.x - 0.05,0,1)
-		scale.y = clamp(scale.y - 0.05,0,1)
+		scale.x = clamp(scale.x - controller.convert_to_seconds(0.05, delta),0,1)
+		scale.y = clamp(scale.y - controller.convert_to_seconds(0.05, delta),0,1)
 		if scale.x <= 0.01:
 			hide()
 
@@ -278,13 +278,14 @@ func use_potion():
 	$PartsPotion.set_emitting(true)
 	controller.player_health = clamp(controller.player_health + 4, 0, 10)
 
-func footstep_increment():
+func footstep_increment(delta):
 	if state == WALK:
 		if motion.x != 0 or motion.y != 0:
-			sound += 1
+			sound += controller.convert_to_seconds(1, delta)
 	
 func footstep_sound():
-	if sound != -1 and sound % 20 == 0 and state == WALK:
+	if sound != -1 and int(ceil(sound)) % 21 == 0 and state == WALK:
+		sound = 0
 		$SoundFootstep.play(0)
 		
 func stop_animation():
