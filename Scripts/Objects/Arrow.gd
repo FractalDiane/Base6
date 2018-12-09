@@ -35,8 +35,8 @@ func _physics_process(delta):
 			vel_x = 0
 		
 	if hit:
-		vel_y += 0.5
-		direction += 8
+		vel_y += controller.convert_to_seconds(0.5, delta)
+		direction += controller.convert_to_seconds(8, delta)
 	
 	var velocity = Vector2(vel_x,vel_y)
 	
@@ -44,7 +44,7 @@ func _physics_process(delta):
 		queue_free()
 	
 	set_rotation_degrees(-direction)
-	var coll = move_and_collide(velocity)
+	var coll = move_and_collide(controller.convert_to_seconds(velocity, delta))
 	
 	if coll:
 		$SoundPlink.play(0)

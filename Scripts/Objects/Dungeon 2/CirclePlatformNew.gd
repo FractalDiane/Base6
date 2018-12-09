@@ -22,7 +22,7 @@ onready var area = $Area2D
 onready var sprite = $Sprite
 
 func _physics_process(delta):
-	angle = clamp(angle - 2, target_angle, target_angle + 90)
+	angle = clamp(angle - controller.convert_to_seconds(2, delta), target_angle, target_angle + 90)
 	var angle_rad = deg2rad(angle)
 	var pos_x = (radius * 2) * cos(angle_rad) + 36
 	var pos_y = radius * sin(angle_rad)

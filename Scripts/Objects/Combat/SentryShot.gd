@@ -13,7 +13,7 @@ onready var player = Player
 
 func _physics_process(delta):
 	set_z_index(get_position().y)
-	angle += 10
+	angle += controller.convert_to_seconds(10, delta)
 	
 	if fade:
 		sc = clamp(sc - 0.08,0,1)

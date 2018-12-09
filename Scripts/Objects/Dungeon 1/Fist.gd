@@ -18,6 +18,8 @@ var ideal_pos = Vector2(0, 0)
 var orbit_radius = 0
 var orbit_angle = 0
 
+var sprite_pos = Vector2(0, 0)
+
 onready var idealY = 0
 onready var player = Player
 
@@ -40,19 +42,23 @@ func _physics_process(delta):
 		motion = Vector2(speed * cos(angle), speed * sin(angle))
 	else:
 		if orbiting:
-			orbit()
+			orbit(delta)
 			motion = (ideal_pos - position) * 16
 		else:
 			motion = Vector2(0, 0)
-	if fistOffset - .0001 > idealY: #Move the fist sprite either up or down depending on current offset.
-		idealY += translateSpeed * 2
-	elif fistOffset + .0001 < idealY:
-		idealY -= translateSpeed
+	if abs(fistOffset - idealY) > 0.1:
+		if fistOffset > idealY: #Move the fist sprite either up or down depending on current offset.
+			idealY += controller.convert_to_seconds(translateSpeed * 2, delta)
+		elif fistOffset < idealY:
+			idealY -= controller.convert_to_seconds(translateSpeed, delta)
 	else:
 		checkPhase()
-	$FistSprite.offset.y = idealY
+	$FistSprite.offset.y = floor(idealY)
 	set_z_index(get_position().y) #Set depth properly
 	move_and_slide(motion) #Move the fist toward the player.
+	if abs(global_position.x - sprite_pos.x) > 1 or abs(global_position.y - sprite_pos.y) > 1:
+		sprite_pos = Vector2(round(global_position.x), round(global_position.y))
+	$FistSprite.global_position = Vector2(sprite_pos.x, sprite_pos.y + 6)
 
 func _on_animation_finished():
 	if $ShadowSprite.animation == "lift": 	#If done lifting, start following.
@@ -110,10 +116,10 @@ func checkPhase():
 		phase3()
 		phase3 = false
 
-func orbit():
+func orbit(delta):
 	if orbit_radius < 16:
-		orbit_radius += .5
-	orbit_angle += .1
+		orbit_radius += controller.convert_to_seconds(.5, delta)
+	orbit_angle += controller.convert_to_seconds(.1, delta)
 	ideal_pos = Vector2(orbit_center.x + orbit_radius * cos(orbit_angle), orbit_center.y + orbit_radius * sin(orbit_angle))
 
 func phase2():

@@ -11,7 +11,7 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	angle = clamp(angle + 1, angle, new_angle)
+	angle = clamp(angle + controller.convert_to_seconds(1, delta), angle, new_angle)
 	set_rotation(deg2rad(angle))
 	
 func rotate():
