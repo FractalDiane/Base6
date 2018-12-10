@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Scripts/Scenes/Title.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Splash.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Scripts/System/MusicAudio.gd" type="Script" id=13]
 [ext_resource path="res://Fonts/font_large.tres" type="DynamicFont" id=14]
 [ext_resource path="res://Fonts/font_cell.tres" type="DynamicFont" id=15]
+[ext_resource path="res://Sprites/UI/Unchecked.png" type="Texture" id=16]
 
 [sub_resource type="Gradient" id=1]
 
@@ -88,6 +89,20 @@ shader = ExtResource( 8 )
 shader_param/invertColor = true
 _sections_unfolded = [ "shader_param" ]
 
+[sub_resource type="ShaderMaterial" id=12]
+
+render_priority = 0
+shader = ExtResource( 8 )
+shader_param/invertColor = true
+_sections_unfolded = [ "shader_param" ]
+
+[sub_resource type="ShaderMaterial" id=13]
+
+render_priority = 0
+shader = ExtResource( 8 )
+shader_param/invertColor = true
+_sections_unfolded = [ "shader_param" ]
+
 [sub_resource type="StyleBoxEmpty" id=7]
 
 content_margin_left = -1.0
@@ -143,6 +158,35 @@ content_margin_left = -1.0
 content_margin_right = -1.0
 content_margin_top = -1.0
 content_margin_bottom = -1.0
+
+[sub_resource type="ShaderMaterial" id=14]
+
+render_priority = 0
+shader = ExtResource( 8 )
+shader_param/invertColor = true
+_sections_unfolded = [ "shader_param" ]
+
+[sub_resource type="StyleBoxEmpty" id=15]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=16]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+
+[sub_resource type="StyleBoxEmpty" id=17]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+_sections_unfolded = [ "Content Margin" ]
 
 [node name="Node2D" type="Node2D" index="0"]
 
@@ -443,8 +487,6 @@ texture = ExtResource( 5 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CreditsGroup" type="Node2D" parent="." index="28"]
-
-editor/display_folded = true
 
 [node name="BASE-6" type="Label" parent="CreditsGroup" index="0"]
 
@@ -848,30 +890,67 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin", "Material", "Rect", "Visibility", "custom_colors", "custom_fonts" ]
 
-[node name="OptionsBox1" type="Sprite" parent="OptionsGroup" index="3"]
+[node name="FULLSCREEN" type="Label" parent="OptionsGroup" index="3"]
 
-visible = false
 modulate = Color( 1, 1, 1, 0 )
-material = SubResource( 4 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_top = 87.0
+margin_right = 64.0
+margin_bottom = 101.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "FULLSCREEN"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "Material", "Rect", "Visibility", "custom_colors", "custom_fonts" ]
+
+[node name="OptionsBox1" type="Sprite" parent="OptionsGroup" index="4"]
+
+modulate = Color( 1, 1, 1, 0 )
+material = SubResource( 12 )
 position = Vector2( 21, 33.5 )
 scale = Vector2( 2.8, 0.9 )
 texture = ExtResource( 9 )
 _sections_unfolded = [ "Material", "Offset", "Transform", "Visibility", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="OptionsBox2" type="Sprite" parent="OptionsGroup" index="4"]
+[node name="OptionsBox2" type="Sprite" parent="OptionsGroup" index="5"]
 
-visible = false
 modulate = Color( 1, 1, 1, 0 )
-material = SubResource( 4 )
+material = SubResource( 13 )
 position = Vector2( 25.5, 62.5 )
 scale = Vector2( 3.7, 0.9 )
 texture = ExtResource( 9 )
 _sections_unfolded = [ "Material", "Offset", "Transform", "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="Music Slider" type="HSlider" parent="OptionsGroup" index="5"]
+[node name="OptionsBox3" type="Sprite" parent="OptionsGroup" index="6"]
+
+modulate = Color( 1, 1, 1, 0 )
+material = SubResource( 13 )
+position = Vector2( 36, 91.5 )
+scale = Vector2( 5.8, 0.9 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Material", "Offset", "Transform", "Visibility" ]
+
+[node name="Music Slider" type="HSlider" parent="OptionsGroup" index="7"]
 
 visible = false
-modulate = Color( 1, 1, 1, 0 )
 material = SubResource( 4 )
 anchor_left = 0.0
 anchor_top = 0.0
@@ -917,10 +996,9 @@ scale = Vector2( 14.6, 0.2 )
 texture = ExtResource( 9 )
 _sections_unfolded = [ "Material", "Offset" ]
 
-[node name="Effects Slider" type="HSlider" parent="OptionsGroup" index="6"]
+[node name="Effects Slider" type="HSlider" parent="OptionsGroup" index="8"]
 
 visible = false
-modulate = Color( 1, 1, 1, 0 )
 material = SubResource( 4 )
 anchor_left = 0.0
 anchor_top = 0.0
@@ -966,6 +1044,40 @@ scale = Vector2( 14.6, 0.2 )
 texture = ExtResource( 9 )
 _sections_unfolded = [ "Material" ]
 
+[node name="Fullscreen Checkbox" type="CheckBox" parent="OptionsGroup" index="9"]
+
+visible = false
+material = SubResource( 14 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 143.0
+margin_top = 80.0
+margin_right = 167.0
+margin_bottom = 104.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_icons/radio_checked = ExtResource( 9 )
+custom_icons/checked = ExtResource( 9 )
+custom_icons/radio_unchecked = ExtResource( 16 )
+custom_icons/unchecked = ExtResource( 16 )
+custom_styles/hover = SubResource( 15 )
+custom_styles/focus = SubResource( 16 )
+custom_styles/normal = SubResource( 17 )
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "Material", "Rect", "Visibility", "custom_icons", "custom_styles" ]
+
 [connection signal="timeout" from="TimerFadeInLogo" to="." method="_on_TimerFadeInLogo_timeout"]
 
 [connection signal="timeout" from="TimerFadeInOptions" to="." method="_on_TimerFadeInOptions_timeout"]
@@ -997,5 +1109,7 @@ _sections_unfolded = [ "Material" ]
 [connection signal="gui_input" from="OptionsGroup/Effects Slider" to="." method="_on_Effects_Slider_gui_input"]
 
 [connection signal="value_changed" from="OptionsGroup/Effects Slider" to="." method="_on_Effects_Slider_value_changed"]
+
+[connection signal="toggled" from="OptionsGroup/Fullscreen Checkbox" to="." method="_on_Fullscreen_Checkbox_toggled"]
 
 

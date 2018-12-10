@@ -29,6 +29,9 @@ var credits_cancel = false
 var go_to_settings = false
 var settings_state = 0
 var settings_alpha = 0
+var settings_boxes = []
+var settings_options = {} 
+var settings_cursor = 0
 
 var transition_acc = 1
 var transition_active = false
@@ -58,6 +61,15 @@ func _ready():
 	boxes[2] = get_node("Box3")
 	boxes[3] = get_node("Box4")
 	
+	settings_options[0] = $"OptionsGroup/Music Slider"
+	settings_options[1] = $"OptionsGroup/Effects Slider"
+	settings_options[2] = $"OptionsGroup/Fullscreen Checkbox"
+	
+	settings_boxes.append($OptionsGroup/OptionsBox1)
+	settings_boxes.append($OptionsGroup/OptionsBox2)
+	settings_boxes.append($OptionsGroup/OptionsBox3)
+	
+	
 	for box in boxes:
 		boxes[box].set_modulate(Color(1,1,1,0))
 		
@@ -70,6 +82,7 @@ func _ready():
 	
 	$"OptionsGroup/Music Slider".value = controller.audio_music_percent
 	$"OptionsGroup/Effects Slider".value = controller.audio_effects_percent
+	$"OptionsGroup/Fullscreen Checkbox".pressed = Config.file.get_value("Display", "fullscreen", false)
 	
 func _physics_process(delta):
 	if logo_active:
@@ -103,7 +116,7 @@ func _physics_process(delta):
 	if boxes_active:
 		if not boxes[cursor].is_visible():
 			boxes[cursor].show()
-		boxes_alpha = clamp(boxes_alpha + 0.025,0,1)
+		boxes_alpha = clamp(boxes_alpha + controller.convert_to_seconds(0.025, delta),0,1)
 		for box in boxes:
 			if box == cursor:
 				boxes[box].set_modulate(Color(1,1,1,boxes_alpha))
@@ -155,16 +168,21 @@ func _physics_process(delta):
 	if go_to_settings:
 		match settings_state:
 			0:
+				settings_alpha += delta
 				for node in $OptionsGroup.get_children():
-					settings_alpha += delta
-					if settings_alpha < 1:
-						node.set_modulate(Color(0, 0, 0, settings_alpha))
-					else:
-						node.set_modulate(Color(0, 0, 0, 1))
+					if not node in settings_boxes:
+						if settings_alpha < 1:
+							node.set_modulate(Color(1, 1, 1, settings_alpha))
+						else:
+							node.set_modulate(Color(1, 1, 1, 1))
 				if settings_alpha >= 1:
 					settings_state = 1
 			1:
-				pass
+				for box in settings_boxes:
+					if box == settings_boxes[settings_cursor]:
+						box.set_modulate(Color(1,1,1,1))
+					else:
+						box.set_modulate(Color(1,1,1,0))
 			2:
 				for node in $OptionsGroup.get_children():
 					settings_alpha -= delta
@@ -182,6 +200,7 @@ func _physics_process(delta):
 					$TimerShowStuff.start()
 					Config.file.set_value("Audio", "music_volume", controller.audio_music_percent)
 					Config.file.set_value("Audio", "effects_volume", controller.audio_effects_percent)
+					Config.file.set_value("Display", "fullscreen", settings_options[2].pressed)
 					Config.save()
 				
 		
@@ -248,7 +267,22 @@ func input():
 			credits_stage = 0
 			roll_credits = false
 			$TimerShowStuff.start()
+	
 	if go_to_settings:
+		if Input.is_action_just_pressed("ui_up"):
+			$SoundCursor.play(0)
+			settings_cursor -= 1
+			# Godot's modulo operator doesn't wrap negative numbers for some reason
+			# So we have to use fposmod, which does, and cast it back to int.
+			settings_cursor = int(fposmod(settings_cursor, len(settings_boxes)))
+			settings_options[settings_cursor].grab_focus()
+		if Input.is_action_just_pressed("ui_down"):
+			$SoundCursor.play(0)
+			settings_cursor += 1
+			# Godot's modulo operator doesn't wrap negative numbers for some reason
+			# So we have to use fposmod, which does, and cast it back to int.
+			settings_cursor = int(fposmod(settings_cursor, len(settings_boxes)))
+			settings_options[settings_cursor].grab_focus()
 		if Input.is_action_just_pressed("ui_cancel"):
 			settings_state = 2
 
@@ -314,8 +348,9 @@ func _on_TimerShowStuff_timeout():
 func _on_TimerShowSettings_timeout():
 	go_to_settings = true
 	settings_state = 0
-	$"OptionsGroup/Music Slider".visible = true
-	$"OptionsGroup/Effects Slider".visible = true
+	for op in settings_options.values():
+		op.visible = true
+	settings_options[settings_cursor].grab_focus()
 
 func _on_Music_Slider_value_changed(value):
 	controller.audio_music_percent = value
@@ -335,3 +370,7 @@ func _on_Effects_Slider_gui_input(ev):
 	if ev is InputEventMouseButton:
 		if ev.pressed == false:
 			$SoundCursor.play()
+
+
+func _on_Fullscreen_Checkbox_toggled(button_pressed):
+	OS.window_fullscreen = button_pressed
