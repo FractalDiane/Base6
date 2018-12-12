@@ -202,6 +202,8 @@ func _physics_process(delta):
 					Config.file.set_value("Audio", "effects_volume", controller.audio_effects_percent)
 					Config.file.set_value("Display", "fullscreen", settings_options[2].pressed)
 					Config.save()
+					for node in settings_options.values():
+						node.visible = false
 				
 		
 	input()
