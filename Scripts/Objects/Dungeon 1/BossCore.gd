@@ -11,6 +11,7 @@ var torso_tex2 = preload("res://Sprites/Characters/Temple Guardians/Torso2.png")
 var timer
 var shake = false
 var shake_amount = 0
+var shake_vector = Vector2(0, 0)
 
 var dialogue_text = ["You have proven yourself.", "Take this keystone piece.", "Purge the land of this evil."]
 
@@ -18,6 +19,7 @@ onready var room = get_tree().get_root().get_node("Node2D")
 onready var roomLocation = room.position
 onready var switchLocation = $OrbSwitch.position
 onready var switches = [$Switch1, $Switch2, $Switch3, $Switch4]
+onready var player = Player
 
 func _ready():
 	$OrbSwitch.translate(Vector2(0, -100))
@@ -36,9 +38,12 @@ func _physics_process(delta):
 		if shake_amount <= 0:
 			shake = false
 			return
-		var shake_vector = Vector2(floor(rand_range(-shake_amount, shake_amount)), floor(rand_range(-shake_amount, shake_amount)))
-		shake_amount -= .12
-		room.position = roomLocation + shake_vector
+		var temp_vector = Vector2(floor(rand_range(-shake_amount, shake_amount)), floor(rand_range(-shake_amount, shake_amount)))
+		var shake_difference = temp_vector - shake_vector
+		room.position += shake_difference
+		player.position += shake_difference
+		shake_vector = temp_vector
+		shake_amount -= .05
 		
 	if controller.flag["holding_bow"] == 1 and controller.flag["holding_dungeon2key"] == 1 and controller.flag["dungeon1_complete"] == 0:
 		$EnterTrigger/SoundDoorClose.play(0)
