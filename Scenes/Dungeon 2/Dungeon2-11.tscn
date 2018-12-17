@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=2]
@@ -11,6 +11,9 @@
 [ext_resource path="res://Sprites/Props/Door 2.png" type="Texture" id=9]
 [ext_resource path="res://Instances/Props/Column.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Instances/Props/Torch.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Instances/NPCs/NPCMasterNew.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Sprites/Characters/Azura and Gallaro/Gallaro dead.png" type="Texture" id=13]
+[ext_resource path="res://Instances/Items/Gold.tscn" type="PackedScene" id=14]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -31,7 +34,36 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 17, 16 )
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 5, 5 )
+
+[node name="Node2D" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform", "Z Index" ]
 
@@ -151,4 +183,35 @@ position = Vector2( 40, 25 )
 
 position = Vector2( 119, 25 )
 
+[node name="NPCGallaro" parent="." index="12" instance=ExtResource( 12 )]
 
+position = Vector2( 126, 45 )
+text = [ [ "...", "...", "Azura...", "Please...", "Help me...", "...", "..." ], [ "(He's dead.)" ] ]
+dialogue_key = "gallaro_talk"
+
+[node name="Sprite" parent="NPCGallaro" index="0"]
+
+frames = SubResource( 3 )
+
+[node name="CollisionShape2D" parent="NPCGallaro" index="1"]
+
+shape = SubResource( 4 )
+
+[node name="Interact" parent="NPCGallaro" index="2"]
+
+frame = 3
+
+[node name="Gold" parent="." index="13" instance=ExtResource( 14 )]
+
+position = Vector2( 136, 59 )
+target_flag = "gold_10"
+
+[node name="Gold2" parent="." index="14" instance=ExtResource( 14 )]
+
+position = Vector2( 125, 64 )
+gold_value = 20
+large_sprite = true
+target_flag = "gold_11"
+
+
+[editable path="NPCGallaro"]

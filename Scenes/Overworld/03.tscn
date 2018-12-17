@@ -48,7 +48,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 6, 3 )
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -160,7 +160,7 @@ shape = SubResource( 2 )
 
 [node name="Interact" parent="NPCKeinOutside" index="2"]
 
-frame = 3
+frame = 1
 
 
 [editable path="NPCKeinOutside"]

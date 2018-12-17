@@ -67,7 +67,7 @@ visible = false
 position = Vector2( -1, -9 )
 frames = SubResource( 2 )
 animation = "default"
-frame = 2
+frame = 1
 playing = true
 __meta__ = {
 "_edit_lock_": true

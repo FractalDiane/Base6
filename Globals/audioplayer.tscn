@@ -12,7 +12,7 @@
 [ext_resource path="res://Sounds/Objects/GetItem.wav" type="AudioStream" id=10]
 [ext_resource path="res://Sounds/Ambient/Puzzle solved.wav" type="AudioStream" id=11]
 
-[node name="audioplayer" type="Node"]
+[node name="audioplayer" type="Node" index="0"]
 
 script = ExtResource( 1 )
 

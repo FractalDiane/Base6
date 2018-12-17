@@ -346,7 +346,6 @@ func _on_TimerShowStuff_timeout():
 	$TimerFadeInOptions.start()
 	$TimerFadeInBoxes.start()
 
-
 func _on_TimerShowSettings_timeout():
 	go_to_settings = true
 	settings_state = 0
@@ -367,12 +366,10 @@ func _on_Music_Slider_gui_input(ev):
 		if ev.pressed == false:
 			$MusicSample.play()
 
-
 func _on_Effects_Slider_gui_input(ev):
 	if ev is InputEventMouseButton:
 		if ev.pressed == false:
 			$SoundCursor.play()
-
 
 func _on_Fullscreen_Checkbox_toggled(button_pressed):
 	OS.window_fullscreen = button_pressed

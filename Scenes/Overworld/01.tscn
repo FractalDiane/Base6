@@ -1,34 +1,84 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=22 format=2]
 
-[ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=1]
-[ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Instances/Worldborder.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Sounds/Music/White Noise.wav" type="AudioStream" id=6]
-[ext_resource path="res://Instances/Props/Tree.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/Scenes/01.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=2]
+[ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Instances/Worldborder.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sounds/Music/White Noise.wav" type="AudioStream" id=7]
+[ext_resource path="res://Instances/Props/Tree.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Instances/NPCs/NPCMasterNew.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scripts/System/NPC.gd" type="Script" id=10]
+[ext_resource path="res://Sprites/Characters/Azura and Gallaro/Azura right.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Characters/Azura and Gallaro/Azura left.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Characters/Azura and Gallaro/Azura up.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Characters/Azura and Gallaro/Azura down.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/UI/Interact 1.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/UI/Interact 2.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/UI/Interact 3.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/UI/Interact 4.png" type="Texture" id=18]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="SpriteFrames" id=1]
 
+animations = [ {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 5, 3 )
+
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ {
+"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[node name="Node2D" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Background" type="Sprite" parent="." index="0"]
 
 position = Vector2( 80, 72 )
 z_index = -4096
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 _sections_unfolded = [ "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="UI" parent="." index="1" instance=ExtResource( 2 )]
+[node name="UI" parent="." index="1" instance=ExtResource( 3 )]
 
-[node name="Worldborder" parent="." index="2" instance=ExtResource( 3 )]
+[node name="Worldborder" parent="." index="2" instance=ExtResource( 4 )]
 
 position = Vector2( 80, -4 )
 
-[node name="Transition2" parent="." index="3" instance=ExtResource( 4 )]
+[node name="Transition2" parent="." index="3" instance=ExtResource( 5 )]
 
 position = Vector2( 80, 140 )
 scale = Vector2( 2.5, 0.125 )
@@ -37,28 +87,89 @@ target_x = 0
 target_y = 16
 direction = "down"
 
-[node name="CellLabel" parent="." index="4" instance=ExtResource( 5 )]
+[node name="CellLabel" parent="." index="4" instance=ExtResource( 6 )]
 
 text = "01"
 cell_index_x = 1
-cell_music = ExtResource( 6 )
+cell_music = ExtResource( 7 )
 
-[node name="Transition" parent="." index="5" instance=ExtResource( 4 )]
+[node name="Transition" parent="." index="5" instance=ExtResource( 5 )]
 
 position = Vector2( -4, 72 )
 target_x = 144
 direction = "left"
 
-[node name="Transition3" parent="." index="6" instance=ExtResource( 4 )]
+[node name="Transition3" parent="." index="6" instance=ExtResource( 5 )]
 
 target_scene = "res://Scenes/Overworld/02.tscn"
 
-[node name="Tree" parent="." index="7" instance=ExtResource( 7 )]
+[node name="Tree" parent="." index="7" instance=ExtResource( 8 )]
 
 position = Vector2( 54, 41 )
 
-[node name="Tree2" parent="." index="8" instance=ExtResource( 7 )]
+[node name="Tree2" parent="." index="8" instance=ExtResource( 8 )]
 
 position = Vector2( 129, 90 )
 
+[node name="NPCAzura12" type="KinematicBody2D" parent="." index="9" groups=[
+"NPC",
+] instance=ExtResource( 9 )]
 
+position = Vector2( 92, 30 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 10 )
+text = [ [ "Hey... look who's still alive.", "So... you're trying to find all the pieces of the keystone?", "That's the only way to stop the corruption.", "I guess someone's got to do it.", "...", "I'm glad you're trying.", "We all are.", "Remember that." ], [ "Any sign of Gallaro?", "...", "I'm worried...", "I hope he's all right..." ] ]
+dialogue_key = "azura12_talk"
+auto_advance_set = true
+auto_advance_limit = 1
+box_x = 50
+box_y = 15
+box_width = 100
+box_height = 70
+registry = false
+
+[node name="Sprite" type="AnimatedSprite" parent="NPCAzura12" index="0"]
+
+frames = SubResource( 1 )
+animation = "down"
+offset = Vector2( 0, -1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCAzura12" index="1"]
+
+position = Vector2( 0, 9 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Interact" type="AnimatedSprite" parent="NPCAzura12" index="2"]
+
+visible = false
+position = Vector2( 0, -17 )
+frames = SubResource( 3 )
+animation = "default"
+playing = true
+_sections_unfolded = [ "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TimerHideInteract" type="Timer" parent="NPCAzura12" index="3"]
+
+process_mode = 1
+wait_time = 0.01
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="NPCAzura12/TimerHideInteract" to="NPCAzura12" method="_on_TimerHideInteract_timeout"]
+
+
+[editable path="NPCAzura12"]

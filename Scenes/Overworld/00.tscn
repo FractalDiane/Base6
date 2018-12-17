@@ -1,20 +1,34 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=38 format=2]
 
-[ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=1]
-[ext_resource path="res://Tilesets/TilesetMain.tres" type="TileSet" id=2]
-[ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Instances/Worldborder.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Sprites/Props/House 1.png" type="Texture" id=5]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Sounds/Music/White Noise.wav" type="AudioStream" id=8]
-[ext_resource path="res://Sprites/System/Tutorial.png" type="Texture" id=9]
-[ext_resource path="res://Instances/NPCs/NPCMasterNew.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Sprites/Characters/Jari/Jari left.png" type="Texture" id=11]
+[ext_resource path="res://Scripts/Scenes/00.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=2]
+[ext_resource path="res://Tilesets/TilesetMain.tres" type="TileSet" id=3]
+[ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Instances/Worldborder.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sprites/Props/House 1.png" type="Texture" id=6]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sounds/Music/White Noise.wav" type="AudioStream" id=9]
+[ext_resource path="res://Sprites/System/Tutorial.png" type="Texture" id=10]
+[ext_resource path="res://Instances/NPCs/NPCMasterNew.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Sprites/Characters/Jari/Jari right.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Characters/Jari/Jari up.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Characters/Jari/Jari down.png" type="Texture" id=14]
-[ext_resource path="res://Instances/Items/Gold.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Sprites/Characters/Jari/Jari left.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Characters/Jari/Jari up.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Characters/Jari/Jari down.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Characters/Iiro/Iiro right.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Characters/Iiro/Iiro left.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Characters/Iiro/Iiro up.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Characters/Iiro/Iiro down.png" type="Texture" id=19]
+[ext_resource path="res://Instances/Items/Gold.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Scripts/System/NPC.gd" type="Script" id=21]
+[ext_resource path="res://Sprites/Characters/Elders/Kein right.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Characters/Elders/Kein left.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Characters/Elders/Kein up.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Characters/Elders/Kein down.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/UI/Interact 1.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/UI/Interact 2.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/UI/Interact 3.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/UI/Interact 4.png" type="Texture" id=29]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -24,11 +38,6 @@ extents = Vector2( 32, 25 )
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "left",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "right",
@@ -36,10 +45,15 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
-"name": "up",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
 "loop": true,
 "name": "down",
 "speed": 5.0
@@ -50,15 +64,83 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 5, 3 )
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="SpriteFrames" id=4]
 
+animations = [ {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 4.5, 3 )
+
+[sub_resource type="SpriteFrames" id=6]
+
+animations = [ {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 23 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 24 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 25 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=7]
+
+custom_solver_bias = 0.0
+extents = Vector2( 6, 3 )
+
+[sub_resource type="SpriteFrames" id=8]
+
+animations = [ {
+"frames": [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[node name="Node2D" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Background" type="Sprite" parent="." index="0"]
 
 position = Vector2( 80, 72 )
 z_index = -4096
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 _sections_unfolded = [ "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
@@ -68,7 +150,7 @@ __meta__ = {
 
 z_index = -2000
 mode = 0
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 3 )
 cell_size = Vector2( 8, 8 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -89,13 +171,13 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="UI" parent="." index="2" instance=ExtResource( 3 )]
+[node name="UI" parent="." index="2" instance=ExtResource( 4 )]
 
-[node name="Worldborder" parent="." index="3" instance=ExtResource( 4 )]
+[node name="Worldborder" parent="." index="3" instance=ExtResource( 5 )]
 
 position = Vector2( 80, -4 )
 
-[node name="Worldborder2" parent="." index="4" instance=ExtResource( 4 )]
+[node name="Worldborder2" parent="." index="4" instance=ExtResource( 5 )]
 
 position = Vector2( -4, 72 )
 rotation = 1.5708
@@ -116,7 +198,7 @@ _sections_unfolded = [ "Collision", "Transform", "Z Index" ]
 [node name="Sprite" type="Sprite" parent="FioreHouse" index="0"]
 
 z_index = 20
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
@@ -128,7 +210,7 @@ position = Vector2( 0, 8 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Transition2" parent="." index="6" instance=ExtResource( 6 )]
+[node name="Transition2" parent="." index="6" instance=ExtResource( 7 )]
 
 position = Vector2( 80, 140 )
 scale = Vector2( 2.5, 0.125 )
@@ -137,11 +219,11 @@ target_x = 0
 target_y = 16
 direction = "down"
 
-[node name="CellLabel" parent="." index="7" instance=ExtResource( 7 )]
+[node name="CellLabel" parent="." index="7" instance=ExtResource( 8 )]
 
-cell_music = ExtResource( 8 )
+cell_music = ExtResource( 9 )
 
-[node name="Transition" parent="." index="8" instance=ExtResource( 6 )]
+[node name="Transition" parent="." index="8" instance=ExtResource( 7 )]
 
 target_scene = "res://Scenes/Overworld/01.tscn"
 
@@ -150,11 +232,11 @@ target_scene = "res://Scenes/Overworld/01.tscn"
 modulate = Color( 0.859375, 0.859375, 0.859375, 1 )
 position = Vector2( 113, 44 )
 z_index = -4000
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 region_rect = Rect2( 0, 30, 58, 36 )
 _sections_unfolded = [ "Region", "Visibility", "Z Index" ]
 
-[node name="Transition3" parent="." index="10" instance=ExtResource( 6 )]
+[node name="Transition3" parent="." index="10" instance=ExtResource( 7 )]
 
 position = Vector2( 50, 77.5 )
 scale = Vector2( 0.21875, 0.078125 )
@@ -164,7 +246,7 @@ target_y = 100
 direction = "up"
 not_cell = true
 
-[node name="NPCJari" parent="." index="11" instance=ExtResource( 10 )]
+[node name="NPCJari" parent="." index="11" instance=ExtResource( 11 )]
 
 position = Vector2( 117, 26 )
 text = [ [ "O-oh. Good morning, Fiore.", "The corruption has gotten worse since yesterday.", "J-just a little worse, though.", "There are still plenty of impures.", "And you should stay away from the east side.", "That's where it's gotten the worst.", "O-or maybe you can handle it.", "You're the one with the sword, after all.", "J-just remember to turn back if you start hearing the... whispers..." ], [ "The w-whispers...", "Just thinking about it makes me shudder..." ], [  ], [  ] ]
@@ -182,14 +264,161 @@ shape = SubResource( 3 )
 
 [node name="Interact" parent="NPCJari" index="2"]
 
-frame = 1
+frame = 0
 
-[node name="Gold" parent="." index="12" instance=ExtResource( 15 )]
+[node name="NPCJariD1" parent="." index="12" instance=ExtResource( 11 )]
+
+position = Vector2( 117, 26 )
+text = [ [ "H-hi, Fiore.", "The corruption is getting worse.", "It d-doesn't look like we have much longer.", "Well... unless you're trying to stop it.", "P-please be careful..." ], [ "B-be careful, Fiore.", "Don't let the w-whispers get you..." ] ]
+dialogue_key = "jarid1_talk"
+box_x = 12
+box_y = 50
+
+[node name="Sprite" parent="NPCJariD1" index="0"]
+
+frames = SubResource( 2 )
+
+[node name="CollisionShape2D" parent="NPCJariD1" index="1"]
+
+position = Vector2( 0, 8 )
+shape = SubResource( 3 )
+
+[node name="Interact" parent="NPCJariD1" index="2"]
+
+frame = 0
+
+[node name="NPCJariD2" parent="." index="13" instance=ExtResource( 11 )]
+
+position = Vector2( 117, 26 )
+text = [ [ "F-Fiore...", "Thank goodness you're all right...", "It looks like this is the end.", "We'll be s-swallowed up any minute now.", "...", "I don't want to die..." ], [ "..." ] ]
+dialogue_key = "jarid2_talk"
+box_x = 12
+box_y = 50
+
+[node name="Sprite" parent="NPCJariD2" index="0"]
+
+frames = SubResource( 2 )
+
+[node name="CollisionShape2D" parent="NPCJariD2" index="1"]
+
+position = Vector2( 0, 8 )
+shape = SubResource( 3 )
+
+[node name="Interact" parent="NPCJariD2" index="2"]
+
+frame = 0
+
+[node name="NPCIiro00" parent="." index="14" instance=ExtResource( 11 )]
+
+position = Vector2( 25, 82 )
+text = [ [ "Hey, Fiore.", "Corruption's gotten pretty bad.", "I had to abandon the shop.", "Feel free to go back and buy stuff, if you want.", "Be sure to leave the money on the counter.", "Heh!" ], [ "Hey, Fiore.", "If we don't make it outta this...", "...tell Jari I think he's cute.", "Heh heh..." ], [ "..." ] ]
+dialogue_key = "iiro00_talk"
+auto_advance_limit = 2
+
+[node name="Sprite" parent="NPCIiro00" index="0"]
+
+frames = SubResource( 4 )
+
+[node name="CollisionShape2D" parent="NPCIiro00" index="1"]
+
+position = Vector2( -0.5, 8 )
+shape = SubResource( 5 )
+
+[node name="Interact" parent="NPCIiro00" index="2"]
+
+frame = 0
+
+[node name="Gold" parent="." index="15" instance=ExtResource( 20 )]
 
 position = Vector2( 74, 18 )
 gold_value = 20
 large_sprite = true
 target_flag = "gold_4"
 
+[node name="NPCKein00" type="KinematicBody2D" parent="." index="16" groups=[
+"NPC",
+] instance=ExtResource( 11 )]
+
+position = Vector2( 93, 61 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 21 )
+text = [ [ "Fiore.", "...", "It's gotten bad.", "This seems to be the only safe place left.", "It won't be much longer until...", "...", "But there's still hope.", "You have all the pieces of the keystone.", "You can get into the GATE.", "And that's where you'll find the source of all this.", "You must destroy it.", "If you don't...", "...there won't be much of a world for you to come back to.", "We believe in you, Fiore.", "Save this land!" ], [ "Good luck, Fiore..." ] ]
+dialogue_key = "kein00_talk"
+auto_advance_set = true
+auto_advance_limit = 1
+box_x = 50
+box_y = 15
+box_width = 100
+box_height = 70
+registry = false
+
+[node name="Sprite" type="AnimatedSprite" parent="NPCKein00" index="0"]
+
+frames = SubResource( 6 )
+animation = "down"
+offset = Vector2( 0, -1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCKein00" index="1"]
+
+position = Vector2( 0, 7 )
+shape = SubResource( 7 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Interact" type="AnimatedSprite" parent="NPCKein00" index="2"]
+
+visible = false
+position = Vector2( 0, -17 )
+frames = SubResource( 8 )
+animation = "default"
+frame = 1
+playing = true
+_sections_unfolded = [ "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TimerHideInteract" type="Timer" parent="NPCKein00" index="3"]
+
+process_mode = 1
+wait_time = 0.01
+one_shot = true
+autostart = false
+
+[node name="NPCAzura00" type="KinematicBody2D" parent="." index="17" groups=[
+"NPC",
+] instance=ExtResource( 11 )]
+
+position = Vector2( 123, 89 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 21 )
+text = [ [ "Fiore...", "Has the corruption spread everywhere else?", "Oh, no...", "That means...", "Gallaro...", "No..." ], [ "...", "Fiore...", "Please...", "Save this land.", "Save our home." ] ]
+dialogue_key = "azura00_talk"
+auto_advance_set = true
+auto_advance_limit = 1
+box_x = 50
+box_y = 15
+box_width = 100
+box_height = 70
+registry = false
+
+[connection signal="timeout" from="NPCKein00/TimerHideInteract" to="NPCKein00" method="_on_TimerHideInteract_timeout"]
+
 
 [editable path="NPCJari"]
+[editable path="NPCJariD1"]
+[editable path="NPCJariD2"]
+[editable path="NPCIiro00"]
+[editable path="NPCKein00"]
