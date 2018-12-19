@@ -196,6 +196,7 @@ position = Vector2( 0, -1 )
 
 visible = true
 position = Vector2( 0, -29 )
+frame = 3
 
 [node name="Fountain" type="StaticBody2D" parent="." index="8"]
 

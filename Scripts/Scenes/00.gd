@@ -5,15 +5,22 @@ extends Node2D
 # var b = "textvar"
 
 func _ready():
-	if controller.flag["dungeon1_complete"] == 0:
+	if controller.flag["dungeon1_complete"] == 0 and controller.flag["dungeon2_complete"] == 0:
 		$NPCJariD1.queue_free()
-		
-	if controller.flag["dungeon2_complete"] == 0:
 		$NPCIiro00.queue_free()
 		$NPCJariD2.queue_free()
 		$NPCKein00.queue_free()
 		$NPCAzura00.queue_free()
-	else:
+	
+	if controller.flag["dungeon1_complete"] == 1 and controller.flag["dungeon2_complete"] == 0:
+		$NPCJari.queue_free()
+		$NPCIiro00.queue_free()
+		$NPCJariD2.queue_free()
+		$NPCKein00.queue_free()
+		$NPCAzura00.queue_free()
+		
+	if controller.flag["dungeon1_complete"] == 1 and controller.flag["dungeon2_complete"] == 1:
+		$NPCJari.queue_free()
 		$NPCJariD1.queue_free()
 
 #func _process(delta):

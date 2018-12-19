@@ -5,8 +5,15 @@ extends Node2D
 # var b = "textvar"
 
 func _ready():
-	if controller.flag["dungeon2_complete"] == 1:
+	if controller.flag["dungeon1_complete"] == 0 and controller.flag["dungeon2_complete"] == 0:
+		$NPCCultist40d1.queue_free()
+		
+	if controller.flag["dungeon1_complete"] == 1 and controller.flag["dungeon2_complete"] == 0:
 		$NPCCultist40.queue_free()
+	
+	if controller.flag["dungeon1_complete"] == 1 and controller.flag["dungeon2_complete"] == 1:
+		$NPCCultist40.queue_free()
+		$NPCCultist40d1.queue_free()
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.

@@ -75,7 +75,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 2, 6 )
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -149,7 +149,7 @@ position = Vector2( 80, 140 )
 [node name="NPCCultist40" parent="." index="8" instance=ExtResource( 9 )]
 
 position = Vector2( 114, 31 )
-text = [ [ "The corruption will purify us all.", "Do not resist its warm caress.", "Join us and be liberated." ] ]
+text = [ [ "The end grows nearer...", "Soon, you will be free!", "We will all be free!" ] ]
 dialogue_key = "cultist40_talk"
 auto_advance_set = false
 box_y = 60
@@ -167,8 +167,32 @@ shape = SubResource( 2 )
 [node name="Interact" parent="NPCCultist40" index="2"]
 
 position = Vector2( 0, -18 )
+frame = 0
 
-[node name="NPCMaster" parent="." index="9" instance=ExtResource( 9 )]
+[node name="NPCCultist40d1" parent="." index="9" instance=ExtResource( 9 )]
+
+position = Vector2( 114, 31 )
+text = [ [ "The end grows nearer...", "Soon, you will be free!", "We will all be free!" ] ]
+dialogue_key = "cultist40_talk"
+auto_advance_set = false
+box_y = 60
+box_height = 51
+
+[node name="Sprite" parent="NPCCultist40d1" index="0"]
+
+frames = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="NPCCultist40d1" index="1"]
+
+position = Vector2( 1, 7 )
+shape = SubResource( 2 )
+
+[node name="Interact" parent="NPCCultist40d1" index="2"]
+
+position = Vector2( 0, -18 )
+frame = 0
+
+[node name="NPCMaster" parent="." index="10" instance=ExtResource( 9 )]
 
 position = Vector2( 82, 95 )
 text = [ [ "Welcome to the land with no name.", "Enjoy your stay." ] ]
@@ -189,24 +213,26 @@ shape = SubResource( 4 )
 [node name="Interact" parent="NPCMaster" index="2"]
 
 position = Vector2( 0, -22 )
+frame = 0
 
-[node name="Tree" parent="." index="10" instance=ExtResource( 15 )]
+[node name="Tree" parent="." index="11" instance=ExtResource( 15 )]
 
 position = Vector2( 129, 119 )
 
-[node name="Tree2" parent="." index="11" instance=ExtResource( 15 )]
+[node name="Tree2" parent="." index="12" instance=ExtResource( 15 )]
 
 position = Vector2( 105, 136 )
 
-[node name="Tree3" parent="." index="12" instance=ExtResource( 15 )]
+[node name="Tree3" parent="." index="13" instance=ExtResource( 15 )]
 
 position = Vector2( 19, 128 )
 
-[node name="Gold" parent="." index="13" instance=ExtResource( 16 )]
+[node name="Gold" parent="." index="14" instance=ExtResource( 16 )]
 
 position = Vector2( 70, 119 )
 target_flag = "gold_6"
 
 
 [editable path="NPCCultist40"]
+[editable path="NPCCultist40d1"]
 [editable path="NPCMaster"]

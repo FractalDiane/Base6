@@ -10,6 +10,7 @@ func _ready():
 	if controller.flag["dungeon2_complete"] == 1:
 		$Sprite.play("closed")
 		$TimerBlink.stop()
+		get_tree().get_root().get_node("Node2D").get_node("NPCFountainPlaque").queue_free()
 
 func _on_TimerBlink_timeout():
 	if not corr:

@@ -969,7 +969,7 @@ shape = SubResource( 13 )
 
 [node name="Interact" parent="ItemBow" index="2"]
 
-frame = 3
+frame = 0
 
 [connection signal="timeout" from="BossCore/EnterTrigger/TimerStartBoss" to="BossCore/EnterTrigger" method="_on_TimerStartBoss_timeout"]
 

@@ -20,15 +20,14 @@
 [ext_resource path="res://Sprites/Characters/Iiro/Iiro up.png" type="Texture" id=18]
 [ext_resource path="res://Sprites/Characters/Iiro/Iiro down.png" type="Texture" id=19]
 [ext_resource path="res://Instances/Items/Gold.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Scripts/System/NPC.gd" type="Script" id=21]
-[ext_resource path="res://Sprites/Characters/Elders/Kein right.png" type="Texture" id=22]
-[ext_resource path="res://Sprites/Characters/Elders/Kein left.png" type="Texture" id=23]
-[ext_resource path="res://Sprites/Characters/Elders/Kein up.png" type="Texture" id=24]
-[ext_resource path="res://Sprites/Characters/Elders/Kein down.png" type="Texture" id=25]
-[ext_resource path="res://Sprites/UI/Interact 1.png" type="Texture" id=26]
-[ext_resource path="res://Sprites/UI/Interact 2.png" type="Texture" id=27]
-[ext_resource path="res://Sprites/UI/Interact 3.png" type="Texture" id=28]
-[ext_resource path="res://Sprites/UI/Interact 4.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/Characters/Elders/Kein right.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Characters/Elders/Kein left.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Characters/Elders/Kein up.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Characters/Elders/Kein down.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Characters/Azura and Gallaro/Azura right.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Characters/Azura and Gallaro/Azura left.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/Characters/Azura and Gallaro/Azura up.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/Characters/Azura and Gallaro/Azura down.png" type="Texture" id=28]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -96,22 +95,22 @@ extents = Vector2( 4.5, 3 )
 [sub_resource type="SpriteFrames" id=6]
 
 animations = [ {
-"frames": [ ExtResource( 22 ) ],
+"frames": [ ExtResource( 21 ) ],
 "loop": true,
 "name": "right",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 23 ) ],
+"frames": [ ExtResource( 22 ) ],
 "loop": true,
 "name": "left",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 24 ) ],
+"frames": [ ExtResource( 23 ) ],
 "loop": true,
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 25 ) ],
+"frames": [ ExtResource( 24 ) ],
 "loop": true,
 "name": "down",
 "speed": 5.0
@@ -125,13 +124,33 @@ extents = Vector2( 6, 3 )
 [sub_resource type="SpriteFrames" id=8]
 
 animations = [ {
-"frames": [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ) ],
+"frames": [ ExtResource( 25 ) ],
 "loop": true,
-"name": "default",
-"speed": 3.0
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 26 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 28 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
 } ]
 
-[node name="Node2D" type="Node2D" index="0"]
+[sub_resource type="RectangleShape2D" id=9]
+
+custom_solver_bias = 0.0
+extents = Vector2( 6, 3 )
+
+[node name="Node2D" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -264,7 +283,7 @@ shape = SubResource( 3 )
 
 [node name="Interact" parent="NPCJari" index="2"]
 
-frame = 0
+frame = 1
 
 [node name="NPCJariD1" parent="." index="12" instance=ExtResource( 11 )]
 
@@ -285,7 +304,7 @@ shape = SubResource( 3 )
 
 [node name="Interact" parent="NPCJariD1" index="2"]
 
-frame = 0
+frame = 1
 
 [node name="NPCJariD2" parent="." index="13" instance=ExtResource( 11 )]
 
@@ -306,7 +325,7 @@ shape = SubResource( 3 )
 
 [node name="Interact" parent="NPCJariD2" index="2"]
 
-frame = 0
+frame = 1
 
 [node name="NPCIiro00" parent="." index="14" instance=ExtResource( 11 )]
 
@@ -326,7 +345,7 @@ shape = SubResource( 5 )
 
 [node name="Interact" parent="NPCIiro00" index="2"]
 
-frame = 0
+frame = 1
 
 [node name="Gold" parent="." index="15" instance=ExtResource( 20 )]
 
@@ -335,86 +354,48 @@ gold_value = 20
 large_sprite = true
 target_flag = "gold_4"
 
-[node name="NPCKein00" type="KinematicBody2D" parent="." index="16" groups=[
-"NPC",
-] instance=ExtResource( 11 )]
+[node name="NPCKein00" parent="." index="16" instance=ExtResource( 11 )]
 
 position = Vector2( 93, 61 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
-script = ExtResource( 21 )
 text = [ [ "Fiore.", "...", "It's gotten bad.", "This seems to be the only safe place left.", "It won't be much longer until...", "...", "But there's still hope.", "You have all the pieces of the keystone.", "You can get into the GATE.", "And that's where you'll find the source of all this.", "You must destroy it.", "If you don't...", "...there won't be much of a world for you to come back to.", "We believe in you, Fiore.", "Save this land!" ], [ "Good luck, Fiore..." ] ]
 dialogue_key = "kein00_talk"
-auto_advance_set = true
-auto_advance_limit = 1
-box_x = 50
-box_y = 15
-box_width = 100
-box_height = 70
-registry = false
+box_x = 5
+box_width = 80
+box_height = 80
 
-[node name="Sprite" type="AnimatedSprite" parent="NPCKein00" index="0"]
+[node name="Sprite" parent="NPCKein00" index="0"]
 
 frames = SubResource( 6 )
-animation = "down"
-offset = Vector2( 0, -1 )
-_sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCKein00" index="1"]
+[node name="CollisionShape2D" parent="NPCKein00" index="1"]
 
-position = Vector2( 0, 7 )
 shape = SubResource( 7 )
-_sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
-[node name="Interact" type="AnimatedSprite" parent="NPCKein00" index="2"]
+[node name="Interact" parent="NPCKein00" index="2"]
 
-visible = false
-position = Vector2( 0, -17 )
-frames = SubResource( 8 )
-animation = "default"
+position = Vector2( 0, -20 )
 frame = 1
-playing = true
-_sections_unfolded = [ "Visibility" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
-[node name="TimerHideInteract" type="Timer" parent="NPCKein00" index="3"]
-
-process_mode = 1
-wait_time = 0.01
-one_shot = true
-autostart = false
-
-[node name="NPCAzura00" type="KinematicBody2D" parent="." index="17" groups=[
-"NPC",
-] instance=ExtResource( 11 )]
+[node name="NPCAzura00" parent="." index="17" instance=ExtResource( 11 )]
 
 position = Vector2( 123, 89 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
-script = ExtResource( 21 )
 text = [ [ "Fiore...", "Has the corruption spread everywhere else?", "Oh, no...", "That means...", "Gallaro...", "No..." ], [ "...", "Fiore...", "Please...", "Save this land.", "Save our home." ] ]
 dialogue_key = "azura00_talk"
-auto_advance_set = true
-auto_advance_limit = 1
-box_x = 50
-box_y = 15
-box_width = 100
-box_height = 70
-registry = false
+box_x = 10
+box_y = 5
 
-[connection signal="timeout" from="NPCKein00/TimerHideInteract" to="NPCKein00" method="_on_TimerHideInteract_timeout"]
+[node name="Sprite" parent="NPCAzura00" index="0"]
+
+frames = SubResource( 8 )
+
+[node name="CollisionShape2D" parent="NPCAzura00" index="1"]
+
+position = Vector2( 0, 9 )
+shape = SubResource( 9 )
+
+[node name="Interact" parent="NPCAzura00" index="2"]
+
+frame = 1
 
 
 [editable path="NPCJari"]
@@ -422,3 +403,4 @@ registry = false
 [editable path="NPCJariD2"]
 [editable path="NPCIiro00"]
 [editable path="NPCKein00"]
+[editable path="NPCAzura00"]

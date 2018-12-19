@@ -45,7 +45,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 5, 3 )
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
@@ -126,6 +126,10 @@ frames = SubResource( 1 )
 
 position = Vector2( 0, 9 )
 shape = SubResource( 2 )
+
+[node name="Interact" parent="NPCAzura" index="2"]
+
+frame = 3
 
 
 [editable path="NPCAzura"]
