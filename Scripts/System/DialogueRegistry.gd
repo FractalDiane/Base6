@@ -19,6 +19,7 @@ var t = -1
 var sound = -1
 
 var target = null
+var destroy_event = false
 
 var buffer = false
 
@@ -98,10 +99,22 @@ func advance_page():
 		stage = 3
 		
 func on_destroy():
-	get_tree().get_root().get_node("Node2D").get_node("GLITCHLAYER").get_node("PartsGLITCH").set_emitting(true)
-	get_tree().get_root().get_node("Node2D").get_node("GLITCHLAYER").get_node("PartsGLITCH").get_node("GLITCH").show()
-	get_tree().get_root().get_node("Node2D").get_node("SoundStatic").play(0)
-	get_tree().get_root().get_node("Node2D").get_node("TimerGlitch").start()
+	if destroy_event:
+		get_tree().get_root().get_node("Node2D").get_node("GLITCHLAYER").get_node("PartsGLITCH").set_emitting(true)
+		get_tree().get_root().get_node("Node2D").get_node("GLITCHLAYER").get_node("PartsGLITCH").get_node("GLITCH").show()
+		get_tree().get_root().get_node("Node2D").get_node("SoundStatic").play(0)
+		get_tree().get_root().get_node("Node2D").get_node("TimerGlitch").start()
+		
+	if target.get_name() == "RegistryEntryTrigger":
+		target.get_node("MusicConfrontation").stop()
+		controller.scene_change("res://Scenes/GATE/Gate-FINALBOSS2.tscn", false)
+		Player.hide()
+		
+	if target.get_name() == "Registry2":
+		target.get_node("TimerStartBoss").start()
+		audioplayer.get_node("MusicFinalBoss").play(0)
+		audioplayer.current_music = audioplayer.get_node("MusicFinalBoss").stream
+		
 #	length = 0
 #	target.get_node("Sprite").set_animation("down")
 #	if target.dialogue_key != "null" and target.auto_advance_set:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/Globals/audioplayer.gd" type="Script" id=1]
 [ext_resource path="res://Sounds/Player/Hit 2.wav" type="AudioStream" id=2]
@@ -11,8 +11,9 @@
 [ext_resource path="res://Sounds/Ambient/Noise 2.wav" type="AudioStream" id=9]
 [ext_resource path="res://Sounds/Objects/GetItem.wav" type="AudioStream" id=10]
 [ext_resource path="res://Sounds/Ambient/Puzzle solved.wav" type="AudioStream" id=11]
+[ext_resource path="res://Sounds/Music/Final Boss.wav" type="AudioStream" id=12]
 
-[node name="audioplayer" type="Node" index="0"]
+[node name="audioplayer" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -91,6 +92,16 @@ script = ExtResource( 3 )
 
 stream = ExtResource( 11 )
 volume_db = -6.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+script = ExtResource( 3 )
+
+[node name="MusicFinalBoss" type="AudioStreamPlayer" parent="." index="8"]
+
+stream = ExtResource( 12 )
+volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0

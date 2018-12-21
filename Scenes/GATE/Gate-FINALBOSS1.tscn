@@ -1,0 +1,261 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=1]
+[ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sounds/Music/SILENCE.wav" type="AudioStream" id=4]
+[ext_resource path="res://Instances/CorruptionOverlay.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Instances/Worldborder.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sprites/Props/Registry.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/Scenes/FinalBossIntro.gd" type="Script" id=9]
+[ext_resource path="res://Sounds/Music/Registry.wav" type="AudioStream" id=10]
+
+[sub_resource type="Gradient" id=1]
+
+offsets = PoolRealArray( 0, 0.555921, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+
+flags = 4
+gradient = SubResource( 1 )
+width = 2048
+
+[sub_resource type="Curve" id=3]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 0 ), 0.0, 1.0, 0, 1, Vector2( 1, 1 ), 1.0, 0.0, 1, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+
+flags = 4
+width = 2048
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 0.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Color", "Gravity", "Initial Velocity", "Scale" ]
+
+[sub_resource type="CircleShape2D" id=6]
+
+custom_solver_bias = 0.0
+radius = 9.0
+
+[sub_resource type="RectangleShape2D" id=7]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 23 )
+
+[node name="Node2D" type="Node2D"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="Background" type="Sprite" parent="." index="0"]
+
+position = Vector2( 80, 72 )
+z_index = -4096
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 150, 144 )
+_sections_unfolded = [ "Offset", "Region", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="UI" parent="." index="1" instance=ExtResource( 2 )]
+
+[node name="CellLabel" parent="." index="2" instance=ExtResource( 3 )]
+
+text = "??"
+cell_index_x = -1
+cell_index_y = -1
+cell_music = ExtResource( 4 )
+
+[node name="CorruptionOverlay" parent="." index="3" instance=ExtResource( 5 )]
+
+corrupt = false
+corrupt_interval = 1.5
+
+[node name="CorruptionOverlaySprite" parent="CorruptionOverlay" index="1"]
+
+frame = 2
+
+[node name="CorruptionOverlay2" parent="." index="4" instance=ExtResource( 5 )]
+
+corrupt = false
+
+[node name="CorruptionOverlaySprite" parent="CorruptionOverlay2" index="1"]
+
+frame = 2
+
+[node name="Transition" parent="." index="5" instance=ExtResource( 6 )]
+
+position = Vector2( 80, 140 )
+scale = Vector2( 2.5, 0.125 )
+target_scene = "res://Scenes/GATE/Gate-3.tscn"
+target_x = 0
+target_y = 16
+direction = "down"
+
+[node name="Worldborder" parent="." index="6" instance=ExtResource( 7 )]
+
+position = Vector2( 80, -4 )
+
+[node name="Worldborder4" parent="." index="7" instance=ExtResource( 7 )]
+
+position = Vector2( 164, 72 )
+rotation = 1.5708
+
+[node name="Worldborder2" parent="." index="8" instance=ExtResource( 7 )]
+
+position = Vector2( 80, 140 )
+
+[node name="Worldborder3" parent="." index="9" instance=ExtResource( 7 )]
+
+position = Vector2( -4.00026, 72 )
+rotation = 1.5708
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="10"]
+
+position = Vector2( 80, 72 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D" index="0"]
+
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Particles2D" type="Particles2D" parent="StaticBody2D" index="1"]
+
+position = Vector2( -1, 2 )
+scale = Vector2( 4, 4 )
+emitting = true
+amount = 1
+lifetime = 2.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 5 )
+texture = ExtResource( 8 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Textures", "Time", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="2"]
+
+position = Vector2( 0, -1 )
+shape = SubResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="RegistryEntryTrigger" type="Area2D" parent="." index="11"]
+
+position = Vector2( 80, 116 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RegistryEntryTrigger" index="0"]
+
+position = Vector2( 0, 3 )
+shape = SubResource( 7 )
+_sections_unfolded = [ "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MusicConfrontation" type="AudioStreamPlayer" parent="RegistryEntryTrigger" index="1"]
+
+stream = ExtResource( 10 )
+volume_db = -5.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="TimerMusic" type="Timer" parent="RegistryEntryTrigger" index="2"]
+
+process_mode = 1
+wait_time = 2.25
+one_shot = true
+autostart = false
+
+[node name="TimerDialogue" type="Timer" parent="RegistryEntryTrigger" index="3"]
+
+process_mode = 1
+wait_time = 4.2
+one_shot = true
+autostart = false
+
+[connection signal="body_entered" from="RegistryEntryTrigger" to="RegistryEntryTrigger" method="_on_EntryTrigger_body_entered"]
+
+[connection signal="timeout" from="RegistryEntryTrigger/TimerMusic" to="RegistryEntryTrigger" method="_on_TimerMusic_timeout"]
+
+[connection signal="timeout" from="RegistryEntryTrigger/TimerDialogue" to="RegistryEntryTrigger" method="_on_TimerDialogue_timeout"]
+
+
+[editable path="CorruptionOverlay"]
+[editable path="CorruptionOverlay2"]

@@ -1,25 +1,24 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=1]
 [ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sounds/Music/GATE.wav" type="AudioStream" id=4]
 [ext_resource path="res://Tilesets/TilesetMain.tres" type="TileSet" id=5]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Instances/Worldborder.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Instances/CorruptionOverlay.tscn" type="PackedScene" id=8]
-
-[sub_resource type="RectangleShape2D" id=2]
-
-custom_solver_bias = 0.0
-extents = Vector2( 77, 28 )
+[ext_resource path="res://Instances/CorruptionOverlay.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 77, 31 )
+extents = Vector2( 80, 28 )
 
-[node name="Node2D" type="Node2D" index="0"]
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 80, 33 )
+
+[node name="Node2D" type="Node2D"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -67,38 +66,24 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Transition2" parent="." index="4" instance=ExtResource( 6 )]
-
-position = Vector2( 80, 140 )
-scale = Vector2( 2.5, 0.125 )
-target_scene = "res://Scenes/Overworld/34.tscn"
-target_x = 0
-target_y = 16
-direction = "down"
-
-[node name="Worldborder" parent="." index="5" instance=ExtResource( 7 )]
-
-position = Vector2( 164.307, 72 )
-rotation = 1.5708
-
-[node name="CorruptionOverlay" parent="." index="6" instance=ExtResource( 8 )]
+[node name="CorruptionOverlay" parent="." index="4" instance=ExtResource( 6 )]
 
 corrupt = false
 corrupt_interval = 1.5
 
 [node name="CorruptionOverlaySprite" parent="CorruptionOverlay" index="1"]
 
-frame = 12
+frame = 9
 
-[node name="CorruptionOverlay2" parent="." index="7" instance=ExtResource( 8 )]
+[node name="CorruptionOverlay2" parent="." index="5" instance=ExtResource( 6 )]
 
 corrupt = false
 
 [node name="CorruptionOverlaySprite" parent="CorruptionOverlay2" index="1"]
 
-frame = 12
+frame = 9
 
-[node name="Walls" type="StaticBody2D" parent="." index="8"]
+[node name="Walls" type="StaticBody2D" parent="." index="6"]
 
 input_pickable = false
 collision_layer = 1
@@ -114,18 +99,32 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" index="0"]
 
 position = Vector2( 80, 28 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" index="1"]
 
-position = Vector2( 80, 114 )
-shape = SubResource( 1 )
+position = Vector2( 80, 113 )
+shape = SubResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Transition" parent="." index="7" instance=ExtResource( 7 )]
+
+position = Vector2( -4, 72 )
+target_scene = "res://Scenes/Overworld/24.tscn"
+target_x = 148
+target_y = 72
+direction = "left"
+not_cell = true
+
+[node name="Transition3" parent="." index="8" instance=ExtResource( 7 )]
+
+target_scene = "res://Scenes/GATE/Gate-2.tscn"
+target_y = 0
 
 
 [editable path="CorruptionOverlay"]

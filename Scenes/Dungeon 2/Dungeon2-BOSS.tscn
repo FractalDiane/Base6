@@ -22,11 +22,11 @@
 [ext_resource path="res://Sprites/Items/Coin large.png" type="Texture" id=20]
 [ext_resource path="res://Scripts/Objects/Dungeon 2/TPPoint.gd" type="Script" id=21]
 [ext_resource path="res://Scripts/Objects/Dungeon 2/SesdinBoss.gd" type="Script" id=22]
-[ext_resource path="res://Sprites/Characters/Sesdin/Sesdin right.png" type="Texture" id=23]
-[ext_resource path="res://Sprites/Characters/Sesdin/Sesdin left.png" type="Texture" id=24]
-[ext_resource path="res://Sprites/Characters/Sesdin/Sesdin cast left.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Characters/Sesdin/Sesdin left.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Characters/Sesdin/Sesdin right.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Characters/Sesdin/Sesdin cast down.png" type="Texture" id=25]
 [ext_resource path="res://Sprites/Characters/Sesdin/Sesdin cast right.png" type="Texture" id=26]
-[ext_resource path="res://Sprites/Characters/Sesdin/Sesdin cast down.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/Characters/Sesdin/Sesdin cast left.png" type="Texture" id=27]
 [ext_resource path="res://Sprites/Particles/Impact.png" type="Texture" id=28]
 [ext_resource path="res://Sounds/Objects/Turret.wav" type="AudioStream" id=29]
 [ext_resource path="res://Sounds/Characters/Charge.wav" type="AudioStream" id=30]
@@ -130,22 +130,17 @@ extents = Vector2( 23, 4 )
 animations = [ {
 "frames": [ ExtResource( 23 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 24 ) ],
 "loop": true,
-"name": "left",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "down",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 25 ) ],
 "loop": true,
-"name": "castleft",
+"name": "castdown",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 26 ) ],
@@ -153,9 +148,14 @@ animations = [ {
 "name": "castright",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 27 ) ],
 "loop": true,
-"name": "castdown",
+"name": "castleft",
 "speed": 5.0
 } ]
 

@@ -219,9 +219,5 @@ frames = SubResource( 2 )
 position = Vector2( 1, 8 )
 shape = SubResource( 3 )
 
-[node name="Interact" parent="NPCCultist13" index="2"]
-
-frame = 1
-
 
 [editable path="NPCCultist13"]

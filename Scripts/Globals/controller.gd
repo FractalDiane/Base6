@@ -73,7 +73,7 @@ func dialogue(text,target_object,box_x,box_y,box_width,box_height):
 	dialogue_node.text = text
 	get_tree().get_root().add_child(dialogue_node)
 	
-func dialogue_registry(text,target_object,box_x,box_y,box_width,box_height):
+func dialogue_registry(text,target_object,box_x,box_y,box_width,box_height, destroy_event = true):
 	#Player.state = Player.DIALOGUE
 	var dialogue_node = dlg2.instance()
 	dialogue_node.box_x = box_x
@@ -82,6 +82,7 @@ func dialogue_registry(text,target_object,box_x,box_y,box_width,box_height):
 	dialogue_node.box_height = box_height
 	dialogue_node.target = target_object
 	dialogue_node.text = text
+	dialogue_node.destroy_event = destroy_event
 	get_tree().get_root().add_child(dialogue_node)
 	
 func player_damage(amount):
