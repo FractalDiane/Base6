@@ -1,0 +1,83 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/Objects/Combat/Explosion.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Particles/Teleport.png" type="Texture" id=2]
+[ext_resource path="res://Sounds/Characters/Burst.wav" type="AudioStream" id=3]
+
+[sub_resource type="SpriteFrames" id=4]
+
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "solid",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), null ],
+"loop": true,
+"name": "blink",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=3]
+
+custom_solver_bias = 0.0
+radius = 4.12311
+
+[node name="Explosion" type="Area2D"]
+
+position = Vector2( 100, 49 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+
+[node name="Sprite" type="AnimatedSprite" parent="." index="0"]
+
+frames = SubResource( 4 )
+animation = "blink"
+frame = 1
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( -0.5, -0.5 )
+shape = SubResource( 3 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="SoundExplode" type="AudioStreamPlayer" parent="." index="2"]
+
+stream = ExtResource( 3 )
+volume_db = -5.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="TimerExplode" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 1.25
+one_shot = true
+autostart = true
+
+[node name="TimerFade" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 0.8
+one_shot = true
+autostart = false
+
+[connection signal="body_entered" from="." to="." method="_on_Explosion_body_entered"]
+
+[connection signal="timeout" from="TimerExplode" to="." method="_on_TimerExplode_timeout"]
+
+[connection signal="timeout" from="TimerFade" to="." method="_on_TimerFade_timeout"]
+
+

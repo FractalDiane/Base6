@@ -3,6 +3,11 @@ extends Node
 # GLOBAL GAME CONTROLLER
 
 var flag = {}
+var holding_thekey = false
+var holding_theitem = false
+
+var bad_ending = false
+var true_ending = false
 
 var main = null
 var dlg = preload("res://Instances/System/Dialogue.tscn")

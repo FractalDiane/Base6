@@ -2,6 +2,7 @@ extends Node2D
 
 var spike = preload("res://Instances/Objects/SpikeTrail.tscn")
 var ghast = preload("res://Instances/Enemies/Ghast.tscn")
+var explosion = preload("res://Instances/Enemies/Explosion.tscn")
 var sideeye = preload("res://Instances/Enemies/SideEye.tscn")
 var sidemouth = preload("res://Instances/Enemies/SideMouth.tscn")
 var downeye = preload("res://Instances/Enemies/DownEye.tscn")
@@ -10,6 +11,7 @@ var followTrail = false
 var squareTrail = false
 var spikePoints = []
 var trailSpeed = 10
+var ghast_amount = 0
 var trailInterval = .2
 var squareInterval = 1.5
 var squareOffsets = []
@@ -21,7 +23,9 @@ var stopTimer
 var eyeTimer
 var phase = 1
 var attacks_left = 5
+var attack_choices = 0
 var spawnpoints = [Vector2(80, 30), Vector2(30, 80), Vector2(150, 80), Vector2(80, 110), Vector2(30, 40), Vector2(130, 40), Vector2(30, 100), Vector2(130, 100)]
+var health = 5
 
 onready var player = Player
 
@@ -62,7 +66,16 @@ func _ready():
 	eyeTimer.set_wait_time(5)
 	eyeTimer.set_one_shot(true)
 	
-	choose_attack()
+	#choose_attack()
+	attackTimer.start()
+	
+func _physics_process(delta):
+	if Input.is_action_just_pressed("ui_debug3"):
+		deal_damage()
+		deal_damage()
+		deal_damage()
+		deal_damage()
+		deal_damage()
 
 func _on_follow_timeout():
 	if followTrail:
@@ -125,9 +138,13 @@ func choose_attack():
 				spawnEye()
 				eyeTimer.start()
 				return
-			var rand_attack = randi() % 2
+			if ghast_amount < 1:
+				attack_choices = 3
+			else:
+				attack_choices = 2
+			var rand_attack = randi() % attack_choices
 			match rand_attack:
-				0:
+				0: # Spikes
 					var i = randi() % 4
 					var location
 					match i:
@@ -141,7 +158,13 @@ func choose_attack():
 							location = Vector2(randi() % 180, 120)
 					followSpikes(5, location)
 					attackTimer.start()
-				1:
+				1: # Explosion
+					for i in range(2):
+						var expl = explosion.instance()
+						expl.set_position(Vector2(rand_range(20, 140), rand_range(20, 122)))
+						get_tree().get_root().add_child(expl)
+					attackTimer.start()
+				2: # Spawn ghast
 					spawnGhasts(1)
 					attackTimer.start()
 	attacks_left -= 1
@@ -169,7 +192,7 @@ func spawnGhasts(amount):
 			var index = randi() % len(tempspawns)
 			spawn_ghast(tempspawns[index])
 			tempspawns.remove(index)
-		
+	ghast_amount += amount
 
 func spawnEye(mouthNum = 0):
 	if mouthNum == 0:
@@ -202,6 +225,17 @@ func spawn_eye(spawnpoint, mouth = false):
 	add_child(eye)
 
 func spawn_ghast(spawnpoint): #Spawn a ghast at position (x,y)
+	$SoundSpawnGhast.play(0)
+	$PartsSpawnGhast.set_position(spawnpoint)
+	$PartsSpawnGhast.set_emitting(true)
 	var newghast = ghast.instance()
 	newghast.position = spawnpoint
+	newghast.finalboss = true
 	add_child(newghast)
+	
+func deal_damage():
+	health -= 1
+	if health <= 0:
+		audioplayer.get_node("MusicFinalBoss").stop()
+		controller.scene_change("res://Scenes/GATE/Gate-FINALBOSSafter.tscn", false)
+	

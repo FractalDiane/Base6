@@ -89,35 +89,35 @@ shader = ExtResource( 8 )
 shader_param/invertColor = true
 _sections_unfolded = [ "shader_param" ]
 
-[sub_resource type="ShaderMaterial" id=12]
+[sub_resource type="ShaderMaterial" id=7]
 
 render_priority = 0
 shader = ExtResource( 8 )
 shader_param/invertColor = true
 _sections_unfolded = [ "shader_param" ]
 
-[sub_resource type="ShaderMaterial" id=13]
+[sub_resource type="ShaderMaterial" id=8]
 
 render_priority = 0
 shader = ExtResource( 8 )
 shader_param/invertColor = true
 _sections_unfolded = [ "shader_param" ]
 
-[sub_resource type="StyleBoxEmpty" id=7]
+[sub_resource type="StyleBoxEmpty" id=9]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
 content_margin_top = -1.0
 content_margin_bottom = -1.0
 
-[sub_resource type="StyleBoxEmpty" id=8]
+[sub_resource type="StyleBoxEmpty" id=10]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
 content_margin_top = -1.0
 content_margin_bottom = -1.0
 
-[sub_resource type="StyleBoxFlat" id=9]
+[sub_resource type="StyleBoxFlat" id=11]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -145,14 +145,14 @@ shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
 
-[sub_resource type="StyleBoxEmpty" id=10]
+[sub_resource type="StyleBoxEmpty" id=12]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
 content_margin_top = -1.0
 content_margin_bottom = -1.0
 
-[sub_resource type="StyleBoxEmpty" id=11]
+[sub_resource type="StyleBoxEmpty" id=13]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -918,7 +918,7 @@ _sections_unfolded = [ "Margin", "Material", "Rect", "Visibility", "custom_color
 [node name="OptionsBox1" type="Sprite" parent="OptionsGroup" index="4"]
 
 modulate = Color( 1, 1, 1, 0 )
-material = SubResource( 12 )
+material = SubResource( 7 )
 position = Vector2( 21, 33.5 )
 scale = Vector2( 2.8, 0.9 )
 texture = ExtResource( 9 )
@@ -930,7 +930,7 @@ __meta__ = {
 [node name="OptionsBox2" type="Sprite" parent="OptionsGroup" index="5"]
 
 modulate = Color( 1, 1, 1, 0 )
-material = SubResource( 13 )
+material = SubResource( 8 )
 position = Vector2( 25.5, 62.5 )
 scale = Vector2( 3.7, 0.9 )
 texture = ExtResource( 9 )
@@ -942,7 +942,7 @@ __meta__ = {
 [node name="OptionsBox3" type="Sprite" parent="OptionsGroup" index="6"]
 
 modulate = Color( 1, 1, 1, 0 )
-material = SubResource( 13 )
+material = SubResource( 8 )
 position = Vector2( 36, 91.5 )
 scale = Vector2( 5.8, 0.9 )
 texture = ExtResource( 9 )
@@ -970,11 +970,11 @@ size_flags_vertical = 0
 custom_icons/tick = ExtResource( 9 )
 custom_icons/grabber_highlight = ExtResource( 9 )
 custom_icons/grabber = ExtResource( 9 )
-custom_styles/slider = SubResource( 7 )
-custom_styles/grabber_disabled = SubResource( 8 )
-custom_styles/grabber_highlight = SubResource( 9 )
-custom_styles/grabber_area = SubResource( 10 )
-custom_styles/focus = SubResource( 11 )
+custom_styles/slider = SubResource( 9 )
+custom_styles/grabber_disabled = SubResource( 10 )
+custom_styles/grabber_highlight = SubResource( 11 )
+custom_styles/grabber_area = SubResource( 12 )
+custom_styles/focus = SubResource( 13 )
 min_value = 0.0
 max_value = 100.0
 step = 1.0
@@ -1018,11 +1018,11 @@ size_flags_vertical = 0
 custom_icons/tick = ExtResource( 9 )
 custom_icons/grabber_highlight = ExtResource( 9 )
 custom_icons/grabber = ExtResource( 9 )
-custom_styles/slider = SubResource( 7 )
-custom_styles/grabber_disabled = SubResource( 8 )
-custom_styles/grabber_highlight = SubResource( 9 )
-custom_styles/grabber_area = SubResource( 10 )
-custom_styles/focus = SubResource( 11 )
+custom_styles/slider = SubResource( 9 )
+custom_styles/grabber_disabled = SubResource( 10 )
+custom_styles/grabber_highlight = SubResource( 11 )
+custom_styles/grabber_area = SubResource( 12 )
+custom_styles/focus = SubResource( 13 )
 min_value = 0.0
 max_value = 100.0
 step = 1.0

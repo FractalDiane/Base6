@@ -82,7 +82,7 @@ animations = [ {
 custom_solver_bias = 0.0
 radius = 5.09902
 
-[node name="SesdinShotHoming" type="KinematicBody2D" index="0" groups=[
+[node name="SesdinShotHoming" type="KinematicBody2D" groups=[
 "SesdinShots",
 ]]
 

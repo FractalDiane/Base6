@@ -33,7 +33,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 4.18613, 3.72626 )
 
-[node name="SpikeTrail" type="AnimatedSprite"]
+[node name="SpikeTrail" type="AnimatedSprite" index="0"]
 
 position = Vector2( -0.289703, -9.87674 )
 frames = SubResource( 1 )

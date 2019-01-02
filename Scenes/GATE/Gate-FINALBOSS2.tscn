@@ -77,7 +77,7 @@ _sections_unfolded = [ "Color", "Gravity", "Initial Velocity", "Scale" ]
 custom_solver_bias = 0.0
 radius = 9.0
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -114,7 +114,7 @@ position = Vector2( 80, -4 )
 
 [node name="Worldborder4" parent="." index="4" instance=ExtResource( 5 )]
 
-position = Vector2( 164, 72 )
+position = Vector2( 164.307, 71.3853 )
 rotation = 1.5708
 
 [node name="Worldborder2" parent="." index="5" instance=ExtResource( 5 )]

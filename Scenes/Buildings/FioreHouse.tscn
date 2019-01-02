@@ -252,7 +252,7 @@ shape = SubResource( 4 )
 [node name="Interact" parent="NPCCephasNote" index="2"]
 
 position = Vector2( -1, -13 )
-frame = 1
+frame = 0
 
 [node name="Pot" type="StaticBody2D" parent="." index="10"]
 
@@ -414,12 +414,7 @@ _sections_unfolded = [ "Z Index" ]
 
 [node name="Sprite" type="Sprite" parent="Table3" index="0"]
 
-z_index = -18
 texture = ExtResource( 19 )
-_sections_unfolded = [ "Z Index" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Table3" index="1"]
 
@@ -433,6 +428,7 @@ __meta__ = {
 
 position = Vector2( 0, -6 )
 texture = ExtResource( 20 )
+_sections_unfolded = [ "Visibility" ]
 __meta__ = {
 "_edit_lock_": true
 }

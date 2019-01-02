@@ -1,19 +1,72 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sounds/Music/Final Boss.wav" type="AudioStream" id=2]
 [ext_resource path="res://Scenes/BossController.gd" type="Script" id=3]
-[ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=4]
-[ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Instances/CorruptionOverlay.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Instances/Particles/PartsWorldborder.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sprites/Particles/Corruption.png" type="Texture" id=4]
+[ext_resource path="res://Sounds/Characters/Laser.wav" type="AudioStream" id=5]
+[ext_resource path="res://Scripts/System/EffectAudio.gd" type="Script" id=6]
+[ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=7]
+[ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Instances/CorruptionOverlay.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Instances/Particles/PartsWorldborder.tscn" type="PackedScene" id=10]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="Gradient" id=1]
+
+offsets = PoolRealArray( 0, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+
+flags = 4
+gradient = SubResource( 1 )
+width = 2048
+
+[sub_resource type="ParticlesMaterial" id=3]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 180.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+initial_velocity_random = 0.25
+angular_velocity = 45.0
+angular_velocity_random = 0.25
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+color_ramp = SubResource( 2 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angular Velocity", "Color", "Flags", "Gravity", "Initial Velocity" ]
+
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
 extents = Vector2( 81.0026, 4.38243 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
 extents = Vector2( 5.73753, 72.0946 )
@@ -33,26 +86,78 @@ cell_music = ExtResource( 2 )
 
 script = ExtResource( 3 )
 
+[node name="PartsSpawnGhast" type="Particles2D" parent="BossController" index="0"]
+
+emitting = false
+amount = 16
+lifetime = 1.0
+one_shot = true
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 1.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 3 )
+texture = ExtResource( 4 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Textures", "Time" ]
+
+[node name="PartsDamage" type="Particles2D" parent="BossController" index="1"]
+
+emitting = false
+amount = 16
+lifetime = 1.0
+one_shot = true
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 1.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 3 )
+texture = ExtResource( 4 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Textures", "Time" ]
+
+[node name="SoundSpawnGhast" type="AudioStreamPlayer" parent="BossController" index="2"]
+
+stream = ExtResource( 5 )
+volume_db = -4.0
+pitch_scale = 0.8
+autoplay = false
+mix_target = 0
+bus = "Master"
+script = ExtResource( 6 )
+
 [node name="Background" type="Sprite" parent="." index="2"]
 
 position = Vector2( 80, 72 )
 z_index = -4096
-texture = ExtResource( 4 )
+texture = ExtResource( 7 )
 region_rect = Rect2( 0, 0, 150, 144 )
 _sections_unfolded = [ "Offset", "Region", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="UI" parent="." index="3" instance=ExtResource( 5 )]
+[node name="UI" parent="." index="3" instance=ExtResource( 8 )]
 
-[node name="CorruptionOverlay" parent="." index="4" instance=ExtResource( 6 )]
+[node name="CorruptionOverlay" parent="." index="4" instance=ExtResource( 9 )]
 
 corrupt = false
 
-[node name="PartsWorldborder" parent="." index="5" instance=ExtResource( 7 )]
-
-editor/display_folded = true
+[node name="PartsWorldborder" parent="." index="5" instance=ExtResource( 10 )]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="PartsWorldborder" index="0"]
 
@@ -68,12 +173,12 @@ bounce = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PartsWorldborder/StaticBody2D" index="0"]
 
 position = Vector2( -78.2515, -64.7461 )
-shape = SubResource( 1 )
+shape = SubResource( 4 )
 
-[node name="PartsWorldborder2" parent="." index="6" instance=ExtResource( 7 )]
+[node name="PartsWorldborder2" parent="." index="6" instance=ExtResource( 10 )]
 
 editor/display_folded = true
-position = Vector2( 161.032, 73.457 )
+position = Vector2( 161.032, 73.2192 )
 rotation = 1.57179
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="PartsWorldborder2" index="0"]
@@ -91,9 +196,9 @@ bounce = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PartsWorldborder2/StaticBody2D3" index="0"]
 
 position = Vector2( -82.6208, -59.5823 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 
-[node name="PartsWorldborder3" parent="." index="7" instance=ExtResource( 7 )]
+[node name="PartsWorldborder3" parent="." index="7" instance=ExtResource( 10 )]
 
 editor/display_folded = true
 position = Vector2( 0.5569, 75.8403 )
@@ -115,9 +220,9 @@ bounce = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PartsWorldborder3/StaticBody2D4" index="0"]
 
 position = Vector2( -82.6208, -59.5823 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 
-[node name="PartsWorldborder4" parent="." index="8" instance=ExtResource( 7 )]
+[node name="PartsWorldborder4" parent="." index="8" instance=ExtResource( 10 )]
 
 editor/display_folded = true
 position = Vector2( 82.3833, 137.806 )
@@ -136,6 +241,6 @@ bounce = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PartsWorldborder4/StaticBody2D2" index="0"]
 
 position = Vector2( -78.2515, -64.7461 )
-shape = SubResource( 1 )
+shape = SubResource( 4 )
 
 

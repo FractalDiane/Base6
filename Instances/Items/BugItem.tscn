@@ -1,0 +1,104 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Scripts/Items/BugItem.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Items/Bug 1.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Items/Bug 2.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Items/Bug 3.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Items/Bug 4.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/UI/Interact 1.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/UI/Interact 2.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/UI/Interact 3.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/UI/Interact 4.png" type="Texture" id=9]
+[ext_resource path="res://Sounds/Objects/GetItem.wav" type="AudioStream" id=10]
+[ext_resource path="res://Scripts/System/EffectAudio.gd" type="Script" id=11]
+
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 4, 4 )
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[node name="BugItem" type="StaticBody2D" index="0" groups=[
+"Item",
+]]
+
+position = Vector2( 81, 47 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 1 )
+item_get_message = null
+start_enabled = true
+box_x = null
+box_y = null
+box_width = null
+box_height = null
+
+[node name="Sprite" type="AnimatedSprite" parent="." index="0"]
+
+frames = SubResource( 3 )
+animation = "default"
+frame = 1
+playing = true
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Interact" type="AnimatedSprite" parent="." index="2"]
+
+visible = false
+position = Vector2( -1, -9 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 3
+playing = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="SoundItemGet" type="AudioStreamPlayer" parent="." index="3"]
+
+stream = ExtResource( 10 )
+volume_db = -5.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+script = ExtResource( 11 )
+
+[node name="TimerHideInteract" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 0.01
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="TimerHideInteract" to="." method="_on_TimerHideInteract_timeout"]
+
+

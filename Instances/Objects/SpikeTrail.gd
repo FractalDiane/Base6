@@ -21,7 +21,8 @@ func _on_animation_finished():
 	if animation == "Rise": 	#If done lifting, start following.
 		timer.start()
 	else:
-		get_parent().remove_child(self)
+		queue_free()
+		#get_parent().remove_child(self)
 
 func _on_timer_timeout():
 	play("Fall")

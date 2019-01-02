@@ -82,42 +82,42 @@ func _on_TimerAttack_timeout():
 			$SoundCharge.play(0)
 			#$Sprite.play(attack_dir)
 			
-			var homing_rng = randf()
+			#var homing_rng = randf()
 			
-			if homing_rng < 0.5:
-				var shot1 = shot_homing.instance()
-				shot1.set_position(Vector2(get_position().x - 10, get_position().y - 20))
-				get_tree().get_root().add_child(shot1)
-				var shot2 = shot_homing.instance()
-				shot2.set_position(Vector2(get_position().x + 10, get_position().y - 20))
-				get_tree().get_root().add_child(shot2)
+			#if homing_rng < 0.5:
+			var shot1 = shot_homing.instance()
+			shot1.set_position(Vector2(get_position().x - 10, get_position().y - 20))
+			get_tree().get_root().add_child(shot1)
+			var shot2 = shot_homing.instance()
+			shot2.set_position(Vector2(get_position().x + 10, get_position().y - 20))
+			get_tree().get_root().add_child(shot2)
+			
+			if health < 3:
+				var shot3 = shot_homing.instance()
+				shot3.set_position(Vector2(get_position().x, get_position().y - 30))
+				get_tree().get_root().add_child(shot3)
 				
-				if health < 3:
-					var shot3 = shot_homing.instance()
-					shot3.set_position(Vector2(get_position().x, get_position().y - 30))
-					get_tree().get_root().add_child(shot3)
-					
-				if health < 2:
-					var shot4 = shot_homing.instance()
-					shot4.set_position(Vector2(get_position().x, get_position().y - 40))
-					get_tree().get_root().add_child(shot4)
-			else:
-				var shot1 = shot_homing.instance()
-				shot1.set_position(Vector2(rand_range(8,152), rand_range(8,136)))
-				get_tree().get_root().add_child(shot1)
-				var shot2 = shot_homing.instance()
-				shot2.set_position(Vector2(rand_range(8,152), rand_range(8,136)))
-				get_tree().get_root().add_child(shot2)
-				
-				if health < 3:
-					var shot3 = shot_homing.instance()
-					shot3.set_position(Vector2(rand_range(8,152), rand_range(8,136)))
-					get_tree().get_root().add_child(shot3)
-					
-				if health < 2:
-					var shot4 = shot_homing.instance()
-					shot4.set_position(Vector2(rand_range(8,152), rand_range(8,136)))
-					get_tree().get_root().add_child(shot4)
+			if health < 2:
+				var shot4 = shot_homing.instance()
+				shot4.set_position(Vector2(get_position().x, get_position().y - 40))
+				get_tree().get_root().add_child(shot4)
+			#else:
+#				var shot1 = shot_homing.instance()
+#				shot1.set_position(Vector2(rand_range(8,152), rand_range(8,136)))
+#				get_tree().get_root().add_child(shot1)
+#				var shot2 = shot_homing.instance()
+#				shot2.set_position(Vector2(rand_range(8,152), rand_range(8,136)))
+#				get_tree().get_root().add_child(shot2)
+#
+#				if health < 3:
+#					var shot3 = shot_homing.instance()
+#					shot3.set_position(Vector2(rand_range(8,152), rand_range(8,136)))
+#					get_tree().get_root().add_child(shot3)
+#
+#				if health < 2:
+#					var shot4 = shot_homing.instance()
+#					shot4.set_position(Vector2(rand_range(8,152), rand_range(8,136)))
+#					get_tree().get_root().add_child(shot4)
 				
 			$TimerHomingPose.start()
 			

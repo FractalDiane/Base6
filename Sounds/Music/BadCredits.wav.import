@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/BadCredits.wav-591a1d97a3e5c63ebaa36b03b749c67c.sample"
+
+[deps]
+
+source_file="res://Sounds/Music/BadCredits.wav"
+dest_files=[ "res://.import/BadCredits.wav-591a1d97a3e5c63ebaa36b03b749c67c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -8,6 +8,8 @@ var iframes = false
 var alpha = 1
 var fade = false
 
+var finalboss = false
+
 var move_idle_timer = rand_range(1,2)
 var move_idle_speed = 0
 var move_idle_dir = 0
@@ -34,6 +36,9 @@ onready var hbswat = $HitboxSwat
 onready var hbslam = $HitboxSlam
 
 func _ready():
+	if controller.bad_ending:
+		queue_free()
+	
 	$TimerMoveIdle.set_wait_time(move_idle_timer)
 	$TimerMoveIdle.start()
 

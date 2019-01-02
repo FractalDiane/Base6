@@ -115,6 +115,21 @@ func on_destroy():
 		audioplayer.get_node("MusicFinalBoss").play(0)
 		audioplayer.current_music = audioplayer.get_node("MusicFinalBoss").stream
 		
+	if target.get_name() == "RegistryAfter1":
+		controller.scene_change("res://Scenes/GATE/Gate-FINALBOSSAfter2.tscn", false)
+		
+	if target.get_name() == "RegistryAfter2":
+		if controller.holding_theitem:
+			controller.scene_change("res://Scenes/GATE/Gate-TrueEnd1.tscn")
+		else:
+			Player.state = Player.WALK
+			
+	if target.get_name() == "RegistryBadEnd":
+		controller.scene_change("res://Scenes/GATE/Gate-BadEnd3.tscn", false)
+		
+	if target.get_name() == "RegistryBadEnd2":
+		controller.scene_change("res://Scenes/CreditsBad.tscn", false)
+		
 #	length = 0
 #	target.get_node("Sprite").set_animation("down")
 #	if target.dialogue_key != "null" and target.auto_advance_set:

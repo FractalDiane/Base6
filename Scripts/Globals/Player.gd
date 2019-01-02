@@ -178,6 +178,10 @@ func state_walk():
 		controller.corrupted_cells_add += ["01","02","03","?1","10","11","20","21","22","30","31","40","41","42","?2"]
 		print("2")
 		
+	if Input.is_action_just_pressed("ui_debug4"):
+		controller.holding_thekey = true
+		print("4")
+		
 func state_swing():
 	stop_animation()
 
@@ -323,6 +327,13 @@ func deal_damage():
 			node.fade = true
 		if node.is_in_group("SesdinBoss") and not node.iframes:
 			node.block()
+		if node.is_in_group("BossEye") and not node.hit:
+			node.deal_damage()
+		if node.is_in_group("EndRegistry"):
+			controller.bad_ending = true
+			controller.corrupted_cells_add.append("00")
+			controller.scene_change("res://Scenes/GATE/Gate-BadEnd1.tscn")
+			hide()
 	
 # ================================================================================== TIMERS
 	
@@ -373,3 +384,7 @@ func _on_TimerWarp_timeout():
 	
 func _on_TimerIFrames_timeout():
 	iframes = false
+
+func _on_TimerBadEnding_timeout():
+	controller.scene_change("res://Scenes/GATE/Gate-BadEnd2.tscn")
+	hide()

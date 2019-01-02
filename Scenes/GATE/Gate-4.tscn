@@ -1,46 +1,48 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=1]
-[ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Sounds/Music/GATE.wav" type="AudioStream" id=4]
-[ext_resource path="res://Tilesets/TilesetMain.tres" type="TileSet" id=5]
-[ext_resource path="res://Instances/CorruptionOverlay.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/Scenes/Gate-4.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=2]
+[ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sounds/Music/GATE.wav" type="AudioStream" id=5]
+[ext_resource path="res://Tilesets/TilesetMain.tres" type="TileSet" id=6]
+[ext_resource path="res://Instances/CorruptionOverlay.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 32, 64 )
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
+script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Background" type="Sprite" parent="." index="0"]
 
 position = Vector2( 80, 72 )
 z_index = -4096
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 region_rect = Rect2( 0, 0, 150, 144 )
 _sections_unfolded = [ "Offset", "Region", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="UI" parent="." index="1" instance=ExtResource( 2 )]
+[node name="UI" parent="." index="1" instance=ExtResource( 3 )]
 
-[node name="CellLabel" parent="." index="2" instance=ExtResource( 3 )]
+[node name="CellLabel" parent="." index="2" instance=ExtResource( 4 )]
 
 text = "??"
 cell_index_x = -1
 cell_index_y = -1
-cell_music = ExtResource( 4 )
+cell_music = ExtResource( 5 )
 
 [node name="TileMap" type="TileMap" parent="." index="3"]
 
 mode = 0
-tile_set = ExtResource( 5 )
+tile_set = ExtResource( 6 )
 cell_size = Vector2( 8, 8 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -61,22 +63,22 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CorruptionOverlay" parent="." index="4" instance=ExtResource( 6 )]
+[node name="CorruptionOverlay" parent="." index="4" instance=ExtResource( 7 )]
 
 corrupt = false
 corrupt_interval = 1.5
 
 [node name="CorruptionOverlaySprite" parent="CorruptionOverlay" index="1"]
 
-frame = 13
+frame = 1
 
-[node name="CorruptionOverlay2" parent="." index="5" instance=ExtResource( 6 )]
+[node name="CorruptionOverlay2" parent="." index="5" instance=ExtResource( 7 )]
 
 corrupt = false
 
 [node name="CorruptionOverlaySprite" parent="CorruptionOverlay2" index="1"]
 
-frame = 13
+frame = 1
 
 [node name="Walls" type="StaticBody2D" parent="." index="6"]
 
@@ -107,7 +109,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Transition" parent="." index="7" instance=ExtResource( 7 )]
+[node name="Transition" parent="." index="7" instance=ExtResource( 8 )]
 
 position = Vector2( 80, 140 )
 scale = Vector2( 2.5, 0.125 )
@@ -116,7 +118,7 @@ target_x = 0
 target_y = 16
 direction = "down"
 
-[node name="Transition2" parent="." index="8" instance=ExtResource( 7 )]
+[node name="Transition2" parent="." index="8" instance=ExtResource( 8 )]
 
 position = Vector2( 80, -4 )
 scale = Vector2( 2.5, 0.125 )

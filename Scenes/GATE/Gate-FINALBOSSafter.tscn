@@ -1,0 +1,217 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=1]
+[ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sounds/Music/SILENCE.wav" type="AudioStream" id=3]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Instances/Worldborder.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/Scenes/FinalBossAfter1.gd" type="Script" id=6]
+[ext_resource path="res://Sprites/Props/Registry.png" type="Texture" id=7]
+
+[sub_resource type="Gradient" id=1]
+
+offsets = PoolRealArray( 0, 0.555921, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+
+flags = 4
+gradient = SubResource( 1 )
+width = 2048
+
+[sub_resource type="Curve" id=3]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 0 ), 0.0, 1.0, 0, 1, Vector2( 1, 1 ), 1.0, 0.0, 1, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+
+flags = 4
+width = 2048
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 0.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Color", "Gravity", "Initial Velocity", "Scale" ]
+
+[sub_resource type="CircleShape2D" id=6]
+
+custom_solver_bias = 0.0
+radius = 9.0
+
+[node name="Node2D" type="Node2D"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="Background" type="Sprite" parent="." index="0"]
+
+position = Vector2( 80, 72 )
+z_index = -4096
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 150, 144 )
+_sections_unfolded = [ "Offset", "Region", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CellLabel" parent="." index="1" instance=ExtResource( 2 )]
+
+text = "??"
+cell_index_x = -1
+cell_index_y = -1
+cell_music = ExtResource( 3 )
+
+[node name="Transition" parent="." index="2" instance=ExtResource( 4 )]
+
+position = Vector2( 80, 140 )
+scale = Vector2( 2.5, 0.125 )
+target_scene = "res://Scenes/GATE/Gate-3.tscn"
+target_x = 0
+target_y = 16
+direction = "down"
+
+[node name="Worldborder" parent="." index="3" instance=ExtResource( 5 )]
+
+position = Vector2( 80, -4 )
+
+[node name="Worldborder4" parent="." index="4" instance=ExtResource( 5 )]
+
+position = Vector2( 164, 72 )
+rotation = 1.5708
+
+[node name="Worldborder2" parent="." index="5" instance=ExtResource( 5 )]
+
+position = Vector2( 80, 140 )
+
+[node name="Worldborder3" parent="." index="6" instance=ExtResource( 5 )]
+
+position = Vector2( -4.00026, 72 )
+rotation = 1.5708
+
+[node name="ColorRect" type="ColorRect" parent="." index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 160.0
+margin_bottom = 144.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 1 )
+
+[node name="RegistryAfter1" type="StaticBody2D" parent="." index="8"]
+
+position = Vector2( 80, 72 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="RegistryAfter1" index="0"]
+
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Particles2D" type="Particles2D" parent="RegistryAfter1" index="1"]
+
+position = Vector2( -1, 2 )
+scale = Vector2( 4, 4 )
+emitting = true
+amount = 1
+lifetime = 2.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 5 )
+texture = ExtResource( 7 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Textures", "Time", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RegistryAfter1" index="2"]
+
+position = Vector2( 0, -1 )
+shape = SubResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TimerDialogue" type="Timer" parent="RegistryAfter1" index="3"]
+
+process_mode = 1
+wait_time = 0.05
+one_shot = true
+autostart = true
+
+[node name="TimerRoomChange" type="Timer" parent="RegistryAfter1" index="4"]
+
+process_mode = 1
+wait_time = 5.35
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="RegistryAfter1/TimerDialogue" to="RegistryAfter1" method="_on_TimerDialogue_timeout"]
+
+[connection signal="timeout" from="RegistryAfter1/TimerRoomChange" to="RegistryAfter1" method="_on_TimerStartBoss_timeout"]
+
+

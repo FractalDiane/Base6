@@ -1,31 +1,33 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://Sprites/Combat/Eye0.png" type="Texture" id=1]
-[ext_resource path="res://Sprites/Combat/Eye1.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Combat/Eye2.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Combat/Eye3.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Combat/Eye4.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Combat/Eye5.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Combat/Eye6.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Combat/Eye7.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Combat/Eye8.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Combat/Eye9.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Combat/Eye10.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Combat/Eye11.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Combat/Eye12.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Combat/Eye13.png" type="Texture" id=14]
-[ext_resource path="res://Instances/Enemies/SideEye.gd" type="Script" id=15]
+[ext_resource path="res://Instances/Enemies/SideEye.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Combat/Eye0.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Combat/Eye1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Combat/Eye2.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Combat/Eye3.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Combat/Eye4.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Combat/Eye5.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Combat/Eye6.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Combat/Eye7.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Combat/Eye8.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Combat/Eye9.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Combat/Eye10.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Combat/Eye11.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Combat/Eye12.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Combat/Eye13.png" type="Texture" id=15]
+[ext_resource path="res://Sounds/Characters/enemydie2.wav" type="AudioStream" id=16]
+[ext_resource path="res://Sounds/Characters/enemydie3.wav" type="AudioStream" id=17]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
-"loop": false,
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": true,
 "name": "up",
 "speed": 30.0
 }, {
-"frames": [ ExtResource( 14 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 1 ) ],
-"loop": false,
+"frames": [ ExtResource( 15 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
 "name": "down",
 "speed": 30.0
 } ]
@@ -33,21 +35,11 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 2.98492, 1.52822 )
+extents = Vector2( 5, 7.45525 )
 
-[sub_resource type="RectangleShape2D" id=3]
-
-custom_solver_bias = 0.0
-extents = Vector2( 3.925, 3.90976 )
-
-[node name="AnimatedSprite" type="AnimatedSprite"]
-
-frames = SubResource( 1 )
-animation = "up"
-script = ExtResource( 15 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." index="0"]
+[node name="Eye" type="StaticBody2D" groups=[
+"BossEye",
+]]
 
 input_pickable = false
 collision_layer = 1
@@ -56,27 +48,38 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
-position = Vector2( -3.8147e-006, 6.45525 )
+frames = SubResource( 3 )
+animation = "up"
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( -3.8147e-006, 0.45525 )
 shape = SubResource( 2 )
 
-[node name="Area2D" type="Area2D" parent="." index="1"]
+[node name="SoundHit" type="AudioStreamPlayer" parent="." index="2"]
 
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
+stream = ExtResource( 16 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+[node name="SoundHit2" type="AudioStreamPlayer" parent="." index="3"]
 
-position = Vector2( 1.00275, -2.00551 )
-shape = SubResource( 3 )
+stream = ExtResource( 17 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
-[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 
 
