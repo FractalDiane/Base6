@@ -5,6 +5,7 @@ var text = ["This will be your final act.", "The end of your existence", "foreve
 
 var lock = true
 var in_area = false
+var hold_up = false
 
 onready var player = Player
 
@@ -16,7 +17,7 @@ func _physics_process(delta):
 		player.state = Player.NO_INPUT
 		player.motion = Vector2(0,0)
 		player.face = Vector2(0,-1)
-		if not in_area:
+		if not in_area or not hold_up:
 			Player.get_node("Sprite").play("up")
 
 func _on_TimerDialogue_timeout():
@@ -30,13 +31,14 @@ func _on_EndArea_body_entered(body):
 		$TimerTurnDown.start()
 
 func _on_TimerTurnDown_timeout():
+	hold_up = true
 	Player.get_node("Sprite").play("down")
 	$TimerHoldUp.start()
 
 func _on_TimerHoldUp_timeout():
 	$SoundHoldUp.play(0)
 	Player.get_node("Sprite").play("ending")
-	$TheItem.set_position(Vector2(Player.get_position().x, Player.get_position().y - 20))
+	$TheItem.set_position(Vector2(Player.get_position().x, Player.get_position().y - 15))
 	$TheItem.show()
 	$TimerCorruption.start()
 
@@ -47,4 +49,5 @@ func _on_TimerCorruption_timeout():
 	$TimerGlitch.start()
 
 func _on_TimerGlitch_timeout():
-	pass # replace with function body
+	Player.hide()
+	controller.scene_change("res://Scenes/GATE/Gate-TrueEnd4.tscn", false)

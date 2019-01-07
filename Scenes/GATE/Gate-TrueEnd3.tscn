@@ -26,7 +26,7 @@ extents = Vector2( 83, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 63 )
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
 "frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
@@ -35,7 +35,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
 extents = Vector2( 5, 5 )
@@ -177,7 +177,7 @@ __meta__ = {
 
 visible = false
 position = Vector2( 80, 50 )
-frames = SubResource( 4 )
+frames = SubResource( 3 )
 animation = "default"
 playing = true
 
@@ -197,7 +197,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndArea" index="0"]
 
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -294,7 +294,7 @@ script = ExtResource( 15 )
 [node name="TimerGlitch" type="Timer" parent="." index="15"]
 
 process_mode = 1
-wait_time = 3.0
+wait_time = 5.0
 one_shot = true
 autostart = false
 

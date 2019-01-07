@@ -137,10 +137,10 @@ func on_destroy():
 		get_tree().get_root().get_node("Node2D").lock = false
 		
 	if target.get_name() == "RegistryTrueEnd":
-		controller.scene_change("res://Scenes/Gate-TrueEnd5.tscn", false)
+		controller.scene_change("res://Scenes/GATE/Gate-TrueEnd5.tscn", false)
 		
 	if target.get_name() == "RegistryTrueEnd2":
-		controller.scene_change("res://Scenes/Gate-TrueEnd6.tscn", false)
+		controller.scene_change("res://Scenes/GATE/Gate-TrueEnd6.tscn", false)
 		
 	if target.get_name() == "RegistryTrueEnd3":
 		controller.scene_change("res://Scenes/CreditsTrue.tscn", false)

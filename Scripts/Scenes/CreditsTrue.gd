@@ -101,6 +101,7 @@ func _on_Timer12_timeout():
 	$Credits4a.hide()
 	$Credits4b.hide()
 	$GroupShot.show()
+	$THEEND.show()
 	swap_fade()
 
 func _on_Timer13_timeout():
