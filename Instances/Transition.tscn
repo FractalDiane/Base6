@@ -27,6 +27,7 @@ target_x = 16
 target_y = null
 direction = "right"
 not_cell = false
+checkpoint = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 

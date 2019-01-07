@@ -11,8 +11,11 @@ func _ready():
 		else:
 			$NPCDoor.dialogue_set = 1
 			$TransitionDoor.queue_free()
+	else:
+		$TransitionDoor.queue_free()
 	
 	if controller.holding_theitem or controller.bad_ending:
+		$NPCDoor.queue_free()
 		$TransitionDoor.queue_free()
 
 #func _process(delta):

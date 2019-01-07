@@ -1,14 +1,12 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=1]
-[ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Sounds/Music/SILENCE.wav" type="AudioStream" id=4]
-[ext_resource path="res://Instances/CorruptionOverlay.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Instances/Worldborder.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scripts/Scenes/FinalBossAfter2.gd" type="Script" id=8]
-[ext_resource path="res://Sprites/Props/Registry.png" type="Texture" id=9]
+[ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sounds/Music/SILENCE.wav" type="AudioStream" id=3]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Instances/Worldborder.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/Scenes/RegistryTrueEnd.gd" type="Script" id=6]
+[ext_resource path="res://Sprites/Props/Registry.png" type="Texture" id=7]
 
 [sub_resource type="Gradient" id=1]
 
@@ -94,33 +92,14 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="UI" parent="." index="1" instance=ExtResource( 2 )]
-
-[node name="CellLabel" parent="." index="2" instance=ExtResource( 3 )]
+[node name="CellLabel" parent="." index="1" instance=ExtResource( 2 )]
 
 text = "??"
 cell_index_x = -1
 cell_index_y = -1
-cell_music = ExtResource( 4 )
+cell_music = ExtResource( 3 )
 
-[node name="CorruptionOverlay" parent="." index="3" instance=ExtResource( 5 )]
-
-corrupt = false
-corrupt_interval = 1.5
-
-[node name="CorruptionOverlaySprite" parent="CorruptionOverlay" index="1"]
-
-frame = 9
-
-[node name="CorruptionOverlay2" parent="." index="4" instance=ExtResource( 5 )]
-
-corrupt = false
-
-[node name="CorruptionOverlaySprite" parent="CorruptionOverlay2" index="1"]
-
-frame = 9
-
-[node name="Transition" parent="." index="5" instance=ExtResource( 6 )]
+[node name="Transition" parent="." index="2" instance=ExtResource( 4 )]
 
 position = Vector2( 80, 140 )
 scale = Vector2( 2.5, 0.125 )
@@ -129,27 +108,41 @@ target_x = 0
 target_y = 16
 direction = "down"
 
-[node name="Worldborder" parent="." index="6" instance=ExtResource( 7 )]
+[node name="Worldborder" parent="." index="3" instance=ExtResource( 5 )]
 
 position = Vector2( 80, -4 )
 
-[node name="Worldborder4" parent="." index="7" instance=ExtResource( 7 )]
+[node name="Worldborder4" parent="." index="4" instance=ExtResource( 5 )]
 
 position = Vector2( 164, 72 )
 rotation = 1.5708
 
-[node name="Worldborder2" parent="." index="8" instance=ExtResource( 7 )]
+[node name="Worldborder2" parent="." index="5" instance=ExtResource( 5 )]
 
 position = Vector2( 80, 140 )
 
-[node name="Worldborder3" parent="." index="9" instance=ExtResource( 7 )]
+[node name="Worldborder3" parent="." index="6" instance=ExtResource( 5 )]
 
 position = Vector2( -4.00026, 72 )
 rotation = 1.5708
 
-[node name="RegistryAfter2" type="StaticBody2D" parent="." index="10" groups=[
-"EndRegistry",
-]]
+[node name="ColorRect" type="ColorRect" parent="." index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 160.0
+margin_bottom = 144.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 1 )
+
+[node name="RegistryTrueEnd" type="StaticBody2D" parent="." index="8"]
 
 position = Vector2( 80, 72 )
 input_pickable = false
@@ -159,16 +152,16 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
-script = ExtResource( 8 )
+script = ExtResource( 6 )
 
-[node name="Sprite" type="Sprite" parent="RegistryAfter2" index="0"]
+[node name="Sprite" type="Sprite" parent="RegistryTrueEnd" index="0"]
 
-texture = ExtResource( 9 )
+texture = ExtResource( 7 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Particles2D" type="Particles2D" parent="RegistryAfter2" index="1"]
+[node name="Particles2D" type="Particles2D" parent="RegistryTrueEnd" index="1"]
 
 position = Vector2( -1, 2 )
 scale = Vector2( 4, 4 )
@@ -186,7 +179,7 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
 process_material = SubResource( 5 )
-texture = ExtResource( 9 )
+texture = ExtResource( 7 )
 normal_map = null
 h_frames = 1
 v_frames = 1
@@ -195,7 +188,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RegistryAfter2" index="2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RegistryTrueEnd" index="2"]
 
 position = Vector2( 0, -1 )
 shape = SubResource( 6 )
@@ -203,15 +196,22 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TimerDialogue" type="Timer" parent="RegistryAfter2" index="3"]
+[node name="TimerDialogue" type="Timer" parent="RegistryTrueEnd" index="3"]
 
 process_mode = 1
-wait_time = 0.2
+wait_time = 3.0
 one_shot = true
 autostart = true
 
-[connection signal="timeout" from="RegistryAfter2/TimerDialogue" to="RegistryAfter2" method="_on_TimerDialogue_timeout"]
+[node name="TimerRoomChange" type="Timer" parent="RegistryTrueEnd" index="4"]
+
+process_mode = 1
+wait_time = 3.0
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="RegistryTrueEnd/TimerDialogue" to="RegistryTrueEnd" method="_on_TimerDialogue_timeout"]
+
+[connection signal="timeout" from="RegistryTrueEnd/TimerRoomChange" to="RegistryTrueEnd" method="_on_TimerRoomChange_timeout"]
 
 
-[editable path="CorruptionOverlay"]
-[editable path="CorruptionOverlay2"]

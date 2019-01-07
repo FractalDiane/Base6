@@ -161,10 +161,11 @@ func state_walk():
 		
 	var current_sight = sight.get_overlapping_bodies()
 	
-	for node in current_sight:
-		if node.is_in_group("NPC") or node.is_in_group("Item"):
-			node.show_interact = true
-			node.get_node("TimerHideInteract").start()
+	if not controller.bad_ending:
+		for node in current_sight:
+			if node.is_in_group("NPC") or node.is_in_group("Item"):
+				node.show_interact = true
+				node.get_node("TimerHideInteract").start()
 			
 	if Input.is_action_just_pressed("ui_debug1"):
 		controller.flag["dungeon1_complete"] = 1

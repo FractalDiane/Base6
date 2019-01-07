@@ -76,6 +76,7 @@ target_x = 105
 target_y = 64
 direction = "up"
 not_cell = true
+checkpoint = true
 
 [node name="Torch" parent="." index="5" instance=ExtResource( 7 )]
 

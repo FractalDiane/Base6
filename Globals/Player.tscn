@@ -1,57 +1,58 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://Scripts/Globals/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Characters/Fiore/Fiore left.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Characters/Fiore/Fiore right.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Characters/Fiore/Fiore up.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore bow left 1.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore bow left 2.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore bow left 3.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing up 1.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing up 2.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing up 3.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore bow down 1.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore bow down 2.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore bow down 3.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing down 1.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing down 2.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing down 3.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore right die.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore bow up 1.png" type="Texture" id=18]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore bow up 2.png" type="Texture" id=19]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore bow up 3.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore walk right 1.png" type="Texture" id=21]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore walk right 2.png" type="Texture" id=22]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore walk up 1.png" type="Texture" id=23]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore walk up 2.png" type="Texture" id=24]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore bow right 1.png" type="Texture" id=25]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore bow right 2.png" type="Texture" id=26]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore bow right 3.png" type="Texture" id=27]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore left die.png" type="Texture" id=28]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing left 1.png" type="Texture" id=29]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing left 2.png" type="Texture" id=30]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing left 3.png" type="Texture" id=31]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore down.png" type="Texture" id=32]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore walk left 1.png" type="Texture" id=33]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore walk left 2.png" type="Texture" id=34]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing right 1.png" type="Texture" id=35]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing right 2.png" type="Texture" id=36]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing right 3.png" type="Texture" id=37]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore walk down 1.png" type="Texture" id=38]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore walk down 2.png" type="Texture" id=39]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore up die.png" type="Texture" id=40]
-[ext_resource path="res://Sprites/Characters/Fiore/Fiore down die.png" type="Texture" id=41]
-[ext_resource path="res://Sounds/Player/Step 1.wav" type="AudioStream" id=42]
-[ext_resource path="res://Scripts/System/EffectAudio.gd" type="Script" id=43]
-[ext_resource path="res://Sounds/Player/Swing.wav" type="AudioStream" id=44]
-[ext_resource path="res://Sounds/Player/Shoot.wav" type="AudioStream" id=45]
-[ext_resource path="res://Sounds/Player/Hit.wav" type="AudioStream" id=46]
-[ext_resource path="res://Sounds/Player/Potion.wav" type="AudioStream" id=47]
-[ext_resource path="res://Sounds/Player/Fall.wav" type="AudioStream" id=48]
-[ext_resource path="res://Sounds/Player/Jump.wav" type="AudioStream" id=49]
-[ext_resource path="res://Sounds/Player/Land.wav" type="AudioStream" id=50]
-[ext_resource path="res://Sprites/Particles/Impact.png" type="Texture" id=51]
-[ext_resource path="res://Sprites/Particles/Potion.png" type="Texture" id=52]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore down.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore right die.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore left die.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing left 1.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing left 2.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing left 3.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore walk left 1.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore walk left 2.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing up 1.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing up 2.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing up 3.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore up die.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore down die.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore walk down 1.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore walk down 2.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore bow up 1.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore bow up 2.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore bow up 3.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing right 1.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing right 2.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing right 3.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore walk up 1.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore walk up 2.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore bow left 1.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore bow left 2.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore bow left 3.png" type="Texture" id=30]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore bow down 1.png" type="Texture" id=31]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore bow down 2.png" type="Texture" id=32]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore bow down 3.png" type="Texture" id=33]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing down 1.png" type="Texture" id=34]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing down 2.png" type="Texture" id=35]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore swing down 3.png" type="Texture" id=36]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore walk right 1.png" type="Texture" id=37]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore walk right 2.png" type="Texture" id=38]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore bow right 1.png" type="Texture" id=39]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore bow right 2.png" type="Texture" id=40]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore bow right 3.png" type="Texture" id=41]
+[ext_resource path="res://Sprites/Characters/Fiore/Fiore ending.png" type="Texture" id=42]
+[ext_resource path="res://Sounds/Player/Step 1.wav" type="AudioStream" id=43]
+[ext_resource path="res://Scripts/System/EffectAudio.gd" type="Script" id=44]
+[ext_resource path="res://Sounds/Player/Swing.wav" type="AudioStream" id=45]
+[ext_resource path="res://Sounds/Player/Shoot.wav" type="AudioStream" id=46]
+[ext_resource path="res://Sounds/Player/Hit.wav" type="AudioStream" id=47]
+[ext_resource path="res://Sounds/Player/Potion.wav" type="AudioStream" id=48]
+[ext_resource path="res://Sounds/Player/Fall.wav" type="AudioStream" id=49]
+[ext_resource path="res://Sounds/Player/Jump.wav" type="AudioStream" id=50]
+[ext_resource path="res://Sounds/Player/Land.wav" type="AudioStream" id=51]
+[ext_resource path="res://Sprites/Particles/Impact.png" type="Texture" id=52]
+[ext_resource path="res://Sprites/Particles/Potion.png" type="Texture" id=53]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -71,89 +72,94 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "shootleft",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
-"loop": true,
-"name": "swingup",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
-"loop": true,
-"name": "shootdown",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
-"loop": true,
-"name": "swingdown",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 17 ) ],
-"loop": true,
-"name": "dieright",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
-"loop": true,
-"name": "shootup",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 21 ), ExtResource( 3 ), ExtResource( 22 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "walkright",
-"speed": 6.0
-}, {
-"frames": [ ExtResource( 23 ), ExtResource( 4 ), ExtResource( 24 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "walkup",
-"speed": 6.0
-}, {
-"frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ) ],
-"loop": true,
-"name": "shootright",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 28 ) ],
-"loop": true,
-"name": "dieleft",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
-"loop": true,
-"name": "swingleft",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 32 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "down",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 33 ), ExtResource( 2 ), ExtResource( 34 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "dieright",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "dieleft",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "swingleft",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 2 ), ExtResource( 12 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "walkleft",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ) ],
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
 "loop": true,
-"name": "swingright",
+"name": "swingup",
 "speed": 16.0
 }, {
-"frames": [ ExtResource( 38 ), ExtResource( 32 ), ExtResource( 39 ), ExtResource( 32 ) ],
-"loop": true,
-"name": "walkdown",
-"speed": 6.0
-}, {
-"frames": [ ExtResource( 40 ) ],
+"frames": [ ExtResource( 16 ) ],
 "loop": true,
 "name": "dieup",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 41 ) ],
+"frames": [ ExtResource( 17 ) ],
 "loop": true,
 "name": "diedown",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 5 ), ExtResource( 19 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "walkdown",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "shootup",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ) ],
+"loop": true,
+"name": "swingright",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 26 ), ExtResource( 4 ), ExtResource( 27 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "walkup",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ) ],
+"loop": true,
+"name": "shootleft",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ) ],
+"loop": true,
+"name": "shootdown",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ) ],
+"loop": true,
+"name": "swingdown",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 37 ), ExtResource( 3 ), ExtResource( 38 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "walkright",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ) ],
+"loop": true,
+"name": "shootright",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 42 ) ],
+"loop": true,
+"name": "ending",
 "speed": 5.0
 } ]
 
@@ -377,25 +383,15 @@ autostart = false
 
 [node name="SoundFootstep" type="AudioStreamPlayer" parent="." index="9"]
 
-stream = ExtResource( 42 )
+stream = ExtResource( 43 )
 volume_db = -5.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
-script = ExtResource( 43 )
+script = ExtResource( 44 )
 
 [node name="SoundSwing" type="AudioStreamPlayer" parent="." index="10"]
-
-stream = ExtResource( 44 )
-volume_db = -12.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
-script = ExtResource( 43 )
-
-[node name="SoundShoot" type="AudioStreamPlayer" parent="." index="11"]
 
 stream = ExtResource( 45 )
 volume_db = -12.0
@@ -403,29 +399,29 @@ pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
-script = ExtResource( 43 )
+script = ExtResource( 44 )
+
+[node name="SoundShoot" type="AudioStreamPlayer" parent="." index="11"]
+
+stream = ExtResource( 46 )
+volume_db = -12.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+script = ExtResource( 44 )
 
 [node name="SoundDealDamage" type="AudioStreamPlayer" parent="." index="12"]
 
-stream = ExtResource( 46 )
+stream = ExtResource( 47 )
 volume_db = -5.0
 pitch_scale = 1.5
 autoplay = false
 mix_target = 0
 bus = "Master"
-script = ExtResource( 43 )
+script = ExtResource( 44 )
 
 [node name="SoundPotion" type="AudioStreamPlayer" parent="." index="13"]
-
-stream = ExtResource( 47 )
-volume_db = -6.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
-script = ExtResource( 43 )
-
-[node name="SoundFall" type="AudioStreamPlayer" parent="." index="14"]
 
 stream = ExtResource( 48 )
 volume_db = -6.0
@@ -433,27 +429,37 @@ pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
-script = ExtResource( 43 )
+script = ExtResource( 44 )
+
+[node name="SoundFall" type="AudioStreamPlayer" parent="." index="14"]
+
+stream = ExtResource( 49 )
+volume_db = -6.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+script = ExtResource( 44 )
 
 [node name="SoundJump" type="AudioStreamPlayer" parent="." index="15"]
 
-stream = ExtResource( 49 )
+stream = ExtResource( 50 )
 volume_db = 2.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
-script = ExtResource( 43 )
+script = ExtResource( 44 )
 
 [node name="SoundLand" type="AudioStreamPlayer" parent="." index="16"]
 
-stream = ExtResource( 50 )
+stream = ExtResource( 51 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
-script = ExtResource( 43 )
+script = ExtResource( 44 )
 
 [node name="Sight" type="Area2D" parent="." index="17"]
 
@@ -523,7 +529,7 @@ disabled = true
 
 [node name="HitboxSwordUp" type="Area2D" parent="." index="20"]
 
-position = Vector2( -3, -20 )
+position = Vector2( -3, -20.0897 )
 rotation = 1.5708
 scale = Vector2( -1, -1 )
 input_pickable = true
@@ -580,7 +586,7 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
 process_material = SubResource( 8 )
-texture = ExtResource( 51 )
+texture = ExtResource( 52 )
 normal_map = null
 h_frames = 1
 v_frames = 1
@@ -603,7 +609,7 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
 process_material = SubResource( 11 )
-texture = ExtResource( 52 )
+texture = ExtResource( 53 )
 normal_map = null
 h_frames = 1
 v_frames = 1

@@ -4,8 +4,7 @@ var text_a = ["We hold no control over your actions.", "Destroy us.", "Complete 
 				"But do so knowing your worthless actions will have accomplished nothing."]
 
 var text_b = ["You are responsible for this fate.", "For as long as you exist", "we exist", "they exist",
-				"the world exists", "the world dies", "the world returns", "and they suffer.", "...", "But",
-				"perhaps..."]
+				"the world exists", "the world dies", "the world returns", "and they suffer.", "...", "But, perhaps..."]
 				
 var use_text = []
 

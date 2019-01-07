@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Sprites/UI/Background.png" type="Texture" id=1]
 [ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=2]
@@ -10,13 +10,14 @@
 [ext_resource path="res://Instances/Props/Tree.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Instances/Props/SpikeSmall.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Instances/Props/SpikeLarge.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Instances/Enemies/Ghast.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 32, 25 )
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -122,5 +123,9 @@ target_x = 80
 target_y = 100
 direction = "up"
 not_cell = true
+
+[node name="Ghast" parent="." index="13" instance=ExtResource( 11 )]
+
+position = Vector2( 59, 71 )
 
 

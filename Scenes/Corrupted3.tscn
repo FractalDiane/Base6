@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Scripts/Scenes/Corrupted2.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Scenes/Corrupted3.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Splash.png" type="Texture" id=2]
 [ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sounds/Music/SILENCE.wav" type="AudioStream" id=4]
@@ -9,7 +9,7 @@
 [ext_resource path="res://Sounds/Ambient/Static temp.wav" type="AudioStream" id=7]
 [ext_resource path="res://Scripts/System/EffectAudio.gd" type="Script" id=8]
 
-[sub_resource type="ParticlesMaterial" id=5]
+[sub_resource type="ParticlesMaterial" id=1]
 
 render_priority = 0
 trail_divisor = 1
@@ -77,7 +77,7 @@ cell_music = ExtResource( 4 )
 
 [node name="NPCRegistry" parent="." index="2" instance=ExtResource( 5 )]
 
-text = [ [ "We are the center of everything.", "We are not perfect.", "We are", "broken.", "It's so dark here.", "We are so", "tired.", "We", "do not", "know when", "it will end.", "We", "are", "not", "perfect.", ".", "..", "...", "Can you hear them?", "The", "whispers..." ] ]
+text = [ [ "You obtained", "a key." ] ]
 dialogue_key = "null"
 auto_advance_set = false
 box_x = 30
@@ -111,7 +111,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 5 )
+process_material = SubResource( 1 )
 texture = ExtResource( 6 )
 normal_map = null
 h_frames = 1
@@ -131,7 +131,7 @@ _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 [node name="TimerDialogue" type="Timer" parent="." index="4"]
 
 process_mode = 1
-wait_time = 3.8
+wait_time = 2.0
 one_shot = true
 autostart = true
 

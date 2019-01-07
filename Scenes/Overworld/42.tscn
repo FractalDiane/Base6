@@ -60,7 +60,7 @@ animations = [ {
 "speed": 3.0
 } ]
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -168,8 +168,8 @@ auto_advance_set = false
 auto_advance_limit = 0
 box_x = 15
 box_y = 15
-box_width = 50
-box_height = 35
+box_width = 100
+box_height = 50
 registry = false
 
 [node name="Sprite" type="AnimatedSprite" parent="NPCDoor" index="0"]
@@ -197,7 +197,7 @@ position = Vector2( 0, -12 )
 z_index = 200
 frames = SubResource( 4 )
 animation = "default"
-frame = 2
+frame = 1
 playing = true
 _sections_unfolded = [ "Visibility", "Z Index" ]
 __meta__ = {
@@ -227,7 +227,7 @@ position = Vector2( 104, 93.5 )
 scale = Vector2( 0.1875, 0.0781251 )
 target_scene = "res://Scenes/Buildings/LockedHouse.tscn"
 target_x = 80
-target_y = 110
+target_y = 100
 direction = "up"
 not_cell = true
 

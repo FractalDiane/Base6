@@ -7,7 +7,7 @@
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Instances/Items/BugItem.tscn" type="PackedScene" id=6]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -49,15 +49,19 @@ cell_music = ExtResource( 4 )
 
 position = Vector2( 80, 123 )
 scale = Vector2( 0.25, 0.0937501 )
-target_scene = "res://Scenes/Overworld/33.tscn"
+target_scene = "res://Scenes/Overworld/42.tscn"
 target_x = 104
-target_y = 110
+target_y = 100
 direction = "down"
 not_cell = true
 
 [node name="BugItem" parent="." index="4" instance=ExtResource( 6 )]
 
-position = Vector2( 80, 78 )
+position = Vector2( 80, 63 )
 item_get_message = [ "You obtained", "73 6f 6d 65 74 68 69 6e 67", "something." ]
+box_x = 20
+box_y = 20
+box_width = 70
+box_height = 50
 
 

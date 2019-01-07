@@ -43,11 +43,28 @@ func _on_TimerNoise_timeout():
 	$TimerEnd.start()
 
 func _on_TimerEnd_timeout():
-	noise = false
-	noise_alpha = 0
-	$White.show()
-	$SoundNoise.stop()
-	$TimerBackToTitle.start()
+#	noise = false
+#	noise_alpha = 0
+#	$White.show()
+#	$SoundNoise.stop()
+#	$TimerBackToTitle.start()
+	controller.flag = controller.flag_checkpoint.duplicate()
+	controller.corrupted_cells_add = controller.corrupted_cells_add_checkpoint.duplicate()
+	controller.player_health = controller.hp_checkpoint
+	controller.player_corruption = controller.corr_checkpoint
+	controller.player_gold = controller.gold_checkpoint
+	controller.player_potions = controller.potions_checkpoint
+	
+	controller.scene_change(controller.scene_checkpoint)
+	Player.set_position(Vector2(controller.x_checkpoint, controller.y_checkpoint))
+	Player.face = Vector2(0,1)
+	Player.get_node("Sprite").play("down")
+	Player.state = Player.WALK
+	Player.dead = false
+	Player.fully_corrupted = false
+	Player.show()
 
 func _on_TimerBackToTitle_timeout():
-	controller.scene_change("res://Scenes/Title.tscn", false)
+	#controller.scene_change("res://Scenes/Title.tscn", false)
+	pass
+	

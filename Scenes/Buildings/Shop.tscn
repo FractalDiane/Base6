@@ -363,7 +363,7 @@ shape = SubResource( 5 )
 [node name="Interact" parent="NPCIiro" index="2"]
 
 position = Vector2( -1, -19 )
-frame = 1
+frame = 3
 
 [node name="Table2" type="StaticBody2D" parent="." index="14"]
 

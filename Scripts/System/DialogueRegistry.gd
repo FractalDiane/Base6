@@ -20,6 +20,7 @@ var sound = -1
 
 var target = null
 var destroy_event = false
+var restore_walk = false
 
 var buffer = false
 
@@ -117,6 +118,8 @@ func on_destroy():
 		
 	if target.get_name() == "RegistryAfter1":
 		controller.scene_change("res://Scenes/GATE/Gate-FINALBOSSAfter2.tscn", false)
+		Player.set_position(Vector2(80, 100))
+		Player.show()
 		
 	if target.get_name() == "RegistryAfter2":
 		if controller.holding_theitem:
@@ -130,11 +133,24 @@ func on_destroy():
 	if target.get_name() == "RegistryBadEnd2":
 		controller.scene_change("res://Scenes/CreditsBad.tscn", false)
 		
+	if target.is_in_group("TrueEnd1") or target.is_in_group("TrueEnd3"):
+		get_tree().get_root().get_node("Node2D").lock = false
+		
+	if target.get_name() == "RegistryTrueEnd":
+		controller.scene_change("res://Scenes/Gate-TrueEnd5.tscn", false)
+		
+	if target.get_name() == "RegistryTrueEnd2":
+		controller.scene_change("res://Scenes/Gate-TrueEnd6.tscn", false)
+		
+	if target.get_name() == "RegistryTrueEnd3":
+		controller.scene_change("res://Scenes/CreditsTrue.tscn", false)
+		
 #	length = 0
 #	target.get_node("Sprite").set_animation("down")
 #	if target.dialogue_key != "null" and target.auto_advance_set:
 #		 controller.flag[target.dialogue_key] = clamp(controller.flag[target.dialogue_key] + 1,0,target.auto_advance_limit)
-#	Player.state = Player.WALK
+	if restore_walk:
+		Player.state = Player.WALK
 #
 #	# CAW!!
 #	if target.get_name() == "NPCFountainPlaque":

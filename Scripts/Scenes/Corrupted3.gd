@@ -10,6 +10,8 @@ extends Node2D
 #	pass
 
 func _on_TimerGlitch_timeout():
+	controller.holding_thekey = true
+	controller.reset_checkpoint()
 	controller.player_corruption = 0
 	audioplayer.hum.stop()
-	controller.scene_change("res://Scenes/Corrupted3.tscn", false)
+	controller.scene_change("res://Scenes/Title.tscn", false)

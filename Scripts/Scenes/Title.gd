@@ -230,6 +230,7 @@ func input():
 			selected = true
 			match(cursor):
 				0: # START
+					controller.reset_checkpoint()
 					for key in controller.flag:
 						controller.flag[key] = 0
 					controller.player_health = 10
@@ -238,6 +239,8 @@ func input():
 					controller.player_potions = 5
 
 					controller.corrupted_cells_add = []
+					controller.bad_ending = false
+					controller.true_ending = false
 					
 					Player.dead = false
 					Player.fully_corrupted = false

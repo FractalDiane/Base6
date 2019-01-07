@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Tilesets/TilesetMain.tres" type="TileSet" id=1]
 [ext_resource path="res://Sprites/Props/FancyRug.png" type="Texture" id=2]
@@ -13,10 +13,9 @@
 [ext_resource path="res://Scripts/Objects/Prop.gd" type="Script" id=11]
 [ext_resource path="res://Sprites/Props/Plant.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/Props/Clock.png" type="Texture" id=13]
-[ext_resource path="res://Instances/Enemies/Ghast.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Sprites/Props/Pot.png" type="Texture" id=15]
-[ext_resource path="res://Instances/CorruptionOverlay.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Instances/Items/Gold.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Sprites/Props/Pot.png" type="Texture" id=14]
+[ext_resource path="res://Instances/CorruptionOverlay.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Instances/Items/Gold.tscn" type="PackedScene" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -67,7 +66,7 @@ extents = Vector2( 4.5, 4 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 5 )
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -193,7 +192,6 @@ shape = SubResource( 3 )
 [node name="Interact" parent="NPCCorruptedHouseNote" index="2"]
 
 position = Vector2( -1, -11 )
-frame = 0
 
 [node name="Bed" type="StaticBody2D" parent="." index="8"]
 
@@ -283,11 +281,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Ghast" parent="." index="12" instance=ExtResource( 14 )]
-
-position = Vector2( 70, 46 )
-
-[node name="Pot" type="StaticBody2D" parent="." index="13"]
+[node name="Pot" type="StaticBody2D" parent="." index="12"]
 
 position = Vector2( 95, 45 )
 input_pickable = false
@@ -301,7 +295,7 @@ script = ExtResource( 11 )
 
 [node name="Sprite" type="Sprite" parent="Pot" index="0"]
 
-texture = ExtResource( 15 )
+texture = ExtResource( 14 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -314,9 +308,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CorruptionOverlay" parent="." index="14" instance=ExtResource( 16 )]
+[node name="CorruptionOverlay" parent="." index="13" instance=ExtResource( 15 )]
 
-[node name="Gold" parent="." index="15" instance=ExtResource( 17 )]
+[node name="Gold" parent="." index="14" instance=ExtResource( 16 )]
 
 position = Vector2( 133, 58 )
 gold_value = 20

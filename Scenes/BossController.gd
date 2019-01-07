@@ -238,4 +238,5 @@ func deal_damage():
 	if health <= 0:
 		audioplayer.get_node("MusicFinalBoss").stop()
 		controller.scene_change("res://Scenes/GATE/Gate-FINALBOSSafter.tscn", false)
+		Player.hide()
 	

@@ -36,12 +36,12 @@ extents = Vector2( 9.5, 10 )
 animations = [ {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 12 ) ],
@@ -159,6 +159,7 @@ target_x = 50
 target_y = 80
 direction = "down"
 not_cell = true
+checkpoint = true
 
 [node name="Table" type="StaticBody2D" parent="." index="6"]
 
@@ -252,7 +253,6 @@ shape = SubResource( 4 )
 [node name="Interact" parent="NPCCephasNote" index="2"]
 
 position = Vector2( -1, -13 )
-frame = 0
 
 [node name="Pot" type="StaticBody2D" parent="." index="10"]
 

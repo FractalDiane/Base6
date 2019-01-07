@@ -11,21 +11,21 @@
 [ext_resource path="res://Sounds/Music/White Noise.wav" type="AudioStream" id=9]
 [ext_resource path="res://Sprites/System/Tutorial.png" type="Texture" id=10]
 [ext_resource path="res://Instances/NPCs/NPCMasterNew.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Sprites/Characters/Jari/Jari right.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Characters/Jari/Jari left.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Characters/Jari/Jari left.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Characters/Jari/Jari right.png" type="Texture" id=13]
 [ext_resource path="res://Sprites/Characters/Jari/Jari up.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/Characters/Jari/Jari down.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Characters/Iiro/Iiro right.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/Characters/Iiro/Iiro left.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Characters/Iiro/Iiro left.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Characters/Iiro/Iiro right.png" type="Texture" id=17]
 [ext_resource path="res://Sprites/Characters/Iiro/Iiro up.png" type="Texture" id=18]
 [ext_resource path="res://Sprites/Characters/Iiro/Iiro down.png" type="Texture" id=19]
 [ext_resource path="res://Instances/Items/Gold.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Sprites/Characters/Elders/Kein right.png" type="Texture" id=21]
-[ext_resource path="res://Sprites/Characters/Elders/Kein left.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Characters/Elders/Kein left.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Characters/Elders/Kein right.png" type="Texture" id=22]
 [ext_resource path="res://Sprites/Characters/Elders/Kein up.png" type="Texture" id=23]
 [ext_resource path="res://Sprites/Characters/Elders/Kein down.png" type="Texture" id=24]
-[ext_resource path="res://Sprites/Characters/Azura and Gallaro/Azura right.png" type="Texture" id=25]
-[ext_resource path="res://Sprites/Characters/Azura and Gallaro/Azura left.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/Characters/Azura and Gallaro/Azura left.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Characters/Azura and Gallaro/Azura right.png" type="Texture" id=26]
 [ext_resource path="res://Sprites/Characters/Azura and Gallaro/Azura up.png" type="Texture" id=27]
 [ext_resource path="res://Sprites/Characters/Azura and Gallaro/Azura down.png" type="Texture" id=28]
 
@@ -39,12 +39,12 @@ extents = Vector2( 32, 25 )
 animations = [ {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 14 ) ],
@@ -68,12 +68,12 @@ extents = Vector2( 5, 3 )
 animations = [ {
 "frames": [ ExtResource( 16 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 17 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 18 ) ],
@@ -97,12 +97,12 @@ extents = Vector2( 4.5, 3 )
 animations = [ {
 "frames": [ ExtResource( 21 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 22 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 23 ) ],
@@ -126,12 +126,12 @@ extents = Vector2( 6, 3 )
 animations = [ {
 "frames": [ ExtResource( 25 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 26 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 27 ) ],
@@ -264,6 +264,7 @@ target_x = 80
 target_y = 100
 direction = "up"
 not_cell = true
+checkpoint = true
 
 [node name="NPCJari" parent="." index="11" instance=ExtResource( 11 )]
 
@@ -283,7 +284,7 @@ shape = SubResource( 3 )
 
 [node name="Interact" parent="NPCJari" index="2"]
 
-frame = 1
+frame = 3
 
 [node name="NPCJariD1" parent="." index="12" instance=ExtResource( 11 )]
 
@@ -304,7 +305,7 @@ shape = SubResource( 3 )
 
 [node name="Interact" parent="NPCJariD1" index="2"]
 
-frame = 1
+frame = 3
 
 [node name="NPCJariD2" parent="." index="13" instance=ExtResource( 11 )]
 
@@ -325,7 +326,7 @@ shape = SubResource( 3 )
 
 [node name="Interact" parent="NPCJariD2" index="2"]
 
-frame = 1
+frame = 3
 
 [node name="NPCIiro00" parent="." index="14" instance=ExtResource( 11 )]
 
@@ -345,7 +346,7 @@ shape = SubResource( 5 )
 
 [node name="Interact" parent="NPCIiro00" index="2"]
 
-frame = 1
+frame = 3
 
 [node name="Gold" parent="." index="15" instance=ExtResource( 20 )]
 
@@ -374,7 +375,7 @@ shape = SubResource( 7 )
 [node name="Interact" parent="NPCKein00" index="2"]
 
 position = Vector2( 0, -20 )
-frame = 1
+frame = 3
 
 [node name="NPCAzura00" parent="." index="17" instance=ExtResource( 11 )]
 
@@ -395,7 +396,7 @@ shape = SubResource( 9 )
 
 [node name="Interact" parent="NPCAzura00" index="2"]
 
-frame = 1
+frame = 3
 
 
 [editable path="NPCJari"]

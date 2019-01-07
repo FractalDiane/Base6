@@ -3,6 +3,16 @@ extends Node
 # GLOBAL GAME CONTROLLER
 
 var flag = {}
+var flag_checkpoint = {}
+var scene_checkpoint = ""
+var x_checkpoint = -1
+var y_checkpoint = -1
+var hp_checkpoint = -1
+var corr_checkpoint = -1
+var gold_checkpoint = -1
+var potions_checkpoint = -1
+var corrupted_cells_add_checkpoint = []
+
 var holding_thekey = false
 var holding_theitem = false
 
@@ -67,6 +77,17 @@ func scene_change(scene, reset_state = true):
 func set_flag(key, value):
 	flag[key] = value
 	
+func reset_checkpoint():
+	scene_checkpoint = ""
+	x_checkpoint = -1
+	y_checkpoint = -1
+	hp_checkpoint = -1
+	corr_checkpoint = -1
+	gold_checkpoint = -1
+	potions_checkpoint = -1
+	corrupted_cells_add_checkpoint = []
+	flag_checkpoint = {}
+	
 func dialogue(text,target_object,box_x,box_y,box_width,box_height):
 	Player.state = Player.DIALOGUE
 	var dialogue_node = dlg.instance()
@@ -78,7 +99,7 @@ func dialogue(text,target_object,box_x,box_y,box_width,box_height):
 	dialogue_node.text = text
 	get_tree().get_root().add_child(dialogue_node)
 	
-func dialogue_registry(text,target_object,box_x,box_y,box_width,box_height, destroy_event = true):
+func dialogue_registry(text,target_object,box_x,box_y,box_width,box_height, destroy_event = true, black_text = false, restore_walk = false):
 	#Player.state = Player.DIALOGUE
 	var dialogue_node = dlg2.instance()
 	dialogue_node.box_x = box_x
@@ -88,6 +109,9 @@ func dialogue_registry(text,target_object,box_x,box_y,box_width,box_height, dest
 	dialogue_node.target = target_object
 	dialogue_node.text = text
 	dialogue_node.destroy_event = destroy_event
+	dialogue_node.restore_walk = restore_walk
+	if black_text:
+		dialogue_node.get_node("DText").add_color_override("font_color", Color(0,0,0))
 	get_tree().get_root().add_child(dialogue_node)
 	
 func player_damage(amount):

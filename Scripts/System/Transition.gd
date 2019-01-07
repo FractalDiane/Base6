@@ -5,6 +5,7 @@ export(int) var target_x
 export(int) var target_y
 export(String, "up", "down", "left", "right") var direction
 export(bool) var not_cell = false
+export(bool) var checkpoint = false
 
 var respawn = false
 
@@ -77,6 +78,18 @@ func _physics_process(delta):
 			if respawn:
 				$TimerRespawn.start()
 				respawn = false
+			
+			if checkpoint:
+				controller.x_checkpoint = Player.get_position().x
+				controller.y_checkpoint = Player.get_position().y
+				controller.hp_checkpoint = controller.player_health
+				controller.corr_checkpoint = controller.player_corruption
+				controller.gold_checkpoint = controller.player_gold
+				controller.potions_checkpoint = controller.player_potions
+				controller.scene_checkpoint = target_scene
+				controller.flag_checkpoint = controller.flag.duplicate()
+				controller.corrupted_cells_add_checkpoint = controller.corrupted_cells_add.duplicate()
+				
 
 func _on_TimerRespawn_timeout():
 	Player.respawn = false
