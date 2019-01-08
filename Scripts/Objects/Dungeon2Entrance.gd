@@ -5,7 +5,7 @@ extends StaticBody2D
 # var b = "textvar"
 
 func _ready():
-	if controller.flag["dungeon1_complete"] == 0:
+	if controller.flag["dungeon1_complete"] == 0 or controller.bad_ending:
 		$Sprite.play("closed")
 		$Transition.queue_free()
 

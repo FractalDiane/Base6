@@ -7,7 +7,7 @@
 [ext_resource path="res://Instances/JumpPoint.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Instances/Objects/Block.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/Objects/Dungeon 1/BossCore.gd" type="Script" id=7]
-[ext_resource path="res://Scenes/Dungeon 1/EnterTrigger.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/Objects/Dungeon 1/EnterTrigger.gd" type="Script" id=8]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Sounds/Ambient/BossDoor.wav" type="AudioStream" id=10]
 [ext_resource path="res://Scripts/System/EffectAudio.gd" type="Script" id=11]
@@ -31,7 +31,7 @@
 [ext_resource path="res://Sprites/Props/Fists/RFist.png" type="Texture" id=29]
 [ext_resource path="res://Sprites/Characters/Temple Guardians/Torso0.png" type="Texture" id=30]
 [ext_resource path="res://Instances/Objects/TorsoOrb.tscn" type="PackedScene" id=31]
-[ext_resource path="res://Scenes/Dungeon 1/Switch1.gd" type="Script" id=32]
+[ext_resource path="res://Scripts/Objects/Dungeon 1/Switch1.gd" type="Script" id=32]
 [ext_resource path="res://Sprites/Props/Switch down 3.png" type="Texture" id=33]
 [ext_resource path="res://Sprites/Props/Switch down 2.png" type="Texture" id=34]
 [ext_resource path="res://Sounds/Objects/Switch.wav" type="AudioStream" id=35]
@@ -42,6 +42,11 @@
 [ext_resource path="res://Instances/Props/Torch.tscn" type="PackedScene" id=40]
 [ext_resource path="res://Instances/Items/Item.tscn" type="PackedScene" id=41]
 [ext_resource path="res://Sprites/Items/Bow.png" type="Texture" id=42]
+
+
+
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 

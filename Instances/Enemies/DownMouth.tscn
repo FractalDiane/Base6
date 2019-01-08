@@ -13,7 +13,12 @@
 [ext_resource path="res://Sprites/Combat/Mouth10Down.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/Combat/Mouth11Down.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/Combat/Mouth13Down.png" type="Texture" id=13]
-[ext_resource path="res://Instances/Enemies/SideEye.gd" type="Script" id=14]
+[ext_resource path="res://Scripts/Objects/Enemies/SideEye.gd" type="Script" id=14]
+
+
+
+
+
 
 [sub_resource type="SpriteFrames" id=1]
 

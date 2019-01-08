@@ -168,21 +168,21 @@ func state_walk():
 				node.show_interact = true
 				node.get_node("TimerHideInteract").start()
 			
-	if Input.is_action_just_pressed("ui_debug1"):
-		controller.flag["dungeon1_complete"] = 1
-		controller.flag["holding_dungeon2key"] = 1
-		controller.corrupted_cells_add += ["04","12","13","32", "43"]
-		print("1")
-	
-	if Input.is_action_just_pressed("ui_debug2"):
-		controller.flag["dungeon2_complete"] = 1
-		controller.flag["holding_gatekey"] = 1
-		controller.corrupted_cells_add += ["01","02","03","?1","10","11","20","21","22","30","31","40","41","42","?2"]
-		print("2")
-		
-	if Input.is_action_just_pressed("ui_debug4"):
-		controller.holding_thekey = true
-		print("4")
+#	if Input.is_action_just_pressed("ui_debug1"):
+#		controller.flag["dungeon1_complete"] = 1
+#		controller.flag["holding_dungeon2key"] = 1
+#		controller.corrupted_cells_add += ["04","12","13","32", "43"]
+#		print("1")
+#
+#	if Input.is_action_just_pressed("ui_debug2"):
+#		controller.flag["dungeon2_complete"] = 1
+#		controller.flag["holding_gatekey"] = 1
+#		controller.corrupted_cells_add += ["01","02","03","?1","10","11","20","21","22","30","31","40","41","42","?2"]
+#		print("2")
+#
+#	if Input.is_action_just_pressed("ui_debug4"):
+#		controller.holding_thekey = true
+#		print("4")
 		
 func state_swing():
 	stop_animation()

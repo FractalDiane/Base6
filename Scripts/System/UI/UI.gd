@@ -9,6 +9,8 @@ var test = 0
 
 onready var mapmarker = get_node("Map").get_node("MapMarkerSprite")
 
+onready var cont = controller
+
 func _ready():
 	# Get current cell for minimap
 	if get_parent().get_node("CellLabel").cell_index_x != -1:
@@ -23,3 +25,7 @@ func _physics_process(delta):
 	t += 1
 	color = controller.wave(0.2, 0.8, 0.5, 0, t, delta)
 	mapmarker.set_modulate(Color(color, color, color))
+	
+	if cont.holding_thekey and not get_node("Base/Items/Key").is_visible():
+		get_node("Base/Items/Key").show()
+		

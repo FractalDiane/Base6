@@ -1,6 +1,6 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://Instances/Enemies/SideEye.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Objects/Enemies/SideEye.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Combat/Eye0.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Combat/Eye1.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Combat/Eye2Down.png" type="Texture" id=4]
@@ -16,7 +16,8 @@
 [ext_resource path="res://Sprites/Combat/Eye12Down.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/Combat/Eye13Down.png" type="Texture" id=15]
 [ext_resource path="res://Sounds/Characters/enemydie2.wav" type="AudioStream" id=16]
-[ext_resource path="res://Sounds/Characters/enemydie3.wav" type="AudioStream" id=17]
+[ext_resource path="res://Scripts/System/EffectAudio.gd" type="Script" id=17]
+[ext_resource path="res://Sounds/Characters/enemydie3.wav" type="AudioStream" id=18]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -72,15 +73,17 @@ pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+script = ExtResource( 17 )
 
 [node name="SoundHit2" type="AudioStreamPlayer" parent="." index="3"]
 
-stream = ExtResource( 17 )
+stream = ExtResource( 18 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+script = ExtResource( 17 )
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 

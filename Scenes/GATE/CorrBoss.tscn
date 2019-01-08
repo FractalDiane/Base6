@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Instances/CellLabel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sounds/Music/Final Boss.wav" type="AudioStream" id=2]
-[ext_resource path="res://Scenes/BossController.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Objects/Enemies/BossController.gd" type="Script" id=3]
 [ext_resource path="res://Sprites/Particles/Corruption.png" type="Texture" id=4]
 [ext_resource path="res://Sounds/Characters/Laser.wav" type="AudioStream" id=5]
 [ext_resource path="res://Scripts/System/EffectAudio.gd" type="Script" id=6]
@@ -10,6 +10,10 @@
 [ext_resource path="res://Instances/UI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Instances/CorruptionOverlay.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Instances/Particles/PartsWorldborder.tscn" type="PackedScene" id=10]
+
+
+
+
 
 [sub_resource type="Gradient" id=1]
 
@@ -71,7 +75,7 @@ extents = Vector2( 81.0026, 4.38243 )
 custom_solver_bias = 0.0
 extents = Vector2( 5.73753, 72.0946 )
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 
