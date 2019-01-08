@@ -117,7 +117,7 @@ func on_destroy():
 		audioplayer.current_music = audioplayer.get_node("MusicFinalBoss").stream
 		
 	if target.get_name() == "RegistryAfter1":
-		controller.scene_change("res://Scenes/GATE/Gate-FINALBOSSAfter2.tscn", false)
+		controller.scene_change("res://Scenes/GATE/Gate-FINALBOSSafter2.tscn", false)
 		Player.set_position(Vector2(80, 100))
 		Player.show()
 		
