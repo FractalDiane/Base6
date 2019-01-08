@@ -5,11 +5,13 @@ extends StaticBody2D
 # var b = "textvar"
 
 func _ready():
-	if controller.flag["holding_dungeon1key"] == 1 and not controller.bad_ending:
+	if controller.flag["holding_dungeon1key"] == 1:
 		$Sprite.set_animation("open")
 		$CollisionShape2D.set_disabled(true)
 		get_tree().get_root().get_node("Node2D").get_node("NPCKein").queue_free()
 	else:
+		if controller.bad_ending:
+			get_tree().get_root().get_node("Node2D").get_node("NPCKein").queue_free()
 		$Transition.queue_free()
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.

@@ -30,6 +30,9 @@ func _ready():
 		$NPCJariD2.queue_free()
 		$NPCKein00.queue_free()
 		$NPCAzura00.queue_free()
+		
+	if controller.flag["dungeon1_complete"] == 1:
+		$SpriteTutorial.set_animation("2")
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.

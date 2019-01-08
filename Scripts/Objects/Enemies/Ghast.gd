@@ -208,6 +208,7 @@ func death():
 	$SoundDeath2.play(0)
 	fade = true
 	$CollisionShape2D.set_disabled(true)
+	$HBRanged/CollisionPolygon2D.set_disabled(true)
 	$PartsGhast.set_emitting(false)
 	$PartsDeathBurst.set_emitting(true)
 	$PartsDeathGlitch.set_emitting(true)

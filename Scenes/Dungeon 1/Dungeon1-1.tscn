@@ -11,8 +11,8 @@
 [ext_resource path="res://Sprites/Props/Door.png" type="Texture" id=9]
 [ext_resource path="res://Instances/Props/Torch.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Instances/NPCs/NPCMasterNew.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Sprites/Characters/Elders/Kein right.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Characters/Elders/Kein left.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Characters/Elders/Kein left.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Characters/Elders/Kein right.png" type="Texture" id=13]
 [ext_resource path="res://Sprites/Characters/Elders/Kein up.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/Characters/Elders/Kein down.png" type="Texture" id=15]
 
@@ -40,12 +40,12 @@ extents = Vector2( 17, 16 )
 animations = [ {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 14 ) ],
@@ -64,7 +64,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 6, 3 )
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -193,7 +193,7 @@ shape = SubResource( 4 )
 
 visible = true
 position = Vector2( 0, -19 )
-frame = 3
+frame = 1
 
 
 [editable path="NPCKein"]
