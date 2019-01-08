@@ -30,7 +30,7 @@ func _physics_process(delta):
 	
 	if not fired:
 		if not exploded:
-			sc = clamp(sc + grow_speed,0,4)
+			sc = clamp(sc + grow_speed * delta * 60,0,4)
 		else:
 			sc += 0.1
 		set_scale(Vector2(sc, sc))

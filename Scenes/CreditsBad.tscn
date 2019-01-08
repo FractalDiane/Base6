@@ -35,7 +35,7 @@ animations = [ {
 "speed": 30.0
 } ]
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 script = ExtResource( 1 )
 __meta__ = {
@@ -367,7 +367,7 @@ script = ExtResource( 9 )
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 2
+frame = 15
 playing = true
 centered = false
 
@@ -376,7 +376,7 @@ centered = false
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 2
+frame = 15
 playing = true
 centered = false
 
@@ -385,7 +385,7 @@ centered = false
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 2
+frame = 15
 playing = true
 centered = false
 
@@ -394,7 +394,7 @@ centered = false
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 2
+frame = 15
 playing = true
 centered = false
 
@@ -403,7 +403,7 @@ centered = false
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 2
+frame = 15
 playing = true
 centered = false
 
@@ -412,7 +412,7 @@ centered = false
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 2
+frame = 15
 playing = true
 centered = false
 
@@ -421,7 +421,7 @@ centered = false
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 2
+frame = 15
 playing = true
 centered = false
 
@@ -430,7 +430,7 @@ centered = false
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 2
+frame = 15
 playing = true
 centered = false
 
@@ -439,7 +439,7 @@ centered = false
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 2
+frame = 15
 playing = true
 centered = false
 
@@ -448,7 +448,7 @@ centered = false
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 2
+frame = 15
 playing = true
 centered = false
 _sections_unfolded = [ "Material", "Visibility" ]
@@ -458,7 +458,7 @@ _sections_unfolded = [ "Material", "Visibility" ]
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 2
+frame = 15
 playing = true
 centered = false
 
@@ -467,7 +467,7 @@ centered = false
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 2
+frame = 15
 playing = true
 centered = false
 
@@ -476,7 +476,7 @@ centered = false
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 2
+frame = 15
 playing = true
 centered = false
 
@@ -485,7 +485,7 @@ centered = false
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 2
+frame = 15
 playing = true
 centered = false
 
@@ -494,7 +494,7 @@ centered = false
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 2
+frame = 15
 playing = true
 centered = false
 
@@ -503,7 +503,7 @@ centered = false
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 2
+frame = 15
 playing = true
 centered = false
 
@@ -512,7 +512,7 @@ centered = false
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 2
+frame = 15
 playing = true
 centered = false
 
@@ -521,7 +521,7 @@ centered = false
 modulate = Color( 1, 1, 1, 0 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 2
+frame = 15
 playing = true
 centered = false
 

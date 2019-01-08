@@ -11,6 +11,7 @@ extends Node2D
 
 func _on_TimerGlitch_timeout():
 	controller.holding_thekey = true
+	Player.fully_corrupted = false
 	controller.reset_checkpoint()
 	controller.player_corruption = 0
 	audioplayer.hum.stop()

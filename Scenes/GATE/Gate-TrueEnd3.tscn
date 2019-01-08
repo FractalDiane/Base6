@@ -12,9 +12,9 @@
 [ext_resource path="res://Sprites/Items/Bug 3.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/Items/Bug 4.png" type="Texture" id=11]
 [ext_resource path="res://Sounds/Characters/Teleport.wav" type="AudioStream" id=12]
-[ext_resource path="res://Sprites/Particles/Glitch.png" type="Texture" id=13]
-[ext_resource path="res://Sounds/Ambient/Static temp.wav" type="AudioStream" id=14]
-[ext_resource path="res://Scripts/System/EffectAudio.gd" type="Script" id=15]
+[ext_resource path="res://Scripts/System/EffectAudio.gd" type="Script" id=13]
+[ext_resource path="res://Sprites/Particles/Glitch.png" type="Texture" id=14]
+[ext_resource path="res://Sounds/Ambient/Static temp.wav" type="AudioStream" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -210,6 +210,7 @@ pitch_scale = 0.8
 autoplay = false
 mix_target = 0
 bus = "Master"
+script = ExtResource( 13 )
 
 [node name="TimerDialogue" type="Timer" parent="." index="9"]
 
@@ -265,7 +266,7 @@ visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
 process_material = SubResource( 5 )
-texture = ExtResource( 13 )
+texture = ExtResource( 14 )
 normal_map = null
 h_frames = 1
 v_frames = 1
@@ -278,18 +279,18 @@ modulate = Color( 0.429688, 0.429688, 0.429688, 1 )
 position = Vector2( -2.5, 0.120003 )
 scale = Vector2( 4.02273, 6.76 )
 z_index = -50
-texture = ExtResource( 13 )
+texture = ExtResource( 14 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="SoundStatic" type="AudioStreamPlayer" parent="." index="14"]
 
-stream = ExtResource( 14 )
+stream = ExtResource( 15 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
-script = ExtResource( 15 )
+script = ExtResource( 13 )
 
 [node name="TimerGlitch" type="Timer" parent="." index="15"]
 

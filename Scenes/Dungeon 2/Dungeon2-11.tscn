@@ -39,12 +39,12 @@ extents = Vector2( 17, 16 )
 animations = [ {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ) ],
@@ -63,7 +63,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 5, 5 )
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 _sections_unfolded = [ "Transform", "Z Index" ]
 
@@ -188,6 +188,9 @@ position = Vector2( 119, 25 )
 position = Vector2( 126, 45 )
 text = [ [ "...", "...", "Azura...", "Please...", "Help me...", "...", "..." ], [ "(He's dead.)" ] ]
 dialogue_key = "gallaro_talk"
+box_x = 10
+box_y = 60
+box_height = 50
 
 [node name="Sprite" parent="NPCGallaro" index="0"]
 
@@ -196,10 +199,6 @@ frames = SubResource( 3 )
 [node name="CollisionShape2D" parent="NPCGallaro" index="1"]
 
 shape = SubResource( 4 )
-
-[node name="Interact" parent="NPCGallaro" index="2"]
-
-frame = 3
 
 [node name="Gold" parent="." index="13" instance=ExtResource( 14 )]
 

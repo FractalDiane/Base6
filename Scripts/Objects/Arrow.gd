@@ -62,6 +62,8 @@ func _physics_process(delta):
 			if not coll.collider.exploded and not coll.collider.fired:
 				coll.collider.explode()
 				get_tree().get_root().get_node("Node2D").get_node("SesdinBoss").damage()
+		if coll.collider.is_in_group("BossEye"):
+			coll.collider.deal_damage()
 
 func coll_manually():
 	$SoundPlink.play(0)

@@ -7,6 +7,7 @@ var sideeye = preload("res://Instances/Enemies/SideEye.tscn")
 var sidemouth = preload("res://Instances/Enemies/SideMouth.tscn")
 var downeye = preload("res://Instances/Enemies/DownEye.tscn")
 var downmouth = preload("res://Instances/Enemies/DownMouth.tscn")
+var laser = preload("res://Instances/Enemies/Laser.tscn")
 var followTrail = false
 var squareTrail = false
 var spikePoints = []
@@ -25,7 +26,7 @@ var phase = 1
 var attacks_left = 5
 var attack_choices = 0
 var spawnpoints = [Vector2(80, 30), Vector2(30, 80), Vector2(150, 80), Vector2(80, 110), Vector2(30, 40), Vector2(130, 40), Vector2(30, 100), Vector2(130, 100)]
-var health = 5
+var health = 6
 
 onready var player = Player
 
@@ -127,24 +128,37 @@ func _on_eye_timeout():
 		1:
 			attacks_left = 3
 			choose_attack()
+		2:
+			attacks_left = 5
+			choose_attack()
 
 func _on_attack_timeout():
 	choose_attack()
 
 func choose_attack():
-	match phase:
-		1:
-			if attacks_left == 0:
-				spawnEye()
-				eyeTimer.start()
-				return
-			if ghast_amount < 1:
-				attack_choices = 3
+	#match phase:
+		#1:
+	if attacks_left == 0:
+		spawnEye()
+		eyeTimer.start()
+		return
+	if phase == 1:
+		if ghast_amount < 1:
+			attack_choices = 3
+		else:
+			attack_choices = 2
+	if phase == 2:
+		attack_choices = 3
+	var rand_attack = randi() % attack_choices
+	match rand_attack:
+		0: # Spikes
+			var j = -1
+			if phase == 2:
+				j = randi() % 2
 			else:
-				attack_choices = 2
-			var rand_attack = randi() % attack_choices
-			match rand_attack:
-				0: # Spikes
+				j = 0
+			match j:
+				0:
 					var i = randi() % 4
 					var location
 					match i:
@@ -157,16 +171,27 @@ func choose_attack():
 						3:
 							location = Vector2(randi() % 180, 120)
 					followSpikes(5, location)
-					attackTimer.start()
-				1: # Explosion
-					for i in range(2):
-						var expl = explosion.instance()
-						expl.set_position(Vector2(rand_range(20, 140), rand_range(20, 122)))
-						get_tree().get_root().add_child(expl)
-					attackTimer.start()
-				2: # Spawn ghast
-					spawnGhasts(1)
-					attackTimer.start()
+				1:
+					squareSpikes(2)
+			attackTimer.start()
+		1: # Explosion
+			for i in range(2):
+				var expl = explosion.instance()
+				expl.set_position(Vector2(rand_range(20, 140), rand_range(20, 122)))
+				get_tree().get_root().add_child(expl)
+			attackTimer.start()
+		2: # Spawn ghast/Super lasers
+			if ghast_amount < 1:
+				spawnGhasts(1)
+			if phase == 2:
+				var laser1 = laser.instance()
+				laser1.position.x = rand_range(10,104)
+				add_child(laser1)
+				var laser2 = laser.instance()
+				laser2.vertical = true
+				laser2.position.y = rand_range(10,150)
+				add_child(laser2)
+			attackTimer.start()
 	attacks_left -= 1
 
 func squareSpikes(duration): #Start a square spike pattern for duration seconds
@@ -235,6 +260,13 @@ func spawn_ghast(spawnpoint): #Spawn a ghast at position (x,y)
 	
 func deal_damage():
 	health -= 1
+	if health == 5:
+		attackTimer.set_wait_time(2.6)
+	if health == 4:
+		attackTimer.set_wait_time(2.2)
+	if health == 3:
+		phase = 2
+		#attackTimer.set_wait_time(2)
 	if health <= 0:
 		audioplayer.get_node("MusicFinalBoss").stop()
 		controller.scene_change("res://Scenes/GATE/Gate-FINALBOSSafter.tscn", false)

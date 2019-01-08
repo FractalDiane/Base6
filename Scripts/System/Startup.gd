@@ -21,3 +21,4 @@ func _on_TimerGameStart_timeout():
 		Player.show()
 		Player.state = Player.WALK
 		Player.face = Vector2(0,1)
+		

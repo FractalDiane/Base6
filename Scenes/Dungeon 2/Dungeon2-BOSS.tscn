@@ -148,14 +148,14 @@ animations = [ {
 "name": "castright",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "down",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 27 ) ],
 "loop": true,
 "name": "castdown",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "down",
 "speed": 5.0
 } ]
 
@@ -223,7 +223,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angular Velocity", "Gravity", "Initial Velocity", "Scale", "Spread" ]
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 _sections_unfolded = [ "Transform", "Z Index" ]
 
@@ -497,6 +497,7 @@ target_scene = "res://Scenes/Dungeon 2/Dungeon2-11.tscn"
 target_x = 0
 target_y = 56
 direction = "down"
+checkpoint = true
 
 [node name="TeleportPoints" type="Node2D" parent="." index="9"]
 

@@ -9,7 +9,7 @@
 [ext_resource path="res://Sounds/Ambient/Static temp.wav" type="AudioStream" id=7]
 [ext_resource path="res://Scripts/System/EffectAudio.gd" type="Script" id=8]
 
-[sub_resource type="ParticlesMaterial" id=5]
+[sub_resource type="ParticlesMaterial" id=1]
 
 render_priority = 0
 trail_divisor = 1
@@ -111,7 +111,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 5 )
+process_material = SubResource( 1 )
 texture = ExtResource( 6 )
 normal_map = null
 h_frames = 1

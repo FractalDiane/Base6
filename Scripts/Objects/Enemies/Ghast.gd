@@ -237,6 +237,8 @@ func _on_TimerDeath1_timeout():
 	$TimerDeath2.start()
 
 func _on_TimerDeath2_timeout():
+	if finalboss:
+		get_tree().get_root().get_node("Node2D").get_node("BossController").ghast_amount -= 1
 	queue_free()
 
 func _on_TimerMoveIdle_timeout():

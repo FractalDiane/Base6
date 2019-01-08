@@ -74,6 +74,7 @@ func _physics_process(delta):
 	
 	if controller.player_health <= 0 and not dead:
 		audioplayer.get_node("Music").stop()
+		audioplayer.get_node("MusicFinalBoss").stop()
 		state = NO_INPUT
 		controller.player_corruption = 0
 		controller.scene_change("res://Scenes/Dead.tscn")

@@ -197,7 +197,7 @@ extents = Vector2( 10, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 3, 7 )
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform", "Z Index" ]
 
@@ -359,6 +359,7 @@ target_scene = "res://Scenes/Dungeon 1/Dungeon1-12.tscn"
 target_x = 0
 target_y = 56
 direction = "down"
+checkpoint = true
 
 [node name="SoundDoorClose" type="AudioStreamPlayer" parent="BossCore/EnterTrigger" index="1"]
 
@@ -969,7 +970,7 @@ shape = SubResource( 13 )
 
 [node name="Interact" parent="ItemBow" index="2"]
 
-frame = 0
+frame = 3
 
 [connection signal="timeout" from="BossCore/EnterTrigger/TimerStartBoss" to="BossCore/EnterTrigger" method="_on_TimerStartBoss_timeout"]
 
