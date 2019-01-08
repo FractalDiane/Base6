@@ -9,7 +9,7 @@
 [ext_resource path="res://Instances/Objects/Sentry.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Instances/JumpPoint.tscn" type="PackedScene" id=8]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -79,7 +79,7 @@ position = Vector2( 32, 126 )
 scale = Vector2( 0.25, 0.109375 )
 target_scene = "res://Scenes/Dungeon 2/Dungeon2-8.tscn"
 target_x = 0
-target_y = 16
+target_y = 24
 direction = "down"
 
 [node name="Transition2" parent="." index="5" instance=ExtResource( 6 )]
@@ -88,7 +88,7 @@ position = Vector2( 80, 126 )
 scale = Vector2( 0.25, 0.109375 )
 target_scene = "res://Scenes/Dungeon 2/Dungeon2-8.tscn"
 target_x = 0
-target_y = 16
+target_y = 24
 direction = "down"
 
 [node name="Transition3" parent="." index="6" instance=ExtResource( 6 )]
@@ -97,7 +97,7 @@ position = Vector2( 128, 126 )
 scale = Vector2( 0.25, 0.109375 )
 target_scene = "res://Scenes/Dungeon 2/Dungeon2-8.tscn"
 target_x = 0
-target_y = 16
+target_y = 24
 direction = "down"
 
 [node name="Transition4" parent="." index="7" instance=ExtResource( 6 )]

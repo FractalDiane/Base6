@@ -7,7 +7,7 @@
 [ext_resource path="res://Instances/System/PitController.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=6]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -64,8 +64,8 @@ direction = "down"
 
 [node name="Transition2" parent="." index="5" instance=ExtResource( 6 )]
 
-position = Vector2( 32, 3.25 )
-scale = Vector2( 0.25, 0.101563 )
+position = Vector2( 32, 4.99999 )
+scale = Vector2( 0.25, 0.15625 )
 target_scene = "res://Scenes/Dungeon 2/Dungeon2-9.tscn"
 target_x = 0
 target_y = 100
@@ -73,8 +73,8 @@ direction = "up"
 
 [node name="Transition3" parent="." index="6" instance=ExtResource( 6 )]
 
-position = Vector2( 80, 3.25 )
-scale = Vector2( 0.25, 0.101563 )
+position = Vector2( 80, 4.99999 )
+scale = Vector2( 0.25, 0.15625 )
 target_scene = "res://Scenes/Dungeon 2/Dungeon2-9.tscn"
 target_x = 0
 target_y = 100
@@ -82,8 +82,8 @@ direction = "up"
 
 [node name="Transition4" parent="." index="7" instance=ExtResource( 6 )]
 
-position = Vector2( 128, 3.25 )
-scale = Vector2( 0.25, 0.101563 )
+position = Vector2( 128, 4.99999 )
+scale = Vector2( 0.25, 0.15625 )
 target_scene = "res://Scenes/Dungeon 2/Dungeon2-9.tscn"
 target_x = 0
 target_y = 100

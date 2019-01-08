@@ -8,7 +8,7 @@
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Instances/Objects/Sentry.tscn" type="PackedScene" id=7]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -77,6 +77,7 @@ target_x = 32
 target_y = 100
 direction = "up"
 not_cell = true
+checkpoint = true
 
 [node name="Sentry" parent="." index="6" instance=ExtResource( 7 )]
 

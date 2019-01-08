@@ -6,7 +6,7 @@
 [ext_resource path="res://Tilesets/TilesetMain.tres" type="TileSet" id=4]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=5]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 _sections_unfolded = [ "Transform", "Z Index" ]
 
@@ -60,5 +60,6 @@ target_scene = "res://Scenes/Dungeon 1/Dungeon1-12.tscn"
 target_x = 0
 target_y = 100
 direction = "up"
+checkpoint = true
 
 
