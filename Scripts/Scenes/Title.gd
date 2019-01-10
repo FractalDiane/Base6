@@ -244,6 +244,9 @@ func input():
 					
 					Player.dead = false
 					Player.fully_corrupted = false
+					Player.falling = false
+					Player.jumping = false
+					Player.dash = Vector2(0,0)
 					
 					audioplayer.init = true
 					

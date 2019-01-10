@@ -94,6 +94,8 @@ func _physics_process(delta):
 func _on_TimerRespawn_timeout():
 	Player.respawn = false
 	Player.falling = false
+	Player.jumping = false
+	Player.dash = Vector2(0,0)
 	Player.scale = Vector2(1,1)
 	#get_tree().get_root().get_node("Node2D").get_node("PitController").respawn_direction = direction
 	queue_free()

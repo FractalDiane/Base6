@@ -14,16 +14,16 @@
 [ext_resource path="res://Instances/System/PitController.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scripts/Objects/Dungeon 1/Fist.gd" type="Script" id=13]
 [ext_resource path="res://Sprites/Props/Fists/LFist.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Props/Fists/Shadow9.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Props/Fists/Shadow8.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/Props/Fists/Shadow7.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/Props/Fists/Shadow6.png" type="Texture" id=18]
-[ext_resource path="res://Sprites/Props/Fists/Shadow5.png" type="Texture" id=19]
-[ext_resource path="res://Sprites/Props/Fists/Shadow4.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/Props/Fists/Shadow3.png" type="Texture" id=21]
-[ext_resource path="res://Sprites/Props/Fists/Shadow2.png" type="Texture" id=22]
-[ext_resource path="res://Sprites/Props/Fists/Shadow1.png" type="Texture" id=23]
-[ext_resource path="res://Sprites/Props/Fists/Shadow0.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Props/Fists/Shadow0.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Props/Fists/Shadow1.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Props/Fists/Shadow2.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Props/Fists/Shadow3.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Props/Fists/Shadow4.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Props/Fists/Shadow5.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Props/Fists/Shadow6.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Props/Fists/Shadow7.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Props/Fists/Shadow8.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Props/Fists/Shadow9.png" type="Texture" id=24]
 [ext_resource path="res://Sprites/Particles/Corruption.png" type="Texture" id=25]
 [ext_resource path="res://Sounds/Characters/Impact.wav" type="AudioStream" id=26]
 [ext_resource path="res://Sprites/Particles/Shatter.png" type="Texture" id=27]
@@ -43,11 +43,6 @@
 [ext_resource path="res://Instances/Items/Item.tscn" type="PackedScene" id=41]
 [ext_resource path="res://Sprites/Items/Bow.png" type="Texture" id=42]
 
-
-
-
-
-
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
@@ -63,13 +58,13 @@ extents = Vector2( 24.0917, 24.0206 )
 animations = [ {
 "frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
 "loop": false,
-"name": "lift",
-"speed": 17.0
+"name": "drop",
+"speed": 30.0
 }, {
 "frames": [ ExtResource( 24 ), ExtResource( 23 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 15 ) ],
 "loop": false,
-"name": "drop",
-"speed": 30.0
+"name": "lift",
+"speed": 17.0
 } ]
 _sections_unfolded = [ "Resource" ]
 
@@ -202,7 +197,7 @@ extents = Vector2( 10, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 3, 7 )
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 _sections_unfolded = [ "Transform", "Z Index" ]
 
@@ -972,10 +967,6 @@ region_enabled = false
 [node name="CollisionShape2D" parent="ItemBow" index="1"]
 
 shape = SubResource( 13 )
-
-[node name="Interact" parent="ItemBow" index="2"]
-
-frame = 3
 
 [connection signal="timeout" from="BossCore/EnterTrigger/TimerStartBoss" to="BossCore/EnterTrigger" method="_on_TimerStartBoss_timeout"]
 

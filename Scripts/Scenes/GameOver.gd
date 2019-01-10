@@ -60,6 +60,9 @@ func _on_TimerEnd_timeout():
 	Player.face = Vector2(0,1)
 	Player.get_node("Sprite").play("down")
 	Player.state = Player.WALK
+	Player.falling = false
+	Player.jumping = false
+	Player.dash = Vector2(0,0)
 	Player.dead = false
 	Player.fully_corrupted = false
 	Player.show()
