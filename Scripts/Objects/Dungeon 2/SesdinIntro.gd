@@ -51,6 +51,7 @@ func _physics_process(delta):
 	
 func intro():
 	$Sprite.play("down")
+	controller.boss2_init = true
 	controller.dialogue(dialogue_text, self, 10, 10, 140, 45)
 
 func teleport():
@@ -70,7 +71,10 @@ func _on_TimerIntro_timeout():
 	Player.state = Player.NO_INPUT
 	Player.motion = Vector2(0,0)
 	Player.face = Vector2(0,-1)
-	intro()
+	if controller.boss2_init:
+		_on_TimerTeleport_timeout()
+	else:
+		intro()
 
 func _on_TimerTeleport_timeout():
 	teleport()

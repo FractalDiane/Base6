@@ -13,7 +13,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 32, 64 )
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -68,7 +68,7 @@ corrupt_interval = 1.5
 
 [node name="CorruptionOverlaySprite" parent="CorruptionOverlay" index="1"]
 
-frame = 3
+frame = 13
 
 [node name="CorruptionOverlay2" parent="." index="5" instance=ExtResource( 6 )]
 
@@ -76,7 +76,7 @@ corrupt = false
 
 [node name="CorruptionOverlaySprite" parent="CorruptionOverlay2" index="1"]
 
-frame = 3
+frame = 13
 
 [node name="Walls" type="StaticBody2D" parent="." index="6"]
 
@@ -124,6 +124,7 @@ target_scene = "res://Scenes/GATE/Gate-4.tscn"
 target_x = 0
 target_y = 110
 direction = "up"
+checkpoint = true
 
 
 [editable path="CorruptionOverlay"]

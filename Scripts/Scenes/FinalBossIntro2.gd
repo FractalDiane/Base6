@@ -15,8 +15,14 @@ func _physics_process(delta):
 	Player.get_node("Sprite").play("up")
 
 func _on_TimerDialogue_timeout():
-	controller.dialogue_registry(text_2, self, 15, 10, 100, 50, false)
+	if controller.finalboss_init:
+		get_node("TimerStartBoss").start()
+		audioplayer.get_node("MusicFinalBoss").play(0)
+		audioplayer.current_music = audioplayer.get_node("MusicFinalBoss").stream
+	else:
+		controller.dialogue_registry(text_2, self, 15, 10, 100, 50, false)
 
 func _on_TimerStartBoss_timeout():
+	controller.finalboss_init = true
 	controller.scene_change("res://Scenes/GATE/CorrBoss.tscn")
 	Player.show()

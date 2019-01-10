@@ -24,9 +24,9 @@
 [ext_resource path="res://Scripts/Objects/Dungeon 2/SesdinBoss.gd" type="Script" id=22]
 [ext_resource path="res://Sprites/Characters/Sesdin/Sesdin left.png" type="Texture" id=23]
 [ext_resource path="res://Sprites/Characters/Sesdin/Sesdin right.png" type="Texture" id=24]
-[ext_resource path="res://Sprites/Characters/Sesdin/Sesdin cast left.png" type="Texture" id=25]
-[ext_resource path="res://Sprites/Characters/Sesdin/Sesdin cast right.png" type="Texture" id=26]
-[ext_resource path="res://Sprites/Characters/Sesdin/Sesdin cast down.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/Characters/Sesdin/Sesdin cast down.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Characters/Sesdin/Sesdin cast left.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/Characters/Sesdin/Sesdin cast right.png" type="Texture" id=27]
 [ext_resource path="res://Sprites/Particles/Impact.png" type="Texture" id=28]
 [ext_resource path="res://Sounds/Objects/Turret.wav" type="AudioStream" id=29]
 [ext_resource path="res://Sounds/Characters/Charge.wav" type="AudioStream" id=30]
@@ -138,24 +138,24 @@ animations = [ {
 "name": "right",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 25 ) ],
-"loop": true,
-"name": "castleft",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 26 ) ],
-"loop": true,
-"name": "castright",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 27 ) ],
 "loop": true,
 "name": "castdown",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ) ],
+"frames": [ ExtResource( 26 ) ],
 "loop": true,
-"name": "down",
+"name": "castleft",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ) ],
+"loop": true,
+"name": "castright",
 "speed": 5.0
 } ]
 

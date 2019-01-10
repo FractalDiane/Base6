@@ -16,6 +16,9 @@ var corrupted_cells_add_checkpoint = []
 var holding_thekey = false
 var holding_theitem = false
 
+var boss2_init = false
+var finalboss_init = false
+
 var bad_ending = false
 var true_ending = false
 

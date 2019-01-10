@@ -179,6 +179,7 @@ visible = false
 position = Vector2( 80, 50 )
 frames = SubResource( 3 )
 animation = "default"
+frame = 1
 playing = true
 
 [node name="EndArea" type="Area2D" parent="." index="7"]

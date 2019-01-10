@@ -11,10 +11,6 @@
 [ext_resource path="res://Instances/CorruptionOverlay.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Instances/Particles/PartsWorldborder.tscn" type="PackedScene" id=10]
 
-
-
-
-
 [sub_resource type="Gradient" id=1]
 
 offsets = PoolRealArray( 0, 1 )
@@ -75,7 +71,7 @@ extents = Vector2( 81.0026, 4.38243 )
 custom_solver_bias = 0.0
 extents = Vector2( 5.73753, 72.0946 )
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 _sections_unfolded = [ "Transform" ]
 

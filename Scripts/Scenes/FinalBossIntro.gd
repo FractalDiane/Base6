@@ -29,7 +29,11 @@ func _on_EntryTrigger_body_entered(body):
 		active = true
 
 func _on_TimerMusic_timeout():
-	$MusicConfrontation.play(0)
+	if controller.finalboss_init:
+		controller.scene_change("res://Scenes/GATE/Gate-FINALBOSS2.tscn", false)
+		Player.hide()
+	else:
+		$MusicConfrontation.play(0)
 
 func _on_TimerDialogue_timeout():
 	controller.dialogue_registry(text_1, self, 15, 10, 100, 50, false)

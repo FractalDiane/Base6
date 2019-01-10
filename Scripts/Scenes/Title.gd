@@ -237,7 +237,9 @@ func input():
 					controller.player_corruption = 0
 					controller.player_gold = 20
 					controller.player_potions = 5
-
+					
+					controller.boss2_init = false
+					controller.finalboss_init = false
 					controller.corrupted_cells_add = []
 					controller.bad_ending = false
 					controller.true_ending = false
