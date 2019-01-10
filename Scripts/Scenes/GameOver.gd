@@ -59,15 +59,9 @@ func _on_TimerEnd_timeout():
 	Player.set_position(Vector2(controller.x_checkpoint, controller.y_checkpoint))
 	Player.face = Vector2(0,1)
 	Player.get_node("Sprite").play("down")
-	Player.state = Player.WALK
 	Player.falling = false
 	Player.jumping = false
 	Player.dash = Vector2(0,0)
-	Player.dead = false
 	Player.fully_corrupted = false
 	Player.show()
-
-func _on_TimerBackToTitle_timeout():
-	#controller.scene_change("res://Scenes/Title.tscn", false)
-	pass
-	
+	Player.get_node("TimerCorrections").start()

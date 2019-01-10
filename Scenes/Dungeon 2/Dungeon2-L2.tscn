@@ -37,7 +37,7 @@ extents = Vector2( 5, 11 )
 flags = 0
 load_path = "res://.import/Block 2.png-7438db7c09467e175d76987a1a12bf84.stex"
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 _sections_unfolded = [ "Transform" ]
 
@@ -139,25 +139,25 @@ not_cell = true
 [node name="OrbSwitch" parent="." index="10" instance=ExtResource( 9 )]
 
 position = Vector2( 145, 38 )
-time = 8.5
+time = 10.0
 allow_sword = false
 
 [node name="OrbSwitch2" parent="." index="11" instance=ExtResource( 9 )]
 
 position = Vector2( 144, 111 )
-time = 8.5
+time = 10.0
 allow_sword = false
 
 [node name="OrbSwitch3" parent="." index="12" instance=ExtResource( 9 )]
 
 position = Vector2( 16, 111 )
-time = 8.5
+time = 10.0
 allow_sword = false
 
 [node name="OrbSwitch4" parent="." index="13" instance=ExtResource( 9 )]
 
 position = Vector2( 16, 38 )
-time = 8.5
+time = 10.0
 allow_sword = false
 
 [node name="Area2D" type="StaticBody2D" parent="." index="14"]

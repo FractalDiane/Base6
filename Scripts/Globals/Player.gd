@@ -390,3 +390,8 @@ func _on_TimerIFrames_timeout():
 func _on_TimerBadEnding_timeout():
 	controller.scene_change("res://Scenes/GATE/Gate-BadEnd2.tscn")
 	hide()
+
+func _on_TimerCorrections_timeout():
+	dead = false
+	state = WALK
+	print("RESPAWN")
