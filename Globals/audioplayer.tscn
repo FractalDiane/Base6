@@ -13,7 +13,7 @@
 [ext_resource path="res://Sounds/Ambient/Puzzle solved.wav" type="AudioStream" id=11]
 [ext_resource path="res://Sounds/Music/Final Boss.wav" type="AudioStream" id=12]
 
-[node name="audioplayer" type="Node"]
+[node name="audioplayer" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -106,6 +106,6 @@ pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
-script = ExtResource( 3 )
+script = ExtResource( 6 )
 
 
