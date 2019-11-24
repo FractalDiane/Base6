@@ -166,7 +166,7 @@ Benjamin Sheh
 Kelvin Mai
 Riki Hasegawa
 Andrew Le
-Tyler Witten"
+Kat Witten"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -216,7 +216,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 9 )
 custom_colors/font_color = Color( 0.675781, 0.675781, 0.675781, 1 )
-text = "Tyler Witten
+text = "Kat Witten
 Duncan Sparks
 Chase Taylor
 Kelvin Mai

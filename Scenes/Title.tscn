@@ -707,7 +707,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0.34375, 0.34375, 0.34375, 1 )
-text = "Tyler Witten"
+text = "Kat Witten"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -757,7 +757,8 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0.34375, 0.34375, 0.34375, 1 )
-text = "Ramie Shreim"
+text = "Ramie Shreim
+"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
