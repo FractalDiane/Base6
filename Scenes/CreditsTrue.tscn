@@ -160,7 +160,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 9 )
 custom_colors/font_color = Color( 0.675781, 0.675781, 0.675781, 1 )
-text = "Duncan Sparks
+text = "Diane Sparks
 Chase Taylor
 Benjamin Sheh
 Kelvin Mai
@@ -217,7 +217,7 @@ size_flags_vertical = 4
 custom_fonts/font = ExtResource( 9 )
 custom_colors/font_color = Color( 0.675781, 0.675781, 0.675781, 1 )
 text = "Kat Witten
-Duncan Sparks
+Diane Sparks
 Chase Taylor
 Kelvin Mai
 Riki Hasegawa"
@@ -272,7 +272,7 @@ custom_fonts/font = ExtResource( 9 )
 custom_colors/font_color = Color( 0.675781, 0.675781, 0.675781, 1 )
 text = "Ramie Shreim
 Kelvin Mai
-Duncan Sparks
+Diane Sparks
 Chase Taylor"
 percent_visible = 1.0
 lines_skipped = 0
@@ -324,7 +324,7 @@ size_flags_vertical = 4
 custom_fonts/font = ExtResource( 9 )
 custom_colors/font_color = Color( 0.675781, 0.675781, 0.675781, 1 )
 text = "Chase Taylor
-Duncan Sparks"
+Diane Sparks"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
